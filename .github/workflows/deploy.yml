@@ -26,10 +26,10 @@ jobs:
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::586140253651:role/OIDC_GITHUB_mr_chelyshkin_S3-deploy
-          aws-region: eu-central-1
+          role-to-assume: ${{ secrets.AWS_ROLE }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Copy files to S3
         run: |
-          aws s3 cp ./dist s3://mr-chelyshkin.com --recursive
+          aws s3 sync ./dist ${{ secrets.AWS_BUCKET }} --delete
 
