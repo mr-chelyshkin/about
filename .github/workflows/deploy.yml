@@ -37,7 +37,7 @@ jobs:
       - name: Download dist
         uses: actions/upload-artifact@v3
         with:
-          name: artifacts
+          name: dist
 
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v1
