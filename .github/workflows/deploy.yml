@@ -22,11 +22,11 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Upload dist
+      - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: ./dist
+          path: ./artifacts
 
   deploy:
     runs-on: ubuntu-latest
@@ -34,10 +34,11 @@ jobs:
       id-token: write
     needs: build
     steps:
-      - name: Download dist
+      - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
-          name: dist
+          name: artifacts
+          path: ./artifacts
 
       - name: Configure AWS
         uses: aws-actions/configure-aws-credentials@v1
@@ -47,5 +48,5 @@ jobs:
 
       - name: Sync S3
         run: |
-          aws s3 sync ./dist ${{ secrets.AWS_BUCKET }} --delete
+          aws s3 sync ./artifacts/dist ${{ secrets.AWS_BUCKET }} --delete
 
