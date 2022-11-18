@@ -22,12 +22,11 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Archive artifacts
+      - name: Upload dist
         uses: actions/upload-artifact@v3
         with:
-          name: artifacts
-          path: |
-            dist
+          name: dist
+          path: ./dist
 
   deploy:
     runs-on: ubuntu-latest
@@ -35,7 +34,7 @@ jobs:
       id-token: write
     needs: build
     steps:
-      - name: Download artifacts
+      - name: Download dist
         uses: actions/upload-artifact@v3
         with:
           name: artifacts
