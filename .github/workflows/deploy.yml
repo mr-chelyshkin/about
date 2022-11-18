@@ -22,11 +22,12 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Prepare artifacts
-        uses: actions/upload-artifact@v2
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
         with:
           name: artifacts
-          path: ./dist
+          path: |
+            dist
 
   deploy:
     runs-on: ubuntu-latest
@@ -35,7 +36,7 @@ jobs:
     needs: build
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: artifacts
 
@@ -47,5 +48,5 @@ jobs:
 
       - name: Sync S3
         run: |
-          aws s3 sync ./artifacts ${{ secrets.AWS_BUCKET }} --delete
+          aws s3 sync ./dist ${{ secrets.AWS_BUCKET }} --delete
 
