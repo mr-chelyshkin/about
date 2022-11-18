@@ -1,0 +1,47 @@
+name: deploy
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '19'
+
+      - name: Build project
+        run: npm run build
+
+      - name: Save artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: ./dist/*
+
+  upload:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: artifacts
+
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::586140253651:role/OIDC_GITHUB_mr_chelyshkin_S3-deploy
+          aws-region: eu-central-1
+
+      - name: Copy files to S3
+        run: |
+          aws s3 sync ./artifacts s3://my-s3-test-website-bucket
+
+
