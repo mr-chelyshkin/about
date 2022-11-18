@@ -47,5 +47,5 @@ jobs:
 
       - name: Sync S3
         run: |
-          aws s3 sync ./artifacts/dist ${{ secrets.AWS_BUCKET }} --delete
+          aws s3 sync ./artifacts ${{ secrets.AWS_BUCKET }} --delete
 
