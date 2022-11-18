@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+html, body{
+    display: flex;
+    justify-content: center;
+
+    font-family: 'Sono', sans-serif;
+    background: #1d1d1d;
+    height: 100%;
+
+
+    color: #fff;
+    margin: 0;
+}
+@media (max-width: 999px) {
+    html, body{
+        max-width: 2000px;
+        min-width: 650px;
+    }
+}
+
+h1,h2,h3,h4,h5{
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    color: #f1fd0f;
+}
+
+h1{
+    font-size: 48px;
+}
+
+h2{
+    font-size: 42px;
+}
+
+#app{
+    height: 100%;
+    min-height: 680px;
+}
