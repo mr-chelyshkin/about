@@ -31,5 +31,5 @@ jobs:
 
       - name: Copy files to S3
         run: |
-          aws s3 sync ./artifacts s3://my-s3-test-website-bucket
+          aws s3 sync ./dist/* s3://mr-chelyshkin.com
 
