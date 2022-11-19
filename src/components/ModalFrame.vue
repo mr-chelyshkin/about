@@ -3,7 +3,7 @@
     <div class="modal-container">
       <div class="modal-container_block">
         <div class="modal-container_block_header">
-          <h4>{{ title }}</h4>
+          <h3>{{ title }}</h3>
         </div>
         <div class="modal-container_block_content" v-html="content"></div>
         <div class="modal-container_block_footer">
@@ -75,11 +75,18 @@ export default defineComponent({
     width: 80%;
     max-width: 550px;
 
-    height: 80%;
-    max-height: 300px;
+    height: auto;
+    /*max-height: 300px;*/
   }
   .modal-container_block_header{
     border-bottom: 1px solid #ffffff;
+  }
+  .modal-container_block_content{
+    padding: 12px;
+
+  }
+  .modal-container_block_content li{
+    margin-bottom: 12px;
   }
   .modal-container_block_footer{
     text-align: right;

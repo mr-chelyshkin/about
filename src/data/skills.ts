@@ -68,7 +68,7 @@ const Skills = ref<Skill[]>([
         id: 9,
         title: "mobile farm",
         group: "etc",
-        content: "Support android device farm based on STF project.",
+        content: "Support android device farm based in STF project.",
     },
     {
         id: 10,
@@ -86,13 +86,13 @@ const Skills = ref<Skill[]>([
         id: 12,
         title: "linux",
         group: "ops",
-        content: "",
+        content: "Use linux / macOS in real life.",
     },
     {
         id: 13,
         title: "subversion",
         group: "dev",
-        content: "",
+        content: "Use svn in VK.com, write hooks for svn in python.",
     },
     {
         id: 14,
@@ -116,7 +116,7 @@ const Skills = ref<Skill[]>([
         id: 17,
         title: "bash",
         group: "ops",
-        content: "",
+        content: "bash scripting, sometimes with google :)",
     },
     {
         id: 18,
@@ -128,7 +128,7 @@ const Skills = ref<Skill[]>([
         id: 19,
         title: "gitLab",
         group: "etc",
-        content: "Create CI/CD process (as service) for mobile apps in GitLab CI/CD",
+        content: "Create CI/CD process (as service) for mobile apps in GitLab CI/CD.",
     },
     {
         id: 20,
@@ -194,7 +194,10 @@ const Skills = ref<Skill[]>([
         id: 30,
         title: "s3",
         group: "etc",
-        content: "Use 'aws-sdk-go' for project where need simple storage service.",
+        content: "<ul>" +
+            "<li>Use 'aws-sdk-go' for project where need simple storage service.</li>" +
+            "<li>Host this site in AWS S3.</li>" +
+            "</ul>",
     },
     {
         id: 31,
@@ -206,7 +209,7 @@ const Skills = ref<Skill[]>([
         id: 32,
         title: "interviewing",
         group:"management",
-        content: "Сonducted about 50 technical interviews.",
+        content: "Interviewed about 50 candidates.",
     }
 ])
 export default Skills

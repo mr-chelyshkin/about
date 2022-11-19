@@ -1,5 +1,5 @@
 <template>
-  <div class="slide-hello">
+  <div class="slide-hello" id="as">
     <div class="slide-hello_description">
       <div class="html_struct">&lt;h1&gt;</div>
       <h1 class="indent_1">My, Myself & I</h1>
@@ -7,17 +7,17 @@
 
       <div class="html_struct">&lt;p&gt;</div>
       <p class="indent_1">
-        some text about me some text about me some text about me some text about me some text about me
-        some text about me some text about me some text about me some text about me some text about me
-        some text about me some text about me some text about me some text about me some text about me
-        some text about me some text about me some text about me some text about me some text about me
-        some text about me some text about me some text about me some text about me some text about me
-        some text about me some text about me some text about me some text about me some text about me
+        Hello, my name is Igor and i'm software engineer.
+        <br>
+        I started working in 2013 and during this time I have gained to get some experience in IT.
+      </p>
+      <p class="indent_1">
+        Most of all I will prefer work with IoT (new experience for me) or software development / devops.
       </p>
       <div class="html_struct">&lt;/p&gt;</div>
     </div>
     <div class="slide-hello_interactive">
-      maybe free space
+      ...
     </div>
   </div>
 </template>
