@@ -86,10 +86,10 @@ export default defineComponent({
   methods: {
     sendMail() {
       emailjs.send(
-          process.env.MAIL_SERVICE_ID,
-          process.env.MAIL_TEMPLATE_ID,
+          process.env.VUE_APP_MAIL_SERVICE_ID,
+          process.env.VUE_APP_MAIL_TEMPLATE_ID,
           this.form,
-          process.env.MAIL_API_KEY,
+          process.env.VUE_APP_MAIL_API_KEY,
       ).then(() => {
         this.form = {message: "", subject: "", email: "", name: ""}
       })
