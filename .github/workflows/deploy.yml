@@ -25,10 +25,10 @@ jobs:
       - name: Build project
         run: npm run build
         env:
-          VUE_APP_GOOGLE_API_KEY: ${{ secrets.AWS_ROLE }}
-          VUE_APP_MAIL_SERVICE_ID: ${{ secrets.AWS_ROLE }}
-          VUE_APP_MAIL_TEMPLATE_ID: ${{ secrets.AWS_ROLE }}
-          VUE_APP_MAIL_API_KEY: ${{ secrets.AWS_ROLE }}
+          VUE_APP_GOOGLE_API_KEY: ${{ secrets.VUE_APP_GOOGLE_API_KEY }}
+          VUE_APP_MAIL_SERVICE_ID: ${{ secrets.VUE_APP_MAIL_SERVICE_ID }}
+          VUE_APP_MAIL_TEMPLATE_ID: ${{ secrets.VUE_APP_MAIL_TEMPLATE_ID }}
+          VUE_APP_MAIL_API_KEY: ${{ secrets.VUE_APP_MAIL_API_KEY }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
