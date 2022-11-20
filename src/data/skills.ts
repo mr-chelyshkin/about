@@ -164,7 +164,7 @@ const Skills = ref<Skill[]>([
         id: 25,
         title: "agile",
         group: "management",
-        content: "Every week sprints, planning planning and task prioritization.",
+        content: "Every week sprints, planning and task prioritization.",
     },
     {
         id: 26,

@@ -58,8 +58,8 @@ const Experiences = ref<Experience[]>([
 
         jobTitle: "Team lead, DevOps",
         description: "In the first year of work, I was responsible for releases of search engine." +
-            "Create some Jira/Confluence/Gitlab automatization via Python.<br>" +
-            "In the next step I have been supported OpenStack instances and created cli-tool and admin web-pannel for instances manage.<br>" +
+            "Create some Jira/Confluence/Gitlab automatization via Python.<br><br>" +
+            "In the next step I have been supported OpenStack instances and created cli-tool and admin web-pannel for instances manage.<br><br>" +
             "Last two years I was team leader of devops team for voice assistant (<a href='https://marusia.vk.com'>marusia</a>)." +
             "Developed release cycles, moved services to k8s, automated ci/cd process and etc..." +
             "<ul>" +
