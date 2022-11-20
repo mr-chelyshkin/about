@@ -7,7 +7,7 @@ const Skills = ref<Skill[]>([
         id: 1,
         title: "goLang",
         group: "dev",
-        content: "Currently my main programming language.<br>Thats what i used it for:" +
+        content: "Currently my main programming language.<br>Thats what I used it for:" +
             "<ul>" +
                 "<li>WebHdfs proxy with ACL for requests rounting;</li>" +
                 "<li>Create CI/CD endpoint for ci-actions for process standardization;</li>" +
@@ -104,7 +104,7 @@ const Skills = ref<Skill[]>([
         id: 15,
         title: "vueJS",
         group: "dev",
-        content: "Sometimes i can frontend.",
+        content: "Sometimes I can frontend.",
     },
     {
         id: 16,
@@ -203,7 +203,7 @@ const Skills = ref<Skill[]>([
         id: 31,
         title: "flask",
         group: "dev",
-        content: "I prefer use flask for develop simple API's<br><i>(if i haven't opportunity for use goLang)</i>",
+        content: "I prefer use flask for develop simple API's<br><i>(if I haven't opportunity for use goLang)</i>",
     },
     {
         id: 32,

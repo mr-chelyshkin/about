@@ -7,7 +7,7 @@
 
       <div class="html_struct">&lt;p&gt;</div>
       <p class="indent_1">
-        Hello, my name is Igor and i'm software engineer.
+        Hello, my name is Igor and I'm software engineer.
         <br>
         I started working in 2013 and during this time I have gained to get some experience in IT.
       </p>
