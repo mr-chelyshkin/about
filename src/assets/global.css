@@ -13,6 +13,9 @@ html, body{
 
     color: #fff;
     margin: 0;
+
+    max-width: 2000px;
+    min-width: 350px;
 }
 
 a {
@@ -21,13 +24,6 @@ a {
 }
 a:hover {
     text-decoration: underline;
-}
-
-@media (max-width: 999px) {
-    html, body{
-        max-width: 2000px;
-        min-width: 650px;
-    }
 }
 
 h1,h2,h3,h4,h5{

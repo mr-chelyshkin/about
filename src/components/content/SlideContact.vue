@@ -191,4 +191,9 @@ export default defineComponent({
         margin-top: 2%;
       }
     }
+    @media (max-width: 550px) {
+      .sm{
+        width: 100%;
+      }
+    }
 </style>

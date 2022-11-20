@@ -31,7 +31,6 @@ export default defineComponent({
 
     height: 100%;
     max-width: 2000px;
-    min-width: 650px;
   }
 
   @media (max-width: 1024px) {

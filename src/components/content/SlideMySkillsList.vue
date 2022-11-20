@@ -143,4 +143,12 @@ export default defineComponent({
     position: absolute;
     z-index: 0;
   }
+
+  @media (max-width: 700px) {
+    .slide-my-skills_tags{
+      justify-content: flex-start;
+      row-gap: 16px;
+      column-gap: 16px;
+    }
+  }
 </style>

@@ -48,7 +48,7 @@ export default defineComponent({
   .slide-hello{
     justify-content: space-evenly;
     flex-direction: row;
-    align-items: stretch;
+    align-items: center;
     display: flex;
 
     height: 80%;
@@ -59,6 +59,7 @@ export default defineComponent({
   }
   .slide-hello_interactive{
     width: 55%;
+    height: 100%;
   }
 
   canvas {
@@ -67,5 +68,17 @@ export default defineComponent({
   }
   #tsparticles{
     height: 100%;
+  }
+
+  @media (max-width: 750px) {
+    .slide-hello_interactive{
+      display: none;
+    }
+    .slide-hello {
+      height: auto;
+    }
+    .slide-hello_description {
+      width: 100%;
+    }
   }
 </style>

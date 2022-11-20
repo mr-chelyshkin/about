@@ -157,13 +157,22 @@ export default defineComponent({
     .menu-main_nav{
       display: none;
     }
+    .menu-main{
+      justify-content: space-between;
+    }
   }
-  @media (max-width: 930px) {
+  @media (max-width: 645px) {
+    .menu-main_nav{
+      display: none;
+    }
     .menu-main_header{
       display: none;
     }
     .menu-main{
       justify-content: center;
+    }
+    .menu-main_social_icon {
+      width: 36px;
     }
   }
 </style>
