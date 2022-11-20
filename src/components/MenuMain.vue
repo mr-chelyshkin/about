@@ -9,10 +9,10 @@
     </div>
 
     <nav class="menu-main_nav">
-      <a class="menu-main_nav_txt" href="#">About</a>
-      <a class="menu-main_nav_txt" href="#">Experience</a>
-      <a class="menu-main_nav_txt" href="#">Skills</a>
-      <a class="menu-main_nav_txt" href="#">Contact</a>
+      <a class="menu-main_nav_txt" v-smooth-scroll href="#about">About</a>
+      <a class="menu-main_nav_txt" v-smooth-scroll href="#experience">Experience</a>
+      <a class="menu-main_nav_txt" v-smooth-scroll href="#skills">Skills</a>
+      <a class="menu-main_nav_txt" v-smooth-scroll href="#contact">Contact</a>
     </nav>
 
     <nav class="menu-main_social">

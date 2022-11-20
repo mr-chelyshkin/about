@@ -1,5 +1,5 @@
 <template>
-  <div class="slide-my-skills-list">
+  <div id="skills" class="slide-my-skills-list">
     <ModalFrame :modalShow="modalShow" :modalClose="modal" :modalContent="modalContent" :modalTitle="modalTitle" />
 
     <div class="html_struct">&lt;h2&gt;</div>

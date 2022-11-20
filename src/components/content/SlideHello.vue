@@ -1,5 +1,5 @@
 <template>
-  <div class="slide-hello">
+  <div id="about" class="slide-hello">
     <div class="slide-hello_description">
       <div class="html_struct">&lt;h1&gt;</div>
       <h1 class="indent_1">My, Myself & I</h1>

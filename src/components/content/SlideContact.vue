@@ -1,5 +1,5 @@
 <template>
-  <div class="slide-contact">
+  <div id="contact" class="slide-contact">
     <div class="slide-contact_content">
       <div class="html_struct">&lt;h2&gt;</div>
       <h2 class="indent_1">Contact me</h2>
