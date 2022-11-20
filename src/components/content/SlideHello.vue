@@ -17,82 +17,7 @@
       <div class="html_struct">&lt;/p&gt;</div>
     </div>
     <div class="slide-hello_interactive">
-    <Particles
-        id="tsparticles"
-        :particlesInit="particlesInit"
-        :options="{
-          fullScreen: {
-            enable: false
-          },
-          fpsLimit: 60,
-          interactivity: {
-            detectsOn: 'canvas',
-            events: {
-              onClick: {
-                enable: true,
-                mode: 'push',
-            },
-            resize: true,
-            },
-            modes: {
-              bubble: {
-                distance: 400,
-                duration: 2,
-                opacity: 0.8,
-                size: 40,
-            },
-            push: {
-               quantity: 1,
-            },
-            repulse: {
-                distance: 200,
-                duration: 0.4,
-            },
-          },
-      },
-      particles: {
-          color: {
-          value: '#ffffff',
-          },
-          links: {
-          color: '#ffffff',
-          distance: 150,
-          enable: true,
-          opacity: 0.5,
-          width: 1,
-          },
-          collisions: {
-          enable: true,
-          },
-          move: {
-          direction: 'none',
-          enable: true,
-          outMode: 'bounce',
-          random: false,
-          speed: 1,
-          straight: false,
-          },
-          number: {
-          density: {
-              enable: true,
-              value_area: 800,
-          },
-          value: 80,
-          },
-          opacity: {
-          value: 0.5,
-          },
-          shape: {
-          type: 'circle',
-          },
-          size: {
-          random: true,
-          value: 5,
-          },
-      },
-      detectRetina: true,
-      }"
-    />
+      <Particles id="tsparticles" :particlesInit="particlesInit" :options=particlesOpts />
     </div>
   </div>
 </template>
@@ -101,12 +26,16 @@
 import { defineComponent } from "vue";
 
 import { loadSlim } from "tsparticles-slim";
-import type { Engine } from "tsparticles-engine";
-
+import { Engine } from "tsparticles-engine";
+import ParticlesOpts from "@/data/particles"
 
 export default defineComponent({
   name: "SlideHello",
-  // components: {Particles},
+  data() {
+    return {
+      particlesOpts: ParticlesOpts
+    }
+  },
   methods: {
     async particlesInit(engine: Engine) {
       await loadSlim(engine);
@@ -122,7 +51,7 @@ export default defineComponent({
     align-items: stretch;
     display: flex;
 
-    height: 70%;
+    height: 80%;
     margin-top: 6px;
   }
   .slide-hello_description{
