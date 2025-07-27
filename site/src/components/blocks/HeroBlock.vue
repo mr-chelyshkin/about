@@ -1,4 +1,16 @@
 <script setup lang="ts">
+import { inject, onMounted } from 'vue';
+
+const blockTitle = inject<(title: string) => void>('setCurrentBlockTitle');
+onMounted(() => {
+  blockTitle?.('WELCOME');
+}
+)
+
+const blockNumber = inject<(number: string) => void>('setCurrentBlockNumber');
+onMounted(() => {
+  blockNumber?.('01');
+})
 </script>
 
 <template>
