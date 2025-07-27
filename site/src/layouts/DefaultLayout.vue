@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, provide } from 'vue';
 
-import NavBurgerButton from '@/components/NavBurgerButton.vue';
+import NavContent from '@/components/nav/NavContent.vue';
+import NavBurger from '@/components/nav/NavBurger.vue';
 
 const currentBlockTitle = ref<string>('');
 const setCurrentBlockTitle = (value: string) => {
@@ -14,14 +15,22 @@ const setCurrentBlockNumber = (value: string) => {
   currentBlockNumber.value = value;
 }
 provide('setCurrentBlockNumber', setCurrentBlockNumber);
+
+const isMenuOpen = ref(false);
+const handleBurgerToggle = (isActive: boolean) => {
+  isMenuOpen.value = isActive;
+}
+const closeMenu = () => {
+  isMenuOpen.value = false;
+}
 </script>
 
 <template>
   <div class="layout">
     <header class="layout__header">
       <div class="container container__row_between">
-        <div>
-          <NavBurgerButton />
+        <div class="layout__burger">
+          <NavBurger @toggle="handleBurgerToggle" />
         </div>
         <div class="anchor">
           <span class="anchor__title">{{ currentBlockTitle }}</span>
@@ -41,6 +50,11 @@ provide('setCurrentBlockNumber', setCurrentBlockNumber);
         &copy; {{ new Date().getFullYear() }} — Все права защищены.
       </div>
     </footer>
+
+    <NavContent 
+      :is-open="isMenuOpen" 
+      @close="closeMenu" 
+    />
   </div>
 </template>
 
@@ -51,14 +65,19 @@ provide('setCurrentBlockNumber', setCurrentBlockNumber);
   min-height: 100vh;
 
   &__header {
-    background: $color-background;
+    background: $color-background-main;
     box-shadow: $shadow-header;
-    color: $color-text-dark;
+    color: $color-text-main;
     height: $header-height;
 
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
+
+  &__burger {
+    position: relative;
+    z-index: 1000;
   }
 
   &__main {
@@ -67,7 +86,7 @@ provide('setCurrentBlockNumber', setCurrentBlockNumber);
   }
 
   &__footer {
-    background: $color-background;
+    background: $color-background-main;
     padding: 1rem;
     text-align: center;
   }

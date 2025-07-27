@@ -49,7 +49,7 @@ defineExpose({
   gap: 4px;
   
   &__line {
-    background-color: $color-text-dark;
+    background-color: $color-text-main;
 
     height: 4px;
     border-radius: 1px;

@@ -7,8 +7,9 @@ $color-dark: #121212;
 
 $shadow-default: rgba(0, 0, 0, 0.075) 0px 0.125rem 0.25rem;
 
-$color-background: $color-white;
-$color-text-dark: $color-dark;
+$color-background-main: $color-white;
+$color-background-contrast: $color-dark;
+$color-text-main: $color-dark;
 $color-text-contrast: $color-white;
 
 $shadow-header: $shadow-default;
