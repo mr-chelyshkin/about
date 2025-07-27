@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, provide } from 'vue';
 
+import NavBurgerButton from '@/components/NavBurgerButton.vue';
+
 const currentBlockTitle = ref<string>('');
 const setCurrentBlockTitle = (value: string) => {
   currentBlockTitle.value = value;
@@ -19,7 +21,7 @@ provide('setCurrentBlockNumber', setCurrentBlockNumber);
     <header class="layout__header">
       <div class="container container__row_between">
         <div>
-          asd
+          <NavBurgerButton />
         </div>
         <div class="anchor">
           <span class="anchor__title">{{ currentBlockTitle }}</span>
