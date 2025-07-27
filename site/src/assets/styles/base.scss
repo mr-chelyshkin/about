@@ -10,9 +10,15 @@
   padding: 0;
 }
 
+:focus-visible {
+  outline: 2px solid $color-text-main;
+  outline-offset: 2px;
+}
+
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  touch-action: manipulation;
 }
 
 body {
@@ -24,7 +30,46 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  font-size: 2.8rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
 h3 {
   font-size: 2rem;
   padding: 0.5rem 0 0.5rem 0;
+}
+
+a {
+  color: $color-text-main;
+
+  font-family: 'Roboto Mono', monospace;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  font-weight: 400;
+  font-size: 1rem;
+ 
+  &::after {
+    background: $color-text-main;
+
+    transform-origin: left;
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: -0.5rem;
+    height: 2.5px;
+    right: -0.5rem;
+    transform: translateY(-50%) scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+   
+  &:hover {
+    &::after {
+      transform: translateY(-50%) scaleX(1);
+    }
+  }
 }

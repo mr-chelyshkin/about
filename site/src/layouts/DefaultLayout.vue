@@ -81,7 +81,6 @@ const closeMenu = () => { isMenuOpen.value = false; if (burgerButtonRef.value) {
   &__main {
     flex: 1 1 0%;
     position: relative;
-    margin-top: $header-height;
   }
 
   &__footer {
