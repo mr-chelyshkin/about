@@ -19,18 +19,19 @@ const props = defineProps<Props>();
 <style scoped lang="scss">
 .header {
   background-color: $color-background-contrast;
-  width: 100vw;
-  margin-left: 50%;
+
   transform: translateX(-50%);
+  margin-left: 50%;
   padding: 2rem;
+  width: 100vw;
  
   @media (max-width: 768px) {
     padding: 1rem;
   }
 
   &__subtitle {
-    font-size: $text-size-sm;
     color: $color-text-secondary;
+    font-size: $text-size-sm;
   }
 
   &__title {
