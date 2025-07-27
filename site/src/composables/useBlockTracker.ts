@@ -1,5 +1,4 @@
-// src/composables/useBlockTracker.ts
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue';
 
 interface BlockInfo {
   title: string
@@ -7,57 +6,50 @@ interface BlockInfo {
 }
 
 export function useBlockTracker() {
-  const currentBlockTitle = ref<string>('')
-  const currentBlockNumber = ref<string>('')
+  const currentBlockTitle = ref<string>('');
+  const currentBlockNumber = ref<string>('');
   
-  let observer: IntersectionObserver | null = null
+  let observer: IntersectionObserver | null = null;
 
   const initializeTracker = () => {
     const observerOptions = {
       root: null,
-      rootMargin: '-40% 0px -40% 0px', // срабатывает когда блок ближе к центру
+      rootMargin: '-40% 0px -40% 0px',
       threshold: 0.1
     }
 
     observer = new IntersectionObserver((entries) => {
-      // Находим блок с наибольшей видимостью
-      let mostVisible = entries[0]
+      let mostVisible = entries[0];
       entries.forEach(entry => {
         if (entry.intersectionRatio > mostVisible.intersectionRatio) {
-          mostVisible = entry
+          mostVisible = entry;
         }
-      })
+      });
 
       if (mostVisible && mostVisible.isIntersecting) {
-        const element = mostVisible.target as HTMLElement
-        const title = element.dataset.blockTitle
-        const number = element.dataset.blockNumber
+        const element = mostVisible.target as HTMLElement;
+        const number = element.dataset.blockNumber;
+        const title = element.dataset.blockTitle;
         
         if (title && number) {
-          currentBlockTitle.value = title
-          currentBlockNumber.value = number
+          currentBlockNumber.value = number;
+          currentBlockTitle.value = title;
         }
       }
-    }, observerOptions)
+    }, observerOptions);
 
-    // Ждем немного, чтобы DOM загрузился
     setTimeout(() => {
-      const blocks = document.querySelectorAll('[data-block-title]')
-      console.log('Found blocks:', blocks.length) // для отладки
-      blocks.forEach(block => {
-        console.log('Observing:', block.getAttribute('data-block-title')) // для отладки
-        observer?.observe(block)
-      })
-    }, 100)
+      const blocks = document.querySelectorAll('[data-block-title]');
+      blocks.forEach(block => { observer?.observe(block); })
+    }, 100);
   }
 
   const cleanup = () => {
     if (observer) {
-      observer.disconnect()
-      observer = null
+      observer.disconnect();
+      observer = null;
     }
   }
-
   return {
     currentBlockTitle,
     currentBlockNumber,
