@@ -2,29 +2,44 @@
 </script>
 
 <template>
-  <div class="background_image">
+  <div class="hero__background_image">
     <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Background Image" />
   </div>
-  <div>
+  <div class="hero__content">
     asd
   </div>
 </template>
 
 <style scoped lang="scss">
-
-.background_image {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 45%;
-  height: 100%;
-  clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
-  
-  img {
-    width: 100%;
+.hero {
+  &__background_image {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 45%;
     height: 100%;
-    object-fit: cover;
+    clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 979px) {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 55%;
+
+    @media (max-width: 979px) {
+      width: 100%;
+    }
   }
 }
-
 </style>
