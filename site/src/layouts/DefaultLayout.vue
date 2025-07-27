@@ -77,6 +77,11 @@ const closeMenu = () => {
     display: flex;
     flex-direction: row;
     align-items: center;
+    position: fixed;
+    
+    z-index: 998;
+    right: 0;
+    left: 0;
   }
 
   &__burger {
