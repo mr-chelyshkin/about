@@ -45,16 +45,18 @@
 
   &__background_image {
     position: absolute;
+    overflow: hidden;
     right: 0px;
     top: 0px;
     width: 45%;
     height: 100vh;
     clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
-  
+ 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      animation: pulse 18s ease-in-out infinite;
     }
 
     @media (max-width: 979px) {
@@ -88,7 +90,7 @@
     display: flex;
     gap: 2rem;
     margin-top: .5rem;
-    
+   
     @media (max-width: 768px) {
       flex-direction: column;
       gap: 1rem;
@@ -105,12 +107,20 @@
     background: $color-text-main;
     color: $color-text-contrast;
     font-size: $text-size-sm;
-
     display: inline-block;
     padding: 0.3rem 0.8rem;
     letter-spacing: 0.3px;
     border-radius: 2px;
     font-weight: 500;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
   }
 }
 </style>
