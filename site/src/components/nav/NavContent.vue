@@ -65,8 +65,8 @@ const closeMenu = () => {
   z-index: 999;
   position: fixed;
   height: 100vh;
-  width: 30%;
-  min-width: 300px;
+  min-width: 280px;
+  width: calc(576px + max(0px, (100vw - $max-width) * 0.3));
   
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -87,16 +87,20 @@ const closeMenu = () => {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-end;
+    text-align: right;
   }
 
   &__list {
     list-style: none;
     margin: 0;
     padding: 0;
+    width: 100%;
   }
 
   &__item {
     margin-bottom: 0.5rem;
+    text-align: right;
   }
 
   &__link {
@@ -108,9 +112,11 @@ const closeMenu = () => {
     font-weight: 500;
     border-bottom: 1px solid transparent;
     transition: all 0.2s;
+    text-align: right;
 
     &:hover {
       text-decoration: line-through;
+      padding-right: 0.5rem;
     }
 
     &.router-link-active {
