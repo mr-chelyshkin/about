@@ -1,20 +1,8 @@
 <script setup lang="ts">
-import { inject, onMounted } from 'vue';
-
-const blockTitle = inject<(title: string) => void>('setCurrentBlockTitle');
-onMounted(() => {
-  blockTitle?.('WELCOME');
-}
-)
-
-const blockNumber = inject<(number: string) => void>('setCurrentBlockNumber');
-onMounted(() => {
-  blockNumber?.('01');
-})
 </script>
 
 <template>
-  <div class="hero">
+  <div class="hero" data-block-title="WELCOME" data-block-number="01">
   <div class="hero__background_image">
     <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Background Image" />
   </div>

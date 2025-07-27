@@ -1,7 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { inject, onMounted } from 'vue';
+
+const setCurrentBlockTitle = inject<(title: string) => void>('setCurrentBlockTitle');
+const setCurrentBlockNumber = inject<(number: string) => void>('setCurrentBlockNumber');
+
+onMounted(() => {
+  setCurrentBlockTitle?.('EXPERTISE');
+  setCurrentBlockNumber?.('02'); // или какой номер нужен
+});
+</script>
 
 <template>
-  <div class="header">
+  <div class="header" data-block-title="EXPERTISE" data-block-number="02">
     <div class="container">
       <p class="header__content">// EXPERTISE</p>
       <h3>Core Technologies & Methodologies</h3>
@@ -24,7 +34,7 @@
   }
 
   &__content {
-    font-size: 0.9rem;
+    font-size: $text-size-sm;
     color: $color-text-secondary;
   }
 }
