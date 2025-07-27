@@ -73,7 +73,7 @@ const closeMenu = () => {
   transform: translateX(-100%);
 
   @media (max-width: 768px) {
-    width: 100%;
+    width: 75%;
     min-width: unset;
   }
 
