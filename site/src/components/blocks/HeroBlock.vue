@@ -31,14 +31,14 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .hero {
-  height: calc(100vh - $header-height);
+  height: 100vh;
 
   &__background_image {
     position: absolute;
     right: 0px;
     top: 0px;
     width: 45%;
-    height: 100%;
+    height: 100vh;
     clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
   
     img {
