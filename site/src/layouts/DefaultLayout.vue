@@ -33,11 +33,13 @@
 
   &__header {
     background: $color-background;
+    box-shadow: $shadow-header;
     color: $color-text-dark;
     height: $header-height;
-    padding: 14px 0 14px 0;
 
-    box-shadow: $shadow-header;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
     .layout__nav {
       display: flex;
