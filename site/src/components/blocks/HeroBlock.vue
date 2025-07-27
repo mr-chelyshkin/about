@@ -19,7 +19,7 @@
 
 <style scoped lang="scss">
 .hero {
-  height: calc(100vh);
+  height: calc(100vh - $header-height);
 
   &__background_image {
     position: absolute;

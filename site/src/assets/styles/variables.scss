@@ -1,6 +1,15 @@
 $max-width: 1920px;
 $min-width: 320px;
+$header-height: 52px;
 
 $color-white: #ffffff;
+$color-dark: #1A1A1A;
+
+$shadow-default: rgba(0, 0, 0, 0.075) 0px 0.125rem 0.25rem;
+
 $color-background: $color-white;
+$color-text-dark: $color-dark;
+
+$shadow-header: $shadow-default;
+
 $font-main: 'Roboto Mono', monospace;

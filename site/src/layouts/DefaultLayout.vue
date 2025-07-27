@@ -26,23 +26,24 @@
 <script setup lang="ts"></script>
 
 <style scoped lang="scss">
-@use '@/assets/styles/variables' as *;
-
 .layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
   &__header {
-    background: #000;
-    color: #fff;
-    padding: 1rem;
+    background: $color-background;
+    color: $color-text-dark;
+    height: $header-height;
+    padding: 14px 0 14px 0;
+
+    box-shadow: $shadow-header;
 
     .layout__nav {
       display: flex;
       gap: 1rem;
       a {
-        color: white;
+        color: $color-text-dark;
         text-decoration: none;
 
         &:hover {
