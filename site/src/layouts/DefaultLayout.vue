@@ -12,8 +12,8 @@ const {
   cleanup 
 } = useBlockTracker();
 
-onMounted(() => { initializeTracker(); })
-onUnmounted(() => { cleanup(); })
+onMounted(() => { initializeTracker(); });
+onUnmounted(() => { cleanup(); });
 
 const isMenuOpen = ref(false);
 const burgerButtonRef = ref();

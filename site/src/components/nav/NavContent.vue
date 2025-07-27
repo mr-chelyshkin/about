@@ -1,3 +1,13 @@
+<script setup lang="ts">
+interface Props {
+  isOpen: boolean;
+}
+
+const props = defineProps<Props>();
+const emit = defineEmits<{ close: []; }>();
+const closeMenu = () => { emit('close'); }
+</script>
+
 <template>
   <Teleport to="body">
     <div 
@@ -26,20 +36,6 @@
     </nav>
   </Teleport>
 </template>
-
-<script setup lang="ts">
-interface Props {
-  isOpen: boolean;
-}
-
-const props = defineProps<Props>();
-const emit = defineEmits<{
-  close: [];
-}>()
-const closeMenu = () => {
-  emit('close');
-}
-</script>
 
 <style scoped lang="scss">
 .nav-overlay {

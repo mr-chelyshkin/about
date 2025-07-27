@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"/>
 
 <template>
   <div class="hero" data-block-title="WELCOME" data-block-number="01">

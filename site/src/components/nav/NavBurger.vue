@@ -1,35 +1,23 @@
-<template>
-  <button 
-    class="burger" 
-    :class="{ 'burger--active': isActive }"
-    @click="toggleMenu"
-    aria-label="menu"
-  >
-    <span class="burger__line burger__line--1"></span>
-    <span class="burger__line burger__line--2"></span>
-    <span class="burger__line burger__line--3"></span>
-  </button>
-</template>
-
 <script setup lang="ts">
 import { ref } from 'vue';
 
 const isActive = ref(false);
-
-const emit = defineEmits<{
-  toggle: [isActive: boolean];
-}>()
-
-const toggleMenu = () => {
-  isActive.value = !isActive.value;
-  emit('toggle', isActive.value);
-}
+const emit = defineEmits<{ toggle: [isActive: boolean]; }>();
+const toggleMenu = () => { isActive.value = !isActive.value; emit('toggle', isActive.value); }
 
 defineExpose({
   toggle: toggleMenu,
   isActive
 })
 </script>
+
+<template>
+  <button class="burger" :class="{ 'burger--active': isActive }" @click="toggleMenu">
+    <span class="burger__line burger__line--1"></span>
+    <span class="burger__line burger__line--2"></span>
+    <span class="burger__line burger__line--3"></span>
+  </button>
+</template>
 
 <style scoped lang="scss">
 .burger {
