@@ -17,11 +17,15 @@ const setCurrentBlockNumber = (value: string) => {
 provide('setCurrentBlockNumber', setCurrentBlockNumber);
 
 const isMenuOpen = ref(false);
+const burgerButtonRef = ref();
 const handleBurgerToggle = (isActive: boolean) => {
   isMenuOpen.value = isActive;
 }
 const closeMenu = () => {
   isMenuOpen.value = false;
+  if (burgerButtonRef.value) {
+    burgerButtonRef.value.isActive = false;
+  }
 }
 </script>
 
@@ -30,7 +34,7 @@ const closeMenu = () => {
     <header class="layout__header">
       <div class="container container__row_between">
         <div class="layout__burger">
-          <NavBurger @toggle="handleBurgerToggle" />
+          <NavBurger ref="burgerButtonRef" @toggle="handleBurgerToggle" />
         </div>
         <div class="anchor">
           <span class="anchor__title">{{ currentBlockTitle }}</span>
