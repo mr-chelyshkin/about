@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BlockContentHeader from '@/components/content/BlockContentHeader.vue';
-import ExpertiseSectionItem from '@/components/content/ExpertiseSectionList.vue';
+import ExpertiseSectionList from '@/components/content/ExpertiseSectionList.vue';
 
 interface TechLine {
   label: string;
@@ -75,15 +75,7 @@ const expertiseSections: ExpertiseSection[] = [
   <div class="container">
     <div class="expertise-content">
       <div class="expertise-layout">
-        <div class="expertise-list">
-          <ExpertiseSectionItem
-            v-for="section in expertiseSections"
-            :key="section.number"
-            :number="section.number"
-            :title="section.title"
-            :tech-lines="section.techLines"
-          />
-        </div>
+        <ExpertiseSectionList :sections="expertiseSections" />
 
         <div class="sidebar-content">
           <div class="career-timeline">
@@ -172,10 +164,6 @@ const expertiseSections: ExpertiseSection[] = [
       flex-direction: column;
       gap: 2rem;
     }
-  }
-  
-  .expertise-list {
-    flex: 1;
   }
   
   .sidebar-content {

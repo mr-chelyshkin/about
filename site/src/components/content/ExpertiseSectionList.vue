@@ -6,23 +6,29 @@ interface TechLine {
   value: string;
 }
 
-interface Props {
+interface ExpertiseSection {
   number: string;
   title: string;
   techLines: TechLine[];
+}
+
+interface Props {
+  sections: ExpertiseSection[];
 }
 
 defineProps<Props>();
 </script>
 
 <template>
-  <div class="expertise-section">
-    <div class="section-header">
-      <span class="section-number">{{ number }}</span>
-      <h4>{{ title }}</h4>
-    </div>
-    <div class="section-content">
-      <ExpertiseSectionItem v-for="techLine in techLines" :key="techLine.label" :label="techLine.label" :value="techLine.value"/>
+  <div class="expertise-list">
+    <div v-for="section in sections" :key="section.number" class="expertise-section">
+      <div class="section-header">
+        <span class="section-number">{{ section.number }}</span>
+        <h4>{{ section.title }}</h4>
+      </div>
+      <div class="section-content">
+        <ExpertiseSectionItem v-for="techLine in section.techLines" :key="techLine.label" :label="techLine.label" :value="techLine.value"/>
+      </div>
     </div>
   </div>
 </template>
@@ -30,7 +36,6 @@ defineProps<Props>();
 <style scoped lang="scss">
 .expertise-section {
   border-bottom: 1px solid $color-border-main;
-
   padding: 2rem 0;
   
   &:last-child {
@@ -57,7 +62,6 @@ defineProps<Props>();
     
     h4 {
       color: $color-text-main;
-
       margin: 0;
     }
   }
