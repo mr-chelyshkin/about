@@ -31,24 +31,15 @@ defineProps<Props>();
     width: 30px;
     height: 30px;
     background: $color-text-main;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
   
   &:hover {
-    padding: 2rem 2rem 2rem 3rem;
+    border-color: $color-accent;
     
     &::before {
-      width: 50px;
-      height: 50px;
-      transform: rotate(45deg);
-    }
-    
-    .note-header {
-      transform: translateX(10px);
-    }
-    
-    p {
-      transform: translateX(5px);
+      background: $color-accent;
+      transform: rotate(180deg) scale(1.2);
     }
   }
   
@@ -60,7 +51,6 @@ defineProps<Props>();
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
   }
   
   p {
@@ -68,7 +58,6 @@ defineProps<Props>();
     line-height: 1.6;
     font-size: 1.1rem;
     margin: 0;
-    transition: all 0.3s ease;
   }
 }
 </style>
