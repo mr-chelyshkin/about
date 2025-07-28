@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BlockContentHeader from '@/components/content/BlockContentHeader.vue';
 import ExpertiseSectionList from '@/components/content/ExpertiseSectionList.vue';
+import CareerTimelineSection from '@/components/content/CareerTimelineSection.vue';
 
 interface TechLine {
   label: string;
@@ -11,6 +12,13 @@ interface ExpertiseSection {
   number: string;
   title: string;
   techLines: TechLine[];
+}
+
+interface CareerItem {
+  year: string;
+  role: string;
+  company: string;
+  current?: boolean;
 }
 
 const expertiseSections: ExpertiseSection[] = [
@@ -63,6 +71,30 @@ const expertiseSections: ExpertiseSection[] = [
     ]
   }
 ];
+
+const careerItems: CareerItem[] = [
+  {
+    year: '2013',
+    role: 'QA Engineer',
+    company: 'Raiffeisen Bank, VTB Bank'
+  },
+  {
+    year: '2016',
+    role: 'DevOps Team Lead',
+    company: 'Mail.ru Group'
+  },
+  {
+    year: '2022',
+    role: 'Lead DevOps',
+    company: 'Ozon'
+  },
+  {
+    year: '2023+',
+    role: 'Senior SRE Engineer',
+    company: 'Aqua Security, Israel',
+    current: true
+  }
+];
 </script>
 
 <template>
@@ -78,33 +110,7 @@ const expertiseSections: ExpertiseSection[] = [
         <ExpertiseSectionList :sections="expertiseSections" />
 
         <div class="sidebar-content">
-          <div class="career-timeline">
-            <div class="timeline-header">
-              <span class="timeline-title">// Career Journey</span>
-            </div>
-            <div class="timeline-track">
-              <div class="timeline-item">
-                <div class="timeline-year">2013</div>
-                <div class="timeline-role">QA Engineer</div>
-                <div class="timeline-company">Raiffeisen Bank, VTB Bank</div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-year">2016</div>
-                <div class="timeline-role">DevOps Team Lead</div>
-                <div class="timeline-company">Mail.ru Group</div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-year">2022</div>
-                <div class="timeline-role">Lead DevOps</div>
-                <div class="timeline-company">Ozon</div>
-              </div>
-              <div class="timeline-item current">
-                <div class="timeline-year">2023+</div>
-                <div class="timeline-role">Senior SRE Engineer</div>
-                <div class="timeline-company">Aqua Security, Israel</div>
-              </div>
-            </div>
-          </div>
+          <CareerTimelineSection :items="careerItems" />
 
           <div class="problem-solutions">
             <div class="solutions-header">
@@ -181,7 +187,6 @@ const expertiseSections: ExpertiseSection[] = [
       position: static;
     }
     
-    .career-timeline,
     .problem-solutions {
       margin-bottom: 2rem;
       padding: 1.5rem;
@@ -191,72 +196,12 @@ const expertiseSections: ExpertiseSection[] = [
       }
     }
     
-    .timeline-header,
     .solutions-header {
       margin-bottom: 1.5rem;
       
-      .timeline-title,
       .solutions-title {
         font-size: $text-size-sm;
         color: $color-text-secondary;
-      }
-    }
-    
-    .timeline-track {
-      position: relative;
-      
-      &::before {
-        content: '';
-        position: absolute;
-        left: 2.5rem;
-        top: 0.5rem;
-        bottom: 0;
-        width: 2px;
-        background: #b3b3b3;
-      }
-      
-      .timeline-item {
-        position: relative;
-        margin-bottom: 1.5rem;
-        padding-left: 4rem;
-        
-        &:last-child {
-          margin-bottom: 0;
-        }
-        
-        &::before {
-          content: '';
-          position: absolute;
-          left: 2.2rem;
-          top: 0.3rem;
-          width: 10px;
-          height: 10px;
-          background: $color-gray;
-          border-radius: 50%;
-          border: 2px solid $color-white;
-        }
-        
-        &.current::before {
-          background: $color-accent;
-        }
-        
-        .timeline-year {
-          color: $color-text-secondary;
-          font-size: $text-size-xsm;
-          font-weight: 600;
-        }
-        
-        .timeline-role {
-          font-size: $text-size-sm;
-          color: $color-text-main;
-          font-weight: 600;
-          margin: 0.2rem 0;
-        }
-        
-        .timeline-company {
-          font-size: $text-size-xsm;
-          color: $color-text-secondary;
-        }
       }
     }
     
