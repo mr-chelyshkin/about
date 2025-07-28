@@ -60,6 +60,7 @@ const closeMenu = () => { isMenuOpen.value = false; if (burgerButtonRef.value) {
   &__header {
     background: $color-background-main;
     box-shadow: $shadow-header;
+    z-index: $z-index-header;
     color: $color-text-main;
     height: $header-height;
 
@@ -67,15 +68,14 @@ const closeMenu = () => { isMenuOpen.value = false; if (burgerButtonRef.value) {
     flex-direction: row;
     align-items: center;
     position: fixed;
-   
-    z-index: 998;
     right: 0;
     left: 0;
   }
 
   &__burger {
+    z-index: $z-index-nav-button;
+
     position: relative;
-    z-index: 1000;
   }
 
   &__main {
@@ -85,6 +85,7 @@ const closeMenu = () => { isMenuOpen.value = false; if (burgerButtonRef.value) {
 
   &__footer {
     background: $color-background-main;
+
     padding: 1rem;
     text-align: center;
   }

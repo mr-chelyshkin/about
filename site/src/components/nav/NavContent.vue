@@ -10,26 +10,13 @@ const closeMenu = () => { emit('close'); }
 
 <template>
   <Teleport to="body">
-    <div 
-      v-if="isOpen" 
-      class="nav-overlay"
-      @click="closeMenu"
-    ></div>
+    <div v-if="isOpen" class="nav-overlay" @click="closeMenu"></div>
 
-    <nav 
-      class="nav-menu" 
-      :class="{ 'nav-menu--open': isOpen }"
-    >
+    <nav class="nav-menu" :class="{ 'nav-menu--open': isOpen }">
       <div class="nav-menu__content">
         <ul class="nav-menu__list">
           <li class="nav-menu__item">
-            <router-link 
-              to="/" 
-              class="nav-menu__link"
-              @click="closeMenu"
-            >
-              Home
-            </router-link>
+            <router-link to="/" class="nav-menu__link" @click="closeMenu">Home</router-link>
           </li>
         </ul>
       </div>
@@ -38,30 +25,34 @@ const closeMenu = () => { emit('close'); }
 </template>
 
 <style scoped lang="scss">
+
 .nav-overlay {
+  z-index: $z-index-nav-overlay;
+
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 998;
   backdrop-filter: blur(2px);
 }
 
 .nav-menu {
+  --nav-content-width: 280px;
+
   background: $color-background-contrast;
+  min-width: var(--nav-content-width);
   padding-top: $header-height;
+  z-index: $z-index-nav-menu;
 
   display: flex;
   flex-direction: column;
 
   top: 0;
   left: 0;
-  z-index: 999;
-  position: fixed;
   height: 100vh;
-  min-width: 280px;
+  position: fixed;
   width: calc(576px + max(0px, (100vw - $max-width) * 0.3));
   
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -88,10 +79,11 @@ const closeMenu = () => { emit('close'); }
   }
 
   &__list {
+    width: var(--nav-content-width);
+
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 100%;
   }
 
   &__item {
@@ -100,10 +92,11 @@ const closeMenu = () => { emit('close'); }
   }
 
   &__link {
+    color: $color-text-contrast;
+
+    text-align: right;
     display: block;
     padding: 1rem 0;
-    color: $color-text-contrast;
-    text-align: right;
 
     &::after {
       background: $color-text-contrast;
