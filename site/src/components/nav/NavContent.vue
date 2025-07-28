@@ -103,20 +103,13 @@ const closeMenu = () => { emit('close'); }
     display: block;
     padding: 1rem 0;
     color: $color-text-contrast;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 500;
-    border-bottom: 1px solid transparent;
-    transition: all 0.2s;
     text-align: right;
 
-    &:hover {
-      text-decoration: line-through;
-      padding-right: 0.5rem;
+    &::after {
+      background: $color-text-contrast;
     }
 
     &.router-link-active {
-      color: $color-text-contrast;
       font-weight: 600;
     }
   }
