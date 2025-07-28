@@ -36,11 +36,15 @@ onUnmounted(() => {
 
 <template>
   <div class="layout">
+    <div class="layout__burger-container">
+      <div class="container">
+        <NavBurger ref="burgerButtonRef" @toggle="handleBurgerToggle" />
+      </div>
+    </div>
+
     <header class="layout__header">
       <div class="container container__row_between">
-        <div class="layout__burger">
-          <NavBurger ref="burgerButtonRef" @toggle="handleBurgerToggle" />
-        </div>
+        <div class="layout__burger-placeholder"></div>
         <div class="anchor">
           <span class="anchor__title">{{ currentBlockTitle }}</span>
           <span class="anchor__number">{{ currentBlockNumber }}</span>
@@ -83,9 +87,29 @@ onUnmounted(() => {
     left: 0;
   }
 
-  &__burger {
+  &__burger-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $header-height;
     z-index: $z-index-nav-button;
+    pointer-events: none;
+    
+    display: flex;
+    align-items: center;
+    
+    .container {
+      pointer-events: auto;
+    }
+  }
 
+  &__burger-placeholder {
+    width: 32px;
+    height: 24px;
+  }
+
+  &__burger {
     position: relative;
   }
 
