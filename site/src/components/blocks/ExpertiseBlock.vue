@@ -134,8 +134,11 @@ const philosophyNote = {
     subtitle="EXPERTISE" 
     number="02" 
   />
-  
-  <div class="container">
+ <br></br> 
+  <br></br><div class="container">
+    
+    <ContentNote :header="philosophyNote.header" :content="philosophyNote.content"/>
+
     <div class="expertise-content">
       <div class="expertise-layout">
         <ExpertiseSectionList :sections="expertiseSections" />
@@ -146,12 +149,12 @@ const philosophyNote = {
         </div>
       </div>
     </div>
-    
-    <ContentNote 
-      :header="philosophyNote.header" 
-      :content="philosophyNote.content" 
-    />
+
+
+    <ContentNote :header="philosophyNote.header" :content="philosophyNote.content"/>
   </div>
+
+  
 </template>
 
 <style scoped lang="scss">
