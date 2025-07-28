@@ -2,6 +2,7 @@
 import BlockContentHeader from '@/components/content/BlockContentHeader.vue';
 import ExpertiseSectionList from '@/components/content/ExpertiseSectionList.vue';
 import CareerTimelineSection from '@/components/content/CareerTimelineSection.vue';
+import CareerSolutionList from '@/components/content/CareerSolutionList.vue';
 
 interface TechLine {
   label: string;
@@ -19,6 +20,12 @@ interface CareerItem {
   role: string;
   company: string;
   current?: boolean;
+}
+
+interface SolutionItem {
+  problem: string;
+  solution: string;
+  result: string;
 }
 
 const expertiseSections: ExpertiseSection[] = [
@@ -95,6 +102,24 @@ const careerItems: CareerItem[] = [
     current: true
   }
 ];
+
+const solutionItems: SolutionItem[] = [
+  {
+    problem: 'Slow mobile app releases at Ozon',
+    solution: 'Built unified CI/CD with mobile farm',
+    result: '25% faster time-to-market'
+  },
+  {
+    problem: 'High DB costs at Aqua Security',
+    solution: 'Automated Aurora Serverless migration',
+    result: 'Reduced costs, improved performance'
+  },
+  {
+    problem: 'Slow deployments at Mail.ru',
+    solution: 'Migrated 50+ services to Kubernetes',
+    result: '35% shorter release cycle'
+  }
+];
 </script>
 
 <template>
@@ -111,34 +136,7 @@ const careerItems: CareerItem[] = [
 
         <div class="sidebar-content">
           <CareerTimelineSection :items="careerItems" />
-
-          <div class="problem-solutions">
-            <div class="solutions-header">
-              <span class="solutions-title">// Problem → Solution</span>
-            </div>
-            <div class="solution-list">
-              <div class="solution-item">
-                <div class="problem">Slow mobile app releases at Ozon</div>
-                <div class="arrow">→</div>
-                <div class="solution">Built unified CI/CD with mobile farm</div>
-                <div class="result">25% faster time-to-market</div>
-              </div>
-              
-              <div class="solution-item">
-                <div class="problem">High DB costs at Aqua Security</div>
-                <div class="arrow">→</div>
-                <div class="solution">Automated Aurora Serverless migration</div>
-                <div class="result">Reduced costs, improved performance</div>
-              </div>
-              
-              <div class="solution-item">
-                <div class="problem">Slow deployments at Mail.ru</div>
-                <div class="arrow">→</div>
-                <div class="solution">Migrated 50+ services to Kubernetes</div>
-                <div class="result">35% shorter release cycle</div>
-              </div>
-            </div>
-          </div>
+          <CareerSolutionList :items="solutionItems" />
         </div>
       </div>
     </div>
@@ -185,70 +183,6 @@ const careerItems: CareerItem[] = [
     @media (max-width: 968px) {
       flex: none;
       position: static;
-    }
-    
-    .problem-solutions {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-    
-    .solutions-header {
-      margin-bottom: 1.5rem;
-      
-      .solutions-title {
-        font-size: $text-size-sm;
-        color: $color-text-secondary;
-      }
-    }
-    
-    .solution-list {
-      .solution-item {
-        margin-bottom: 1.5rem;
-        padding-bottom: 1.5rem;
-        border-bottom: 1px solid #eee;
-        
-        &:last-child {
-          margin-bottom: 0;
-          padding-bottom: 0;
-          border-bottom: none;
-        }
-        
-        .problem {
-          font-size: 0.85rem;
-          color: #666;
-          margin-bottom: 0.3rem;
-          font-weight: 500;
-        }
-        
-        .arrow {
-          font-family: 'Roboto Mono', monospace;
-          color: $color-text-main;
-          font-weight: 600;
-          margin: 0.3rem 0;
-        }
-        
-        .solution {
-          font-size: 0.85rem;
-          color: $color-text-main;
-          margin-bottom: 0.3rem;
-          font-weight: 500;
-        }
-        
-        .result {
-          font-family: 'Roboto Mono', monospace;
-          font-size: 0.8rem;
-          color: #000;
-          background: #e8f5e8;
-          padding: 0.3rem 0.6rem;
-          border-radius: 2px;
-          font-weight: 600;
-          display: inline-block;
-        }
-      }
     }
   }
 }
