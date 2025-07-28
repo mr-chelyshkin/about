@@ -77,6 +77,22 @@ const expertiseSections: ExpertiseSection[] = [
       { label: 'Languages', value: 'Go, Python, Bash, Rust' },
       { label: 'Approach', value: 'Clean code, maintainable infrastructure tooling' }
     ]
+  },
+  {
+    number: '07',
+    title: 'System Design & Architecture',
+    techLines: [
+      { label: 'Domains', value: 'High-load Platforms, Mobile Infrastructure, Hybrid & Multi-Cloud' },
+      { label: 'Approach', value: 'Scalable, modular designs aligned with business goals and growth' }
+    ]
+  },
+  {
+    number: '08',
+    title: 'Observability & Monitoring',
+    techLines: [
+      { label: 'Stack', value: 'Prometheus, Grafana, Datadog, ELK Stack, OpenTelemetry' },
+      { label: 'Approach', value: 'Proactive incident detection, transparent metrics, end-to-end tracing' }
+    ]
   }
 ];
 
@@ -124,46 +140,35 @@ const solutionItems: SolutionItem[] = [
 
 const philosophyNote = {
   header: '// Platform Engineering Philosophy',
-  content: 'Building platforms that make development predictable and scalable. Every system should be understandable, reliable, and deliver measurable value to development teams.'
+  content: 'I believe in platforms that simplify, scale, and empower developers. My goal is creating infrastructure that\'s clear, predictable, and measurable—helping teams deliver faster and with confidence.'
 };
 </script>
 
 <template>
-  <BlockContentHeader 
-    title="Core Technologies & Methodologies" 
-    subtitle="EXPERTISE" 
-    number="02" 
-  />
- <br></br> 
-  <br></br><div class="container">
-    
+  <BlockContentHeader title="Core Technologies & Methodologies" subtitle="EXPERTISE" number="02" />
+  <div class="container">
     <ContentNote :header="philosophyNote.header" :content="philosophyNote.content"/>
-
     <div class="expertise-content">
       <div class="expertise-layout">
         <ExpertiseSectionList :sections="expertiseSections" />
-
         <div class="sidebar-content">
           <CareerTimelineSection :items="careerItems" />
-          <CareerSolutionList :items="solutionItems" />
+          <!-- <CareerSolutionList :items="solutionItems" /> -->
         </div>
       </div>
     </div>
-
-
-    <ContentNote :header="philosophyNote.header" :content="philosophyNote.content"/>
   </div>
-
-  
 </template>
 
 <style scoped lang="scss">
 .expertise-content {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
   padding: 3rem 0;
   
   .expertise-layout {
     display: flex;
-    margin-bottom: 3rem;
     gap: 4rem;
     
     @media (max-width: 1200px) {
@@ -177,10 +182,8 @@ const philosophyNote = {
   }
   
   .sidebar-content {
-    flex: 0 0 360px;
-    position: sticky;
-    top: 2rem;
     height: fit-content;
+    position: sticky;
     
     @media (max-width: 1200px) {
       flex: 0 0 300px;
