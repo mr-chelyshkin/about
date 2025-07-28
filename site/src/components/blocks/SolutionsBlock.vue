@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import BlockContentHeader from '@/components/content/BlockContentHeader.vue';
-import CareerSolutionList from '@/components/content/CareerSolutionList.vue';
+import ProjectCard from '@/components/content/ProjectCard.vue';
 
-interface SolutionItem {
+interface ProjectItem {
   problem: string;
   solution: string;
   result: string;
 }
 
-const solutionItems: SolutionItem[] = [
+const projectItems: ProjectItem[] = [
   {
     problem: 'Slow and unreliable mobile app delivery process',
     solution: 'Architected and built a scalable mobile CI/CD platform with automated iOS & Android testing farms',
@@ -40,12 +40,27 @@ const solutionItems: SolutionItem[] = [
 <template>
   <BlockContentHeader title="Real-World Impact" subtitle="SOLUTIONS" number="03" />
 
-
   <div class="container">
-    <CareerSolutionList :items="solutionItems" />
+    <h4>// Projects</h4>
+    <div class="solutions-grid">
+      <ProjectCard
+        v-for="(item, index) in projectItems" :key="index" :problem="item.problem" :solution="item.solution" :result="item.result"
+      />
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 3rem 0;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+}
 </style>
