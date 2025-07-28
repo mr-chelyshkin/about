@@ -260,10 +260,10 @@ import BlockContentHeader from '../content/BlockContentHeader.vue';
           
           .tech-label {
             font-size: $text-size-sm;
-            color: $color-text-secondary;
+            color: $color-text-accent;
 
             min-width: 100px;
-            font-weight: 500;
+            font-weight: 700;
           }
           
           .tech-value {
