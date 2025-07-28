@@ -139,13 +139,13 @@ const solutionItems: SolutionItem[] = [
 ];
 
 const philosophyNote = {
-  header: '// Platform Engineering Philosophy',
+  header: '// Philosophy',
   content: 'I believe in platforms that simplify, scale, and empower developers. My goal is creating infrastructure that\'s clear, predictable, and measurable—helping teams deliver faster and with confidence.'
 };
 </script>
 
 <template>
-  <BlockContentHeader title="Core Technologies & Methodologies" subtitle="EXPERTISE" number="02" />
+  <BlockContentHeader title="Engineering Expertise & Practices" subtitle="EXPERTISE" number="02" />
   <div class="container">
     <ContentNote :header="philosophyNote.header" :content="philosophyNote.content"/>
     <div class="expertise-content">

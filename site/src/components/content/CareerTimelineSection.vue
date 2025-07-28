@@ -72,7 +72,7 @@ defineProps<Props>();
     &::before {
       content: '';
       position: absolute;
-      left: 2.3rem;
+      left: 2.25rem;
       top: 0.3rem;
       width: 10px;
       height: 10px;
