@@ -93,21 +93,26 @@ const careerItems: CareerItem[] = [
   {
     year: '2013',
     role: 'QA Engineer',
-    company: 'Raiffeisen Bank, VTB Bank'
+    company: 'VTB Bank, Russia'
+  },
+  {
+    year: '2014',
+    role: 'Sr QA Engineer',
+    company: 'Raiffeisen Bank, Russia'
   },
   {
     year: '2016',
-    role: 'DevOps Team Lead',
-    company: 'Mail.ru Group'
+    role: 'DevOps / DevOps Team Lead',
+    company: 'Mail.ru Group (VK), Russia'
   },
   {
     year: '2022',
-    role: 'Lead DevOps',
-    company: 'Ozon'
+    role: 'Lead DevOps (mobile infrastrucutre)',
+    company: 'OzonTech, Russia'
   },
   {
     year: '2023+',
-    role: 'Senior SRE Engineer',
+    role: 'Senior SRE Engineer (core team)',
     company: 'Aqua Security, Israel',
     current: true
   }
