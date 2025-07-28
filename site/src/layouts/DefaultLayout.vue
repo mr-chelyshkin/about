@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
 import { useBlockTracker } from '@/composables/useBlockTracker';
+import { useScrollLock } from '@/composables/useScrollLock';
 
 import NavContent from '@/components/nav/NavContent.vue';
 import NavBurger from '@/components/nav/NavBurger.vue';
@@ -12,13 +13,25 @@ const {
   cleanup 
 } = useBlockTracker();
 
-onMounted(() => { initializeTracker(); });
-onUnmounted(() => { cleanup(); });
-
-const isMenuOpen = ref(false);
-const burgerButtonRef = ref();
 const handleBurgerToggle = (isActive: boolean) => { isMenuOpen.value = isActive; }
 const closeMenu = () => { isMenuOpen.value = false; if (burgerButtonRef.value) { burgerButtonRef.value.isActive = false; }}
+
+const { lock, unlock } = useScrollLock();
+const isMenuOpen = ref(false);
+const burgerButtonRef = ref();
+
+watch(isMenuOpen, (newValue) => {
+  if (newValue) {
+    lock();
+  } else {
+    unlock();
+  }
+});
+onMounted(() => { initializeTracker(); });
+onUnmounted(() => { 
+  cleanup(); 
+  unlock();
+});
 </script>
 
 <template>
