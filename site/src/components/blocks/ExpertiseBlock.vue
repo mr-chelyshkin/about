@@ -3,6 +3,7 @@ import BlockContentHeader from '@/components/content/BlockContentHeader.vue';
 import ExpertiseSectionList from '@/components/content/ExpertiseSectionList.vue';
 import CareerTimelineSection from '@/components/content/CareerTimelineSection.vue';
 import CareerSolutionList from '@/components/content/CareerSolutionList.vue';
+import ContentNote from '@/components/content/ContentNote.vue';
 
 interface TechLine {
   label: string;
@@ -120,6 +121,11 @@ const solutionItems: SolutionItem[] = [
     result: '35% shorter release cycle'
   }
 ];
+
+const philosophyNote = {
+  header: '// Platform Engineering Philosophy',
+  content: 'Building platforms that make development predictable and scalable. Every system should be understandable, reliable, and deliver measurable value to development teams.'
+};
 </script>
 
 <template>
@@ -141,13 +147,10 @@ const solutionItems: SolutionItem[] = [
       </div>
     </div>
     
-    <div class="methodology-note">
-      <div class="note-header">// Platform Engineering Philosophy</div>
-      <p>
-        Building platforms that make development predictable and scalable. 
-        Every system should be understandable, reliable, and deliver measurable value to development teams.
-      </p>
-    </div>
+    <ContentNote 
+      :header="philosophyNote.header" 
+      :content="philosophyNote.content" 
+    />
   </div>
 </template>
 
@@ -184,27 +187,6 @@ const solutionItems: SolutionItem[] = [
       flex: none;
       position: static;
     }
-  }
-}
-
-.methodology-note {
-  background: #f8f9fa;
-  padding: 2rem;
-  border-left: 4px solid $color-text-main;
-  
-  .note-header {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1rem;
-    font-weight: 500;
-  }
-  
-  p {
-    color: $color-text-main;
-    line-height: 1.6;
-    font-size: 1.1rem;
-    margin: 0;
   }
 }
 </style>
