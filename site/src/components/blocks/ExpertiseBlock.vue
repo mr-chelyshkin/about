@@ -184,6 +184,7 @@ const philosophyNote = {
   .sidebar-content {
     height: fit-content;
     position: sticky;
+    top: 5rem;
     
     @media (max-width: 1200px) {
       flex: 0 0 300px;
