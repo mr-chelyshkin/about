@@ -28,7 +28,7 @@ const props = defineProps<Props>();
   }
 
   &__subtitle {
-    color: $color-text-secondary;
+    color: $color-text-contrast;
     font-size: $text-size-sm;
   }
 

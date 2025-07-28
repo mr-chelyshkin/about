@@ -1,5 +1,68 @@
 <script setup lang="ts">
-import BlockContentHeader from '../content/BlockContentHeader.vue';
+import BlockContentHeader from '@/components/content/BlockContentHeader.vue';
+import ExpertiseSectionItem from '@/components/content/ExpertiseSectionList.vue';
+
+interface TechLine {
+  label: string;
+  value: string;
+}
+
+interface ExpertiseSection {
+  number: string;
+  title: string;
+  techLines: TechLine[];
+}
+
+const expertiseSections: ExpertiseSection[] = [
+  {
+    number: '01',
+    title: 'Cloud Infrastructure',
+    techLines: [
+      { label: 'Platform', value: 'AWS (EKS, Lambda, Aurora, Step Functions, DynamoDB)' },
+      { label: 'Approach', value: 'Cost-effective architecture, minimal downtime migrations' }
+    ]
+  },
+  {
+    number: '02',
+    title: 'Infrastructure as Code',
+    techLines: [
+      { label: 'Tools', value: 'Terraform, Ansible, Helm, SaltStack' },
+      { label: 'Approach', value: 'Full automation, reproducible deployments' }
+    ]
+  },
+  {
+    number: '03',
+    title: 'Container Orchestration',
+    techLines: [
+      { label: 'Stack', value: 'Kubernetes, Docker, EKS, Helm, ArgoCD' },
+      { label: 'Approach', value: 'Zero-downtime deployments, auto-scaling platforms' }
+    ]
+  },
+  {
+    number: '04',
+    title: 'CI/CD & GitOps',
+    techLines: [
+      { label: 'Pipeline', value: 'GitHub Actions, GitLab CI, Jenkins, ArgoCD' },
+      { label: 'Approach', value: 'Transparent deployments, automated rollbacks' }
+    ]
+  },
+  {
+    number: '05',
+    title: 'Security & Compliance',
+    techLines: [
+      { label: 'Framework', value: 'DevSecOps, Vault, IAM, Container Security' },
+      { label: 'Approach', value: 'Proactive vulnerability management, incident prevention' }
+    ]
+  },
+  {
+    number: '06',
+    title: 'Programming & Automation',
+    techLines: [
+      { label: 'Languages', value: 'Go, Python, Bash, Rust' },
+      { label: 'Approach', value: 'Clean code, maintainable infrastructure tooling' }
+    ]
+  }
+];
 </script>
 
 <template>
@@ -13,107 +76,13 @@ import BlockContentHeader from '../content/BlockContentHeader.vue';
     <div class="expertise-content">
       <div class="expertise-layout">
         <div class="expertise-list">
-          <div class="expertise-section">
-            <div class="section-header">
-              <span class="section-number">01</span>
-              <h4>Cloud Infrastructure</h4>
-            </div>
-            <div class="section-content">
-              <div class="tech-line">
-                <span class="tech-label">Platform:</span>
-                <span class="tech-value">AWS (EKS, Lambda, Aurora, Step Functions, DynamoDB)</span>
-              </div>
-              <div class="tech-line">
-                <span class="tech-label">Approach:</span>
-                <span class="tech-value">Cost-effective architecture, minimal downtime migrations</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="expertise-section">
-            <div class="section-header">
-              <span class="section-number">02</span>
-              <h4>Infrastructure as Code</h4>
-            </div>
-            <div class="section-content">
-              <div class="tech-line">
-                <span class="tech-label">Tools:</span>
-                <span class="tech-value">Terraform, Ansible, Helm, SaltStack</span>
-              </div>
-              <div class="tech-line">
-                <span class="tech-label">Approach:</span>
-                <span class="tech-value">Full automation, reproducible deployments</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="expertise-section">
-            <div class="section-header">
-              <span class="section-number">03</span>
-              <h4>Container Orchestration</h4>
-            </div>
-            <div class="section-content">
-              <div class="tech-line">
-                <span class="tech-label">Stack:</span>
-                <span class="tech-value">Kubernetes, Docker, EKS, Helm, ArgoCD</span>
-              </div>
-              <div class="tech-line">
-                <span class="tech-label">Approach:</span>
-                <span class="tech-value">Zero-downtime deployments, auto-scaling platforms</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="expertise-section">
-            <div class="section-header">
-              <span class="section-number">04</span>
-              <h4>CI/CD & GitOps</h4>
-            </div>
-            <div class="section-content">
-              <div class="tech-line">
-                <span class="tech-label">Pipeline:</span>
-                <span class="tech-value">GitHub Actions, GitLab CI, Jenkins, ArgoCD</span>
-              </div>
-              <div class="tech-line">
-                <span class="tech-label">Approach:</span>
-                <span class="tech-value">Transparent deployments, automated rollbacks</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="expertise-section">
-            <div class="section-header">
-              <span class="section-number">05</span>
-              <h4>Security & Compliance</h4>
-            </div>
-            <div class="section-content">
-              <div class="tech-line">
-                <span class="tech-label">Framework:</span>
-                <span class="tech-value">DevSecOps, Vault, IAM, Container Security</span>
-              </div>
-              <div class="tech-line">
-                <span class="tech-label">Approach:</span>
-                <span class="tech-value">Proactive vulnerability management, incident prevention</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="expertise-section">
-            <div class="section-header">
-              <span class="section-number">06</span>
-              <h4>Programming & Automation</h4>
-            </div>
-            <div class="section-content">
-              <div class="tech-line">
-                <span class="tech-label">Languages:</span>
-                <span class="tech-value">Go, Python, Bash, Rust</span>
-              </div>
-              <div class="tech-line">
-                <span class="tech-label">Approach:</span>
-                <span class="tech-value">Clean code, maintainable infrastructure tooling</span>
-              </div>
-            </div>
-          </div>
+          <ExpertiseSectionItem
+            v-for="section in expertiseSections"
+            :key="section.number"
+            :number="section.number"
+            :title="section.title"
+            :tech-lines="section.techLines"
+          />
         </div>
 
         <div class="sidebar-content">
@@ -174,23 +143,20 @@ import BlockContentHeader from '../content/BlockContentHeader.vue';
           </div>
         </div>
       </div>
-
-      
     </div>
+    
     <div class="methodology-note">
-        <div class="note-header">// Platform Engineering Philosophy</div>
-        <p>
-          Building platforms that make development predictable and scalable. 
-          Every system should be understandable, reliable, and deliver measurable value to development teams.
-        </p>
-      </div>
+      <div class="note-header">// Platform Engineering Philosophy</div>
+      <p>
+        Building platforms that make development predictable and scalable. 
+        Every system should be understandable, reliable, and deliver measurable value to development teams.
+      </p>
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .expertise-content {
-  display: flex;
-  justify-content: center;
   padding: 3rem 0;
   
   .expertise-layout {
@@ -210,74 +176,12 @@ import BlockContentHeader from '../content/BlockContentHeader.vue';
   
   .expertise-list {
     flex: 1;
-    
-    .expertise-section {
-      border-bottom: 1px solid $color-border-main;
-      padding: 2rem 0;
-      
-      &:last-child {
-        border-bottom: none;
-      }
-      
-      .section-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1.5rem;
-        
-        .section-number {
-          background: $color-text-main;
-          color: $color-text-contrast;
-
-          padding: 0.3rem 0.8rem;
-          margin-right: 1.5rem;
-          border-radius: 2px;
-          font-size: 0.85rem;
-          font-weight: 600;
-          min-width: 3rem;
-          text-align: center;
-        }
-        
-        h4 {
-          color: $color-text-main;
-        }
-      }
-      
-      .section-content {
-        margin-left: 4.5rem;
-        
-        @media (max-width: 768px) {
-          margin-left: 0;
-        }
-        
-        .tech-line {
-          margin-bottom: $text-size-xsm;
-          display: flex;
-          
-          @media (max-width: 768px) {
-            flex-direction: column;
-            gap: 0.3rem;
-          }
-          
-          .tech-label {
-            font-size: $text-size-sm;
-            color: $color-text-accent;
-
-            min-width: 100px;
-            font-weight: 700;
-          }
-          
-          .tech-value {
-            color: $color-text-main;
-            font-weight: 400;
-          }
-        }
-      }
-    }
   }
   
   .sidebar-content {
     flex: 0 0 360px;
     position: sticky;
+    top: 2rem;
     height: fit-content;
     
     @media (max-width: 1200px) {
@@ -334,7 +238,6 @@ import BlockContentHeader from '../content/BlockContentHeader.vue';
         
         &::before {
           content: '';
-
           position: absolute;
           left: 2.2rem;
           top: 0.3rem;
@@ -352,14 +255,12 @@ import BlockContentHeader from '../content/BlockContentHeader.vue';
         .timeline-year {
           color: $color-text-secondary;
           font-size: $text-size-xsm;
-
           font-weight: 600;
         }
         
         .timeline-role {
           font-size: $text-size-sm;
           color: $color-text-main;
-          
           font-weight: 600;
           margin: 0.2rem 0;
         }
