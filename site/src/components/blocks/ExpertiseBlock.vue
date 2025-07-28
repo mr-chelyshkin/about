@@ -9,6 +9,7 @@ import BlockContentHeader from '../content/BlockContentHeader.vue';
     number="02" 
   />
   
+  <div class="container">
   <div class="expertise-content">
     <div class="methodology-section">
       <h3>Platform Engineering Philosophy</h3>
@@ -96,6 +97,7 @@ import BlockContentHeader from '../content/BlockContentHeader.vue';
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 

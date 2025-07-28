@@ -49,9 +49,7 @@ onUnmounted(() => {
     </header>
 
     <main class="layout__main">
-      <div class="container">
-        <slot />
-      </div>
+      <slot />
     </main>
 
     <footer class="layout__footer">

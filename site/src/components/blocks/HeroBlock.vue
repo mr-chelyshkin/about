@@ -1,6 +1,7 @@
 <script setup lang="ts"/>
 
 <template>
+  <div class="container">
   <div class="hero" data-block-title="WELCOME" data-block-number="01">
     <div class="hero__background_image">
       <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Background Image" />
@@ -37,6 +38,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <style scoped lang="scss">

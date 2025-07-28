@@ -20,10 +20,8 @@ const props = defineProps<Props>();
 .header {
   background-color: $color-background-contrast;
 
-  transform: translateX(-50%);
-  margin-left: 50%;
   padding: 2rem;
-  width: 100vw;
+  width: 100%;
  
   @media (max-width: 768px) {
     padding: 1rem;
