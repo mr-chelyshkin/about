@@ -2,7 +2,6 @@
 import CareerTimelineSection from '@/components/content/CareerTimelineSection.vue';
 import ExpertiseSectionList from '@/components/content/ExpertiseSectionList.vue';
 import BlockContentHeader from '@/components/content/BlockContentHeader.vue';
-import CareerSolutionList from '@/components/content/CareerSolutionList.vue';
 import ContentNote from '@/components/content/ContentNote.vue';
 
 interface TechLine {
@@ -21,12 +20,6 @@ interface CareerItem {
   role: string;
   company: string;
   current?: boolean;
-}
-
-interface SolutionItem {
-  problem: string;
-  solution: string;
-  result: string;
 }
 
 const expertiseSections: ExpertiseSection[] = [
@@ -120,24 +113,6 @@ const careerItems: CareerItem[] = [
   }
 ];
 
-const solutionItems: SolutionItem[] = [
-  {
-    problem: 'Slow mobile app releases at Ozon',
-    solution: 'Built unified CI/CD with mobile farm',
-    result: '25% faster time-to-market'
-  },
-  {
-    problem: 'High DB costs at Aqua Security',
-    solution: 'Automated Aurora Serverless migration',
-    result: 'Reduced costs, improved performance'
-  },
-  {
-    problem: 'Slow deployments at Mail.ru',
-    solution: 'Migrated 50+ services to Kubernetes',
-    result: '35% shorter release cycle'
-  }
-];
-
 const philosophyNote = {
   header: '// Philosophy',
   content: 'I believe in platforms that simplify, scale, and empower developers. My goal is creating infrastructure that\'s clear, predictable, and measurable—helping teams deliver faster and with confidence.'
@@ -153,7 +128,6 @@ const philosophyNote = {
         <ExpertiseSectionList :sections="expertiseSections" />
         <div class="sidebar-content">
           <CareerTimelineSection :items="careerItems" />
-          <!-- <CareerSolutionList :items="solutionItems" /> -->
         </div>
       </div>
     </div>
