@@ -2,6 +2,7 @@
 import BlockHero from '@/components/blocks/BlockHero.vue';
 import BlockExpertise from '@/components/blocks/BlockExpertise.vue';
 import BlockSolutions from '@/components/blocks/BlockSolutions.vue';
+import BlockOpenSource from '@/components/blocks/BlockOpenSource.vue';
 </script>
 
 <template>
@@ -21,6 +22,12 @@ import BlockSolutions from '@/components/blocks/BlockSolutions.vue';
       title="Real-World Impact"
       subtitle="SOLUTIONS"
       blockNumber="03"
+    />
+
+    <BlockOpenSource
+      title="Ope"
+      subtitle="OpenSource"
+      blockNumber="04"
     />
   </main>
 </template>

@@ -16,7 +16,7 @@ defineProps<{
 <template>
   <BaseBlock :title="title" :subtitle="subtitle" :number="blockNumber">
     <h4>Major Projects</h4>
-    <div class="block-solutions-grid">
+    <div class="block-solutions-prj-grid">
       <ItemCardText v-for="(item, index) in projects"
         :key="index"
         v-bind="item"
@@ -24,7 +24,9 @@ defineProps<{
     </div>
 
     <h4>Impact Summary</h4>
-    <ItemChainText :items="achievements" />
+    <div class="block-solutions-ach-grid">
+      <ItemChainText :items="achievements" />
+    </div>
   </BaseBlock>
 </template>
 
@@ -33,7 +35,7 @@ h4 {
   margin: 3rem 0;
 }
 
-.block-solutions-grid {
+.block-solutions-prj-grid {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   display: grid;
@@ -43,5 +45,9 @@ h4 {
     padding: 2rem 0;
     gap: 1.5rem;
   }
+}
+
+.block-solutions-ach-grid {
+  padding-bottom: 9rem;
 }
 </style>
