@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import HeroBlock from '@/components/blocks/HeroBlock.vue';
+import BlockHero from '@/components/blocks/BlockHero.vue';
 import BlockExpertise from '@/components/blocks/BlockExpertise.vue';
-import SolutionsBlock from '@/components/blocks/SolutionsBlock.vue';
+import BlockSolutions from '@/components/blocks/BlockSolutions.vue';
 </script>
 
 <template>
   <main>
-    <HeroBlock />
+    <BlockHero 
+      title="WELCOME" 
+      number="01" 
+    />
 
     <BlockExpertise
       title="Engineering Expertise & Practices"
@@ -14,6 +17,10 @@ import SolutionsBlock from '@/components/blocks/SolutionsBlock.vue';
       block-number="02"
     />
 
-    <SolutionsBlock />
+    <BlockSolutions
+      title="Real-World Impact"
+      subtitle="SOLUTIONS"
+      blockNumber="03"
+    />
   </main>
 </template>

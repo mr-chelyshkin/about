@@ -1,14 +1,10 @@
-<script setup lang="ts">
-import ItemCardText from '@/components/items/ItemCardText.vue'
-import BaseBlock from '@/components/base/BaseBlock.vue';
-
-interface ProjectItem {
-  problem: string;
-  solution: string;
-  result: string;
+export interface ProjectItem {
+  problem: string
+  solution: string
+  result: string
 }
 
-const projectItems: ProjectItem[] = [
+export const projects: ProjectItem[] = [
   {
     problem: 'Slow and unreliable mobile app delivery process',
     solution: 'Architected and built a scalable mobile CI/CD platform with automated iOS & Android testing farms',
@@ -34,31 +30,4 @@ const projectItems: ProjectItem[] = [
     solution: 'Implemented proactive DevSecOps practices, centralized secrets management, and automated vulnerability scanning',
     result: 'Reduced security incidents to zero, established continuous compliance across infrastructure and CI/CD pipelines'
   }
-];
-</script>
-
-<template>
-  <BaseBlock title="Real-World Impact" subtitle="SOLUTIONS" number="03">
-    <h4>// Projects</h4>
-    <div class="solutions-grid">
-      <ItemCardText
-        v-for="(item, index) in projectItems" :key="index" :problem="item.problem" :solution="item.solution" :result="item.result"
-      />
-    </div>
-  </BaseBlock>
-</template>
-
-<style scoped lang="scss">
-.solutions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  padding: 3rem 0;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 2rem 0;
-  }
-}
-</style>
+]
