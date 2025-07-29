@@ -11,16 +11,17 @@ const props = defineProps<Props>();
 
 <template>
   <BaseListItem :number="props.number" :title="props.title">
-    <div v-for="techLine in props.data" :key="techLine.key" class="item">
-      <span class="item__label">{{ techLine.key }}:</span>
-      <span class="item__value">{{ techLine.value }}</span>
+    <div v-for="techLine in props.data" :key="techLine.key" class="item-list-kv">
+      <span class="item-list-kv__label">{{ techLine.key }}:</span>
+      <span class="item-list-kv__value">{{ techLine.value }}</span>
     </div>
   </BaseListItem>
 </template>
 
 <style scoped lang="scss">
-.item {
+.item-list-kv {
   margin-bottom: $text-size-xsm;
+
   display: flex;
   
   @media (max-width: 768px) {
@@ -31,12 +32,14 @@ const props = defineProps<Props>();
   &__label {
     font-size: $text-size-sm;
     color: $color-text-accent;
+
     min-width: 100px;
     font-weight: 700;
   }
   
   &__value {
     color: $color-text-main;
+
     font-weight: 400;
   }
 }
