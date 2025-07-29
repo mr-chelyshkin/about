@@ -8,77 +8,72 @@ export interface ProjectItem {
 export const projects: ProjectItem[] = [
   {
     header: {
-      key: 'Problem',
-      value: 'Slow and unreliable mobile app delivery process'
+      key: 'Issue',
+      value: 'Uncontrolled mobile app releases and unstable builds'
     },
     body: {
       key: 'Solution',
-      value: 'Architected and built a scalable mobile CI/CD platform with automated iOS & Android testing farms'
+      value: 'Built unified Mobile CI/CD and scalable mobile testing farms (20+ MacStudios, Kubernetes Android emulators)'
     },
     footer: {
       key: 'Result',
-      value: 'Reduced release cycles by 25%, significantly increased deployment stability and developer productivity'
+      value: '35% faster releases, increased reliability'
     },
-    href: '/mobile-ci'
   },
   {
     header: {
-      key: 'Problem',
-      value: 'Growing infrastructure costs and database performance bottlenecks'
+      key: 'Issue',
+      value: 'High database costs and scalability bottlenecks'
     },
     body: {
       key: 'Solution',
-      value: 'Designed and fully automated seamless zero-downtime migrations to serverless database architecture (Aurora Serverless)'
+      value: 'Automated migration proccess to AWS Aurora Serverless (AWS Lambda, StepFunctions, CodeBuild)'
     },
     footer: {
       key: 'Result',
-      value: 'Achieved 30% infrastructure cost reduction with noticeable improvements in application performance'
+      value: '15% infrastructure cost reduction, improved performance'
     },
-    href: '/serverless-db'
   },
   {
     header: {
-      key: 'Problem',
-      value: 'Complex legacy infrastructure slowing down service deployments'
+      key: 'Issue',
+      value: 'Complex manual management of OpenStack infrastructure'
     },
     body: {
       key: 'Solution',
-      value: 'Led migration and standardization of 50+ core services to Kubernetes with automated CI/CD pipelines'
+      value: 'Developed OpenStack CLI automation tool (Go, Python) with integrated SaltStack orchestration (like aws-cli)'
     },
     footer: {
       key: 'Result',
-      value: 'Deployment speed increased by 35%, drastically reduced manual intervention and downtime'
+      value: 'Automated deployments, eliminated manual configuration errors'
     },
-    href: '/kubernetes-migration'
   },
   {
     header: {
-      key: 'Problem',
-      value: 'Manual and error-prone infrastructure management'
+      key: 'Issue',
+      value: 'No clear visibility of hardware distribution in data centers'
     },
     body: {
       key: 'Solution',
-      value: 'Developed custom Infrastructure as Code (IaC) tooling and robust APIs using Terraform, Go, and Python'
+      value: 'Created internal Flask-based dashboard visualizing servers (relationship diagram), racks, and network equipment inventory'
     },
     footer: {
       key: 'Result',
-      value: 'Ensured reproducibility, eliminated manual errors, and cut operational overhead significantly'
+      value: 'Improved infrastructure transparency and accelerated incident response'
     },
-    href: '/iac-tooling'
   },
   {
     header: {
-      key: 'Problem',
-      value: 'Security vulnerabilities and inconsistent compliance across environments'
+      key: 'Issue',
+      value: 'Inefficient artifact storage and delivery for mobile teams'
     },
     body: {
       key: 'Solution',
-      value: 'Implemented proactive DevSecOps practices, centralized secrets management, and automated vulnerability scanning'
+      value: 'Developed unified artifact storage & distribution service with HTTP/gRPC API and web UI (Go, VueJS)'
     },
     footer: {
       key: 'Result',
-      value: 'Reduced security incidents to zero, established continuous compliance across infrastructure and CI/CD pipelines'
+      value: 'Simplified artifact management, enabled rapid app distribution (integrated in CI/CD)'
     },
-    href: '/devsecops'
   }
 ];
