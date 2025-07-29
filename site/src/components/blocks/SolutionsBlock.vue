@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BlockHeader from '@/components/content/BlockHeader.vue';
 import ItemCardText from '@/components/items/ItemCardText.vue'
+import BaseBlock from '@/components/base/BaseBlock.vue';
 
 interface ProjectItem {
   problem: string;
@@ -38,16 +39,14 @@ const projectItems: ProjectItem[] = [
 </script>
 
 <template>
-  <BlockHeader title="Real-World Impact" subtitle="SOLUTIONS" number="03" />
-
-  <div class="container">
+  <BaseBlock title="Real-World Impact" subtitle="SOLUTIONS" number="03">
     <h4>// Projects</h4>
     <div class="solutions-grid">
       <ItemCardText
         v-for="(item, index) in projectItems" :key="index" :problem="item.problem" :solution="item.solution" :result="item.result"
       />
     </div>
-  </div>
+  </BaseBlock>
 </template>
 
 <style scoped lang="scss">
