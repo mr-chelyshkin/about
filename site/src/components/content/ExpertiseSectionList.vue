@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ExpertiseSectionItem from './ExpertiseSectionItem.vue';
+import ItemList from './ItemList.vue';
 
 interface TechLine {
   label: string;
@@ -27,7 +27,7 @@ defineProps<Props>();
         <h4>{{ section.title }}</h4>
       </div>
       <div class="section-content">
-        <ExpertiseSectionItem v-for="techLine in section.techLines" :key="techLine.label" :label="techLine.label" :value="techLine.value"/>
+        <ItemList v-for="techLine in section.techLines" :key="techLine.label" :label="techLine.label" :value="techLine.value"/>
       </div>
     </div>
   </div>

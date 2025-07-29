@@ -9,26 +9,26 @@ defineProps<Props>();
 </script>
 
 <template>
-  <a href="#" class="solution-card">
-    <div class="card-header">
-      <div class="problem-label">Problem</div>
-      <div class="problem-text">{{ problem }}</div>
+  <a href="#" class="card">
+    <div class="card__header">
+      <div class="card__header-label h-label">Problem</div>
+      <div class="card__header-text h-text">{{ problem }}</div>
     </div>
     
-    <div class="card-body">
-      <div class="solution-label">Solution</div>
-      <div class="solution-text">{{ solution }}</div>
+    <div class="card__body">
+      <div class="card__body-label b-label">Solution</div>
+      <div class="card__body-text b-text">{{ solution }}</div>
     </div>
     
-    <div class="card-footer">
-      <div class="result-label">Result</div>
-      <div class="result-text">{{ result }}</div>
+    <div class="card__footer">
+      <div class="card__footer-label f-label">Result</div>
+      <div class="card__footer-text f-text">{{ result }}</div>
     </div>
   </a>
 </template>
 
 <style scoped lang="scss">
-.solution-card {
+.card {
   display: block;
   background: $color-background-main;
   border: 2px solid $color-text-main;
@@ -64,58 +64,59 @@ defineProps<Props>();
   &::after {
     display: none;
   }
-}
 
-.card-header,
-.card-body,
-.card-footer {
-  margin-bottom: 1rem;
+  &__header,
+  &__body,
+  &__footer {
+    margin-bottom: 1rem;
   
-  &:last-child {
-    margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__header-label,
+  &__body-label,
+  &__footer-label {
+    font-family: $font-main;
+    font-size: $text-size-xsm;
+
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+ }
+
+  &__header-text,
+  &__body-text,
+  &__footer-text {
+    font-size: $text-size-sm;
+    line-height: 1.4;
   }
 }
 
-.problem-label,
-.solution-label,
-.result-label {
-  font-family: $font-main;
-  font-size: $text-size-xsm;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem;
-}
-
-.problem-label {
+.h-label {
   color: $color-text-accent;
 }
 
-.solution-label {
+.b-label {
   color: $color-text-main;
 }
 
-.result-label {
+.f-label {
   color: $color-text-secondary;
 }
 
-.problem-text,
-.solution-text,
-.result-text {
-  font-size: $text-size-sm;
-  line-height: 1.4;
-}
-
-.problem-text {
+.h-text {
   color: $color-text-main;
   font-weight: 600;
 }
 
-.solution-text {
+.b-text {
   color: $color-text-main;
 }
 
-.result-text {
+.f-text {
   color: $color-text-secondary;
   font-style: italic;
 }
