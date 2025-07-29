@@ -2,7 +2,7 @@
 import CareerTimelineSection from '@/components/content/CareerTimelineSection.vue';
 import ExpertiseSectionList from '@/components/content/ExpertiseSectionList.vue';
 import BlockHeader from '@/components/content/BlockHeader.vue';
-import ItemNote from '@/components/content/ItemNote.vue';
+import NoteText from '@/components/items/NoteText.vue';
 
 interface TechLine {
   label: string;
@@ -119,15 +119,18 @@ const careerItems: CareerItem[] = [
 ];
 
 const philosophyNote = {
-  header: '// Philosophy',
-  content: 'I believe in platforms that simplify, scale, and empower developers. My goal is creating infrastructure that\'s clear, predictable, and measurable—helping teams deliver faster and with confidence.'
+ header: 'Philosophy',
+ content: [
+   'I believe in platforms that simplify, scale, and empower developers.',
+   'My goal is creating infrastructure that\'s clear, predictable, and measurable—helping teams deliver faster and with confidence.'
+ ]
 };
 </script>
 
 <template>
   <BlockHeader title="Engineering Expertise & Practices" subtitle="EXPERTISE" number="02" />
   <div class="container">
-    <ItemNote :header="philosophyNote.header" :content="philosophyNote.content"/>
+    <NoteText :header="philosophyNote.header" :content="philosophyNote.content" />
     <div class="expertise-content">
       <div class="expertise-layout">
         <ExpertiseSectionList :sections="expertiseSections" />

@@ -53,7 +53,7 @@ onUnmounted(() => {
     </header>
 
     <main class="layout__main">
-      <slot />
+      <slot/>
     </main>
 
     <footer class="layout__footer">

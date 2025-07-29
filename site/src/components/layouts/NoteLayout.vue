@@ -1,7 +1,6 @@
 <script setup lang="ts">
 interface Props {
   header: string;
-  content: string;
 }
 
 defineProps<Props>();
@@ -9,8 +8,8 @@ defineProps<Props>();
 
 <template>
   <div class="note">
-    <div class="note__header">{{ header }}</div>
-    <p>{{ content }}</p>
+    <div class="note__header">// {{ header }}</div>
+    <slot/>
   </div>
 </template>
 
@@ -54,14 +53,6 @@ defineProps<Props>();
     letter-spacing: 1px;
     margin-bottom: 1rem;
     font-weight: 600;
-  }
-  
-  p {
-    color: $color-text-main;
-
-    line-height: 1.6;
-    font-size: 1.1rem;
-    margin: 0;
   }
 }
 </style>
