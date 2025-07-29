@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import ListKV from '@/components/items/ListKV.vue';
+import ItemListKV from '@/components/items/ItemListKV.vue';
 
 interface TechLine {
-  label: string;
+  key: string;
   value: string;
 }
 
 interface ExpertiseSection {
   number: string;
   title: string;
-  techLines: TechLine[];
+  data: TechLine[];
 }
 
 interface Props {
@@ -21,12 +21,12 @@ defineProps<Props>();
 
 <template>
   <div class="expertise-list">
-    <ListKV 
+    <ItemListKV 
       v-for="section in sections" 
       :key="section.number" 
       :number="section.number" 
       :title="section.title"
-      :techLines="section.techLines"
+      :data="section.data"
     />
   </div>
 </template>

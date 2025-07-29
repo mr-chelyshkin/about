@@ -5,14 +5,14 @@ import BlockHeader from '@/components/content/BlockHeader.vue';
 import NoteText from '@/components/items/NoteText.vue';
 
 interface TechLine {
-  label: string;
+  key: string;
   value: string;
 }
 
 interface ExpertiseSection {
   number: string;
   title: string;
-  techLines: TechLine[];
+  data: TechLine[];
 }
 
 interface CareerItem {
@@ -26,65 +26,65 @@ const expertiseSections: ExpertiseSection[] = [
   {
     number: '01',
     title: 'Cloud Infrastructure',
-    techLines: [
-      { label: 'Platform', value: 'AWS (EKS, Lambda, Aurora, Step Functions, DynamoDB)' },
-      { label: 'Approach', value: 'Cost-effective architecture, minimal downtime migrations' }
+    data: [
+      { key: 'Platform', value: 'AWS (EKS, Lambda, Aurora, Step Functions, DynamoDB)' },
+      { key: 'Approach', value: 'Cost-effective architecture, minimal downtime migrations' }
     ]
   },
   {
     number: '02',
     title: 'Infrastructure as Code',
-    techLines: [
-      { label: 'Tools', value: 'Terraform, Ansible, Helm, SaltStack' },
-      { label: 'Approach', value: 'Full automation, reproducible deployments' }
+    data: [
+      { key: 'Tools', value: 'Terraform, Ansible, Helm, SaltStack' },
+      { key: 'Approach', value: 'Full automation, reproducible deployments' }
     ]
   },
   {
     number: '03',
     title: 'Container Orchestration',
-    techLines: [
-      { label: 'Stack', value: 'Kubernetes, Docker, EKS, Helm, ArgoCD' },
-      { label: 'Approach', value: 'Zero-downtime deployments, auto-scaling platforms' }
+    data: [
+      { key: 'Stack', value: 'Kubernetes, Docker, EKS, Helm, ArgoCD' },
+      { key: 'Approach', value: 'Zero-downtime deployments, auto-scaling platforms' }
     ]
   },
   {
     number: '04',
     title: 'CI/CD & GitOps',
-    techLines: [
-      { label: 'Pipeline', value: 'GitHub Actions, GitLab CI, Jenkins, ArgoCD' },
-      { label: 'Approach', value: 'Transparent deployments, automated rollbacks' }
+    data: [
+      { key: 'Pipeline', value: 'GitHub Actions, GitLab CI, Jenkins, ArgoCD' },
+      { key: 'Approach', value: 'Transparent deployments, automated rollbacks' }
     ]
   },
   {
     number: '05',
     title: 'Security & Compliance',
-    techLines: [
-      { label: 'Framework', value: 'DevSecOps, Vault, IAM, Container Security' },
-      { label: 'Approach', value: 'Proactive vulnerability management, incident prevention' }
+    data: [
+      { key: 'Framework', value: 'DevSecOps, Vault, IAM, Container Security' },
+      { key: 'Approach', value: 'Proactive vulnerability management, incident prevention' }
     ]
   },
   {
     number: '06',
     title: 'Programming & Automation',
-    techLines: [
-      { label: 'Languages', value: 'Go, Python, Bash, Rust' },
-      { label: 'Approach', value: 'Clean code, maintainable infrastructure tooling' }
+    data: [
+      { key: 'Languages', value: 'Go, Python, Bash, Rust' },
+      { key: 'Approach', value: 'Clean code, maintainable infrastructure tooling' }
     ]
   },
   {
     number: '07',
     title: 'System Design & Architecture',
-    techLines: [
-      { label: 'Domains', value: 'High-load Platforms, Mobile Infrastructure, Hybrid & Multi-Cloud' },
-      { label: 'Approach', value: 'Scalable, modular designs aligned with business goals and growth' }
+    data: [
+      { key: 'Domains', value: 'High-load Platforms, Mobile Infrastructure, Hybrid & Multi-Cloud' },
+      { key: 'Approach', value: 'Scalable, modular designs aligned with business goals and growth' }
     ]
   },
   {
     number: '08',
     title: 'Observability & Monitoring',
-    techLines: [
-      { label: 'Stack', value: 'Prometheus, Grafana, Datadog, ELK Stack, OpenTelemetry' },
-      { label: 'Approach', value: 'Proactive incident detection, transparent metrics, end-to-end tracing' }
+    data: [
+      { key: 'Stack', value: 'Prometheus, Grafana, Datadog, ELK Stack, OpenTelemetry' },
+      { key: 'Approach', value: 'Proactive incident detection, transparent metrics, end-to-end tracing' }
     ]
   }
 ];

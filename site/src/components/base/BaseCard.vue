@@ -6,13 +6,13 @@ defineProps<Props>();
 </script>
 
 <template>
-  <a :href="href" class="card">
+  <a :href="href" class="base-card">
     <slot/>
   </a>
 </template>
 
 <style scoped lang="scss">
-.card {
+.base-card {
   background: $color-background-main;
   border: 2px solid $color-text-main;
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LayoutNote from '@/components/layouts/LayoutNote.vue';
+import BaseNote from '@/components/base/BaseNote.vue';
 
 interface Props {
   header: string;
@@ -9,9 +9,11 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-  <LayoutNote :header="props.header">
-    <p class="note-text" v-for="(paragraph, index) in props.content" :key="index">{{ paragraph }}</p>
-  </LayoutNote>
+  <BaseNote :header="props.header">
+    <p class="note-text" v-for="(paragraph, index) in props.content" :key="index">
+      {{ paragraph }}
+    </p>
+  </BaseNote>
 </template>
 
 <style scoped lang="scss">

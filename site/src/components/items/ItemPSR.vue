@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LayoutCard from '@/components/layouts/LayoutCard.vue';
+import LayoutCard from '@/components/base/BaseCard.vue';
 
 interface Props {
   problem: string;

@@ -7,19 +7,19 @@ defineProps<Props>();
 </script>
 
 <template>
-  <div class="layout-list-item">
-    <div class="layout-list-item__header">
-      <span class="layout-list-item__number">{{ number }}</span>
+  <div class="base-list-item">
+    <div class="base-list-item__header">
+      <span class="base-list-item__number">{{ number }}</span>
       <h4>{{ title }}</h4>
     </div>
-    <div class="layout-list-item__content">
+    <div class="base-list-item__content">
       <slot/>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.layout-list-item {
+.base-list-item {
   border-bottom: 1px solid $color-border-main;
 
   padding: 2rem 0;

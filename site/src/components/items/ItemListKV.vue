@@ -1,22 +1,21 @@
 <script setup lang="ts">
-import LayoutListItem from '@/components/layouts/LayoutListItem.vue';
+import BaseListItem from '@/components/base/BaseListItem.vue';
 
 interface Props {
   number: string;
   title: string;
-  techLines: { label: string; value: string; }[];
+  data: { key: string; value: string; }[];
 }
-
 const props = defineProps<Props>();
 </script>
 
 <template>
-  <LayoutListItem :number="props.number" :title="props.title">
-    <div v-for="techLine in props.techLines" :key="techLine.label" class="item">
-      <span class="item__label">{{ techLine.label }}:</span>
+  <BaseListItem :number="props.number" :title="props.title">
+    <div v-for="techLine in props.data" :key="techLine.key" class="item">
+      <span class="item__label">{{ techLine.key }}:</span>
       <span class="item__value">{{ techLine.value }}</span>
     </div>
-  </LayoutListItem>
+  </BaseListItem>
 </template>
 
 <style scoped lang="scss">

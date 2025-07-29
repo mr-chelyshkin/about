@@ -6,14 +6,14 @@ defineProps<Props>();
 </script>
 
 <template>
-  <div class="layout-note">
-    <div class="layout-note__header">// {{ header }}</div>
+  <div class="base-note">
+    <div class="base-note__header">// {{ header }}</div>
     <slot/>
   </div>
 </template>
 
 <style scoped lang="scss">
-.layout-note {
+.base-note {
   background: $color-white;
   border: 2px solid $color-text-main;
 
