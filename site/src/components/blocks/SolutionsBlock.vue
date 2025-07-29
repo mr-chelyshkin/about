@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BlockHeader from '@/components/content/BlockHeader.vue';
-import ItemCard from '@/components/content/ItemCard.vue';
+import ItemPSR from '@/components/items/ItemPSR.vue'
 
 interface ProjectItem {
   problem: string;
@@ -43,7 +43,7 @@ const projectItems: ProjectItem[] = [
   <div class="container">
     <h4>// Projects</h4>
     <div class="solutions-grid">
-      <ItemCard
+      <ItemPSR
         v-for="(item, index) in projectItems" :key="index" :problem="item.problem" :solution="item.solution" :result="item.result"
       />
     </div>
