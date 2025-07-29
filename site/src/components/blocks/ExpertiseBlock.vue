@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ContentCareerTimeline from '@/components/content/ContentCareerTimeline.vue';
-import ExpertiseSectionList from '@/components/content/ExpertiseSectionList.vue';
 import ItemNoteText from '@/components/items/ItemNoteText.vue';
+import ItemListKV from '@/components/items/ItemListKV.vue';
 import BaseBlock from '@/components/base/BaseBlock.vue';
 
 interface TechLine {
@@ -119,11 +119,11 @@ const careerItems: CareerItem[] = [
 ];
 
 const philosophyNote = {
- header: 'Philosophy',
- content: [
-   'I believe in platforms that simplify, scale, and empower developers.',
-   'My goal is creating infrastructure that\'s clear, predictable, and measurable—helping teams deliver faster and with confidence.'
- ]
+  header: 'Philosophy',
+  content: [
+    'I believe in platforms that simplify, scale, and empower developers.',
+    'My goal is creating infrastructure that\'s clear, predictable, and measurable—helping teams deliver faster and with confidence.'
+  ]
 };
 </script>
 
@@ -132,7 +132,15 @@ const philosophyNote = {
     <ItemNoteText :header="philosophyNote.header" :content="philosophyNote.content" />
     <div class="expertise-content">
       <div class="expertise-layout">
-        <ExpertiseSectionList :sections="expertiseSections" />
+        <div class="expertise-list">
+          <ItemListKV
+            v-for="section in expertiseSections"
+            :key="section.number"
+            :number="section.number"
+            :title="section.title"
+            :data="section.data"
+          />
+        </div>
         <div class="sidebar-content">
           <ContentCareerTimeline :items="careerItems" />
         </div>
@@ -147,30 +155,34 @@ const philosophyNote = {
   justify-content: center;
   margin-bottom: 3rem;
   padding: 3rem 0;
-  
+
   .expertise-layout {
     display: flex;
     gap: 4rem;
-    
+
     @media (max-width: 1200px) {
       gap: 3rem;
     }
-    
+
     @media (max-width: 968px) {
       flex-direction: column;
       gap: 2rem;
     }
   }
-  
+
+  .expertise-list {
+    flex: 1;
+  }
+
   .sidebar-content {
     height: fit-content;
     position: sticky;
     top: 5rem;
-    
+
     @media (max-width: 1200px) {
       flex: 0 0 300px;
     }
-    
+
     @media (max-width: 968px) {
       flex: none;
       position: static;
