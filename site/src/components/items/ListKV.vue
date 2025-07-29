@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ListLayout from '@/components/layouts/ListLayout.vue';
+import LayoutListItem from '@/components/layouts/LayoutListItem.vue';
 
 interface Props {
   number: string;
@@ -11,12 +11,12 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-  <ListLayout :number="props.number" :title="props.title">
+  <LayoutListItem :number="props.number" :title="props.title">
     <div v-for="techLine in props.techLines" :key="techLine.label" class="item">
       <span class="item__label">{{ techLine.label }}:</span>
       <span class="item__value">{{ techLine.value }}</span>
     </div>
-  </ListLayout>
+  </LayoutListItem>
 </template>
 
 <style scoped lang="scss">

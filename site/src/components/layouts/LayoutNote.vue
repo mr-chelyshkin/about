@@ -2,19 +2,18 @@
 interface Props {
   header: string;
 }
-
 defineProps<Props>();
 </script>
 
 <template>
-  <div class="note">
-    <div class="note__header">// {{ header }}</div>
+  <div class="layout-note">
+    <div class="layout-note__header">// {{ header }}</div>
     <slot/>
   </div>
 </template>
 
 <style scoped lang="scss">
-.note {
+.layout-note {
   background: $color-white;
   border: 2px solid $color-text-main;
 
@@ -41,6 +40,7 @@ defineProps<Props>();
     
     &::before {
       background: $color-accent;
+
       transform: rotate(180deg) scale(1.2);
     }
   }

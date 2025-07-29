@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NoteLayout from '@/components/layouts/NoteLayout.vue';
+import LayoutNote from '@/components/layouts/LayoutNote.vue';
 
 interface Props {
   header: string;
@@ -9,9 +9,9 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-  <NoteLayout :header="props.header">
+  <LayoutNote :header="props.header">
     <p class="note-text" v-for="(paragraph, index) in props.content" :key="index">{{ paragraph }}</p>
-  </NoteLayout>
+  </LayoutNote>
 </template>
 
 <style scoped lang="scss">

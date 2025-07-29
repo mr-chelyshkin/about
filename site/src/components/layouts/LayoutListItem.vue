@@ -3,25 +3,25 @@ interface Props {
   number: string;
   title: string;
 }
-
 defineProps<Props>();
 </script>
 
 <template>
-  <div class="list">
-    <div class="list__header">
-      <span class="list__number">{{ number }}</span>
+  <div class="layout-list-item">
+    <div class="layout-list-item__header">
+      <span class="layout-list-item__number">{{ number }}</span>
       <h4>{{ title }}</h4>
     </div>
-    <div class="list__content">
+    <div class="layout-list-item__content">
       <slot/>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.list {
+.layout-list-item {
   border-bottom: 1px solid $color-border-main;
+
   padding: 2rem 0;
   
   &:last-child {
@@ -35,6 +35,7 @@ defineProps<Props>();
     
     h4 {
       color: $color-text-main;
+
       margin: 0;
     }
   }
@@ -42,6 +43,7 @@ defineProps<Props>();
   &__number {
     background: $color-text-main;
     color: $color-text-contrast;
+    
     padding: 0.3rem 0.8rem;
     margin-right: 1.5rem;
     border-radius: 2px;
