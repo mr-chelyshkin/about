@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { heroData } from '@/content/hero/data'
+import { heroData } from '@/data/hero/data'
 
 interface Props {
   title?: string

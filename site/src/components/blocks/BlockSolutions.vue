@@ -2,7 +2,7 @@
 import ItemCardText from '@/components/items/ItemCardText.vue'
 import BaseBlock from '@/components/base/BaseBlock.vue'
 
-import { projects } from '@/content/solutions/projects'
+import { projects } from '@/data/solutions/projects'
 
 defineProps<{
   title: string

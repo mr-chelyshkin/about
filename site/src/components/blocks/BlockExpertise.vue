@@ -4,9 +4,9 @@ import ItemNoteText from '@/components/items/ItemNoteText.vue';
 import ItemListKV from '@/components/items/ItemListKV.vue';
 import BaseBlock from '@/components/base/BaseBlock.vue';
 
-import { philosophy } from '@/content/expertise/philosophy';
-import { skills } from '@/content/expertise/skills';
-import { career } from '@/content/expertise/career';
+import { philosophy } from '@/data/expertise/philosophy';
+import { skills } from '@/data/expertise/skills';
+import { career } from '@/data/expertise/career';
 
 defineProps<{
   title: string
