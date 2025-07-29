@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import CareerTimelineSection from '@/components/content/CareerTimelineSection.vue';
 import ExpertiseSectionList from '@/components/content/ExpertiseSectionList.vue';
-import BlockContentHeader from '@/components/content/BlockContentHeader.vue';
+import BlockHeader from '@/components/content/BlockHeader.vue';
 import ItemNote from '@/components/content/ItemNote.vue';
 
 interface TechLine {
@@ -125,7 +125,7 @@ const philosophyNote = {
 </script>
 
 <template>
-  <BlockContentHeader title="Engineering Expertise & Practices" subtitle="EXPERTISE" number="02" />
+  <BlockHeader title="Engineering Expertise & Practices" subtitle="EXPERTISE" number="02" />
   <div class="container">
     <ItemNote :header="philosophyNote.header" :content="philosophyNote.content"/>
     <div class="expertise-content">

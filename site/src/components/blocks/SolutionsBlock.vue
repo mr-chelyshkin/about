@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BlockContentHeader from '@/components/content/BlockContentHeader.vue';
+import BlockHeader from '@/components/content/BlockHeader.vue';
 import ItemCard from '@/components/content/ItemCard.vue';
 
 interface ProjectItem {
@@ -38,7 +38,7 @@ const projectItems: ProjectItem[] = [
 </script>
 
 <template>
-  <BlockContentHeader title="Real-World Impact" subtitle="SOLUTIONS" number="03" />
+  <BlockHeader title="Real-World Impact" subtitle="SOLUTIONS" number="03" />
 
   <div class="container">
     <h4>// Projects</h4>
