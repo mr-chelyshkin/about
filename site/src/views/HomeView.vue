@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import HeroBlock from '@/components/blocks/HeroBlock.vue';
-import ExpertiseBlock from '@/components/blocks/ExpertiseBlock.vue';
+import BlockExpertise from '@/components/blocks/BlockExpertise.vue';
 import SolutionsBlock from '@/components/blocks/SolutionsBlock.vue';
 </script>
 
 <template>
   <main>
     <HeroBlock />
-    <ExpertiseBlock />
+    <BlockExpertise />
     <SolutionsBlock />
   </main>
 </template>

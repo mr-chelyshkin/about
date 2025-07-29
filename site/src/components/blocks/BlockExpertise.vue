@@ -93,27 +93,27 @@ const careerItems: CareerItem[] = [
   {
     year: '2013',
     role: 'QA Engineer',
-    company: 'VTB Bank, Russia'
+    company: 'Russia, VTB Bank'
   },
   {
     year: '2014',
     role: 'Sr QA Engineer',
-    company: 'Raiffeisen Bank, Russia'
+    company: 'Russia, Raiffeisen Bank'
   },
   {
     year: '2016',
     role: 'DevOps / DevOps Team Lead',
-    company: 'Mail.ru Group (VK), Russia'
+    company: 'Russia, Mail.ru Group (VK)'
   },
   {
     year: '2022',
-    role: 'Lead DevOps (mobile infrastrucutre)',
-    company: 'OzonTech, Russia'
+    role: 'Lead DevOps (mobile infrastructure)',
+    company: 'Russia, OzonTech'
   },
   {
     year: '2023+',
     role: 'Senior SRE Engineer (core team)',
-    company: 'Aqua Security, Israel',
+    company: 'Israel, Aqua Security',
     current: true
   }
 ];
@@ -130,9 +130,9 @@ const philosophyNote = {
 <template>
   <BaseBlock title="Engineering Expertise & Practices" subtitle="EXPERTISE" number="02">
     <ItemNoteText :header="philosophyNote.header" :content="philosophyNote.content" />
-    <div class="expertise-content">
-      <div class="expertise-layout">
-        <div class="expertise-list">
+    <div class="block-expertise">
+      <div class="block-expertise__layout">
+        <div class="block-expertise__list">
           <ItemListKV
             v-for="section in expertiseSections"
             :key="section.number"
@@ -141,7 +141,7 @@ const philosophyNote = {
             :data="section.data"
           />
         </div>
-        <div class="sidebar-content">
+        <div class="block-expertise__sidebar">
           <ContentCareerTimeline :items="careerItems" />
         </div>
       </div>
@@ -150,13 +150,13 @@ const philosophyNote = {
 </template>
 
 <style scoped lang="scss">
-.expertise-content {
+.block-expertise {
   display: flex;
   justify-content: center;
-  margin-bottom: 3rem;
   padding: 3rem 0;
+  margin-bottom: 3rem;
 
-  .expertise-layout {
+  &__layout {
     display: flex;
     gap: 4rem;
 
@@ -170,22 +170,22 @@ const philosophyNote = {
     }
   }
 
-  .expertise-list {
+  &__list {
     flex: 1;
   }
 
-  .sidebar-content {
-    height: fit-content;
+  &__sidebar {
     position: sticky;
     top: 5rem;
+    height: fit-content;
 
     @media (max-width: 1200px) {
       flex: 0 0 300px;
     }
 
     @media (max-width: 968px) {
-      flex: none;
       position: static;
+      flex: none;
     }
   }
 }
