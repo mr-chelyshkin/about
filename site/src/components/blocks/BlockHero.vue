@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { heroData } from '@/data/hero/data'
+import { heroData } from '@/data/hero/data';
 
 interface Props {
   title?: string
   number?: string
 }
-
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 </script>
 
 <template>

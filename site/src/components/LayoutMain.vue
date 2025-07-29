@@ -20,13 +20,7 @@ const { lock, unlock } = useScrollLock();
 const isMenuOpen = ref(false);
 const burgerButtonRef = ref();
 
-watch(isMenuOpen, (newValue) => {
-  if (newValue) {
-    lock();
-  } else {
-    unlock();
-  }
-});
+watch(isMenuOpen, v => v ? lock() : unlock());
 onMounted(() => { initializeTracker(); });
 onUnmounted(() => { 
   cleanup(); 

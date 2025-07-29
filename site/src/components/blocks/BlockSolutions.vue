@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import ItemCardText from '@/components/items/ItemCardText.vue'
-import BaseBlock from '@/components/base/BaseBlock.vue'
+import ItemCardText from '@/components/items/ItemCardText.vue';
+import BaseBlock from '@/components/base/BaseBlock.vue';
 
-import { projects } from '@/data/solutions/projects'
+import { projects } from '@/data/solutions/projects';
 
 defineProps<{
   title: string
   subtitle: string
   blockNumber: string
-}>()
+}>();
 </script>
 
 <template>

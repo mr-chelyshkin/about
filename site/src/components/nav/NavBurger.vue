@@ -8,7 +8,7 @@ const toggleMenu = () => { isActive.value = !isActive.value; emit('toggle', isAc
 defineExpose({
   toggle: toggleMenu,
   isActive
-})
+});
 </script>
 
 <template>
