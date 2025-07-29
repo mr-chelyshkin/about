@@ -2,12 +2,13 @@
 interface Props {
   header: string;
 }
-defineProps<Props>();
+const props = defineProps<Props>();
+const headerText = `// ${props.header}`;
 </script>
 
 <template>
   <div class="base-note">
-    <div class="base-note__header">// {{ header }}</div>
+    <div class="base-note__header">{{ headerText }}</div>
     <slot/>
   </div>
 </template>

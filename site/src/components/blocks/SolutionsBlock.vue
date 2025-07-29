@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import BlockHeader from '@/components/content/BlockHeader.vue';
 import ItemCardText from '@/components/items/ItemCardText.vue'
 import BaseBlock from '@/components/base/BaseBlock.vue';
 

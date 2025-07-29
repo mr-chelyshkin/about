@@ -5,19 +5,20 @@ interface Props {
   title: string
 }
 const props = defineProps<Props>();
+const subtitleText = `// ${props.subtitle}`;
 </script>
 
 <template>
-  <div class="header" :data-block-title="subtitle" :data-block-number="number">
+  <div class="content-block-header" :data-block-title="subtitle" :data-block-number="number">
     <div class="container">
-      <p class="header__subtitle">// {{ subtitle }}</p>
-      <h3 class="header__title">{{ title }}</h3>
+      <p class="content-block-header__subtitle">{{ subtitleText }}</p>
+      <h3 class="content-block-header__title">{{ title }}</h3>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.header {
+.content-block-header {
   background-color: $color-background-contrast;
 
   padding: 2rem;

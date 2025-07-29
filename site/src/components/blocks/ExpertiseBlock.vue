@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import CareerTimelineSection from '@/components/content/CareerTimelineSection.vue';
 import ExpertiseSectionList from '@/components/content/ExpertiseSectionList.vue';
-import BlockHeader from '@/components/content/BlockHeader.vue';
 import ItemNoteText from '@/components/items/ItemNoteText.vue';
 import BaseBlock from '@/components/base/BaseBlock.vue';
 

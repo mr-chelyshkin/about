@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BlockHeader from '@/components/content/BlockHeader.vue';
+import ContentBlockHeader from '@/components/content/ContentBlockHeader.vue';
 
 interface Props {
   subtitle: string;
@@ -11,7 +11,7 @@ defineProps<Props>();
 
 <template>
   <div class="base-block">
-    <BlockHeader :title="title" :subtitle="subtitle" :number="number" />
+    <ContentBlockHeader :title="title" :subtitle="subtitle" :number="number" />
     <div class="container">
       <slot/>
     </div>
