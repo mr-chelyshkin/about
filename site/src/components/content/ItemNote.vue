@@ -8,14 +8,14 @@ defineProps<Props>();
 </script>
 
 <template>
-  <div class="content-note">
-    <div class="note-header">{{ header }}</div>
+  <div class="note">
+    <div class="note__header">{{ header }}</div>
     <p>{{ content }}</p>
   </div>
 </template>
 
 <style scoped lang="scss">
-.content-note {
+.note {
   background: $color-white;
   padding: 2rem;
   border: 2px solid $color-text-main;
@@ -43,7 +43,7 @@ defineProps<Props>();
     }
   }
   
-  .note-header {
+  &__header {
     font-family: 'Roboto Mono', monospace;
     font-size: $text-size-sm;
     color: $color-text-main;
