@@ -7,7 +7,13 @@ import SolutionsBlock from '@/components/blocks/SolutionsBlock.vue';
 <template>
   <main>
     <HeroBlock />
-    <BlockExpertise />
+
+    <BlockExpertise
+      title="Engineering Expertise & Practices"
+      subtitle="EXPERTISE"
+      block-number="02"
+    />
+
     <SolutionsBlock />
   </main>
 </template>
