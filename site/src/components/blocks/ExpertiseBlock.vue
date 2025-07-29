@@ -2,7 +2,7 @@
 import CareerTimelineSection from '@/components/content/CareerTimelineSection.vue';
 import ExpertiseSectionList from '@/components/content/ExpertiseSectionList.vue';
 import BlockHeader from '@/components/content/BlockHeader.vue';
-import NoteText from '@/components/items/NoteText.vue';
+import ItemNoteText from '@/components/items/ItemNoteText.vue';
 import BaseBlock from '@/components/base/BaseBlock.vue';
 
 interface TechLine {
@@ -130,7 +130,7 @@ const philosophyNote = {
 
 <template>
   <BaseBlock title="Engineering Expertise & Practices" subtitle="EXPERTISE" number="02">
-    <NoteText :header="philosophyNote.header" :content="philosophyNote.content" />
+    <ItemNoteText :header="philosophyNote.header" :content="philosophyNote.content" />
     <div class="expertise-content">
       <div class="expertise-layout">
         <ExpertiseSectionList :sections="expertiseSections" />
