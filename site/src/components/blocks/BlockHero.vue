@@ -11,11 +11,11 @@ const props = defineProps<Props>()
 
 <template>
   <div class="container">
-    <div class="hero" :data-block-title="props.title" :data-block-number="props.number">
-      <div class="hero__background_image">
+    <div class="block-hero" :data-block-title="props.title" :data-block-number="props.number">
+      <div class="block-hero__background_image">
         <img :src="heroData.image" alt="Background Image" />
       </div>
-      <div class="hero__content">
+      <div class="block-hero__content">
         <h1>{{ heroData.name }}</h1>
         <h2>{{ heroData.title }}</h2>
         <p>
@@ -32,7 +32,7 @@ const props = defineProps<Props>()
           {{ heroData.tagline }}
         </div>
         <h3>Links:</h3>
-        <div class="hero__links">
+        <div class="block-hero__links">
           <a v-for="(link, index) in heroData.links" :key="index" :href="link.href" target="_blank">
             {{ link.label }}
           </a>
@@ -43,7 +43,7 @@ const props = defineProps<Props>()
 </template>
 
 <style scoped lang="scss">
-.hero {
+.block-hero {
   height: 100vh;
 
   &__background_image {
