@@ -2,7 +2,6 @@
 interface Props {
   isOpen: boolean;
 }
-
 const props = defineProps<Props>();
 const emit = defineEmits<{ close: []; }>();
 const closeMenu = () => { emit('close'); }
@@ -11,7 +10,6 @@ const closeMenu = () => { emit('close'); }
 <template>
   <Teleport to="body">
     <div v-if="isOpen" class="nav-overlay" @click="closeMenu"></div>
-
     <nav class="nav-menu" :class="{ 'nav-menu--open': isOpen }">
       <div class="nav-menu__content">
         <ul class="nav-menu__list">

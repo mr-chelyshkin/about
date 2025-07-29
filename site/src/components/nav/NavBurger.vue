@@ -12,15 +12,15 @@ defineExpose({
 </script>
 
 <template>
-  <button class="burger" :class="{ 'burger--active': isActive }" @click="toggleMenu">
-    <span class="burger__line burger__line--1"></span>
-    <span class="burger__line burger__line--2"></span>
-    <span class="burger__line burger__line--3"></span>
+  <button class="nav-burger" :class="{ 'nav-burger--active': isActive }" @click="toggleMenu">
+    <span class="nav-burger__line nav-burger__line--1"></span>
+    <span class="nav-burger__line nav-burger__line--2"></span>
+    <span class="nav-burger__line nav-burger__line--3"></span>
   </button>
 </template>
 
 <style scoped lang="scss">
-.burger {
+.nav-burger {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,8 +57,8 @@ defineExpose({
     }
   }
 
-  &:hover:not(.burger--active) {
-    .burger__line {
+  &:hover:not(.nav-burger--active) {
+    .nav-burger__line {
       &--1 {
         width: 100%;
       }
@@ -74,7 +74,7 @@ defineExpose({
   }
 
   &--active {
-    .burger__line {
+    .nav-burger__line {
       background-color: $color-text-contrast;
 
       &--1 {
