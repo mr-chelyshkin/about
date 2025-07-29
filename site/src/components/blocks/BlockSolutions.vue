@@ -13,7 +13,7 @@ defineProps<{
 
 <template>
   <BaseBlock :title="title" :subtitle="subtitle" :number="blockNumber">
-    <h4>// Projects</h4>
+    <h4>Projects</h4>
     <div class="block-solutions-grid">
       <ItemCardText v-for="(item, index) in projects"
         :key="index"
@@ -24,6 +24,10 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
+h4 {
+  margin-top: 3rem;
+}
+
 .block-solutions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));

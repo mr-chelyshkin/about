@@ -19,7 +19,6 @@ const headerText = `// ${props.header}`;
   border: 2px solid $color-text-main;
 
   padding: 2rem;
-  margin: 2rem 0;
   position: relative;
   transition: all 0.3s ease;
   

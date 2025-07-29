@@ -33,7 +33,7 @@ const data: ProjectItem[] = [
 ]
 
 export const projects = data.map(p => ({
-  header: { key: 'Problem', value: p.problem },
+  header: { key: 'issue', value: p.problem },
   body: { key: 'Solution', value: p.solution },
   footer: { key: 'Result', value: p.result }
 }))

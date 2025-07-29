@@ -17,7 +17,7 @@ defineProps<{
 
 <template>
   <BaseBlock :title="title" :subtitle="subtitle" :number="blockNumber">
-    <ItemNoteText :header="philosophy.header" :content="philosophy.content" />
+    <ItemNoteText class="note-margin" :header="philosophy.header" :content="philosophy.content" />
     <div class="block-expertise">
       <div class="block-expertise__layout">
         <div class="block-expertise__list">
@@ -37,6 +37,10 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
+.note-margin {
+  margin-top: 3rem;
+}
+
 .block-expertise {
   justify-content: center;
   display: flex;
