@@ -4,7 +4,7 @@ export interface ProjectItem {
   result: string
 }
 
-export const projects: ProjectItem[] = [
+const data: ProjectItem[] = [
   {
     problem: 'Slow and unreliable mobile app delivery process',
     solution: 'Architected and built a scalable mobile CI/CD platform with automated iOS & Android testing farms',
@@ -31,3 +31,9 @@ export const projects: ProjectItem[] = [
     result: 'Reduced security incidents to zero, established continuous compliance across infrastructure and CI/CD pipelines'
   }
 ]
+
+export const projects = data.map(p => ({
+  header: { key: 'Problem', value: p.problem },
+  body: { key: 'Solution', value: p.solution },
+  footer: { key: 'Result', value: p.result }
+}))

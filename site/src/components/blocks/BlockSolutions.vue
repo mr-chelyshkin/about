@@ -15,12 +15,9 @@ defineProps<{
   <BaseBlock :title="title" :subtitle="subtitle" :number="blockNumber">
     <h4>// Projects</h4>
     <div class="block-solutions-grid">
-      <ItemCardText
-        v-for="(item, index) in projects"
+      <ItemCardText v-for="(item, index) in projects"
         :key="index"
-        :problem="item.problem"
-        :solution="item.solution"
-        :result="item.result"
+        v-bind="item"
       />
     </div>
   </BaseBlock>
