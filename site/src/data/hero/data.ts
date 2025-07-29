@@ -12,8 +12,8 @@ export const heroData = {
     'AWS',
     'IaC',
     'WEB',
-    'Cyber Security',
-    'CI/CD'
+    'CI/CD',
+    'Cyber Security'
   ],
   links: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mr-chelyshkin/' },
