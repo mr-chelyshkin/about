@@ -33,8 +33,7 @@ defineProps<Props>();
 
 <style scoped lang="scss">
 .content-career-timeline {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
+  padding: 3rem;
 
   &__header {
     margin-bottom: 1.5rem;

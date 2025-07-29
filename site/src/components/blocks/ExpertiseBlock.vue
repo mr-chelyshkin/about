@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CareerTimelineSection from '@/components/content/CareerTimelineSection.vue';
+import ContentCareerTimeline from '@/components/content/ContentCareerTimeline.vue';
 import ExpertiseSectionList from '@/components/content/ExpertiseSectionList.vue';
 import ItemNoteText from '@/components/items/ItemNoteText.vue';
 import BaseBlock from '@/components/base/BaseBlock.vue';
@@ -134,7 +134,7 @@ const philosophyNote = {
       <div class="expertise-layout">
         <ExpertiseSectionList :sections="expertiseSections" />
         <div class="sidebar-content">
-          <CareerTimelineSection :items="careerItems" />
+          <ContentCareerTimeline :items="careerItems" />
         </div>
       </div>
     </div>
