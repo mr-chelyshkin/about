@@ -12,7 +12,7 @@ defineEmits<{ click: []; }>();
 </script>
 
 <template>
-  <BaseLink :to="to" :index="autoIndex" animation="glitch-matrix-fast" :duration="200" @click="$emit('click')">
+  <BaseLink :to="to" :index="autoIndex" animation="glitch-matrix" :duration="400" @click="$emit('click')">
     <slot />
   </BaseLink>
 </template>
