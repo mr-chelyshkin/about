@@ -25,7 +25,7 @@ jobs:
       - name: test
         uses: Mad-Pixels/github-workflows/.github/actions/taskfile-runner@main
         with:
-          command: node/lint
+          command: node/format
         
 
   # leaks:
