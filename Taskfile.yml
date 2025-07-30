@@ -41,7 +41,7 @@ tasks:
 # ================================================#
 
   terraform/fmt/fix:
-    desc: Run 'terraform fmt' in secure container.
+    desc: Run 'terraform fmt'.
     cmds:
       - task: _docker/run
         vars:
@@ -51,7 +51,7 @@ tasks:
     silent: true
 
   node/lint/fix:
-    desc: Run ESLint in secure container.
+    desc: Run ESLint with fix flag.
     cmds:
       - task: _docker/run
         vars:
@@ -63,9 +63,25 @@ tasks:
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
     silent: true
 
+  node/format/fix:
+    desc: Run Prettier.
+    cmds:
+      - task: _docker/run
+        vars:
+          IMAGE: "node:{{.node_version}}"
+          CMD: "sh -c 'npm ci && npx prettier --write src/'"
+          MOUNT_DIR: "site"
+          ENVS:
+            - "NPM_CONFIG_CACHE=/workspace/.cache"
+            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
+    silent: true
+
+# ================================================#
+# ----------------------CI/CD---------------------#
+# ================================================#
 
   node/lint:
-    desc: Run ESLint in secure container.
+    desc: Run ESLint.
     cmds:
       - task: _docker/run
         vars:
@@ -78,14 +94,15 @@ tasks:
     silent: true
 
   node/format:
-    desc: Run Prettier in secure container.
+    desc: Run Prettier.
     cmds:
       - task: _docker/run
         vars:
           IMAGE: "node:{{.node_version}}"
-          CMD: "sh -c 'npm ci && npx prettier --write src/'"
+          CMD: "sh -c 'npm ci && npx prettier --check src/'"
           MOUNT_DIR: "site"
           ENVS:
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
     silent: true
+  
