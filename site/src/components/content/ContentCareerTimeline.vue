@@ -74,6 +74,29 @@ defineProps<Props>();
       border: 2px solid $color-white;
     }
 
+    &--current {
+      &::before {
+        background: $color-accent;
+        z-index: 2;
+      }
+
+      &::after {
+        background: $color-accent;
+        content: '';
+
+        animation: pulse 2s ease-out infinite;
+        position: absolute;
+
+        border-radius: 50%;
+        left: 2.2rem;
+        top: 0.2rem;
+        height: 12px;
+        opacity: 0.6;
+        width: 12px;
+        z-index: 1;
+      }
+    }
+
     &--current::before {
       background: $color-accent;
     }
@@ -95,6 +118,21 @@ defineProps<Props>();
   &__company {
     font-size: $text-size-xsm;
     color: $color-text-secondary;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
   }
 }
 </style>
