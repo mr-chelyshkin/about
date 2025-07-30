@@ -150,4 +150,15 @@ vite.config.ts.timestamp-*
 # Etc
 /cypress/videos/
 /cypress/screenshots/
+.task
 .DS_Store
+
+# Terraform
+.terraform.tfstate.lock.info
+terraform.tfstate.backup
+terraform.tfstate
+tfplan
+.terraform.lock.hcl
+.terraform/
+backend.tf
+backend_aws.hcl
