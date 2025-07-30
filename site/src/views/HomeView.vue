@@ -25,7 +25,7 @@ import BlockOpenSource from '@/components/blocks/BlockOpenSource.vue';
     />
 
     <BlockOpenSource
-      title="Ope"
+      title="Shared with the World."
       subtitle="OpenSource"
       blockNumber="04"
     />
