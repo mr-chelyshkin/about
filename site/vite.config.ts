@@ -17,10 +17,10 @@ export default defineConfig({
       }
     },
     modules: {
-    localsConvention: 'camelCaseOnly',
-    generateScopedName: process.env.NODE_ENV === 'development' 
-      ? '[name]__[local]' 
-      : '[hash:base64:5]'
-  },
+      localsConvention: 'camelCaseOnly',
+      generateScopedName: process.env.NODE_ENV === 'development' 
+        ? '[local]_[hash:base64:3]'
+        : '[hash:base64:5]'
+    },
   },
 })
