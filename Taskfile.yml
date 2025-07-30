@@ -1,0 +1,76 @@
+version: '3'
+
+vars:
+  git_root:
+    sh: git rev-parse --show-toplevel
+  
+  node_version: "23"
+  terraform: 1.9.5
+
+tasks:
+  default:
+    desc: Default task.
+    cmds:
+      - echo "Please enter a task or use '-l' or '--list-all' to list all available tasks"
+    silent: true
+
+# ================================================#
+# ---------------------INTERNAL-------------------#
+# ================================================#
+
+  _node/check:
+    desc: Check if Node.js is installed
+    cmds:
+      - node --version
+      - npm --version
+    silent: true
+    internal: true
+  
+  _node/install/deps:
+    desc: Install all dependencies
+    dir: "{{.git_root}}/site"
+    deps:
+      - _node/check
+    cmds:
+      - npm install
+    sources:
+      - package.json
+      - package-lock.json
+    generates:
+      - node_modules/**/*
+    silent: true
+    internal: true
+
+  _terraform/install:
+    desc: Install 'terraform' if missing or incorrect version.
+    cmds:
+      - |
+        if command -v terraform >/dev/null 2>&1; then
+          version=$(terraform version | head -n1 | awk '{gsub("v", "", $2); print $2}')
+          if [ "$version" = "{{.terraform}}" ]; then
+            echo "Terraform {{.terraform}} already installed."
+            exit 0
+          else
+            echo "Terraform version $version found, expected {{.terraform}}. Reinstalling..."
+          fi
+        else
+          echo "Terraform not found. Installing..."
+        fi
+      - curl -sL https://releases.hashicorp.com/terraform/{{.terraform}}/terraform_{{.terraform}}_{{OS}}_{{ARCH}}.zip -o /tmp/terraform.zip
+      - sudo unzip -o /tmp/terraform.zip -d /usr/local/bin/
+      - sudo chmod a+x /usr/local/bin/terraform
+      - terraform version
+    internal: true
+    silent: true
+
+# ================================================#
+# ----------------------PUBLIC--------------------#
+# ================================================#
+
+  terraform/fmt/fix:
+    desc: Run 'terraform fix fmt'.
+    dir: "{{.git_root}}/terraform"
+    deps:
+      - _terraform/install
+    cmd: terraform fmt -recursive --diff --write=true
+    silent: true

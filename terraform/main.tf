@@ -28,11 +28,11 @@ module "cf" {
 
   acm_certificate_arn = var.acm_crt
 
-#   req_func_list = [
-#     {
-#       function_arn = module.router.function_arn
-#     }
-#   ]
+  #   req_func_list = [
+  #     {
+  #       function_arn = module.router.function_arn
+  #     }
+  #   ]
 
   error_responses = {
     403 = {
