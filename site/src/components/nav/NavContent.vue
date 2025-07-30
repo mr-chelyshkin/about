@@ -4,15 +4,13 @@ import { useGlitch } from '@/composables/useGlitch';
 interface Props {
   isOpen: boolean;
 }
+const { triggerByIndex, isGlitchingByIndex, glitchClass } = useGlitch({
+  animation: 'glitch-matrix-fast',
+  duration: 200
+});
 const props = defineProps<Props>();
 const emit = defineEmits<{ close: []; }>();
 const closeMenu = () => { emit('close'); }
-
-// Используем composable для навигации
-const { triggerByIndex, isGlitchingByIndex, glitchClass } = useGlitch({
-  animation: 'glitch-digital-fast',
-  duration: 200
-});
 </script>
 
 <template>
@@ -42,6 +40,7 @@ const { triggerByIndex, isGlitchingByIndex, glitchClass } = useGlitch({
 
 .nav-overlay {
   z-index: $z-index-nav-overlay;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -57,15 +56,17 @@ const { triggerByIndex, isGlitchingByIndex, glitchClass } = useGlitch({
   min-width: var(--nav-content-width);
   padding-top: $header-height;
   z-index: $z-index-nav-menu;
+
   display: flex;
+  position: fixed;
   flex-direction: column;
+
   top: 0;
   left: 0;
   height: 100vh;
-  position: fixed;
   width: calc(576px + max(0px, (100vw - $max-width) * 0.3));
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   transform: translateX(-100%);
 
   @media (max-width: 768px) {
@@ -89,6 +90,7 @@ const { triggerByIndex, isGlitchingByIndex, glitchClass } = useGlitch({
 
   &__list {
     width: var(--nav-content-width);
+
     list-style: none;
     margin: 0;
     padding: 0;
@@ -101,6 +103,7 @@ const { triggerByIndex, isGlitchingByIndex, glitchClass } = useGlitch({
 
   &__link {
     color: $color-text-contrast;
+
     position: relative;
     text-align: right;
     display: block;

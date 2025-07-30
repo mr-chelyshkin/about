@@ -6,34 +6,25 @@ interface Props {
   title: string;
   number: string;
 }
-const props = defineProps<Props>();
-
 const { isGlitching, trigger, glitchClass } = useGlitch({
   animation: 'glitch-digital',
   duration: 400
 });
+const props = defineProps<Props>();
 
 let isInitialized = false;
 watch([() => props.title, () => props.number], () => {
-  if (isInitialized) {
-    trigger();
-  }
+  if (isInitialized) { trigger(); }
   isInitialized = true;
 });
 </script>
 
 <template>
   <div class="content-anchor">
-    <span 
-      class="content-anchor__title" 
-      :class="{ [glitchClass]: isGlitching }"
-    >
+    <span class="content-anchor__title" :class="{ [glitchClass]: isGlitching }">
       {{ title }}
     </span>
-    <span 
-      class="content-anchor__number" 
-      :class="{ [glitchClass]: isGlitching }"
-    >
+    <span class="content-anchor__number" :class="{ [glitchClass]: isGlitching }">
       {{ number }}
     </span>
   </div>
