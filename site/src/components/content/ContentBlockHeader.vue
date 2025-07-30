@@ -20,6 +20,7 @@ const subtitleText = `// ${props.subtitle}`;
 <style scoped lang="scss">
 .content-block-header {
   background-color: $color-background-contrast;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
 
   padding: 4rem 0;
   width: 100%;
