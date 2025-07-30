@@ -41,8 +41,7 @@ onUnmounted(() => {
     <header class="layout__header">
       <div class="container container__row_between">
         <div class="layout__burger-placeholder"></div>
-        <ContentAnchor :title="currentBlockTitle" :number="currentBlockNumber" 
-        />
+        <ContentAnchor :title="currentBlockTitle" :number="currentBlockNumber"/>
       </div>
     </header>
 
