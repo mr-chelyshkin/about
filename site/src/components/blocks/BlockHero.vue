@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ItemDigitalImage from '@/components/items/ItemDigitalImage.vue';
+
 import { heroData } from '@/data/hero/data';
 
 interface Props {
@@ -12,7 +14,7 @@ const props = defineProps<Props>();
   <div class="container">
     <div class="block-hero" :data-block-title="props.title" :data-block-number="props.number">
       <div class="block-hero__background_image">
-        <img :src="heroData.image" alt="Background Image" />
+        <ItemDigitalImage :src="heroData.image" alt="Hero Image" :pulse="true" :glitch="true"/>
       </div>
       <div class="block-hero__content">
         <h1>{{ heroData.name }}</h1>
@@ -53,13 +55,6 @@ const props = defineProps<Props>();
     width: 45%;
     height: 100vh;
     clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      animation: pulse 18s ease-in-out infinite;
-    }
 
     @media (max-width: 979px) {
       display: none;
@@ -109,20 +104,12 @@ const props = defineProps<Props>();
     background: $color-text-main;
     color: $color-text-contrast;
     font-size: $text-size-sm;
+
     display: inline-block;
     padding: 0.3rem 0.8rem;
     letter-spacing: 0.3px;
     border-radius: 2px;
     font-weight: 500;
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
   }
 }
 </style>
