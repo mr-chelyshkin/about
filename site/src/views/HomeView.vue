@@ -13,13 +13,13 @@ import BlockOpenSource from '@/components/blocks/BlockOpenSource.vue';
     />
 
     <BlockExpertise
-      title="Engineering Expertise & Practices"
+      title="Engineering Expertise & Practices."
       subtitle="EXPERTISE"
       block-number="02"
     />
 
     <BlockSolutions
-      title="Real-World Impact"
+      title="Real-World Impact."
       subtitle="SOLUTIONS"
       blockNumber="03"
     />

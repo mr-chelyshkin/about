@@ -21,7 +21,7 @@ const subtitleText = `// ${props.subtitle}`;
 .content-block-header {
   background-color: $color-background-contrast;
 
-  padding: 2rem;
+  padding: 4rem 0;
   width: 100%;
  
   @media (max-width: 768px) {
