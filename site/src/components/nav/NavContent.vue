@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import BaseLink from '@/components/base/BaseLink.vue';
+import ItemMatrixLink from '@/components/items/ItemMatrixLink.vue';
 
 interface Props {
   isOpen: boolean;
 }
-
 const props = defineProps<Props>();
 const emit = defineEmits<{ close: []; }>();
 const closeMenu = () => { emit('close'); };
@@ -17,7 +16,7 @@ const closeMenu = () => { emit('close'); };
       <div class="nav-menu__content">
         <ul class="nav-menu__list">
           <li class="nav-menu__item">
-            <BaseLink to="/" :index="0" @click="closeMenu">Home</BaseLink>
+            <ItemMatrixLink to="/" @click="closeMenu">Home</ItemMatrixLink>
           </li>
         </ul>
       </div>
