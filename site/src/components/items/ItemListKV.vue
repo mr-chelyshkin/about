@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import BaseListItem from '@/components/base/BaseListItem.vue';
+import BaseListItem from '@/components/base/BaseListItem.vue'
 
 interface Props {
-  number: string;
-  title: string;
-  data: { key: string; value: string; }[];
+  number: string
+  title: string
+  data: { key: string; value: string }[]
 }
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 </script>
 
 <template>
@@ -23,12 +23,12 @@ const props = defineProps<Props>();
   margin-bottom: $text-size-xsm;
 
   display: flex;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 0.3rem;
   }
-  
+
   &__label {
     font-size: $text-size-sm;
     color: $color-text-accent;
@@ -36,7 +36,7 @@ const props = defineProps<Props>();
     min-width: 100px;
     font-weight: 700;
   }
-  
+
   &__value {
     color: $color-text-main;
 

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import BaseNote from '@/components/base/BaseNote.vue';
+import BaseNote from '@/components/base/BaseNote.vue'
 
 interface Props {
-  header: string;
-  content: string[];
+  header: string
+  content: string[]
 }
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 </script>
 
 <template>

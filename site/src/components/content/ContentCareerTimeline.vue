@@ -1,14 +1,14 @@
 <script setup lang="ts">
 interface CareerItem {
-  year: string;
-  role: string;
-  company: string;
-  current?: boolean;
+  year: string
+  role: string
+  company: string
+  current?: boolean
 }
 interface Props {
-  items: CareerItem[];
+  items: CareerItem[]
 }
-defineProps<Props>();
+defineProps<Props>()
 </script>
 
 <template>
@@ -17,7 +17,12 @@ defineProps<Props>();
       <span class="content-career-timeline__title">// Career Journey</span>
     </div>
     <div class="content-career-timeline__track">
-      <div v-for="item in items" :key="item.year" class="content-career-timeline__item" :class="{ 'content-career-timeline__item--current': item.current }">
+      <div
+        v-for="item in items"
+        :key="item.year"
+        class="content-career-timeline__item"
+        :class="{ 'content-career-timeline__item--current': item.current }"
+      >
         <div class="content-career-timeline__year">{{ item.year }}</div>
         <div class="content-career-timeline__role">{{ item.role }}</div>
         <div class="content-career-timeline__company">{{ item.company }}</div>

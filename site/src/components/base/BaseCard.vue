@@ -1,13 +1,13 @@
 <script setup lang="ts">
 interface Props {
-  href?: string;
+  href?: string
 }
-defineProps<Props>();
+defineProps<Props>()
 </script>
 
 <template>
   <a :href="href" class="base-card">
-    <slot/>
+    <slot />
   </a>
 </template>
 
@@ -23,7 +23,7 @@ defineProps<Props>();
   display: block;
   padding: 1.5rem;
   height: 100%;
-  
+
   &::before {
     background: $color-text-main;
     content: '';
@@ -34,12 +34,12 @@ defineProps<Props>();
     width: 20px;
     height: 20px;
   }
-  
+
   &:hover {
     border-color: $color-text-accent;
 
     transform: translateY(-2px);
-    
+
     &::before {
       background: $color-text-accent;
 
@@ -47,7 +47,7 @@ defineProps<Props>();
       height: 25px;
     }
   }
-  
+
   &::after {
     display: none;
   }

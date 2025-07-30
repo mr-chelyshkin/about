@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import ContentCareerTimeline from '@/components/content/ContentCareerTimeline.vue';
-import ItemNoteText from '@/components/items/ItemNoteText.vue';
-import ItemListKV from '@/components/items/ItemListKV.vue';
-import BaseBlock from '@/components/base/BaseBlock.vue';
+import ContentCareerTimeline from '@/components/content/ContentCareerTimeline.vue'
+import ItemNoteText from '@/components/items/ItemNoteText.vue'
+import ItemListKV from '@/components/items/ItemListKV.vue'
+import BaseBlock from '@/components/base/BaseBlock.vue'
 
-import { philosophy } from '@/data/expertise/philosophy';
-import { skills } from '@/data/expertise/skills';
-import { career } from '@/data/expertise/career';
+import { philosophy } from '@/data/expertise/philosophy'
+import { skills } from '@/data/expertise/skills'
+import { career } from '@/data/expertise/career'
 
 defineProps<{
   title: string
   subtitle: string
   blockNumber: string
-}>();
+}>()
 </script>
 
 <template>
@@ -21,7 +21,8 @@ defineProps<{
     <div class="block-expertise">
       <div class="block-expertise__layout">
         <div class="block-expertise__list">
-          <ItemListKV v-for="section in skills"
+          <ItemListKV
+            v-for="section in skills"
             :key="section.number"
             :number="section.number"
             :title="section.title"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useImageGlitch } from '@/composables/useImageGlitch';
+import { useImageGlitch } from '@/composables/useImageGlitch'
 
 interface Props {
   src: string
@@ -8,7 +8,7 @@ interface Props {
   glitch?: boolean
 }
 
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 const { isGlitching, glitchDuration } = useImageGlitch({
   minDelay: 7000,
   maxDelay: 18000,
@@ -17,14 +17,15 @@ const { isGlitching, glitchDuration } = useImageGlitch({
   initialMinDelay: 5000,
   initialMaxDelay: 10000,
   autoStart: props.glitch === true,
-});
+})
 </script>
 
 <template>
-  <img 
-    :class="{ 'glitch-active': isGlitching, 'pulse': props.pulse }"
+  <img
+    :class="{ 'glitch-active': isGlitching, pulse: props.pulse }"
     :style="{ '--glitch-duration': glitchDuration + 'ms' }"
-    :src="props.src" :alt="props.alt || 'image'" 
+    :src="props.src"
+    :alt="props.alt || 'image'"
   />
 </template>
 
@@ -41,11 +42,13 @@ img {
 }
 
 .glitch-active {
-  animation: pulse 18s ease-in-out infinite, 
-             digital-corruption var(--glitch-duration, 400ms) ease-in-out;
+  animation:
+    pulse 18s ease-in-out infinite,
+    digital-corruption var(--glitch-duration, 400ms) ease-in-out;
 }
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {

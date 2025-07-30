@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import LayoutCard from '@/components/base/BaseCard.vue';
+import LayoutCard from '@/components/base/BaseCard.vue'
 
 interface DataItem {
-  key: string;
-  value: string;
+  key: string
+  value: string
 }
 interface Props {
-  header?: DataItem;
-  footer?: DataItem;
-  body?: DataItem;
-  href?: string;
+  header?: DataItem
+  footer?: DataItem
+  body?: DataItem
+  href?: string
 }
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 </script>
 
 <template>
@@ -36,7 +36,7 @@ const props = defineProps<Props>();
 .item-card-text__body,
 .item-card-text__footer {
   margin-bottom: 2rem;
-  
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -62,7 +62,7 @@ const props = defineProps<Props>();
   letter-spacing: 1.2px;
   position: relative;
   opacity: 1;
-  
+
   &::after {
     background: $color-text-accent;
 
@@ -130,12 +130,12 @@ const props = defineProps<Props>();
   .item-card-text__header-label::after {
     width: 40px;
   }
-  
+
   .item-card-text__body-label,
   .item-card-text__footer-label {
     opacity: 1;
   }
-  
+
   .h-text {
     color: $color-text-accent;
 

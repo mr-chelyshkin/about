@@ -1,22 +1,24 @@
 <script setup lang="ts">
-import { watch } from 'vue';
-import { useGlitch } from '@/composables/useGlitch';
+import { watch } from 'vue'
+import { useGlitch } from '@/composables/useGlitch'
 
 interface Props {
-  title: string;
-  number: string;
+  title: string
+  number: string
 }
 const { isGlitching, trigger, glitchClass } = useGlitch({
   animation: 'glitch-digital',
-  duration: 400
-});
-const props = defineProps<Props>();
+  duration: 400,
+})
+const props = defineProps<Props>()
 
-let isInitialized = false;
+let isInitialized = false
 watch([() => props.title, () => props.number], () => {
-  if (isInitialized) { trigger(); }
-  isInitialized = true;
-});
+  if (isInitialized) {
+    trigger()
+  }
+  isInitialized = true
+})
 </script>
 
 <template>

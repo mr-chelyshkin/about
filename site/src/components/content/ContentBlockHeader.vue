@@ -4,8 +4,8 @@ interface Props {
   number: string
   title: string
 }
-const props = defineProps<Props>();
-const subtitleText = `// ${props.subtitle}`;
+const props = defineProps<Props>()
+const subtitleText = `// ${props.subtitle}`
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const subtitleText = `// ${props.subtitle}`;
 
   padding: 4rem 0;
   width: 100%;
- 
+
   @media (max-width: 768px) {
     padding: 1rem;
   }

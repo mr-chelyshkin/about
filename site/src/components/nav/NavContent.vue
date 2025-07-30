@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import ItemMatrixLink from '@/components/items/ItemMatrixLink.vue';
+import ItemMatrixLink from '@/components/items/ItemMatrixLink.vue'
 
 interface Props {
-  isOpen: boolean;
+  isOpen: boolean
 }
-const props = defineProps<Props>();
-const emit = defineEmits<{ close: []; }>();
-const closeMenu = () => { emit('close'); };
+const emit = defineEmits<{ close: [] }>()
+const closeMenu = () => {
+  emit('close')
+}
+defineProps<Props>()
 </script>
 
 <template>

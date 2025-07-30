@@ -1,8 +1,8 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T">
 interface Props {
-  items: any[];
+  items: T[]
 }
-defineProps<Props>();
+defineProps<Props>()
 </script>
 
 <template>
@@ -13,7 +13,7 @@ defineProps<Props>();
         <div class="line"></div>
       </div>
       <div class="timeline-item__content">
-        <slot :item="item" :index="index"/>
+        <slot :item="item" :index="index" />
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@ defineProps<Props>();
   margin-bottom: 2.5rem;
   gap: 2rem;
   display: flex;
-  
+
   &:last-child {
     margin-bottom: 0;
   }

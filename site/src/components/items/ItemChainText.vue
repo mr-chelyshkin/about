@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import BaseChain from '@/components/base/BaseChain.vue';
+import BaseChain from '@/components/base/BaseChain.vue'
 
 interface AchievementItem {
-  area: string;
-  result: string;
-  description: string;
+  area: string
+  result: string
+  description: string
 }
 
 interface Props {
-  items: AchievementItem[];
+  items: AchievementItem[]
 }
 
-defineProps<Props>();
+defineProps<Props>()
 </script>
 
 <template>

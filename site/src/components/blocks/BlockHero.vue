@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import ItemDigitalImage from '@/components/items/ItemDigitalImage.vue';
+import ItemDigitalImage from '@/components/items/ItemDigitalImage.vue'
 
-import { heroData } from '@/data/hero/data';
+import { heroData } from '@/data/hero/data'
 
 interface Props {
   title?: string
   number?: string
 }
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 </script>
 
 <template>
   <div class="container">
     <div class="block-hero" :data-block-title="props.title" :data-block-number="props.number">
       <div class="block-hero__background_image">
-        <ItemDigitalImage :src="heroData.image" alt="Hero Image" :pulse="true" :glitch="true"/>
+        <ItemDigitalImage :src="heroData.image" alt="Hero Image" :pulse="true" :glitch="true" />
       </div>
       <div class="block-hero__content">
         <h1>{{ heroData.name }}</h1>

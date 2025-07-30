@@ -1,33 +1,37 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 
-import { useBlockTracker } from '@/composables/useBlockTracker';
-import { useScrollLock } from '@/composables/useScrollLock';
+import { useBlockTracker } from '@/composables/useBlockTracker'
+import { useScrollLock } from '@/composables/useScrollLock'
 
-import ContentAnchor from '@/components/content/ContentAnchor.vue';
-import NavContent from '@/components/nav/NavContent.vue';
-import NavBurger from '@/components/nav/NavBurger.vue';
+import ContentAnchor from '@/components/content/ContentAnchor.vue'
+import NavContent from '@/components/nav/NavContent.vue'
+import NavBurger from '@/components/nav/NavBurger.vue'
 
-const { 
-  currentBlockTitle, 
-  currentBlockNumber, 
-  initializeTracker, 
-  cleanup 
-} = useBlockTracker();
+const { currentBlockTitle, currentBlockNumber, initializeTracker, cleanup } = useBlockTracker()
 
-const handleBurgerToggle = (isActive: boolean) => { isMenuOpen.value = isActive; }
-const closeMenu = () => { isMenuOpen.value = false; if (burgerButtonRef.value) { burgerButtonRef.value.isActive = false; }}
+const handleBurgerToggle = (isActive: boolean) => {
+  isMenuOpen.value = isActive
+}
+const closeMenu = () => {
+  isMenuOpen.value = false
+  if (burgerButtonRef.value) {
+    burgerButtonRef.value.isActive = false
+  }
+}
 
-const { lock, unlock } = useScrollLock();
-const isMenuOpen = ref(false);
-const burgerButtonRef = ref();
+const { lock, unlock } = useScrollLock()
+const isMenuOpen = ref(false)
+const burgerButtonRef = ref()
 
-watch(isMenuOpen, v => v ? lock() : unlock());
-onMounted(() => { initializeTracker(); });
-onUnmounted(() => { 
-  cleanup(); 
-  unlock();
-});
+watch(isMenuOpen, (v) => (v ? lock() : unlock()))
+onMounted(() => {
+  initializeTracker()
+})
+onUnmounted(() => {
+  cleanup()
+  unlock()
+})
 </script>
 
 <template>
@@ -41,18 +45,16 @@ onUnmounted(() => {
     <header class="layout__header">
       <div class="container container__row_between">
         <div class="layout__burger-placeholder"></div>
-        <ContentAnchor :title="currentBlockTitle" :number="currentBlockNumber"/>
+        <ContentAnchor :title="currentBlockTitle" :number="currentBlockNumber" />
       </div>
     </header>
 
     <main class="layout__main">
-      <slot/>
+      <slot />
     </main>
 
     <footer class="layout__footer">
-      <div class="container">
-        &copy; {{ new Date().getFullYear() }} — Все права защищены.
-      </div>
+      <div class="container">&copy; {{ new Date().getFullYear() }} — Все права защищены.</div>
     </footer>
 
     <NavContent :is-open="isMenuOpen" @close="closeMenu" />
@@ -91,7 +93,7 @@ onUnmounted(() => {
     pointer-events: none;
     align-items: center;
     position: fixed;
-    
+
     .container {
       pointer-events: auto;
     }

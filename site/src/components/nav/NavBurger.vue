@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const isActive = ref(false);
-const emit = defineEmits<{ toggle: [isActive: boolean]; }>();
-const toggleMenu = () => { isActive.value = !isActive.value; emit('toggle', isActive.value); }
+const isActive = ref(false)
+const emit = defineEmits<{ toggle: [isActive: boolean] }>()
+const toggleMenu = () => {
+  isActive.value = !isActive.value
+  emit('toggle', isActive.value)
+}
 
 defineExpose({
   toggle: toggleMenu,
-  isActive
-});
+  isActive,
+})
 </script>
 
 <template>
@@ -32,10 +35,10 @@ defineExpose({
   position: relative;
 
   width: 32px;
-  height: 24px;  
+  height: 24px;
   padding: 0;
   gap: 4px;
-  
+
   &__line {
     background-color: $color-text-main;
 
@@ -43,7 +46,7 @@ defineExpose({
     border-radius: 1px;
     transform-origin: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     &--1 {
       width: 50%;
     }
