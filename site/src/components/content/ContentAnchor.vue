@@ -6,22 +6,17 @@ interface Props {
   number: string;
 }
 
-const props = defineProps<Props>();
-
-// Локальная логика для анимации
-const isChanging = ref(false);
 const prevTitle = ref('');
 const prevNumber = ref('');
+const isChanging = ref(false);
+const props = defineProps<Props>();
 
-// Отслеживаем изменения пропсов
 watch([() => props.title, () => props.number], () => {
-  // Проверяем, что это не первая загрузка
   if (prevTitle.value !== '' && prevNumber.value !== '') {
     isChanging.value = true;
-    // Убираем класс анимации через 800ms
     setTimeout(() => {
       isChanging.value = false;
-    }, 800);
+    }, 400);
   }
   prevTitle.value = props.title;
   prevNumber.value = props.number;
@@ -30,8 +25,7 @@ watch([() => props.title, () => props.number], () => {
 
 <template>
   <div class="content-anchor">
-    <span 
-      class="content-anchor__title" 
+    <span class="content-anchor__title" 
       :class="{ 'content-anchor__title--changing': isChanging }"
     >
       {{ title }}
@@ -55,7 +49,7 @@ watch([() => props.title, () => props.number], () => {
     position: relative;
     
     &--changing {
-      animation: intense-glitch 0.8s ease-in-out;
+      animation: intense-glitch 0.4s ease-in-out;
       
       &::before,
       &::after {
@@ -75,12 +69,12 @@ watch([() => props.title, () => props.number], () => {
       }
       
       &::before {
-        animation: glitch-overlay-1 0.8s ease-in-out;
+        animation: glitch-overlay-1 0.4s ease-in-out;
         z-index: 1;
       }
       
       &::after {
-        animation: glitch-overlay-2 0.8s ease-in-out;
+        animation: glitch-overlay-2 0.4s ease-in-out;
         z-index: 2;
         background: linear-gradient(90deg, 
           transparent 0%, 
@@ -97,7 +91,7 @@ watch([() => props.title, () => props.number], () => {
     position: relative;
     
     &--changing {
-      animation: intense-glitch 0.8s ease-in-out;
+      animation: intense-glitch 0.4s ease-in-out;
       
       &::before,
       &::after {
@@ -117,12 +111,12 @@ watch([() => props.title, () => props.number], () => {
       }
       
       &::before {
-        animation: glitch-overlay-1 0.8s ease-in-out;
+        animation: glitch-overlay-1 0.4s ease-in-out;
         z-index: 1;
       }
       
       &::after {
-        animation: glitch-overlay-2 0.8s ease-in-out;
+        animation: glitch-overlay-2 0.4s ease-in-out;
         z-index: 2;
         background: linear-gradient(90deg, 
           transparent 0%, 
