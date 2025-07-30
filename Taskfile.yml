@@ -5,7 +5,7 @@ vars:
     sh: git rev-parse --show-toplevel
   
   node_version: "23"
-  terraform: 1.9.5
+  terraform: 1.8.5
 
 tasks:
   default:
@@ -18,59 +18,74 @@ tasks:
 # ---------------------INTERNAL-------------------#
 # ================================================#
 
-  _node/check:
-    desc: Check if Node.js is installed
-    cmds:
-      - node --version
-      - npm --version
-    silent: true
+  _docker/run:
+    desc: Internal task to run secure container.
     internal: true
-  
-  _node/install/deps:
-    desc: Install all dependencies
-    dir: "{{.git_root}}/site"
-    deps:
-      - _node/check
-    cmds:
-      - npm install
-    sources:
-      - package.json
-      - package-lock.json
-    generates:
-      - node_modules/**/*
+    dir: "{{.git_root}}"
+    cmd: |
+      docker run --rm \
+        --cap-drop=ALL \
+        --security-opt no-new-privileges \
+        --user $(id -u):$(id -g) \
+        --workdir /workspace \
+        {{if .ENVS}}{{range $env := .ENVS}}--env {{$env}} {{end}}{{end}}\
+        --volume "{{.git_root}}/{{.MOUNT_DIR}}:/workspace:rw" \
+        {{.IMAGE}} \
+        {{.CMD}}
     silent: true
-    internal: true
-
-  _terraform/install:
-    desc: Install 'terraform' if missing or incorrect version.
-    cmds:
-      - |
-        if command -v terraform >/dev/null 2>&1; then
-          version=$(terraform version | head -n1 | awk '{gsub("v", "", $2); print $2}')
-          if [ "$version" = "{{.terraform}}" ]; then
-            echo "Terraform {{.terraform}} already installed."
-            exit 0
-          else
-            echo "Terraform version $version found, expected {{.terraform}}. Reinstalling..."
-          fi
-        else
-          echo "Terraform not found. Installing..."
-        fi
-      - curl -sL https://releases.hashicorp.com/terraform/{{.terraform}}/terraform_{{.terraform}}_{{OS}}_{{ARCH}}.zip -o /tmp/terraform.zip
-      - sudo unzip -o /tmp/terraform.zip -d /usr/local/bin/
-      - sudo chmod a+x /usr/local/bin/terraform
-      - terraform version
-    internal: true
-    silent: true
+    requires:
+      vars: [IMAGE, CMD, MOUNT_DIR]
 
 # ================================================#
 # ----------------------PUBLIC--------------------#
 # ================================================#
 
   terraform/fmt/fix:
-    desc: Run 'terraform fix fmt'.
-    dir: "{{.git_root}}/terraform"
-    deps:
-      - _terraform/install
-    cmd: terraform fmt -recursive --diff --write=true
+    desc: Run 'terraform fmt' in secure container.
+    cmds:
+      - task: _docker/run
+        vars:
+          IMAGE: "hashicorp/terraform:{{.terraform}}"
+          CMD: "fmt -recursive -diff -write=true"
+          MOUNT_DIR: "terraform"
+    silent: true
+
+  node/lint/fix:
+    desc: Run ESLint in secure container.
+    cmds:
+      - task: _docker/run
+        vars:
+          IMAGE: "node:{{.node_version}}"
+          CMD: "sh -c 'npm ci && npx eslint . --fix'"
+          MOUNT_DIR: "site"
+          ENVS: 
+            - "NPM_CONFIG_CACHE=/workspace/.cache"
+            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
+    silent: true
+
+
+  node/lint:
+    desc: Run ESLint in secure container.
+    cmds:
+      - task: _docker/run
+        vars:
+          IMAGE: "node:{{.node_version}}"
+          CMD: "sh -c 'npm ci && npx eslint .'"
+          MOUNT_DIR: "site"
+          ENVS: 
+            - "NPM_CONFIG_CACHE=/workspace/.cache"
+            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
+    silent: true
+
+  node/format:
+    desc: Run Prettier in secure container.
+    cmds:
+      - task: _docker/run
+        vars:
+          IMAGE: "node:{{.node_version}}"
+          CMD: "sh -c 'npm ci && npx prettier --write src/'"
+          MOUNT_DIR: "site"
+          ENVS:
+            - "NPM_CONFIG_CACHE=/workspace/.cache"
+            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
     silent: true
