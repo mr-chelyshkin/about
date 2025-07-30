@@ -15,13 +15,7 @@ defineExpose({
 </script>
 
 <template>
-  <button 
-    :class="[
-      $style.navBurger,
-      { [$style.navBurgerActive]: isActive }
-    ]" 
-    @click="toggleMenu"
-  >
+  <button :class="[$style.navBurger, { [$style.navBurgerActive]: isActive }]" @click="toggleMenu">
     <span :class="[$style.navBurgerLine, $style.navBurgerLine1]"></span>
     <span :class="[$style.navBurgerLine, $style.navBurgerLine2]"></span>
     <span :class="[$style.navBurgerLine, $style.navBurgerLine3]"></span>

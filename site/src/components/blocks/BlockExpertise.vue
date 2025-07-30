@@ -17,7 +17,11 @@ defineProps<{
 
 <template>
   <BaseBlock :title="title" :subtitle="subtitle" :number="blockNumber">
-    <ItemNoteText :class="$style.noteMargin" :header="philosophy.header" :content="philosophy.content" />
+    <ItemNoteText
+      :class="$style.noteMargin"
+      :header="philosophy.header"
+      :content="philosophy.content"
+    />
     <div :class="$style.blockExpertise">
       <div :class="$style.blockExpertiseLayout">
         <div :class="$style.blockExpertiseList">

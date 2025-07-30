@@ -34,8 +34,12 @@ const handleMouseEnter = () => {
     :to="to"
     :class="[
       $style.contentLink,
-      { [$style.routerLinkActive]: $route.matched.some((record: { path: any }) => record.path === to) },
-      { [glitchClass]: isGlitchingByIndex(index) }
+      {
+        [$style.routerLinkActive]: $route.matched.some(
+          (record: { path: any }) => record.path === to,
+        ),
+      },
+      { [glitchClass]: isGlitchingByIndex(index) },
     ]"
     @click="handleClick"
     @mouseenter="handleMouseEnter"

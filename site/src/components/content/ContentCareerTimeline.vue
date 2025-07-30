@@ -22,7 +22,7 @@ defineProps<Props>()
         :key="item.year"
         :class="[
           $style.contentCareerTimelineItem,
-          { [$style.contentCareerTimelineItemCurrent]: item.current }
+          { [$style.contentCareerTimelineItemCurrent]: item.current },
         ]"
       >
         <div :class="$style.contentCareerTimelineYear">{{ item.year }}</div>

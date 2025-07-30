@@ -25,7 +25,7 @@ const { isGlitching, glitchDuration } = useImageGlitch({
     :class="[
       $style.digitalImage,
       { [$style.pulse]: props.pulse },
-      { [$style.glitchActive]: isGlitching }
+      { [$style.glitchActive]: isGlitching },
     ]"
     :style="{ '--glitch-duration': glitchDuration + 'ms' }"
     :src="props.src"

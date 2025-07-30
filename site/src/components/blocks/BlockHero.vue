@@ -12,7 +12,11 @@ const props = defineProps<Props>()
 
 <template>
   <div class="container">
-    <div :class="$style.blockHero" :data-block-title="props.title" :data-block-number="props.number">
+    <div
+      :class="$style.blockHero"
+      :data-block-title="props.title"
+      :data-block-number="props.number"
+    >
       <div :class="$style.blockHeroBackgroundImage">
         <ItemDigitalImage :src="heroData.image" alt="Hero Image" :pulse="true" :glitch="true" />
       </div>
