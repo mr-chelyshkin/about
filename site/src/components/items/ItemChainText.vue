@@ -17,52 +17,54 @@ defineProps<Props>()
 <template>
   <BaseChain :items="items">
     <template #default="{ item }">
-      <div class="item-chain-text">
-        <div class="item-chain-text__header">
-          <h5 class="item-chain-text__area">{{ item.area }}</h5>
-          <span class="item-chain-text__result">{{ item.result }}</span>
+      <div :class="$style.itemChainText">
+        <div :class="$style.itemChainTextHeader">
+          <h5 :class="$style.itemChainTextArea">{{ item.area }}</h5>
+          <span :class="$style.itemChainTextResult">{{ item.result }}</span>
         </div>
-        <p class="item-chain-text__description">{{ item.description }}</p>
+        <p :class="$style.itemChainTextDescription">{{ item.description }}</p>
       </div>
     </template>
   </BaseChain>
 </template>
 
-<style scoped lang="scss">
-.item-chain-text {
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.8rem;
-    gap: 1rem;
+<style module lang="scss">
+.itemChainText {
+  // Main container styles if needed
+}
 
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-  }
+.itemChainTextHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+  gap: 1rem;
 
-  &__area {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: $color-text-main;
-    margin: 0;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
+}
 
-  &__result {
-    color: $color-text-accent;
-    font-size: $text-size-sm;
-    font-weight: 700;
-    white-space: nowrap;
-  }
+.itemChainTextArea {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $color-text-main;
+  margin: 0;
+}
 
-  &__description {
-    color: $color-text-secondary;
-    font-size: $text-size-sm;
-    line-height: 1.5;
-    margin: 0;
-  }
+.itemChainTextResult {
+  color: $color-text-accent;
+  font-size: $text-size-sm;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.itemChainTextDescription {
+  color: $color-text-secondary;
+  font-size: $text-size-sm;
+  line-height: 1.5;
+  margin: 0;
 }
 </style>

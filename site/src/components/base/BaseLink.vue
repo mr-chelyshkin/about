@@ -32,8 +32,11 @@ const handleMouseEnter = () => {
 <template>
   <router-link
     :to="to"
-    class="content-link"
-    :class="{ [glitchClass]: isGlitchingByIndex(index) }"
+    :class="[
+      $style.contentLink,
+      { [$style.routerLinkActive]: $route.matched.some((record: { path: any }) => record.path === to) },
+      { [glitchClass]: isGlitchingByIndex(index) }
+    ]"
     @click="handleClick"
     @mouseenter="handleMouseEnter"
   >
@@ -41,8 +44,8 @@ const handleMouseEnter = () => {
   </router-link>
 </template>
 
-<style scoped lang="scss">
-.content-link {
+<style module lang="scss">
+.contentLink {
   color: $color-text-contrast;
 
   position: relative;
@@ -53,9 +56,9 @@ const handleMouseEnter = () => {
   &::after {
     background: $color-text-contrast;
   }
+}
 
-  &.router-link-active {
-    font-weight: 600;
-  }
+.routerLinkActive {
+  font-weight: 600;
 }
 </style>

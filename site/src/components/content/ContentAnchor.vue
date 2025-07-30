@@ -22,29 +22,29 @@ watch([() => props.title, () => props.number], () => {
 </script>
 
 <template>
-  <div class="content-anchor">
-    <span class="content-anchor__title" :class="{ [glitchClass]: isGlitching }">
+  <div :class="$style.contentAnchor">
+    <span :class="[$style.contentAnchorTitle, { [glitchClass]: isGlitching }]">
       {{ title }}
     </span>
-    <span class="content-anchor__number" :class="{ [glitchClass]: isGlitching }">
+    <span :class="[$style.contentAnchorNumber, { [glitchClass]: isGlitching }]">
       {{ number }}
     </span>
   </div>
 </template>
 
-<style scoped lang="scss">
-.content-anchor {
+<style module lang="scss">
+.contentAnchor {
   display: flex;
   gap: 0.3rem;
+}
 
-  &__title {
-    font-weight: 600;
-    position: relative;
-  }
+.contentAnchorTitle {
+  font-weight: 600;
+  position: relative;
+}
 
-  &__number {
-    font-weight: 300;
-    position: relative;
-  }
+.contentAnchorNumber {
+  font-weight: 300;
+  position: relative;
 }
 </style>

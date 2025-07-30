@@ -10,14 +10,14 @@ const props = defineProps<Props>()
 
 <template>
   <BaseNote :header="props.header">
-    <p class="item-note-text" v-for="(paragraph, index) in props.content" :key="index">
+    <p :class="$style.itemNoteText" v-for="(paragraph, index) in props.content" :key="index">
       {{ paragraph }}
     </p>
   </BaseNote>
 </template>
 
-<style scoped lang="scss">
-.item-note-text {
+<style module lang="scss">
+.itemNoteText {
   color: $color-text-main;
   font-size: 1.1rem;
 

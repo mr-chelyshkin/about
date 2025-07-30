@@ -15,26 +15,30 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <LayoutCard :href="props.href" class="item-card-text">
-    <div v-if="header" class="item-card-text__header">
-      <div class="item-card-text__header-label h-label">{{ header.key }}</div>
-      <div class="item-card-text__header-text h-text">{{ header.value }}</div>
+  <LayoutCard :href="props.href" :class="$style.itemCardText">
+    <div v-if="header" :class="$style.itemCardTextHeader">
+      <div :class="[$style.itemCardTextHeaderLabel, $style.hLabel]">{{ header.key }}</div>
+      <div :class="[$style.itemCardTextHeaderText, $style.hText]">{{ header.value }}</div>
     </div>
-    <div v-if="body" class="item-card-text__body">
-      <div class="item-card-text__body-label b-label">{{ body.key }}</div>
-      <div class="item-card-text__body-text b-text">{{ body.value }}</div>
+    <div v-if="body" :class="$style.itemCardTextBody">
+      <div :class="[$style.itemCardTextBodyLabel, $style.bLabel]">{{ body.key }}</div>
+      <div :class="[$style.itemCardTextBodyText, $style.bText]">{{ body.value }}</div>
     </div>
-    <div v-if="footer" class="item-card-text__footer">
-      <div class="item-card-text__footer-label f-label">{{ footer.key }}</div>
-      <div class="item-card-text__footer-text f-text">{{ footer.value }}</div>
+    <div v-if="footer" :class="$style.itemCardTextFooter">
+      <div :class="[$style.itemCardTextFooterLabel, $style.fLabel]">{{ footer.key }}</div>
+      <div :class="[$style.itemCardTextFooterText, $style.fText]">{{ footer.value }}</div>
     </div>
   </LayoutCard>
 </template>
 
-<style scoped lang="scss">
-.item-card-text__header,
-.item-card-text__body,
-.item-card-text__footer {
+<style module lang="scss">
+.itemCardText {
+  // Main component styles will be handled by LayoutCard
+}
+
+.itemCardTextHeader,
+.itemCardTextBody,
+.itemCardTextFooter {
   margin-bottom: 2rem;
 
   &:last-child {
@@ -42,12 +46,11 @@ const props = defineProps<Props>()
   }
 }
 
-.item-card-text__header-label,
-.item-card-text__body-label,
-.item-card-text__footer-label {
+.itemCardTextHeaderLabel,
+.itemCardTextBodyLabel,
+.itemCardTextFooterLabel {
   font-family: $font-main;
   font-size: $text-size-xsm;
-
   transition: opacity 0.3s ease;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
@@ -56,16 +59,14 @@ const props = defineProps<Props>()
   opacity: 0.8;
 }
 
-.item-card-text__header-label {
+.itemCardTextHeaderLabel {
   font-size: $text-size-xsm;
-
   letter-spacing: 1.2px;
   position: relative;
   opacity: 1;
 
   &::after {
     background: $color-text-accent;
-
     content: '';
     transition: width 0.3s ease;
     position: absolute;
@@ -76,69 +77,67 @@ const props = defineProps<Props>()
   }
 }
 
-.item-card-text__header-text,
-.item-card-text__body-text,
-.item-card-text__footer-text {
+.itemCardTextHeaderText,
+.itemCardTextBodyText,
+.itemCardTextFooterText {
   transition: all 0.3s ease;
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
-.h-label {
+// Color classes
+.hLabel {
   color: $color-text-accent;
 }
 
-.b-label {
+.bLabel {
   color: $color-text-main;
 }
 
-.f-label {
+.fLabel {
   color: $color-text-secondary;
 }
 
-.h-text {
+.hText {
   color: $color-text-main;
-
   font-weight: 600;
   font-size: 1.05rem;
 }
 
-.b-text {
+.bText {
   color: $color-text-main;
-
   font-weight: 400;
 }
 
-.f-text {
+.fText {
   color: $color-text-secondary;
-
   font-style: italic;
   font-size: 0.9rem;
 }
 
-.item-card-text__header {
+// Section-specific styles
+.itemCardTextHeader {
   border-bottom: 1px solid rgba($color-text-main, 0.05);
-
   padding-bottom: 1rem;
 }
 
-.item-card-text__body {
+.itemCardTextBody {
   padding: 1rem 0;
 }
 
-.item-card-text:hover {
-  .item-card-text__header-label::after {
+// Hover effects
+.itemCardText:hover {
+  .itemCardTextHeaderLabel::after {
     width: 40px;
   }
 
-  .item-card-text__body-label,
-  .item-card-text__footer-label {
+  .itemCardTextBodyLabel,
+  .itemCardTextFooterLabel {
     opacity: 1;
   }
 
-  .h-text {
+  .hText {
     color: $color-text-accent;
-
     transform: translateX(5px);
   }
 }

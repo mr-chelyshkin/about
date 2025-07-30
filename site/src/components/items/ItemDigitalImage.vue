@@ -22,15 +22,19 @@ const { isGlitching, glitchDuration } = useImageGlitch({
 
 <template>
   <img
-    :class="{ 'glitch-active': isGlitching, pulse: props.pulse }"
+    :class="[
+      $style.digitalImage,
+      { [$style.pulse]: props.pulse },
+      { [$style.glitchActive]: isGlitching }
+    ]"
     :style="{ '--glitch-duration': glitchDuration + 'ms' }"
     :src="props.src"
     :alt="props.alt || 'image'"
   />
 </template>
 
-<style scoped lang="scss">
-img {
+<style module lang="scss">
+.digitalImage {
   object-fit: cover;
   display: block;
   height: 100%;
@@ -41,11 +45,12 @@ img {
   animation: pulse 18s ease-in-out infinite;
 }
 
-.glitch-active {
+.glitchActive {
   animation:
     pulse 18s ease-in-out infinite,
     digital-corruption var(--glitch-duration, 400ms) ease-in-out;
 }
+
 @keyframes pulse {
   0%,
   100% {

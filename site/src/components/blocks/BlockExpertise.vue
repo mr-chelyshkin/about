@@ -17,10 +17,10 @@ defineProps<{
 
 <template>
   <BaseBlock :title="title" :subtitle="subtitle" :number="blockNumber">
-    <ItemNoteText class="note-margin" :header="philosophy.header" :content="philosophy.content" />
-    <div class="block-expertise">
-      <div class="block-expertise__layout">
-        <div class="block-expertise__list">
+    <ItemNoteText :class="$style.noteMargin" :header="philosophy.header" :content="philosophy.content" />
+    <div :class="$style.blockExpertise">
+      <div :class="$style.blockExpertiseLayout">
+        <div :class="$style.blockExpertiseList">
           <ItemListKV
             v-for="section in skills"
             :key="section.number"
@@ -29,7 +29,7 @@ defineProps<{
             :data="section.data"
           />
         </div>
-        <div class="block-expertise__sidebar">
+        <div :class="$style.blockExpertiseSidebar">
           <ContentCareerTimeline :items="career" />
         </div>
       </div>
@@ -37,48 +37,48 @@ defineProps<{
   </BaseBlock>
 </template>
 
-<style scoped lang="scss">
-.note-margin {
+<style module lang="scss">
+.noteMargin {
   margin-top: 3rem;
 }
 
-.block-expertise {
+.blockExpertise {
   justify-content: center;
   display: flex;
   margin-bottom: 3rem;
   padding: 3rem 0;
+}
 
-  &__layout {
-    display: flex;
-    gap: 4rem;
+.blockExpertiseLayout {
+  display: flex;
+  gap: 4rem;
 
-    @media (max-width: 1200px) {
-      gap: 3rem;
-    }
-
-    @media (max-width: 968px) {
-      flex-direction: column;
-      gap: 2rem;
-    }
+  @media (max-width: 1200px) {
+    gap: 3rem;
   }
 
-  &__list {
-    flex: 1;
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.blockExpertiseList {
+  flex: 1;
+}
+
+.blockExpertiseSidebar {
+  height: fit-content;
+  position: sticky;
+  top: 5rem;
+
+  @media (max-width: 1200px) {
+    flex: 0 0 300px;
   }
 
-  &__sidebar {
-    height: fit-content;
-    position: sticky;
-    top: 5rem;
-
-    @media (max-width: 1200px) {
-      flex: 0 0 300px;
-    }
-
-    @media (max-width: 968px) {
-      position: static;
-      flex: none;
-    }
+  @media (max-width: 968px) {
+    position: static;
+    flex: none;
   }
 }
 </style>

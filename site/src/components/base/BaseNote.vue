@@ -7,27 +7,24 @@ const headerText = `// ${props.header}`
 </script>
 
 <template>
-  <div class="base-note">
-    <div class="base-note__header">{{ headerText }}</div>
+  <div :class="$style.baseNote">
+    <div :class="$style.baseNoteHeader">{{ headerText }}</div>
     <slot />
   </div>
 </template>
 
-<style scoped lang="scss">
-.base-note {
+<style module lang="scss">
+.baseNote {
   background: $color-white;
   border: 2px solid $color-text-main;
-
   padding: 2rem;
   position: relative;
   transition: all 0.3s ease;
 
   &::before {
     background: $color-text-main;
-
     content: '';
     position: absolute;
-
     top: -2px;
     left: -2px;
     width: 30px;
@@ -40,19 +37,17 @@ const headerText = `// ${props.header}`
 
     &::before {
       background: $color-accent;
-
       transform: rotate(180deg) scale(1.2);
     }
   }
+}
 
-  &__header {
-    font-size: $text-size-sm;
-    color: $color-text-main;
-
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1rem;
-    font-weight: 600;
-  }
+.baseNoteHeader {
+  font-size: $text-size-sm;
+  color: $color-text-main;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 </style>

@@ -13,11 +13,11 @@ defineProps<Props>()
 
 <template>
   <Teleport to="body">
-    <div v-if="isOpen" class="nav-overlay" @click="closeMenu"></div>
-    <nav class="nav-menu" :class="{ 'nav-menu--open': isOpen }">
-      <div class="nav-menu__content">
-        <ul class="nav-menu__list">
-          <li class="nav-menu__item">
+    <div v-if="isOpen" :class="$style.navOverlay" @click="closeMenu"></div>
+    <nav :class="[$style.navMenu, { [$style.navMenuOpen]: isOpen }]">
+      <div :class="$style.navMenuContent">
+        <ul :class="$style.navMenuList">
+          <li :class="$style.navMenuItem">
             <ItemMatrixLink to="/" @click="closeMenu">Home</ItemMatrixLink>
           </li>
         </ul>
@@ -26,10 +26,9 @@ defineProps<Props>()
   </Teleport>
 </template>
 
-<style scoped lang="scss">
-.nav-overlay {
+<style module lang="scss">
+.navOverlay {
   z-index: $z-index-nav-overlay;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -39,17 +38,15 @@ defineProps<Props>()
   backdrop-filter: blur(2px);
 }
 
-.nav-menu {
+.navMenu {
   --nav-content-width: 280px;
   background: $color-background-contrast;
   min-width: var(--nav-content-width);
   padding-top: $header-height;
   z-index: $z-index-nav-menu;
-
   display: flex;
   position: fixed;
   flex-direction: column;
-
   top: 0;
   left: 0;
   height: 100vh;
@@ -62,32 +59,31 @@ defineProps<Props>()
     width: 75%;
     min-width: unset;
   }
+}
 
-  &--open {
-    transform: translateX(0);
-  }
+.navMenuOpen {
+  transform: translateX(0);
+}
 
-  &__content {
-    flex: 1;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    text-align: right;
-  }
+.navMenuContent {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: right;
+}
 
-  &__list {
-    width: var(--nav-content-width);
+.navMenuList {
+  width: var(--nav-content-width);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  &__item {
-    margin-bottom: 0.5rem;
-    text-align: right;
-  }
+.navMenuItem {
+  margin-bottom: 0.5rem;
+  text-align: right;
 }
 </style>

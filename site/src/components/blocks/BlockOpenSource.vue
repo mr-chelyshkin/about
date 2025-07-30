@@ -14,14 +14,14 @@ defineProps<{
 
 <template>
   <BaseBlock :title="title" :subtitle="subtitle" :number="blockNumber">
-    <div class="block-solutions-prj-grid">
+    <div :class="$style.blockSolutionsPrjGrid">
       <ItemCardText v-for="(item, index) in projects" :key="index" v-bind="item" />
     </div>
   </BaseBlock>
 </template>
 
-<style scoped lang="scss">
-.block-solutions-prj-grid {
+<style module lang="scss">
+.blockSolutionsPrjGrid {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   display: grid;

@@ -6,25 +6,25 @@ defineProps<Props>()
 </script>
 
 <template>
-  <div class="base-timeline-list">
-    <div v-for="(item, index) in items" :key="index" class="timeline-item">
-      <div class="timeline-item__marker">
-        <div class="dot"></div>
-        <div class="line"></div>
+  <div :class="$style.baseTimelineList">
+    <div v-for="(item, index) in items" :key="index" :class="$style.timelineItem">
+      <div :class="$style.timelineItemMarker">
+        <div :class="$style.dot"></div>
+        <div :class="$style.line"></div>
       </div>
-      <div class="timeline-item__content">
+      <div :class="$style.timelineItemContent">
         <slot :item="item" :index="index" />
       </div>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
-.base-timeline-list {
+<style module lang="scss">
+.baseTimelineList {
   position: relative;
 }
 
-.timeline-item {
+.timelineItem {
   margin-bottom: 2.5rem;
   gap: 2rem;
   display: flex;
@@ -32,20 +32,20 @@ defineProps<Props>()
   &:last-child {
     margin-bottom: 0;
   }
+}
 
-  &__marker {
-    flex-shrink: 0;
-    width: 20px;
-    display: flex;
-    position: relative;
-    align-items: center;
-    flex-direction: column;
-  }
+.timelineItemMarker {
+  flex-shrink: 0;
+  width: 20px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+}
 
-  &__content {
-    flex: 1;
-    padding-top: 0.2rem;
-  }
+.timelineItemContent {
+  flex: 1;
+  padding-top: 0.2rem;
 }
 
 .dot {

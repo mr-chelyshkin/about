@@ -15,24 +15,24 @@ defineProps<{
 
 <template>
   <BaseBlock :title="title" :subtitle="subtitle" :number="blockNumber">
-    <h4>Major Projects</h4>
-    <div class="block-solutions-prj-grid">
+    <h4 :class="$style.sectionTitle">Major Projects</h4>
+    <div :class="$style.blockSolutionsPrjGrid">
       <ItemCardText v-for="(item, index) in projects" :key="index" v-bind="item" />
     </div>
 
-    <h4>Impact Summary</h4>
-    <div class="block-solutions-ach-grid">
+    <h4 :class="$style.sectionTitle">Impact Summary</h4>
+    <div :class="$style.blockSolutionsAchGrid">
       <ItemChainText :items="achievements" />
     </div>
   </BaseBlock>
 </template>
 
-<style scoped lang="scss">
-h4 {
+<style module lang="scss">
+.sectionTitle {
   margin: 3rem 0;
 }
 
-.block-solutions-prj-grid {
+.blockSolutionsPrjGrid {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   display: grid;
@@ -44,7 +44,7 @@ h4 {
   }
 }
 
-.block-solutions-ach-grid {
+.blockSolutionsAchGrid {
   padding-bottom: 9rem;
 }
 </style>

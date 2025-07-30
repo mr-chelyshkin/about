@@ -35,25 +35,25 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="layout">
-    <div class="layout__burger-container">
-      <div class="container">
+  <div :class="$style.layout">
+    <div :class="$style.layoutBurgerContainer">
+      <div :class="['container', $style.containerPointerEvents]">
         <NavBurger ref="burgerButtonRef" @toggle="handleBurgerToggle" />
       </div>
     </div>
 
-    <header class="layout__header">
+    <header :class="$style.layoutHeader">
       <div class="container container__row_between">
-        <div class="layout__burger-placeholder"></div>
+        <div :class="$style.layoutBurgerPlaceholder"></div>
         <ContentAnchor :title="currentBlockTitle" :number="currentBlockNumber" />
       </div>
     </header>
 
-    <main class="layout__main">
+    <main :class="$style.layoutMain">
       <slot />
     </main>
 
-    <footer class="layout__footer">
+    <footer :class="$style.layoutFooter">
       <div class="container">&copy; {{ new Date().getFullYear() }} — Все права защищены.</div>
     </footer>
 
@@ -61,59 +61,56 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style module lang="scss">
 .layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
 
-  &__header {
-    background: $color-background-main;
-    box-shadow: $shadow-header;
-    z-index: $z-index-header;
-    color: $color-text-main;
-    height: $header-height;
+.layoutHeader {
+  background: $color-background-main;
+  box-shadow: $shadow-header;
+  z-index: $z-index-header;
+  color: $color-text-main;
+  height: $header-height;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  left: 0;
+}
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: fixed;
-    right: 0;
-    left: 0;
-  }
+.layoutBurgerContainer {
+  z-index: $z-index-nav-button;
+  height: $header-height;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  pointer-events: none;
+  align-items: center;
+  position: fixed;
+}
 
-  &__burger-container {
-    z-index: $z-index-nav-button;
-    height: $header-height;
+.containerPointerEvents {
+  pointer-events: auto;
+}
 
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    pointer-events: none;
-    align-items: center;
-    position: fixed;
+.layoutBurgerPlaceholder {
+  width: 32px;
+  height: 24px;
+}
 
-    .container {
-      pointer-events: auto;
-    }
-  }
+.layoutMain {
+  flex: 1 1 0%;
+  position: relative;
+}
 
-  &__burger-placeholder {
-    width: 32px;
-    height: 24px;
-  }
-
-  &__main {
-    flex: 1 1 0%;
-    position: relative;
-  }
-
-  &__footer {
-    background: $color-background-main;
-
-    padding: 1rem;
-    text-align: center;
-  }
+.layoutFooter {
+  background: $color-background-main;
+  padding: 1rem;
+  text-align: center;
 }
 </style>
