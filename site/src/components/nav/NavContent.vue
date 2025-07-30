@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import { useGlitch } from '@/composables/useGlitch';
+import BaseLink from '@/components/base/BaseLink.vue';
 
 interface Props {
   isOpen: boolean;
 }
-const { triggerByIndex, isGlitchingByIndex, glitchClass } = useGlitch({
-  animation: 'glitch-matrix-fast',
-  duration: 200
-});
+
 const props = defineProps<Props>();
 const emit = defineEmits<{ close: []; }>();
-const closeMenu = () => { emit('close'); }
+const closeMenu = () => { emit('close'); };
 </script>
 
 <template>
@@ -20,15 +17,7 @@ const closeMenu = () => { emit('close'); }
       <div class="nav-menu__content">
         <ul class="nav-menu__list">
           <li class="nav-menu__item">
-            <router-link 
-              to="/" 
-              class="nav-menu__link" 
-              :class="{ [glitchClass]: isGlitchingByIndex(0) }"
-              @click="closeMenu"
-              @mouseenter="triggerByIndex(0)"
-            >
-              Home
-            </router-link>
+            <BaseLink to="/" :index="0" @click="closeMenu">Home</BaseLink>
           </li>
         </ul>
       </div>
@@ -37,7 +26,6 @@ const closeMenu = () => { emit('close'); }
 </template>
 
 <style scoped lang="scss">
-
 .nav-overlay {
   z-index: $z-index-nav-overlay;
 
@@ -99,23 +87,6 @@ const closeMenu = () => { emit('close'); }
   &__item {
     margin-bottom: 0.5rem;
     text-align: right;
-  }
-
-  &__link {
-    color: $color-text-contrast;
-
-    position: relative;
-    text-align: right;
-    display: block;
-    padding: 1rem 0;
-
-    &::after {
-      background: $color-text-contrast;
-    }
-
-    &.router-link-active {
-      font-weight: 600;
-    }
   }
 }
 </style>
