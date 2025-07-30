@@ -29,30 +29,18 @@ jobs:
       bucket_name:        ${{ secrets.SITE_BUCKET_NAME }}
 
   build:
-    runs-on: ubuntu-24.04
     name: (Base) Pr Build
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build site
+      - name: task
         uses: Mad-Pixels/github-workflows/.github/actions/taskfile-runner@main
         with:
-          command: docs/build
+          command: node/build
 
   pr-check:
     name: (Base) PR Check
     needs: [build, plan]
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: All checks passed
         run: |
