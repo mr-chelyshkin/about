@@ -1,31 +1,39 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { watch } from 'vue';
+import { useGlitch } from '@/composables/useGlitch';
 
 interface Props {
   title: string;
   number: string;
 }
-const prevTitle = ref('');
-const prevNumber = ref('');
-const isChanging = ref(false);
 const props = defineProps<Props>();
 
+const { isGlitching, trigger, glitchClass } = useGlitch({
+  animation: 'glitch-digital',
+  duration: 400
+});
+
+let isInitialized = false;
 watch([() => props.title, () => props.number], () => {
-  if (prevTitle.value !== '' && prevNumber.value !== '') {
-    isChanging.value = true;
-    setTimeout(() => { isChanging.value = false; }, 400);
+  if (isInitialized) {
+    trigger();
   }
-  prevNumber.value = props.number;
-  prevTitle.value = props.title;
+  isInitialized = true;
 });
 </script>
 
 <template>
   <div class="content-anchor">
-    <span class="content-anchor__title" :class="{ 'glitch-digital': isChanging }">
+    <span 
+      class="content-anchor__title" 
+      :class="{ [glitchClass]: isGlitching }"
+    >
       {{ title }}
     </span>
-    <span class="content-anchor__number" :class="{ 'glitch-digital': isChanging }">
+    <span 
+      class="content-anchor__number" 
+      :class="{ [glitchClass]: isGlitching }"
+    >
       {{ number }}
     </span>
   </div>

@@ -1,10 +1,18 @@
 <script setup lang="ts">
+import { useGlitch } from '@/composables/useGlitch';
+
 interface Props {
   isOpen: boolean;
 }
 const props = defineProps<Props>();
 const emit = defineEmits<{ close: []; }>();
 const closeMenu = () => { emit('close'); }
+
+// Используем composable для навигации
+const { triggerByIndex, isGlitchingByIndex, glitchClass } = useGlitch({
+  animation: 'glitch-digital-fast',
+  duration: 200
+});
 </script>
 
 <template>
@@ -14,7 +22,15 @@ const closeMenu = () => { emit('close'); }
       <div class="nav-menu__content">
         <ul class="nav-menu__list">
           <li class="nav-menu__item">
-            <router-link to="/" class="nav-menu__link" @click="closeMenu">Home</router-link>
+            <router-link 
+              to="/" 
+              class="nav-menu__link" 
+              :class="{ [glitchClass]: isGlitchingByIndex(0) }"
+              @click="closeMenu"
+              @mouseenter="triggerByIndex(0)"
+            >
+              Home
+            </router-link>
           </li>
         </ul>
       </div>
@@ -26,7 +42,6 @@ const closeMenu = () => { emit('close'); }
 
 .nav-overlay {
   z-index: $z-index-nav-overlay;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -38,21 +53,17 @@ const closeMenu = () => { emit('close'); }
 
 .nav-menu {
   --nav-content-width: 280px;
-
   background: $color-background-contrast;
   min-width: var(--nav-content-width);
   padding-top: $header-height;
   z-index: $z-index-nav-menu;
-
   display: flex;
   flex-direction: column;
-
   top: 0;
   left: 0;
   height: 100vh;
   position: fixed;
   width: calc(576px + max(0px, (100vw - $max-width) * 0.3));
-  
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateX(-100%);
@@ -78,7 +89,6 @@ const closeMenu = () => { emit('close'); }
 
   &__list {
     width: var(--nav-content-width);
-
     list-style: none;
     margin: 0;
     padding: 0;
@@ -91,7 +101,7 @@ const closeMenu = () => { emit('close'); }
 
   &__link {
     color: $color-text-contrast;
-
+    position: relative;
     text-align: right;
     display: block;
     padding: 1rem 0;
