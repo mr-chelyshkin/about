@@ -1,10 +1,3 @@
-# module "router" {
-#   source = "./router"
-
-#   name    = "${local.project}-router"
-#   comment = local.description
-# }
-
 module "s3" {
   source = "./s3"
 
@@ -27,12 +20,6 @@ module "cf" {
   domain_aliases = [local.domain]
 
   acm_certificate_arn = var.acm_crt
-
-  #   req_func_list = [
-  #     {
-  #       function_arn = module.router.function_arn
-  #     }
-  #   ]
 
   error_responses = {
     403 = {
