@@ -1,5 +1,5 @@
 locals {
-  project     = "mr-chelyshkin"
+  project     = "site-personal"
   domain      = "new.mr-chelyshkin.com"
   description = "Personal site"
   provisioner = "main"
