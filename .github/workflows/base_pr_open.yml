@@ -30,7 +30,7 @@ jobs:
 
   build:
     name: (Base) Pr Build
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RUNS_ON }}
     steps:
       - name: task
         uses: Mad-Pixels/github-workflows/.github/actions/taskfile-runner@main
@@ -40,7 +40,7 @@ jobs:
   pr-check:
     name: (Base) PR Check
     needs: [build, plan]
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RUNS_ON }}
     steps:
       - name: All checks passed
         run: |

@@ -23,7 +23,7 @@ concurrency:
 jobs:
   create-tag:
     name: Create Tag
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RUNS_ON }}
     steps:
       - name: Invoke
         uses: Mad-Pixels/github-workflows/.github/actions/github-create-tag@main
