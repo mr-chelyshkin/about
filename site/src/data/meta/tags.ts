@@ -7,6 +7,6 @@ export const defaultSEO = {
   ogTitle: 'Igor Chelyshkin | Platform Engineering & DevOps Expert',
   ogDescription:
     '10+ years delivering scalable, secure, cost-effective infrastructure solutions. Expertise in AWS, Kubernetes, Infrastructure as Code, CI/CD, and automation (Go, Python).',
-  ogImage: 'https://yoursite.com/og-image.jpg',
+  ogImage: 'https://mr-chelyshkin.com/og-image.png',
   ogUrl: 'https://mr-chelyshkin.com',
 }
