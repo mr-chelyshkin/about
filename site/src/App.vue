@@ -11,7 +11,7 @@ const { updateMeta } = useSEO()
 
 onMounted(() => {
   updateMeta(defaultSEO)
-  
+
   const script = document.createElement('script')
   script.textContent = JSON.stringify(jsonLd)
   script.type = 'application/ld+json'

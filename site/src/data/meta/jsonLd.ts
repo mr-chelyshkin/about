@@ -1,15 +1,14 @@
-
 import { defaultSEO } from '@/data/meta/tags'
 import { heroData } from '@/data/hero/data'
 
 const getSameAs = () => {
   return heroData.links
-    .filter(link => ['LinkedIn', 'GitHub', 'Tg'].includes(link.label))
-    .map(link => link.href)
+    .filter((link) => ['LinkedIn', 'GitHub', 'Tg'].includes(link.label))
+    .map((link) => link.href)
 }
 
 const getEmail = () => {
-  const emailLink = heroData.links.find(link => link.label === 'Email')
+  const emailLink = heroData.links.find((link) => link.label === 'Email')
   return emailLink?.href.replace('mailto:', '') || ''
 }
 
