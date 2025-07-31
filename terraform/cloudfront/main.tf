@@ -23,32 +23,9 @@ resource "aws_cloudfront_distribution" "this" {
       }
     }
 
-    min_ttl     = 86400
+    min_ttl     = 31536000
     default_ttl = 31536000
     max_ttl     = 31536000
-  }
-
-  ordered_cache_behavior {
-    path_pattern           = "hashmap.json"
-    target_origin_id       = "S3-${var.bucket_id}"
-    viewer_protocol_policy = "redirect-to-https"
-    compress               = true
-
-    allowed_methods = ["GET", "HEAD"]
-    cached_methods  = ["GET", "HEAD"]
-
-    response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
-
-    forwarded_values {
-      query_string = false
-      cookies {
-        forward = "none"
-      }
-    }
-
-    min_ttl     = 300
-    default_ttl = 3600
-    max_ttl     = 86400
   }
 
   ordered_cache_behavior {
@@ -69,7 +46,7 @@ resource "aws_cloudfront_distribution" "this" {
       }
     }
 
-    min_ttl     = 86400
+    min_ttl     = 31536000
     default_ttl = 31536000
     max_ttl     = 31536000
   }
@@ -92,7 +69,7 @@ resource "aws_cloudfront_distribution" "this" {
       }
     }
 
-    min_ttl     = 86400
+    min_ttl     = 31536000
     default_ttl = 31536000
     max_ttl     = 31536000
   }
@@ -115,7 +92,7 @@ resource "aws_cloudfront_distribution" "this" {
       }
     }
 
-    min_ttl     = 86400
+    min_ttl     = 2592000
     default_ttl = 2592000
     max_ttl     = 31536000
   }
@@ -138,7 +115,30 @@ resource "aws_cloudfront_distribution" "this" {
       }
     }
 
-    min_ttl     = 86400
+    min_ttl     = 2592000
+    default_ttl = 2592000
+    max_ttl     = 31536000
+  }
+
+  ordered_cache_behavior {
+    path_pattern           = "*.ico"
+    target_origin_id       = "S3-${var.bucket_id}"
+    viewer_protocol_policy = "redirect-to-https"
+    compress               = false
+
+    allowed_methods = ["GET", "HEAD"]
+    cached_methods  = ["GET", "HEAD"]
+
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
+
+    forwarded_values {
+      query_string = false
+      cookies {
+        forward = "none"
+      }
+    }
+
+    min_ttl     = 2592000
     default_ttl = 2592000
     max_ttl     = 31536000
   }
@@ -161,9 +161,78 @@ resource "aws_cloudfront_distribution" "this" {
       }
     }
 
-    min_ttl     = 86400
+    min_ttl     = 2592000
     default_ttl = 2592000
     max_ttl     = 31536000
+  }
+
+  ordered_cache_behavior {
+    path_pattern           = "robots.txt"
+    target_origin_id       = "S3-${var.bucket_id}"
+    viewer_protocol_policy = "redirect-to-https"
+    compress               = true
+
+    allowed_methods = ["GET", "HEAD"]
+    cached_methods  = ["GET", "HEAD"]
+
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
+
+    forwarded_values {
+      query_string = false
+      cookies {
+        forward = "none"
+      }
+    }
+
+    min_ttl     = 0
+    default_ttl = 3600
+    max_ttl     = 86400
+  }
+
+  ordered_cache_behavior {
+    path_pattern           = "*sitemap*.xml"
+    target_origin_id       = "S3-${var.bucket_id}"
+    viewer_protocol_policy = "redirect-to-https"
+    compress               = true
+
+    allowed_methods = ["GET", "HEAD"]
+    cached_methods  = ["GET", "HEAD"]
+
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
+
+    forwarded_values {
+      query_string = false
+      cookies {
+        forward = "none"
+      }
+    }
+
+    min_ttl     = 0
+    default_ttl = 3600
+    max_ttl     = 86400
+  }
+
+  ordered_cache_behavior {
+    path_pattern           = "*.json"
+    target_origin_id       = "S3-${var.bucket_id}"
+    viewer_protocol_policy = "redirect-to-https"
+    compress               = true
+
+    allowed_methods = ["GET", "HEAD"]
+    cached_methods  = ["GET", "HEAD"]
+
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
+
+    forwarded_values {
+      query_string = false
+      cookies {
+        forward = "none"
+      }
+    }
+
+    min_ttl     = 0
+    default_ttl = 3600
+    max_ttl     = 86400
   }
 
   default_cache_behavior {
@@ -194,7 +263,7 @@ resource "aws_cloudfront_distribution" "this" {
     }
 
     min_ttl     = 0
-    default_ttl = 3600
+    default_ttl = 0
     max_ttl     = 86400
   }
 
@@ -231,7 +300,7 @@ resource "aws_cloudfront_distribution" "this" {
   comment             = var.description
   aliases             = var.domain_aliases
   default_root_object = var.index_document
-  price_class         = "PriceClass_All"
+  price_class         = "PriceClass_100"
   enabled             = true
 }
 
