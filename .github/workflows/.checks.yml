@@ -33,6 +33,15 @@ jobs:
         uses: Mad-Pixels/github-workflows/.github/actions/taskfile-runner@main
         with:
           command: node/format
+
+  audit: 
+    name: Audit 
+    runs-on: ${{ vars.RUNS_ON }}
+    steps:
+      - name: Invoke
+        uses: Mad-Pixels/github-workflows/.github/actions/taskfile-runner@main
+        with:
+          command: node/audit
   
   leaks:
     name: GitLeaks

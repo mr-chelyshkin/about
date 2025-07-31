@@ -128,4 +128,16 @@ tasks:
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
     silent: true
-  
+
+  node/audit:
+    desc: Run dependencies audit.
+    cmds:
+      - task: _docker/run
+        vars:
+          IMAGE: "node:{{.node_version}}"
+          CMD: "sh -c 'npm install && npm audit --audit-level high'"
+          MOUNT_DIR: "site"
+          ENVS: 
+            - "NPM_CONFIG_CACHE=/workspace/.cache"
+            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
+    silent: true
