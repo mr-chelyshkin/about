@@ -112,11 +112,10 @@ tasks:
       - task: _docker/run
         vars:
           IMAGE: "node:{{.node_version}}"
-          CMD: "sh -c 'npm ci && npm run build'"
+          CMD: "sh -c 'npm install && npm run build'"
           MOUNT_DIR: "site"
           ENVS:
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
-            - "NODE_ENV=production"
     silent: true
   
