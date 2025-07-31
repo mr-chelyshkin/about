@@ -237,7 +237,7 @@ resource "aws_cloudfront_distribution" "this" {
 
 resource "aws_cloudfront_response_headers_policy" "security_headers" {
   name    = "${var.project}-security-headers"
-  comment = "Security headers policy for VitePress documentation"
+  comment = "Security headers policy"
 
   security_headers_config {
     strict_transport_security {
@@ -245,6 +245,11 @@ resource "aws_cloudfront_response_headers_policy" "security_headers" {
       override                   = true
       include_subdomains         = true
       preload                    = true
+    }
+
+    content_security_policy {
+      content_security_policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: images.unsplash.com; connect-src 'self'"
+      override                = true
     }
 
     content_type_options {
