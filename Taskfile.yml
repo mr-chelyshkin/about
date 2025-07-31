@@ -141,3 +141,16 @@ tasks:
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
     silent: true
+
+  node/type-check:
+    desc: TypeScript type checking.
+    cmds:
+      - task: _docker/run
+        vars:
+          IMAGE: "node:{{.node_version}}"
+          CMD: "sh -c 'npm ci && npm run type-check'"
+          MOUNT_DIR: "site"
+          ENVS:
+            - "NPM_CONFIG_CACHE=/workspace/.cache"
+            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
+    silent: true
