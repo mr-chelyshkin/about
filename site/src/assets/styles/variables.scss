@@ -1,0 +1,30 @@
+$max-width: 1920px;
+$min-width: 320px;
+$header-height: clamp(52px, 8vw, 99px);
+
+$color-white: #ffffff;
+$color-dark: #121212;
+$color-gray: #424242;
+$color-accent: #c10303;
+
+$text-size-sm: 0.9rem;
+$text-size-xsm: 0.8rem;
+
+$shadow-default: rgba(0, 0, 0, 0.075) 0px 0.125rem 0.25rem;
+
+$color-background-main: $color-white;
+$color-background-contrast: $color-dark;
+$color-text-main: $color-dark;
+$color-text-contrast: $color-white;
+$color-text-secondary: $color-gray;
+$color-text-accent: $color-accent;
+$color-border-main: $color-dark;
+
+$shadow-header: $shadow-default;
+
+$font-main: 'Roboto Mono', monospace;
+
+$z-index-nav-menu: 999;
+$z-index-nav-overlay: 998;
+$z-index-nav-button: 1000;
+$z-index-header: 997;
