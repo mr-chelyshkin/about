@@ -32,7 +32,7 @@ jobs:
     name: (Base) Pr Build
     runs-on: ${{ vars.RUNS_ON }}
     steps:
-      - name: task
+      - name: Invoke 
         uses: Mad-Pixels/github-workflows/.github/actions/taskfile-runner@main
         with:
           command: node/build

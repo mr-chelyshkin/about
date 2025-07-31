@@ -64,7 +64,7 @@ jobs:
           name: site
           path: build-output
 
-      - name: Upload to S3
+      - name: Invoke 
         uses: Mad-Pixels/github-workflows/.github/actions/aws-s3-sync@main
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
@@ -74,7 +74,7 @@ jobs:
           bucket_name:    "site-personal-${{ secrets.SITE_BUCKET_NAME }}"
           source_dir:     "build-output"
 
-      - name: Invalidate CloudFront cache
+      - name: Invalidate cache
         uses: Mad-Pixels/github-workflows/.github/actions/aws-cloudfront-invalidation@main
         with:
           aws_access_key:   ${{ secrets.AWS_ACCESS_KEY }}

@@ -1,8 +1,5 @@
 name: Create tag
 
-permissions:
-  contents: write
-
 on:
   workflow_dispatch:
     inputs:
@@ -19,6 +16,9 @@ on:
 concurrency:
   group: manual-tag-${{ inputs.tag }}
   cancel-in-progress: true
+
+permissions:
+  contents: write
 
 jobs:
   create-tag:
