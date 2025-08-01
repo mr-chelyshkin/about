@@ -11,6 +11,6 @@ export const heroData = {
     { label: 'GitHub', href: 'https://github.com/mr-chelyshkin' },
     { label: 'Email', href: 'mailto:igor.chelyshkin@madpixels.io' },
     { label: 'Tg', href: 'https://t.me/mr_chelyshkin' },
-    { label: 'CV', href: '/resume.pdf' },
+    { label: 'CV', href: '/IgorChelyshkinCV.pdf' },
   ],
 }

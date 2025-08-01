@@ -235,6 +235,27 @@ resource "aws_cloudfront_distribution" "this" {
     max_ttl     = 86400
   }
 
+  ordered_cache_behavior {
+    path_pattern           = "*.pdf"
+    target_origin_id       = "S3-${var.bucket_id}"
+    viewer_protocol_policy = "redirect-to-https"
+    compress               = false
+    allowed_methods        = ["GET", "HEAD"]
+    cached_methods         = ["GET", "HEAD"]
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
+
+    forwarded_values {
+      query_string = false
+      cookies {
+        forward = "none"
+      }
+    }
+
+    min_ttl     = 604800
+    default_ttl = 604800 
+    max_ttl     = 31536000
+  }
+
   default_cache_behavior {
     viewer_protocol_policy = "redirect-to-https"
     compress               = true
