@@ -5,6 +5,7 @@ on:
     inputs:
       tf_command:
         type: string
+
     secrets:
       aws_secret_key:
         required: true
@@ -28,11 +29,11 @@ on:
 jobs:
   tf-command:
     name: Tf Command
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RUNS_ON }}
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Invoke
         uses: Mad-Pixels/github-workflows/.github/actions/terraform-runner@main
