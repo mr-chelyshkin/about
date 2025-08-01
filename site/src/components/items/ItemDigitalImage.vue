@@ -25,11 +25,11 @@ const { isGlitching, glitchDuration } = useImageGlitch({
     :class="[
       $style.digitalImage,
       { [$style.pulse]: props.pulse },
-      { [$style.glitchActive]: isGlitching },
     ]"
     :style="{ '--glitch-duration': glitchDuration + 'ms' }"
     :src="props.src"
     :alt="props.alt || 'image'"
+    v-bind:class="{ 'glitch-digital': isGlitching && props.glitch }"
   />
 </template>
 
@@ -45,12 +45,6 @@ const { isGlitching, glitchDuration } = useImageGlitch({
   animation: pulse 18s ease-in-out infinite;
 }
 
-.glitchActive {
-  animation:
-    pulse 18s ease-in-out infinite,
-    digital-corruption var(--glitch-duration, 400ms) ease-in-out;
-}
-
 @keyframes pulse {
   0%,
   100% {
@@ -59,5 +53,11 @@ const { isGlitching, glitchDuration } = useImageGlitch({
   50% {
     transform: scale(1.05);
   }
+}
+</style>
+
+<style lang="scss">
+.glitch-digital {
+  animation: digital-corruption var(--glitch-duration, 400ms) ease-in-out;
 }
 </style>
