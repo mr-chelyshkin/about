@@ -36,6 +36,10 @@ defineProps<Props>()
 <style module lang="scss">
 .contentCareerTimeline {
   padding: 3rem;
+
+  @media (max-width: 968px) {
+    padding: 0;
+  }
 }
 
 .contentCareerTimelineHeader {

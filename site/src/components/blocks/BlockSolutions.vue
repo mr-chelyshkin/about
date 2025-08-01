@@ -46,5 +46,9 @@ defineProps<{
 
 .blockSolutionsAchGrid {
   padding-bottom: 9rem;
+
+  @media (max-width: 1239px) {
+    padding-bottom: 6rem;
+  }
 }
 </style>
