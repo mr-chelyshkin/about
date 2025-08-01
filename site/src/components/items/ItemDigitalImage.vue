@@ -25,11 +25,11 @@ const { isGlitching, glitchDuration } = useImageGlitch({
     :class="[
       $style.digitalImage,
       { [$style.pulse]: props.pulse },
+      { 'glitch-digital': isGlitching && props.glitch },
     ]"
     :style="{ '--glitch-duration': glitchDuration + 'ms' }"
     :src="props.src"
     :alt="props.alt || 'image'"
-    v-bind:class="{ 'glitch-digital': isGlitching && props.glitch }"
   />
 </template>
 
