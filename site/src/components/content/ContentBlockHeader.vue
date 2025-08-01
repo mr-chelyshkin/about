@@ -5,7 +5,7 @@ interface Props {
   title: string
 }
 const props = defineProps<Props>()
-const subtitleText = `// ${props.subtitle}`
+const subtitleText = `// ${props.subtitle.toUpperCase()}`
 </script>
 
 <template>
@@ -21,7 +21,7 @@ const subtitleText = `// ${props.subtitle}`
 .contentBlockHeader {
   background-color: $color-background-contrast;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
-  padding: 4rem 0;
+  padding: 6rem 0;
   width: 100%;
 
   @media (max-width: 768px) {
