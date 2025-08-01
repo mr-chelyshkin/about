@@ -24,6 +24,10 @@ const subtitleText = `// ${props.subtitle.toUpperCase()}`
   padding: 6rem 0;
   width: 100%;
 
+  @media (max-width: 1239px) {
+    padding: 3rem;
+  }
+
   @media (max-width: 768px) {
     padding: 1rem;
   }
