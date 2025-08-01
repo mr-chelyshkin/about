@@ -12,7 +12,7 @@ export const career: CareerItem[] = [
   { year: '2022', role: 'Lead DevOps (mobile infrastructure)', company: 'Russia, OzonTech' },
   {
     year: '2023+',
-    role: 'Senior SRE Engineer (core team)',
+    role: 'Sr SRE Engineer (core team)',
     company: 'Israel, Aqua Security',
     current: true,
   },
