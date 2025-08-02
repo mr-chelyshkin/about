@@ -80,6 +80,7 @@ web_modules/
 out
 
 # Nuxt.js build / generate output
+site/public/images*
 .nuxt
 dist-ssr
 dist

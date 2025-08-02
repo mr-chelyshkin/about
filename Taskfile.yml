@@ -38,6 +38,19 @@ tasks:
     requires:
       vars: [IMAGE, CMD, MOUNT_DIR]
 
+  _image/prepare:
+    desc: Prepare optimized images.
+    internal: true 
+    cmds:
+      - task: _docker/run
+        vars:
+          IMAGE: "node:{{.node_version}}"
+          CMD: "sh -c 'npm ci && node scripts/optimize-images.js'"
+          MOUNT_DIR: "site"
+          ENVS: 
+            - "NPM_CONFIG_CACHE=/workspace/.cache"
+            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
+
 # ================================================#
 # ----------------------PUBLIC--------------------#
 # ================================================#
@@ -80,6 +93,8 @@ tasks:
 
   dev: 
     desc: Run dev on {{ .dev_port }}. 
+    deps:
+      - _image/prepare
     cmds: 
       - task: _docker/run 
         vars: 
@@ -161,6 +176,8 @@ tasks:
 
   node/build:
     desc: Build production version.
+    deps:
+      - _image/prepare
     cmds:
       - task: _docker/run
         vars:

@@ -1,11 +1,20 @@
 <script setup lang="ts">
 import { useImageGlitch } from '@/composables/useImageGlitch'
 
+import BaseImage from '@/components/base/BaseImage.vue'
+
 interface Props {
+  format?: 'webp' | 'jpg' | 'png'
+  priority?: boolean
+  glitch?: boolean
+  pulse?: boolean
+
   src: string
   alt?: string
-  pulse?: boolean
-  glitch?: boolean
+  folder?: string
+
+  width?: number
+  height?: number
 }
 
 const props = defineProps<Props>()
@@ -21,15 +30,20 @@ const { isGlitching, glitchDuration } = useImageGlitch({
 </script>
 
 <template>
-  <img
+  <BaseImage
+    :src="props.src"
+    :alt="props.alt || 'image'"
+    :width="props.width"
+    :height="props.height"
+    :priority="props.priority"
+    :format="props.format"
+    :folder="props.folder"
     :class="[
       $style.digitalImage,
       { [$style.pulse]: props.pulse },
       { 'glitch-digital': isGlitching && props.glitch },
     ]"
     :style="{ '--glitch-duration': glitchDuration + 'ms' }"
-    :src="props.src"
-    :alt="props.alt || 'image'"
   />
 </template>
 
