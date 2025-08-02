@@ -23,9 +23,13 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: $text-size-md;
   scroll-behavior: smooth;
   touch-action: manipulation;
+
+  @media (max-width: 419px) {
+    font-size: $text-size-sm;
+  }
 }
 
 body {
@@ -44,7 +48,7 @@ h1 {
     font-size: 2.6rem;
   }
   @media (max-width: 419px) {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
 }
 
@@ -55,7 +59,7 @@ h2 {
     font-size: 1.4rem;
   }
   @media (max-width: 419px) {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 }
 
