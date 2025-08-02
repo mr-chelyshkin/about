@@ -19,7 +19,6 @@ const props = defineProps<Props>()
 <style module lang="scss">
 .itemNoteText {
   color: $color-text-main;
-  font-size: 1.1rem;
 
   &:last-child {
     margin-bottom: 0;

@@ -30,6 +30,10 @@ defineProps<{
 <style module lang="scss">
 .sectionTitle {
   margin: 3rem 0;
+
+  @media (max-width: 968px) {
+    margin: 2rem 0 0 0;
+  }
 }
 
 .blockSolutionsPrjGrid {
@@ -46,6 +50,16 @@ defineProps<{
 
 .blockSolutionsAchGrid {
   padding-bottom: 9rem;
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 419px) {
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+  }
 
   @media (max-width: 1239px) {
     padding-bottom: 6rem;

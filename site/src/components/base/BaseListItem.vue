@@ -26,12 +26,20 @@ defineProps<Props>()
   &:last-child {
     border-bottom: none;
   }
+
+  @media (max-width: 419px) {
+    padding: 1.5rem 0;
+  }
 }
 
 .baseListItemHeader {
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 419px) {
+    margin-bottom: 1rem;
+  }
 }
 
 .headerTitle {
@@ -45,7 +53,6 @@ defineProps<Props>()
   padding: 0.3rem 0.8rem;
   margin-right: 1.5rem;
   border-radius: 2px;
-  font-size: 0.85rem;
   font-weight: 600;
   min-width: 3rem;
   text-align: center;

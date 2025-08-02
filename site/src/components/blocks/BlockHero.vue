@@ -48,16 +48,18 @@ const props = defineProps<Props>()
 </template>
 
 <style module lang="scss">
-$hero-min-height: 666px;
-$hero-min-height-min: 555px;
+$hero-min-height: 777px;
 
 .blockHero {
   height: 100vh;
   min-height: $hero-min-height;
 
   @media (max-width: 979px) {
-    min-height: $hero-min-height-min;
     max-height: 860px;
+  }
+
+  @media (max-width: 419px) {
+    min-height: 666px;
   }
 }
 

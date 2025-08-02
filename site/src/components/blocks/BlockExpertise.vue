@@ -51,6 +51,10 @@ defineProps<{
   display: flex;
   margin-bottom: 3rem;
   padding: 3rem 0;
+
+  @media (max-width: 419px) {
+    padding: 1rem 0;
+  }
 }
 
 .blockExpertiseLayout {
@@ -63,7 +67,7 @@ defineProps<{
 
   @media (max-width: 968px) {
     flex-direction: column;
-    gap: 2rem;
+    gap: 0rem;
   }
 }
 

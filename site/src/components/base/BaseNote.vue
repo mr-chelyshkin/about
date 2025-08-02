@@ -43,7 +43,7 @@ const headerText = `// ${props.header}`
 }
 
 .baseNoteHeader {
-  font-size: $text-size-sm;
+  font-size: $text-size-lg;
   color: $color-text-main;
   text-transform: uppercase;
   letter-spacing: 1px;

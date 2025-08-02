@@ -35,7 +35,6 @@ const subtitleText = `// ${props.subtitle.toUpperCase()}`
 
 .contentBlockHeaderSubtitle {
   color: $color-text-contrast;
-  font-size: $text-size-sm;
 }
 
 .contentBlockHeaderTitle {

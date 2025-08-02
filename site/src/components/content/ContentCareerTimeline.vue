@@ -47,8 +47,12 @@ defineProps<Props>()
 }
 
 .contentCareerTimelineTitle {
-  font-size: $text-size-sm;
+  font-size: $text-size-lg;
   color: $color-text-secondary;
+
+  @media (max-width: 968px) {
+    font-size: $text-size-md;
+  }
 }
 
 .contentCareerTimelineTrack {

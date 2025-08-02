@@ -24,7 +24,7 @@ watch([() => props.title, () => props.number], () => {
 <template>
   <div :class="$style.contentAnchor">
     <span :class="[$style.contentAnchorTitle, { [glitchClass]: isGlitching }]">
-      {{ title }}
+      {{ title.toUpperCase() }}
     </span>
     <span :class="[$style.contentAnchorNumber, { [glitchClass]: isGlitching }]">
       {{ number }}
@@ -39,12 +39,24 @@ watch([() => props.title, () => props.number], () => {
 }
 
 .contentAnchorTitle {
+  font-size: $text-size-xlg;
+
   font-weight: 600;
   position: relative;
+
+  @media (max-width: 419px) {
+    font-size: $text-size-lg;
+  }
 }
 
 .contentAnchorNumber {
+  font-size: $text-size-xlg;
+
   font-weight: 300;
   position: relative;
+
+  @media (max-width: 419px) {
+    font-size: $text-size-lg;
+  }
 }
 </style>
