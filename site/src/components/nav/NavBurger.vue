@@ -15,8 +15,8 @@ defineExpose({
 </script>
 
 <template>
-  <button 
-    :class="[$style.navBurger, { [$style.navBurgerActive]: isActive }]" 
+  <button
+    :class="[$style.navBurger, { [$style.navBurgerActive]: isActive }]"
     @click="toggleMenu"
     :aria-label="isActive ? 'open menu' : 'close menu'"
     :aria-expanded="isActive"
