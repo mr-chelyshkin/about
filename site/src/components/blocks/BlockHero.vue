@@ -18,7 +18,17 @@ const props = defineProps<Props>()
       :data-block-number="props.number"
     >
       <div :class="$style.blockHeroBackgroundImage">
-        <ItemDigitalImage :src="heroData.image" alt="Hero Image" :pulse="true" :glitch="true" />
+        <ItemDigitalImage 
+          alt="Igor Chelyshkin - Platform Engineer" 
+          format="webp"
+          src="hero"
+          folder=""
+      
+          :pulse="true" 
+          :glitch="true"
+          :width="1200"
+          :priority="true"
+        />
       </div>
       <div :class="$style.blockHeroContent">
         <h1>{{ heroData.name }}</h1>
