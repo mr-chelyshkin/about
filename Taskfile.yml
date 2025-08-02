@@ -24,7 +24,7 @@ tasks:
     internal: true
     dir: "{{.git_root}}"
     cmd: |
-      docker run --rm --init -it \
+      docker run --rm --init {{if .TTY}}-it{{end}} \
         --cap-drop=ALL \
         --security-opt no-new-privileges \
         --user $(id -u):$(id -g) \
@@ -169,4 +169,5 @@ tasks:
           ENVS:
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
+            - TTY: "true"
     silent: true
