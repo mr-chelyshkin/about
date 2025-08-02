@@ -283,9 +283,9 @@ resource "aws_cloudfront_distribution" "this" {
       }
     }
 
-    min_ttl     = 0
-    default_ttl = 0
-    max_ttl     = 86400
+    min_ttl     = 86400
+    default_ttl = 2592000
+    max_ttl     = 31536000
   }
 
   dynamic "custom_error_response" {
