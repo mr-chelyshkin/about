@@ -91,6 +91,7 @@ tasks:
           ENVS:
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
+          TTY: "true"
 
 # ================================================#
 # ----------------------CI/CD---------------------#
@@ -169,5 +170,4 @@ tasks:
           ENVS:
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
-            - TTY: "true"
     silent: true
