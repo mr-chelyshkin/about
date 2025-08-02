@@ -30,14 +30,21 @@ const props = defineProps<Props>()
 }
 
 .itemListKvLabel {
-  font-size: $text-size-sm;
+  font-size: $text-size-md;
   color: $color-text-accent;
+
   min-width: 100px;
   font-weight: 700;
 }
 
 .itemListKvValue {
   color: $color-text-main;
+  font-size: $text-size-sm;
+
   font-weight: 400;
+
+  @media (max-width: 419px) {
+    font-size: $text-size-xsm;
+  }
 }
 </style>

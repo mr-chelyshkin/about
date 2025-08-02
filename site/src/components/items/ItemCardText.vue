@@ -44,6 +44,10 @@ const props = defineProps<Props>()
   &:last-child {
     margin-bottom: 0;
   }
+
+  @media (max-width: 419px) {
+    margin-bottom: 0rem;
+  }
 }
 
 .itemCardTextHeaderLabel,
