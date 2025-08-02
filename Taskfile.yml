@@ -6,6 +6,7 @@ vars:
   
   node_version: "23"
   terraform: 1.8.5
+  dev_port: 3000
 
 tasks:
   default:
@@ -23,12 +24,13 @@ tasks:
     internal: true
     dir: "{{.git_root}}"
     cmd: |
-      docker run --rm \
+      docker run --rm --init -it \
         --cap-drop=ALL \
         --security-opt no-new-privileges \
         --user $(id -u):$(id -g) \
         --workdir /workspace \
         {{if .ENVS}}{{range $env := .ENVS}}--env {{$env}} {{end}}{{end}}\
+        {{if .PORTS}}{{range $port := .PORTS}}--publish {{$port}} {{end}}{{end}}\
         --volume "{{.git_root}}/{{.MOUNT_DIR}}:/workspace:rw" \
         {{.IMAGE}} \
         {{.CMD}}
@@ -75,6 +77,20 @@ tasks:
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
     silent: true
+
+  dev: 
+    desc: Run dev on {{ .dev_port }}. 
+    cmds: 
+      - task: _docker/run 
+        vars: 
+          IMAGE: "node:{{.node_version}}"
+          CMD: "sh -c 'npm ci && npm run dev -- --host 0.0.0.0 --port {{ .dev_port }}'"
+          MOUNT_DIR: "site"
+          PORTS:
+            - "{{ .dev_port }}:{{ .dev_port }}"
+          ENVS:
+            - "NPM_CONFIG_CACHE=/workspace/.cache"
+            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
 
 # ================================================#
 # ----------------------CI/CD---------------------#
