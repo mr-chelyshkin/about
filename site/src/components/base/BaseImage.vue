@@ -11,11 +11,11 @@ interface Props {
   priority?: boolean
   lazy?: boolean
 
-  src: string 
+  src: string
   alt: string
-  
+
   sizes?: string
-  folder?: string 
+  folder?: string
 }
 
 const isLoaded = ref(false)
@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
   lazy: true,
 
   format: 'webp',
-  folder: ''
+  folder: '',
 })
 const getImagePath = (width: number) => {
   const folder = props.folder ? `${props.folder}/` : ''
@@ -39,20 +39,22 @@ const optimizedSrc = computed(() => {
 })
 const srcSet = computed(() => {
   if (!props.responsive) return undefined
-  
+
   const widths = [400, 800, 1200, 1600]
-  return widths
-    .map(width => `${getImagePath(width)} ${width}w`)
-    .join(', ')
+  return widths.map((width) => `${getImagePath(width)} ${width}w`).join(', ')
 })
-const defaultSizes = "(max-width: 768px) 400px, (max-width: 1200px) 800px, 1200px"
+const defaultSizes = '(max-width: 768px) 400px, (max-width: 1200px) 800px, 1200px'
 const loadingValue = computed(() => {
   if (props.priority) return 'eager'
   if (props.lazy) return 'lazy'
   return undefined
 })
-const handleError = () => { hasError.value = true }
-const handleLoad = () => { isLoaded.value = true }
+const handleError = () => {
+  hasError.value = true
+}
+const handleLoad = () => {
+  isLoaded.value = true
+}
 
 onMounted(() => {
   if (props.priority) {
@@ -68,19 +70,14 @@ onMounted(() => {
 
 <template>
   <img
-    :sizes="responsive ? (sizes || defaultSizes) : undefined"
+    :sizes="responsive ? sizes || defaultSizes : undefined"
     :srcset="responsive ? srcSet : undefined"
     :loading="loadingValue"
     :src="optimizedSrc"
     :height="height"
     :width="width"
     :alt="alt"
-    
-    :class="[
-      $style.baseImage,
-      { [$style.loaded]: isLoaded },
-      { [$style.error]: hasError }
-    ]"
+    :class="[$style.baseImage, { [$style.loaded]: isLoaded }, { [$style.error]: hasError }]"
     @load="handleLoad"
     @error="handleError"
   />
@@ -91,11 +88,11 @@ onMounted(() => {
   display: block;
   transition: opacity 0.3s ease;
   opacity: 0;
-  
+
   &.loaded {
     opacity: 1;
   }
-  
+
   &.error {
     opacity: 0.5;
     filter: grayscale(100%);

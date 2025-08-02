@@ -12,7 +12,7 @@ interface Props {
   src: string
   alt?: string
   folder?: string
-  
+
   width?: number
   height?: number
 }
@@ -60,7 +60,8 @@ const { isGlitching, glitchDuration } = useImageGlitch({
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
