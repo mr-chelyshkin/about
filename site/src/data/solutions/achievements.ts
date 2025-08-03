@@ -7,34 +7,37 @@ export interface AchievementItem {
 export const achievements: AchievementItem[] = [
   {
     area: 'Cost Optimization',
-    result: '25-35% savings',
-    description:
-      'Strategic infrastructure audits and automated resource optimization across all environments',
+    result: '15-25% infrastructure savings',
+    description: 'Strategic infrastructure audits and automated resource optimization across all environments',
   },
   {
-    area: 'Platform Migration',
-    result: '50+ services migrated',
-    description: 'Production workloads moved to Kubernetes with 35% faster deployment cycles',
+    area: 'Cross-team Collaboration',
+    result: '10+ trainings delivered',
+    description: 'Led hands-on workshops and mentoring on DevOps tools and best practices.'
   },
   {
-    area: 'Team Development',
-    result: '10+ engineers mentored',
-    description:
-      'Built high-performing DevOps teams from scratch with strong knowledge-sharing culture',
+    area: 'Technical Leadership',
+    result: 'Standards rolled out to 15+ teams',
+    description: 'Developed and enforced infrastructure standards adopted across multiple engineering teams.'
   },
   {
-    area: 'Security Implementation',
-    result: 'Zero incidents achieved',
-    description: 'Proactive security practices eliminated vulnerabilities through automation',
+    area: 'Migration Projects',
+    result: 'Zero-downtime transitions',
+    description: 'Successfully migrated critical workloads to modern platforms without downtime',
   },
   {
-    area: 'Database Operations',
-    result: '100% uptime maintained',
-    description: 'Zero-downtime migrations with robust rollback mechanisms across platforms',
+    area: 'Process Improvement',
+    result: 'Unified deployment workflows',
+    description: 'Established consistent deployment and infrastructure management practices',
   },
   {
-    area: 'Developer Experience',
-    result: 'Custom tooling delivered',
-    description: 'CLI tools and APIs that dramatically reduced manual operational overhead',
+    area: 'Platform Development',
+    result: 'Reusable service components',
+    description: 'Developed foundational services and APIs used across multiple engineering teams',
+  },
+  {
+    area: 'Infrastructure Automation',
+    result: 'Reduced manual work',
+    description: 'Created Terraform modules and CI/CD templates eliminating repetitive infrastructure tasks',
   },
 ]
