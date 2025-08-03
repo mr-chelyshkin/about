@@ -33,7 +33,6 @@ const props = defineProps<Props>()
 
 <style module lang="scss">
 .itemCardText {
-  // Main component styles will be handled by LayoutCard
 }
 
 .itemCardTextHeader,
@@ -54,7 +53,7 @@ const props = defineProps<Props>()
 .itemCardTextBodyLabel,
 .itemCardTextFooterLabel {
   font-family: $font-main;
-  font-size: $text-size-xsm;
+  font-size: $text-size-md;
   transition: opacity 0.3s ease;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
@@ -64,7 +63,7 @@ const props = defineProps<Props>()
 }
 
 .itemCardTextHeaderLabel {
-  font-size: $text-size-xsm;
+  font-size: $text-size-xlg;
   letter-spacing: 1.2px;
   position: relative;
   opacity: 1;
@@ -89,7 +88,6 @@ const props = defineProps<Props>()
   line-height: 1.6;
 }
 
-// Color classes
 .hLabel {
   color: $color-text-accent;
 }
@@ -119,7 +117,6 @@ const props = defineProps<Props>()
   font-size: 0.9rem;
 }
 
-// Section-specific styles
 .itemCardTextHeader {
   border-bottom: 1px solid rgba($color-text-main, 0.05);
   padding-bottom: 1rem;
@@ -129,7 +126,6 @@ const props = defineProps<Props>()
   padding: 1rem 0;
 }
 
-// Hover effects
 .itemCardText:hover {
   .itemCardTextHeaderLabel::after {
     width: 40px;
