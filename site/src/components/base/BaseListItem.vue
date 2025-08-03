@@ -29,6 +29,7 @@ defineProps<Props>()
 
   @media (max-width: 419px) {
     padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -45,6 +46,18 @@ defineProps<Props>()
 .headerTitle {
   color: $color-text-main;
   margin: 0;
+
+  @media (max-width: 968px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 679px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 339px) {
+    font-size: 1.1rem;
+  }
 }
 
 .baseListItemNumber {
@@ -56,6 +69,18 @@ defineProps<Props>()
   font-weight: 600;
   min-width: 3rem;
   text-align: center;
+
+  @media (max-width: 968px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 679px) {
+    font-size: 2.1rem;
+  }
+
+  @media (max-width: 339px) {
+    font-size: 1.6rem;
+  }
 }
 
 .baseListItemContent {
