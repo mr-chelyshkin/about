@@ -57,19 +57,8 @@ const props = defineProps<Props>()
 </template>
 
 <style module lang="scss">
-$hero-min-height: 777px;
-
 .blockHero {
   height: 100vh;
-  min-height: $hero-min-height;
-
-  @media (max-width: 979px) {
-    max-height: 860px;
-  }
-
-  @media (max-width: 419px) {
-    min-height: 666px;
-  }
 }
 
 .blockHeroBackgroundImage {
@@ -79,11 +68,40 @@ $hero-min-height: 777px;
   top: 0px;
   width: 45%;
   height: 100vh;
-  min-height: $hero-min-height;
   clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
 
   @media (max-width: 979px) {
     display: none;
+  }
+}
+
+.blockHero, .blockHeroBackgroundImage {
+  @media (min-width: 1365px) {
+    min-height: 820px;
+  }
+}
+
+.blockHero, .blockHeroBackgroundImage {
+  @media (max-width: 1365px) {
+    min-height: 720px;
+  }
+}
+
+.blockHero, .blockHeroBackgroundImage {
+  @media (max-width: 979px) {
+    min-height: 620px;
+  }
+}
+
+.blockHero, .blockHeroBackgroundImage {
+  @media (max-width: 719px) {
+    min-height: 720px;
+  }
+}
+
+.blockHero, .blockHeroBackgroundImage {
+  @media (max-width: 419px) {
+    min-height: 660px;
   }
 }
 
