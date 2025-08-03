@@ -42,7 +42,7 @@ export const projects: ProjectItem[] = [
       value: 'High database costs and operational scaling complexity',
     },
     body: {
-      key: 'Solution', 
+      key: 'Solution',
       value: 'Automated migration to Aurora Serverless v2 with demand-based capacity management',
     },
     footer: {
@@ -57,7 +57,8 @@ export const projects: ProjectItem[] = [
     },
     body: {
       key: 'Solution',
-      value: 'Developed OpenStack CLI automation tool Python with integrated SaltStack orchestration (like aws-cli)',
+      value:
+        'Developed OpenStack CLI automation tool Python with integrated SaltStack orchestration (like aws-cli)',
     },
     footer: {
       key: 'Result',
@@ -76,7 +77,8 @@ export const projects: ProjectItem[] = [
     },
     footer: {
       key: 'Result',
-      value: 'Reduced platform costs, simplified artifact management with seamless CI/CD integration',
+      value:
+        'Reduced platform costs, simplified artifact management with seamless CI/CD integration',
     },
   },
 ]

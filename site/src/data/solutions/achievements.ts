@@ -8,17 +8,19 @@ export const achievements: AchievementItem[] = [
   {
     area: 'Cost Optimization',
     result: '15-25% infrastructure savings',
-    description: 'Strategic infrastructure audits and automated resource optimization across all environments',
+    description:
+      'Strategic infrastructure audits and automated resource optimization across all environments',
   },
   {
     area: 'Cross-team Collaboration',
     result: '10+ trainings delivered',
-    description: 'Led hands-on workshops and mentoring on DevOps tools and best practices.'
+    description: 'Led hands-on workshops and mentoring on DevOps tools and best practices.',
   },
   {
     area: 'Technical Leadership',
     result: 'Standards rolled out to 15+ teams',
-    description: 'Developed and enforced infrastructure standards adopted across multiple engineering teams.'
+    description:
+      'Developed and enforced infrastructure standards adopted across multiple engineering teams.',
   },
   {
     area: 'Migration Projects',
@@ -38,6 +40,7 @@ export const achievements: AchievementItem[] = [
   {
     area: 'Infrastructure Automation',
     result: 'Reduced manual work',
-    description: 'Created Terraform modules and CI/CD templates eliminating repetitive infrastructure tasks',
+    description:
+      'Created Terraform modules and CI/CD templates eliminating repetitive infrastructure tasks',
   },
 ]
