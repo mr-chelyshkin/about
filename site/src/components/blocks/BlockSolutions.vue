@@ -38,7 +38,7 @@ defineProps<{
 
 .blockSolutionsPrjGrid {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  margin-top: 2rem;
+  margin-top: 4rem;
   gap: 2rem;
   display: grid;
 
