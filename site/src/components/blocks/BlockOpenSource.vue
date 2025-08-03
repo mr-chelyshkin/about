@@ -26,6 +26,7 @@ defineProps<{
   gap: 2rem;
   display: grid;
   padding: 3rem 0 9rem 0;
+  margin-top: 1rem;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
