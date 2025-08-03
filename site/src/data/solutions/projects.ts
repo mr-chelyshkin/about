@@ -8,68 +8,67 @@ export interface ProjectItem {
 export const projects: ProjectItem[] = [
   {
     header: {
-      key: 'Issue',
-      value: 'Uncontrolled mobile app releases and unstable builds',
+      key: 'Mobile Platform Consolidation',
+      value: 'Fragmented mobile infrastructure: teams managing isolated build/test environments',
     },
     body: {
       key: 'Solution',
       value:
-        'Built unified Mobile CI/CD and scalable mobile testing farms (20+ MacStudios, Kubernetes Android emulators)',
+        'Designed centralized mobile platform with resource allocation, standardized workflows (20+ MacStudios, K8s Android farm)',
     },
     footer: {
       key: 'Result',
-      value: '35% faster releases, increased reliability',
+      value: '35% faster releases, unified processes across teams',
     },
   },
   {
     header: {
-      key: 'Issue',
-      value: 'High database costs and scalability bottlenecks',
+      key: 'Pipeline-as-a-Service',
+      value: 'Fragmented CI/CD landscape: each mobile team supporting custom pipeline solutions',
     },
     body: {
       key: 'Solution',
       value:
-        'Automated migration proccess to AWS Aurora Serverless (AWS Lambda, StepFunctions, CodeBuild)',
+        'Built self-service Pipeline-as-a-Service with standardized core logic and configurable project adaptations',
     },
     footer: {
       key: 'Result',
-      value: '15% infrastructure cost reduction, improved performance',
+      value: 'Centralized pipeline management, improved developer velocity',
     },
   },
   {
     header: {
-      key: 'Issue',
+      key: 'Aurora Serverless Migration',
+      value: 'High database costs and operational scaling complexity',
+    },
+    body: {
+      key: 'Solution',
+      value: 'Automated migration to Aurora Serverless v2 with demand-based capacity management',
+    },
+    footer: {
+      key: 'Result',
+      value: '15% cost reduction, eliminated manual capacity planning',
+    },
+  },
+  {
+    header: {
+      key: 'OpenStack CLI Tool',
       value: 'Complex manual management of OpenStack infrastructure',
     },
     body: {
       key: 'Solution',
       value:
-        'Developed OpenStack CLI automation tool (Go, Python) with integrated SaltStack orchestration (like aws-cli)',
+        'Developed OpenStack CLI automation tool Python with integrated SaltStack orchestration (like aws-cli)',
     },
     footer: {
       key: 'Result',
-      value: 'Automated deployments, eliminated manual configuration errors',
+      value: 'Eliminated manual operations, standardized infrastructure workflows',
     },
   },
   {
     header: {
-      key: 'Issue',
-      value: 'No clear visibility of hardware distribution in data centers',
-    },
-    body: {
-      key: 'Solution',
-      value:
-        'Created internal Flask-based dashboard visualizing servers (relationship diagram), racks, and network equipment inventory',
-    },
-    footer: {
-      key: 'Result',
-      value: 'Improved infrastructure transparency and accelerated incident response',
-    },
-  },
-  {
-    header: {
-      key: 'Issue',
-      value: 'Inefficient artifact storage and delivery for mobile teams',
+      key: 'Internal Artifact Platform',
+      value: 'Expensive third-party artifact platform with limited customization options',
     },
     body: {
       key: 'Solution',
@@ -78,7 +77,8 @@ export const projects: ProjectItem[] = [
     },
     footer: {
       key: 'Result',
-      value: 'Simplified artifact management, enabled rapid app distribution (integrated in CI/CD)',
+      value:
+        'Reduced platform costs, simplified artifact management with seamless CI/CD integration',
     },
   },
 ]

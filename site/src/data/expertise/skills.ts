@@ -15,7 +15,7 @@ export const skills: Skills[] = [
     title: 'Cloud Infrastructure',
     data: [
       { key: 'Platform', value: 'AWS (EKS, Lambda, Aurora, Step Functions, DynamoDB)' },
-      { key: 'Approach', value: 'Cost-effective architecture, minimal downtime migrations' },
+      { key: 'Approach', value: 'Strategic cloud transformation and optimization' },
     ],
   },
   {
@@ -31,7 +31,7 @@ export const skills: Skills[] = [
     title: 'Container Orchestration',
     data: [
       { key: 'Stack', value: 'Kubernetes, Docker, EKS, Helm, ArgoCD' },
-      { key: 'Approach', value: 'Zero-downtime deployments, auto-scaling platforms' },
+      { key: 'Approach', value: 'Production-grade orchestration and automation' },
     ],
   },
   {
@@ -39,7 +39,7 @@ export const skills: Skills[] = [
     title: 'CI/CD & GitOps',
     data: [
       { key: 'Pipeline', value: 'GitHub Actions, GitLab CI, Jenkins, ArgoCD' },
-      { key: 'Approach', value: 'Transparent deployments, automated rollbacks' },
+      { key: 'Approach', value: 'GitOps-driven infrastructure and application delivery' },
     ],
   },
   {
@@ -52,10 +52,10 @@ export const skills: Skills[] = [
   },
   {
     number: '06',
-    title: 'Programming & Automation',
+    title: 'Full-stack platform development',
     data: [
-      { key: 'Languages', value: 'Go, Python, Bash, Rust' },
-      { key: 'Approach', value: 'Clean code, maintainable infrastructure tooling' },
+      { key: 'Languages', value: 'Go, Python, Bash, Rust, VueJS' },
+      { key: 'Approach', value: 'Production-grade applications with modern architectures' },
     ],
   },
   {

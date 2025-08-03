@@ -7,44 +7,30 @@ export interface ProjectItem {
 export const projects: ProjectItem[] = [
   {
     header: {
-      key: 'Issue',
-      value:
-        'Lack of user-friendly tools for managing Wi-Fi on headless Linux devices (e.g. Raspberry Pi)',
+      key: 'goldmark-tgmd',
+      value: 'Goldmark extension: Markdown → Telegram MarkdownV2 converter',
     },
-
-    href: 'https://github.com/Mad-Pixels/wf',
-  },
-  {
-    header: {
-      key: 'Issue',
-      value: 'No convenient solution to learn foreign languages using personal vocabulary lists',
-    },
-
-    href: 'https://github.com/Mad-Pixels/applingo-ios',
-  },
-  {
-    header: {
-      key: 'Issue',
-      value: 'Manual effort required to convert Markdown documents for Telegram channels and bots',
-    },
-
     href: 'https://github.com/Mad-Pixels/goldmark-tgmd',
   },
   {
     header: {
-      key: 'Issue',
-      value: 'Tedious manual coding required for DynamoDB schema integrations in Go projects',
+      key: 'go-dyno',
+      value: 'Schema-driven Go code generator for DynamoDB from JSON schemas',
     },
-
     href: 'https://github.com/Mad-Pixels/go-dyno',
   },
   {
     header: {
-      key: 'Issue',
-      value:
-        'Complex workflows for publishing articles and content simultaneously to multiple platforms',
+      key: 'github-workflows',
+      value: 'Reusable GitHub Actions workflows for CI/CD automation',
     },
-
-    href: 'https://github.com/Mad-Pixels/Postify',
+    href: 'https://github.com/Mad-Pixels/github-workflows',
+  },
+  {
+    header: {
+      key: 'applingo-ios',
+      value: 'iOS flashcard app with mini-games for learning foreign words',
+    },
+    href: 'https://github.com/Mad-Pixels/applingo-ios',
   },
 ]

@@ -54,7 +54,9 @@ onUnmounted(() => {
     </main>
 
     <footer :class="$style.layoutFooter">
-      <div class="container">&copy; {{ new Date().getFullYear() }} — Все права защищены.</div>
+      <div class="container">
+        &copy; {{ new Date().getFullYear() }} Mr.Chelyshkin — All rights reserved.
+      </div>
     </footer>
 
     <NavContent :is-open="isMenuOpen" @close="closeMenu" />
