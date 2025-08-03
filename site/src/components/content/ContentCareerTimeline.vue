@@ -51,7 +51,7 @@ defineProps<Props>()
   color: $color-text-secondary;
 
   @media (max-width: 968px) {
-    font-size: $text-size-md;
+    font-size: $text-size-xlg;
   }
 }
 
@@ -116,6 +116,10 @@ defineProps<Props>()
   color: $color-text-secondary;
   font-size: $text-size-xsm;
   font-weight: 600;
+
+  @media (max-width: 429px) {
+    font-size: $text-size-lg;
+  }
 }
 
 .contentCareerTimelineRole {
@@ -123,11 +127,19 @@ defineProps<Props>()
   color: $color-text-main;
   font-weight: 600;
   margin: 0.2rem 0;
+
+  @media (max-width: 429px) {
+    font-size: $text-size-md;
+  }
 }
 
 .contentCareerTimelineCompany {
   font-size: $text-size-xsm;
   color: $color-text-secondary;
+
+  @media (max-width: 429px) {
+    font-size: $text-size-sm;
+  }
 }
 
 @keyframes pulse {

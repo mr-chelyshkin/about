@@ -75,31 +75,36 @@ const props = defineProps<Props>()
   }
 }
 
-.blockHero, .blockHeroBackgroundImage {
+.blockHero,
+.blockHeroBackgroundImage {
   @media (min-width: 1365px) {
     min-height: 820px;
   }
 }
 
-.blockHero, .blockHeroBackgroundImage {
+.blockHero,
+.blockHeroBackgroundImage {
   @media (max-width: 1365px) {
     min-height: 720px;
   }
 }
 
-.blockHero, .blockHeroBackgroundImage {
+.blockHero,
+.blockHeroBackgroundImage {
   @media (max-width: 979px) {
     min-height: 620px;
   }
 }
 
-.blockHero, .blockHeroBackgroundImage {
+.blockHero,
+.blockHeroBackgroundImage {
   @media (max-width: 719px) {
     min-height: 720px;
   }
 }
 
-.blockHero, .blockHeroBackgroundImage {
+.blockHero,
+.blockHeroBackgroundImage {
   @media (max-width: 419px) {
     min-height: 660px;
   }
