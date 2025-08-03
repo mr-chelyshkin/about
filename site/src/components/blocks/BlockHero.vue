@@ -106,7 +106,14 @@ const props = defineProps<Props>()
 .blockHero,
 .blockHeroBackgroundImage {
   @media (max-width: 419px) {
-    min-height: 660px;
+    min-height: 680px;
+  }
+}
+
+.blockHero,
+.blockHeroBackgroundImage {
+  @media (max-width: 377px) {
+    min-height: 760px;
   }
 }
 
