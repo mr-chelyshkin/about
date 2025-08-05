@@ -1,5 +1,5 @@
 # Personal site 
-![Alt text](./public/og-image.png)
+![Alt text](./site/public/og-image.png)
 
 ## License
 
