@@ -26,7 +26,7 @@ jobs:
     runs-on: ${{ vars.RUNS_ON }}
     steps:
       - name: Invoke
-        uses: Mad-Pixels/github-workflows/.github/actions/github-create-tag@main
+        uses: Mad-Pixels/github-workflows/actions/github-create-tag@dev3
         with:
           tag: ${{ inputs.tag }}
           force: ${{ inputs.force }}
