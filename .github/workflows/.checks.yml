@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ vars.RUNS_ON }}
     steps:
       - name: Invoke
-        uses: Mad-Pixels/github-workflows/.github/actions/taskfile-runner@main
+        uses: Mad-Pixels/github-workflows/actions/taskfile-runner@dev3
         with:
           command: terraform/fmt
 
@@ -21,7 +21,7 @@ jobs:
     runs-on: ${{ vars.RUNS_ON }}
     steps:
       - name: Invoke
-        uses: Mad-Pixels/github-workflows/.github/actions/taskfile-runner@main
+        uses: Mad-Pixels/github-workflows/actions/taskfile-runner@dev3
         with:
           command: node/lint
 
@@ -30,7 +30,7 @@ jobs:
     runs-on: ${{ vars.RUNS_ON }}
     steps:
       - name: Invoke
-        uses: Mad-Pixels/github-workflows/.github/actions/taskfile-runner@main
+        uses: Mad-Pixels/github-workflows/actions/taskfile-runner@dev3
         with:
           command: node/format
 
@@ -39,7 +39,7 @@ jobs:
     runs-on: ${{ vars.RUNS_ON }}
     steps:
       - name: Invoke
-        uses: Mad-Pixels/github-workflows/.github/actions/taskfile-runner@main
+        uses: Mad-Pixels/github-workflows/actions/taskfile-runner@dev3
         with:
           command: node/audit
   
@@ -60,7 +60,7 @@ jobs:
     runs-on: ${{ vars.RUNS_ON }}
     steps:
       - name: Invoke
-        uses: Mad-Pixels/github-workflows/.github/actions/taskfile-runner@main
+        uses: Mad-Pixels/github-workflows/actions/taskfile-runner@dev3
         with:
           command: node/type-check
         

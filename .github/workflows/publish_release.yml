@@ -15,7 +15,7 @@ jobs:
     runs-on: ${{ vars.RUNS_ON }}
     steps:
       - name: Invoke
-        uses: Mad-Pixels/github-workflows/.github/actions/github-check-branch@main
+        uses: Mad-Pixels/github-workflows/actions/github-check-branch@dev3
         with:
           tag_name: ${{ github.ref_name }}
 
@@ -43,7 +43,7 @@ jobs:
     name: (Release) Build
     steps:
       - name: Invoke 
-        uses: Mad-Pixels/github-workflows/.github/actions/taskfile-runner@main
+        uses: Mad-Pixels/github-workflows/actions/taskfile-runner@dev3
         with:
           command: node/build
       - name: Upload build artifacts
@@ -65,7 +65,7 @@ jobs:
           path: build-output
 
       - name: Invoke 
-        uses: Mad-Pixels/github-workflows/.github/actions/aws-s3-sync@main
+        uses: Mad-Pixels/github-workflows/actions/aws-s3-sync@dev3
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
@@ -75,7 +75,7 @@ jobs:
           source_dir:     "build-output"
 
       - name: Invalidate cache
-        uses: Mad-Pixels/github-workflows/.github/actions/aws-cloudfront-invalidation@main
+        uses: Mad-Pixels/github-workflows/actions/aws-cloudfront-invalidation@dev3
         with:
           aws_access_key:   ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key:   ${{ secrets.AWS_SECRET_KEY }}
