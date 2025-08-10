@@ -33,7 +33,7 @@ jobs:
     runs-on: ${{ vars.RUNS_ON }}
     steps:
       - name: Invoke 
-        uses: Mad-Pixels/github-workflows/actions/taskfile-runner@v1
+        uses: Mad-Pixels/github-workflows/actions/taskfile-runner@concept2
         with:
           command: node/build
 
