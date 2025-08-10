@@ -20,11 +20,18 @@ tasks:
 # ================================================#
 
   _docker/run:
-    desc: Internal task to run secure container.
+    desc: Internal task to run secure container (quiet pulls).
     internal: true
     dir: "{{.git_root}}"
     cmd: |
-      docker run --rm --init {{if .TTY}}-it{{end}} \
+      if ! docker image inspect "{{.IMAGE}}" >/dev/null 2>&1; then
+        docker pull -q "{{.IMAGE}}" >/dev/null 2>&1 || {
+          echo "❌ Failed to pull image: {{.IMAGE}}"
+          exit 1
+        }
+      fi
+
+      docker run --rm --init --pull=never {{if .TTY}}-it{{end}} \
         --cap-drop=ALL \
         --security-opt no-new-privileges \
         --user $(id -u):$(id -g) \
@@ -32,7 +39,7 @@ tasks:
         {{if .ENVS}}{{range $env := .ENVS}}--env {{$env}} {{end}}{{end}}\
         {{if .PORTS}}{{range $port := .PORTS}}--publish {{$port}} {{end}}{{end}}\
         --volume "{{.git_root}}/{{.MOUNT_DIR}}:/workspace:rw" \
-        {{.IMAGE}} \
+        "{{.IMAGE}}" \
         {{.CMD}}
     silent: true
     requires:
