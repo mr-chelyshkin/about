@@ -17,18 +17,6 @@ const props = defineProps<Props>()
       :data-block-title="props.title"
       :data-block-number="props.number"
     >
-      <div :class="$style.blockHeroBackgroundImage">
-        <ItemDigitalImage
-          alt="Igor Chelyshkin - Platform Engineer"
-          format="webp"
-          src="hero"
-          folder=""
-          :pulse="true"
-          :glitch="true"
-          :width="1200"
-          :priority="true"
-        />
-      </div>
       <div :class="$style.blockHeroContent">
         <h1>{{ heroData.name }}</h1>
         <h2 :class="$style.contentSubtitle">{{ heroData.title }}</h2>
@@ -52,66 +40,46 @@ const props = defineProps<Props>()
           </a>
         </div>
       </div>
+      <div :class="$style.blockHeroBackgroundImage">
+        <ItemDigitalImage
+          alt="Igor Chelyshkin - Staff Engineer"
+          format="webp"
+          src="hero"
+          folder=""
+          :pulse="true"
+          :glitch="true"
+          :width="1200"
+          :priority="true"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <style module lang="scss">
 .blockHero {
+  display: grid;
+  grid-template-columns: 55% 45%;
   height: 100vh;
-}
+  min-height: 820px;
 
-.blockHeroBackgroundImage {
-  position: absolute;
-  overflow: hidden;
-  right: 0px;
-  top: 0px;
-  width: 45%;
-  height: 100vh;
-  clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
-
-  @media (max-width: 979px) {
-    display: none;
-  }
-}
-
-.blockHero,
-.blockHeroBackgroundImage {
-  @media (min-width: 1365px) {
-    min-height: 820px;
-  }
-}
-
-.blockHero,
-.blockHeroBackgroundImage {
   @media (max-width: 1365px) {
     min-height: 720px;
   }
-}
 
-.blockHero,
-.blockHeroBackgroundImage {
   @media (max-width: 979px) {
+    grid-template-columns: 1fr;
     min-height: 620px;
   }
-}
 
-.blockHero,
-.blockHeroBackgroundImage {
   @media (max-width: 719px) {
     min-height: 720px;
   }
-}
 
-.blockHero,
-.blockHeroBackgroundImage {
   @media (max-width: 419px) {
     min-height: 680px;
   }
-}
 
-.blockHero,
-.blockHeroBackgroundImage {
   @media (max-width: 377px) {
     min-height: 760px;
   }
@@ -121,12 +89,15 @@ const props = defineProps<Props>()
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: self-start;
-  height: 100%;
-  width: 55%;
+  align-items: flex-start;
+}
+
+.blockHeroBackgroundImage {
+  overflow: hidden;
+  clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
 
   @media (max-width: 979px) {
-    width: 100%;
+    display: none;
   }
 }
 
