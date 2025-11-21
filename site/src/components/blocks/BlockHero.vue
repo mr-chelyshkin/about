@@ -42,7 +42,7 @@ const props = defineProps<Props>()
       </div>
       <div :class="$style.blockHeroBackgroundImage">
         <ItemDigitalImage
-          alt="Igor Chelyshkin - Staff Engineer"
+          alt="Igor Chelyshkin - Staff Infrastructure Engineer"
           format="webp"
           src="hero"
           folder=""

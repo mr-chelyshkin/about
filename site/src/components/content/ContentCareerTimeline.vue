@@ -63,7 +63,7 @@ defineProps<Props>()
     position: absolute;
     left: 2.5rem;
     top: 0.5rem;
-    bottom: 0;
+    bottom: 49px;
     width: 2px;
     background: #b3b3b3;
   }
