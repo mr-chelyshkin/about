@@ -1,10 +1,10 @@
 export const heroData = {
   image: 'hero',
   name: 'Igor Chelyshkin',
-  title: 'Staff Engineer',
-  description: `Hello, I'm a platform engineer with 10+ years of expertise delivering scalable, secure, and efficient cloud-native infrastructure. I turn complex DevOps challenges into clear, optimised and actionable solutions.`,
-  tagline: `Let's build infrastructure you can trust.`,
-  techStack: ['Go', 'Python', 'Linux', 'K8S', 'AWS', 'IaC', 'WEB', 'CI/CD', 'Cyber Security'],
+  title: 'Staff Infrastructure Engineer',
+  description: `I build platforms that turn operational complexity into self-service capabilities. Work across cloud, onPrem, and bare metal - from Kubernetes to developer tooling - helping teams deploy faster and operate reliably.`,
+  tagline: ``,
+  techStack: ['Platform Engineering', 'System Programming', 'Infrastructure Automation', 'Cloud & OnPrem Infrastructure', 'Container Orchestration'],
   links: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mr-chelyshkin/' },
     { label: 'GitHub', href: 'https://github.com/mr-chelyshkin' },
