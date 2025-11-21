@@ -10,7 +10,7 @@ import BlockOpenSource from '@/components/blocks/BlockOpenSource.vue'
     <BlockHero title="WELCOME" number="01" />
 
     <BlockExpertise
-      title="Engineering Expertise & Practices."
+      title="What I Do."
       subtitle="EXPERTISE"
       block-number="02"
     />

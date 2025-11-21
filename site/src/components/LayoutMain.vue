@@ -98,6 +98,7 @@ onUnmounted(() => {
 
 .containerPointerEvents {
   pointer-events: auto;
+  outline: none;
 }
 
 .layoutBurgerPlaceholder {

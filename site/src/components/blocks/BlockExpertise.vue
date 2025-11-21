@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import ContentCareerTimeline from '@/components/content/ContentCareerTimeline.vue'
-import ItemNoteText from '@/components/items/ItemNoteText.vue'
 import ItemListKV from '@/components/items/ItemListKV.vue'
 import BaseBlock from '@/components/base/BaseBlock.vue'
 
-import { skills } from '@/data/expertise/skills'
+import { coreCompetencies } from '@/data/expertise/competency'
 import { career } from '@/data/expertise/career'
 
 defineProps<{
@@ -20,7 +19,7 @@ defineProps<{
       <div :class="$style.blockExpertiseLayout">
         <div :class="$style.blockExpertiseList">
           <ItemListKV
-            v-for="section in skills"
+            v-for="section in coreCompetencies"
             :key="section.number"
             :number="section.number"
             :title="section.title"

@@ -6,10 +6,8 @@ export interface CareerItem {
 }
 
 export const career: CareerItem[] = [
-  { year: '2013', role: 'QA Engineer', company: 'Russia, VTB Bank' },
-  { year: '2014', role: 'Sr QA Engineer', company: 'Russia, Raiffeisen Bank' },
   { year: '2016', role: 'DevOps / DevOps Team Lead', company: 'Russia, Mail.ru Group (VK)' },
-  { year: '2022', role: 'Lead DevOps (mobile infrastructure)', company: 'Russia, OzonTech' },
+  { year: '2022', role: 'DevOps Team Lead (mobile infrastructure)', company: 'Russia, OzonTech' },
   {
     year: '2023+',
     role: 'Sr SRE Engineer (core team)',
