@@ -2,7 +2,7 @@ export const heroData = {
   image: 'hero',
   name: 'Igor Chelyshkin',
   title: 'Staff Infrastructure Engineer',
-  description: `I build platforms that turn operational complexity into self-service capabilities. Work across cloud, onPrem, and bare metal - from Kubernetes to developer tooling - helping teams deploy faster and operate reliably.`,
+  description: `I design and build platforms that reduce operational complexity and expose clear self-service interfaces. My work spans cloud, on-prem, and bare metal: Kubernetes, runtime systems, delivery pipelines, and developer tooling. Develop core services and orchestration layers used in real production environments.`,
   tagline: ``,
   techStack: ['Platform Engineering', 'System Programming', 'Infrastructure Automation', 'Cloud & OnPrem Infrastructure', 'Container Orchestration'],
   links: [
