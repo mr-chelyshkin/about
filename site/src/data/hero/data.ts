@@ -8,5 +8,6 @@ export const heroData = {
   links: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mr-chelyshkin/' },
     { label: 'GitHub', href: 'https://github.com/mr-chelyshkin' },
+    { label: 'Telegram', href: 'https://t.me/mr_igoss' },
   ],
 }
