@@ -1,0 +1,27 @@
+$colors: (
+  'void': #07090a,
+  'void-soft': #101315,
+  'panel': #15191b,
+  'paper': #f3f0e8,
+  'paper-muted': #aaa9a3,
+  'line': #363b3d,
+  'acid': #d8ff3e,
+  'cyan': #23d9f5,
+  'magenta': #ff3f8f,
+  'danger': #ff5d4a,
+);
+
+@mixin emit-colors {
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+
+  --color-canvas: var(--color-void);
+  --color-surface: var(--color-void-soft);
+  --color-surface-raised: var(--color-panel);
+  --color-text: var(--color-paper);
+  --color-text-muted: var(--color-paper-muted);
+  --color-border: var(--color-line);
+  --color-accent: var(--color-acid);
+  --color-focus: var(--color-cyan);
+}

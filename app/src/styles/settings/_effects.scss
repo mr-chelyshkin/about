@@ -1,0 +1,7 @@
+@mixin emit-effects {
+  --effect-scanline: rgba(255, 255, 255, 0.035);
+  --effect-gridline: rgba(255, 255, 255, 0.018);
+  --effect-acid-glow: 0 0 1rem color-mix(in srgb, var(--color-acid) 70%, transparent);
+  --effect-cyan-offset: 1rem 1rem 0 color-mix(in srgb, var(--color-cyan) 16%, transparent);
+  --effect-shadow-hard: 0.65rem 0.65rem 0 rgba(0, 0, 0, 0.35);
+}

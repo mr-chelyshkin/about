@@ -1,0 +1,33 @@
+{
+  "name": "@mr-chelyshkin/about-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run site:validate && npm run static-routes:test && npm run type-check && vite build && npm run build:validate",
+    "build:validate": "node scripts/validate-build-output.mjs",
+    "site:validate": "node scripts/validate-site-content.mjs",
+    "static-routes:test": "node scripts/test-static-uri-rewrite.mjs",
+    "type-check": "vue-tsc --build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@lucide/vue": "1.33.0",
+    "vue": "3.5.41",
+    "vue-router": "4.5.1"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "22.0.2",
+    "@types/node": "24.1.0",
+    "@vitejs/plugin-vue": "6.0.1",
+    "@vue/tsconfig": "0.7.0",
+    "sass": "1.89.2",
+    "typescript": "5.8.3",
+    "vite": "7.3.6",
+    "vue-tsc": "3.0.4"
+  }
+}

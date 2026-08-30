@@ -1,0 +1,6 @@
+@mixin emit-layers {
+  --layer-content: 1;
+  --layer-header: 20;
+  --layer-menu: 30;
+  --layer-skip-link: 100;
+}

@@ -1,0 +1,15 @@
+@use '../settings' as settings;
+
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  @include settings.emit-colors;
+  @include settings.emit-spacing;
+  @include settings.emit-typography;
+  @include settings.emit-layout;
+  @include settings.emit-motion;
+  @include settings.emit-effects;
+  @include settings.emit-strokes;
+  @include settings.emit-radii;
+  @include settings.emit-layers;
+}

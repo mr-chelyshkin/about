@@ -1,0 +1,45 @@
+@layer components {
+  .c-button {
+    display: inline-flex;
+    min-height: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-3);
+    padding: 0.9rem 1.15rem;
+    border: var(--stroke-thin) solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: transparent;
+    color: var(--color-text);
+    font: 600 var(--font-size-caption) / 1 var(--font-mono);
+    letter-spacing: 0.07em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      background var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard),
+      color var(--duration-fast) var(--ease-standard),
+      transform var(--duration-fast) var(--ease-standard),
+      box-shadow var(--duration-fast) var(--ease-standard);
+  }
+
+  .c-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--color-cyan);
+  }
+
+  .c-button:active {
+    transform: translate(0);
+    box-shadow: none;
+  }
+
+  .c-button--primary {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-void);
+  }
+
+  .c-button--ghost:hover {
+    border-color: var(--color-cyan);
+    color: var(--color-cyan);
+  }
+}

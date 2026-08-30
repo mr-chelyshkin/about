@@ -1,0 +1,29 @@
+@layer components {
+  .c-badge {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: 0.45rem 0.6rem;
+    border: var(--stroke-thin) solid var(--color-border);
+    font: 600 0.64rem/1 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .c-badge::before {
+    width: 0.4rem;
+    aspect-ratio: 1;
+    background: var(--color-text-muted);
+    content: '';
+  }
+
+  .c-badge--live::before {
+    background: var(--color-accent);
+    box-shadow: var(--effect-acid-glow);
+  }
+
+  .c-badge--danger::before {
+    background: var(--color-danger);
+  }
+}

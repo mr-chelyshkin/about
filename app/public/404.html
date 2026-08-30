@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07090a" />
+    <meta name="robots" content="noindex,follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Page not found — Igor Chelyshkin</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        color: #f3f0e8;
+        background: #07090a;
+      }
+
+      * { box-sizing: border-box; }
+      body { min-width: 20rem; min-height: 100vh; margin: 0; }
+      .shell { display: grid; width: min(calc(100% - 2rem), 90rem); min-height: 100vh; grid-template-rows: auto 1fr auto; margin-inline: auto; }
+      header, footer { display: flex; min-height: 4.5rem; align-items: center; justify-content: space-between; border-color: #363b3d; color: #aaa9a3; font: 500 .7rem/1.4 "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+      header { border-bottom: 1px solid #363b3d; }
+      footer { border-top: 1px solid #363b3d; }
+      .brand, .home-link { color: inherit; text-decoration: none; }
+      .brand { color: #f3f0e8; font-size: 1.1rem; font-weight: 700; }
+      .brand::after { display: inline-block; width: .5rem; height: .5rem; margin-left: .5rem; background: #d8ff3e; box-shadow: 0 0 1rem #d8ff3e; content: ""; }
+      main { display: grid; max-width: 72rem; align-content: center; padding-block: clamp(5rem, 14vh, 9rem); }
+      .eyebrow { margin: 0 0 1.5rem; color: #d8ff3e; font: 600 .72rem/1.4 "IBM Plex Mono", monospace; letter-spacing: .13em; text-transform: uppercase; }
+      h1 { max-width: 11ch; margin: 0; font-size: clamp(3.5rem, 10vw, 9rem); font-weight: 600; letter-spacing: -.07em; line-height: .85; }
+      .lede { max-width: 42rem; margin: 2rem 0 0; color: #aaa9a3; font-size: clamp(1rem, 1.6vw, 1.2rem); line-height: 1.6; }
+      .home-link { display: inline-flex; min-height: 3.25rem; align-items: center; margin-top: 2rem; padding: .9rem 1.15rem; border: 1px solid #d8ff3e; background: #d8ff3e; color: #07090a; font: 600 .72rem/1 "IBM Plex Mono", monospace; letter-spacing: .07em; text-transform: uppercase; }
+      .home-link:focus-visible { outline: 2px solid #23d9f5; outline-offset: 4px; }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header><a class="brand" href="/" aria-label="Igor Chelyshkin home">IC</a></header>
+      <main>
+        <p class="eyebrow">404 // Signal lost</p>
+        <h1>This path has no system behind it.</h1>
+        <p class="lede">The address may be incorrect or the page may have moved. Return to the main signal.</p>
+        <div><a class="home-link" href="/">Back to home</a></div>
+      </main>
+      <footer><span>Igor Chelyshkin</span><span>Staff Infrastructure Engineer</span></footer>
+    </div>
+  </body>
+</html>

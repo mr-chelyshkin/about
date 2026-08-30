@@ -1,0 +1,7 @@
+@mixin emit-layout {
+  --layout-container: 90rem;
+  --layout-measure: 46rem;
+  --layout-gutter: clamp(1rem, 4vw, 4rem);
+  --layout-header-height: 4.5rem;
+  --layout-section-space: clamp(5.5rem, 11vw, 10rem);
+}

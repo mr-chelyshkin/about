@@ -1,0 +1,38 @@
+@layer objects {
+  .o-container {
+    width: min(calc(100% - (var(--layout-gutter) * 2)), var(--layout-container));
+    margin-inline: auto;
+  }
+
+  .o-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--stack-space, var(--sp-5));
+  }
+
+  .o-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--cluster-space, var(--sp-3));
+  }
+
+  .o-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns, 2), minmax(0, 1fr));
+    gap: var(--grid-space, var(--sp-5));
+  }
+
+  .o-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}

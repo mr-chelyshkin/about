@@ -1,0 +1,40 @@
+@layer components {
+  .service-card {
+    position: relative;
+    display: grid;
+    min-height: 18rem;
+    align-content: end;
+    gap: var(--sp-4);
+    padding: var(--sp-6);
+    border: var(--stroke-thin) solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+    transition:
+      border-color var(--duration-fast) var(--ease-standard),
+      transform var(--duration-fast) var(--ease-standard);
+  }
+
+  .service-card:hover {
+    z-index: 1;
+    border-color: var(--color-cyan);
+    transform: translate(-3px, -3px);
+  }
+
+  .service-card__number {
+    position: absolute;
+    top: var(--sp-5);
+    left: var(--sp-5);
+    color: var(--color-magenta);
+    font: 600 0.68rem/1 var(--font-mono);
+  }
+
+  .service-card h3 {
+    max-width: 14ch;
+    font-size: var(--font-size-h3);
+    line-height: 1.05;
+  }
+
+  .service-card p {
+    max-width: 34rem;
+    color: var(--color-text-muted);
+  }
+}

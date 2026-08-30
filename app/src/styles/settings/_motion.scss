@@ -1,0 +1,7 @@
+@mixin emit-motion {
+  --duration-fast: 140ms;
+  --duration-normal: 260ms;
+  --duration-slow: 520ms;
+  --ease-standard: cubic-bezier(0.2, 0.75, 0.25, 1);
+  --ease-glitch: steps(2, jump-none);
+}

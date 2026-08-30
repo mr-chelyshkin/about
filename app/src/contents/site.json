@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "url": "https://mr-chelyshkin.com/",
+    "title": "Igor Chelyshkin — Staff Infrastructure Engineer",
+    "description": "Staff Infrastructure Engineer designing platforms, runtime systems, delivery pipelines, and developer tooling across cloud, on-prem, and bare metal.",
+    "image": "https://mr-chelyshkin.com/social/igor-chelyshkin-preview.png",
+    "imageAlt": "Igor Chelyshkin, Staff Infrastructure Engineer — glitch-art profile card",
+    "styleguide": {
+      "url": "https://mr-chelyshkin.com/styleguide/",
+      "title": "Glitch Art Style Guide — Igor Chelyshkin",
+      "description": "The visual system behind Igor Chelyshkin's personal site: color, type, grid, surfaces, motion, and controlled glitch effects."
+    }
+  },
+  "person": {
+    "name": "Igor Chelyshkin",
+    "shortName": "IC",
+    "role": "Staff Infrastructure Engineer"
+  },
+  "hero": {
+    "eyebrow": "Platform engineering // system programming",
+    "title": "I build infrastructure that gets out of the way.",
+    "description": "I design and build platforms that reduce operational complexity and expose clear self-service interfaces — across Kubernetes, runtime systems, delivery pipelines, and developer tooling.",
+    "primaryAction": "Start a conversation",
+    "secondaryAction": "See selected work"
+  },
+  "proof": {
+    "eyebrow": "Selected outcomes // prior work",
+    "title": "Systems measured by what they unlock.",
+    "description": "The useful output is not infrastructure alone. It is faster delivery, less manual work, lower cost, and teams that can move without waiting on a central operator.",
+    "items": [
+      { "value": "35%", "label": "faster releases after mobile platform consolidation" },
+      { "value": "15%", "label": "database cost reduction through demand-based capacity" },
+      { "value": "15+", "label": "teams aligned on shared infrastructure standards" },
+      { "value": "10+", "label": "hands-on engineering trainings delivered" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Services // what I do",
+    "title": "From unclear constraints to an operable system.",
+    "description": "I work at the boundary between application teams and infrastructure, turning distributed operational knowledge into explicit platform contracts.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Platform foundations",
+        "description": "Internal platforms and self-service interfaces that remove operational bottlenecks without hiding the underlying system."
+      },
+      {
+        "number": "02",
+        "title": "Runtime systems",
+        "description": "Execution, supervision, reconciliation, scheduling boundaries, and the control paths that keep workloads understandable."
+      },
+      {
+        "number": "03",
+        "title": "Delivery systems",
+        "description": "CI/CD and GitOps workflows designed for repeatable releases, clear rollback paths, and ownership teams can trust."
+      },
+      {
+        "number": "04",
+        "title": "Infrastructure automation",
+        "description": "Cloud, on-prem, and bare-metal systems expressed as reviewable code with practical operating contracts."
+      }
+    ]
+  },
+  "work": {
+    "eyebrow": "Selected work // systems",
+    "title": "Complex systems, made usable.",
+    "description": "A selection of platform and infrastructure work from previously documented projects.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Mobile platform consolidation",
+        "challenge": "Fragmented build and test environments across mobile teams.",
+        "response": "Centralized resource allocation and standardized workflows across 20+ Mac Studios and a Kubernetes Android farm.",
+        "outcome": "35% faster releases and unified delivery processes."
+      },
+      {
+        "number": "02",
+        "title": "Pipeline-as-a-Service",
+        "challenge": "Each mobile team maintained a different CI/CD implementation.",
+        "response": "A self-service pipeline platform with shared core logic and controlled project-level adaptation.",
+        "outcome": "Centralized pipeline management and improved developer velocity."
+      },
+      {
+        "number": "03",
+        "title": "Internal artifact platform",
+        "challenge": "A costly third-party platform with limited room for integration.",
+        "response": "A unified artifact storage and distribution service with HTTP/gRPC APIs, a web interface, and CI/CD integration.",
+        "outcome": "Lower platform cost and simpler artifact operations."
+      },
+      {
+        "number": "04",
+        "title": "Aurora Serverless migration",
+        "challenge": "High database cost and manual capacity planning.",
+        "response": "Automated migration to Aurora Serverless v2 with demand-based capacity management.",
+        "outcome": "15% cost reduction and no manual capacity planning."
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "About // operating context",
+    "title": "Engineering across the whole path to production.",
+    "description": "My work spans platform architecture, implementation, delivery, and operations. I am most useful where system boundaries are unclear, operational load is growing, or teams need a dependable path from one-off tooling to a shared platform.",
+    "timeline": [
+      { "year": "2016", "role": "Sr. DevOps / DevOps Team Lead", "company": "Mail.ru Group (VK), Russia" },
+      { "year": "2022", "role": "DevOps Team Lead — mobile infrastructure", "company": "OzonTech, Russia" },
+      { "year": "2023", "role": "Sr. SRE Engineer — core team", "company": "Aqua Security, Israel" },
+      { "year": "2025", "role": "Staff Engineer", "company": "Independent" }
+    ]
+  },
+  "openSource": {
+    "eyebrow": "Open source // public work",
+    "title": "Tools that leave the private network.",
+    "items": [
+      {
+        "name": "goldmark-tgmd",
+        "description": "Goldmark extension for converting Markdown to Telegram MarkdownV2.",
+        "url": "https://github.com/Mad-Pixels/goldmark-tgmd"
+      },
+      {
+        "name": "go-dyno",
+        "description": "Schema-driven Go code generation for DynamoDB from JSON schemas.",
+        "url": "https://github.com/Mad-Pixels/go-dyno"
+      },
+      {
+        "name": "github-workflows",
+        "description": "Reusable GitHub Actions workflows for CI/CD automation.",
+        "url": "https://github.com/Mad-Pixels/github-workflows"
+      },
+      {
+        "name": "applingo-ios",
+        "description": "An iOS flashcard app with mini-games for learning foreign words.",
+        "url": "https://github.com/Mad-Pixels/applingo-ios"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact // start here",
+    "title": "Bring me the system that is hard to change.",
+    "description": "If you need a platform, runtime, delivery system, or infrastructure architecture that teams can understand and operate, let's talk.",
+    "primaryAction": "Message on Telegram",
+    "secondaryAction": "Connect on LinkedIn"
+  },
+  "styleguide": {
+    "eyebrow": "Glitch Art // system v1.0",
+    "title": "Corrupt the signal. Preserve the meaning.",
+    "description": "A controlled visual language for technical credibility: hard structure, high contrast, deliberate chromatic errors, and motion that appears only when it carries attention.",
+    "principles": [
+      { "number": "01", "title": "Signal over noise", "description": "The message remains readable before any effect is applied." },
+      { "number": "02", "title": "Damage with intent", "description": "Glitch marks a transition, interaction, or hierarchy — never decoration everywhere." },
+      { "number": "03", "title": "Structure first", "description": "A strict grid, consistent spacing, and strong type make distortion feel deliberate." },
+      { "number": "04", "title": "Motion earns attention", "description": "Effects are brief, interruptible, and removed when reduced motion is requested." }
+    ]
+  },
+  "navigation": [
+    { "label": "Work", "href": "/#work" },
+    { "label": "Services", "href": "/#services" },
+    { "label": "About", "href": "/#about" },
+    { "label": "Style guide", "href": "/styleguide/" }
+  ],
+  "links": {
+    "home": "/",
+    "work": "/#work",
+    "contact": "https://t.me/mr_igoss",
+    "github": "https://github.com/mr-chelyshkin",
+    "linkedin": "https://www.linkedin.com/in/mr-chelyshkin/",
+    "source": "https://github.com/mr-chelyshkin/about"
+  },
+  "accessibility": {
+    "skipToContent": "Skip to content",
+    "home": "Igor Chelyshkin home",
+    "primaryNavigation": "Primary navigation",
+    "footerNavigation": "Footer navigation",
+    "openNavigation": "Open navigation",
+    "closeNavigation": "Close navigation"
+  },
+  "footer": {
+    "descriptor": "Staff Infrastructure Engineer",
+    "note": "Built as a system. Broken with intent."
+  }
+}

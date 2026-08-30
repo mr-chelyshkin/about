@@ -1,0 +1,66 @@
+@keyframes signal-frame-drop {
+  0%,
+  88%,
+  100% {
+    transform: translate(0);
+    filter: none;
+  }
+
+  89% {
+    transform: translate(-2px, 0);
+    filter: drop-shadow(3px 0 0 var(--color-cyan));
+  }
+
+  90% {
+    transform: translate(2px, 0);
+    filter: drop-shadow(-3px 0 0 var(--color-magenta));
+  }
+
+  91% {
+    transform: translate(0);
+    filter: none;
+  }
+}
+
+@layer components {
+  .c-glitch-text {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .c-glitch-text::before,
+  .c-glitch-text::after {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    content: attr(data-text);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .c-glitch-text:hover::before,
+  .c-glitch-text:focus-visible::before {
+    color: var(--color-cyan);
+    opacity: 0.55;
+    transform: translate(-0.035em, 0.012em);
+    clip-path: inset(8% 0 56% 0);
+  }
+
+  .c-glitch-text:hover::after,
+  .c-glitch-text:focus-visible::after {
+    color: var(--color-magenta);
+    opacity: 0.5;
+    transform: translate(0.04em, -0.012em);
+    clip-path: inset(58% 0 8% 0);
+  }
+
+  .c-signal-frame {
+    animation: signal-frame-drop 8s var(--ease-glitch) infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-signal-frame {
+    animation: none;
+  }
+}

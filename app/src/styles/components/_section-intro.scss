@@ -1,0 +1,33 @@
+@layer components {
+  .section-intro {
+    display: grid;
+    max-width: 68rem;
+    gap: var(--sp-5);
+    margin-bottom: clamp(3rem, 6vw, 5.5rem);
+  }
+
+  .section-intro--compact {
+    max-width: 46rem;
+  }
+
+  .section-intro__title {
+    max-width: 16ch;
+    font-size: var(--font-size-h2);
+    font-weight: 600;
+    letter-spacing: var(--tracking-heading);
+    line-height: var(--line-height-heading);
+  }
+
+  .section-intro__description {
+    max-width: var(--layout-measure);
+    color: var(--color-text-muted);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+  }
+
+  .c-eyebrow {
+    color: var(--color-accent);
+    font: 600 var(--font-size-caption) / 1.4 var(--font-mono);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+}
