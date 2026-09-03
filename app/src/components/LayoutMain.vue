@@ -44,8 +44,8 @@ onUnmounted(() => {
 
     <header :class="$style.layoutHeader">
       <div class="container container__row_between">
-        <div :class="$style.layoutBurgerPlaceholder"></div>
         <ContentAnchor :title="currentBlockTitle" :number="currentBlockNumber" />
+        <div :class="$style.layoutBurgerPlaceholder"></div>
       </div>
     </header>
 
@@ -98,6 +98,8 @@ onUnmounted(() => {
 
 .containerPointerEvents {
   pointer-events: auto;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .layoutBurgerPlaceholder {

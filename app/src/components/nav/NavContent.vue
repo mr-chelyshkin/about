@@ -48,12 +48,12 @@ defineProps<Props>()
   position: fixed;
   flex-direction: column;
   top: 0;
-  left: 0;
+  right: 0;
   height: 100vh;
   width: calc(576px + max(0px, (100vw - $max-width) * 0.3));
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-  transform: translateX(-100%);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
 
   @media (max-width: 768px) {
     width: 75%;
@@ -71,8 +71,8 @@ defineProps<Props>()
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
-  text-align: right;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .navMenuList {
@@ -84,6 +84,10 @@ defineProps<Props>()
 
 .navMenuItem {
   margin-bottom: 0.5rem;
-  text-align: right;
+  text-align: left;
+
+  > a {
+    text-align: left;
+  }
 }
 </style>

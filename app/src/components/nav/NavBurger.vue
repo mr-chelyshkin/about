@@ -33,7 +33,7 @@ defineExpose({
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-end;
   border: none;
   cursor: pointer;
   background: none;
