@@ -1,11 +1,19 @@
 version: '3'
 
+includes:
+  aws:
+    taskfile: https://raw.githubusercontent.com/soltiHQ/actions/v1/taskfiles/aws/Taskfile.yml
+  node:
+    taskfile: https://raw.githubusercontent.com/soltiHQ/actions/v1/taskfiles/node/Taskfile.yml
+  terraform:
+    taskfile: https://raw.githubusercontent.com/soltiHQ/actions/v1/taskfiles/terraform/Taskfile.yml
+
 vars:
   git_root:
     sh: git rev-parse --show-toplevel
   
-  node_version: "23"
-  terraform: 1.8.5
+  node_version: "22.23.1"
+  terraform: 1.15.8
   dev_port: 3000
 
 tasks:
@@ -54,7 +62,7 @@ tasks:
         vars:
           IMAGE: "node:{{.node_version}}"
           CMD: "sh -c 'npm ci && node scripts/optimize-images.js'"
-          MOUNT_DIR: "site"
+          MOUNT_DIR: "app"
           ENVS: 
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
@@ -70,7 +78,7 @@ tasks:
         vars:
           IMAGE: "hashicorp/terraform:{{.terraform}}"
           CMD: "fmt -recursive -diff -write=true"
-          MOUNT_DIR: "terraform"
+          MOUNT_DIR: "tf"
     silent: true
 
   node/lint/fix:
@@ -80,7 +88,7 @@ tasks:
         vars:
           IMAGE: "node:{{.node_version}}"
           CMD: "sh -c 'npm ci && npx eslint . --fix'"
-          MOUNT_DIR: "site"
+          MOUNT_DIR: "app"
           ENVS: 
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
@@ -93,7 +101,7 @@ tasks:
         vars:
           IMAGE: "node:{{.node_version}}"
           CMD: "sh -c 'npm ci && npx prettier --write src/'"
-          MOUNT_DIR: "site"
+          MOUNT_DIR: "app"
           ENVS:
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
@@ -108,7 +116,7 @@ tasks:
         vars: 
           IMAGE: "node:{{.node_version}}"
           CMD: "sh -c 'npm ci && npm run dev -- --host 0.0.0.0 --port {{ .dev_port }}'"
-          MOUNT_DIR: "site"
+          MOUNT_DIR: "app"
           PORTS:
             - "{{ .dev_port }}:{{ .dev_port }}"
           ENVS:
@@ -127,7 +135,7 @@ tasks:
         vars:
           IMAGE: "node:{{.node_version}}"
           CMD: "sh -c 'npm ci && npx eslint .'"
-          MOUNT_DIR: "site"
+          MOUNT_DIR: "app"
           ENVS: 
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
@@ -140,7 +148,7 @@ tasks:
         vars:
           IMAGE: "node:{{.node_version}}"
           CMD: "sh -c 'npm ci && npx prettier --check src/'"
-          MOUNT_DIR: "site"
+          MOUNT_DIR: "app"
           ENVS:
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
@@ -153,7 +161,7 @@ tasks:
         vars:
           IMAGE: "hashicorp/terraform:{{.terraform}}"
           CMD: "fmt -check -recursive -diff"
-          MOUNT_DIR: "terraform"
+          MOUNT_DIR: "tf"
     silent: true
 
   node/audit:
@@ -163,7 +171,7 @@ tasks:
         vars:
           IMAGE: "node:{{.node_version}}"
           CMD: "sh -c 'npm ci && npm audit --audit-level high'"
-          MOUNT_DIR: "site"
+          MOUNT_DIR: "app"
           ENVS: 
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
@@ -176,7 +184,7 @@ tasks:
         vars:
           IMAGE: "node:{{.node_version}}"
           CMD: "sh -c 'npm ci && npm run type-check'"
-          MOUNT_DIR: "site"
+          MOUNT_DIR: "app"
           ENVS:
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
@@ -190,9 +198,60 @@ tasks:
       - task: _docker/run
         vars:
           IMAGE: "node:{{.node_version}}"
-          CMD: "sh -c 'npm install && npm run build'"
-          MOUNT_DIR: "site"
+          CMD: "sh -c 'npm ci && npm run build'"
+          MOUNT_DIR: "app"
           ENVS:
             - "NPM_CONFIG_CACHE=/workspace/.cache"
             - "NPM_CONFIG_UPDATE_NOTIFIER=false"
     silent: true
+
+  ci/type-check:
+    desc: Type-check the Vue application.
+    cmds:
+      - task: node:type-check
+
+  ci/build:
+    desc: Prepare images, type-check, and build the production site.
+    cmds:
+      - task: node:_npm/tool
+        vars:
+          CMD: "sh -c 'npm ci && npm run optimize-images && npm run type-check && npm run build'"
+
+  ci/audit:
+    desc: Audit production and development dependencies.
+    cmds:
+      - task: node:audit
+
+  ci/terraform-fmt:
+    desc: Check Terraform formatting.
+    cmds:
+      - task: terraform:fmt
+
+  ci/terraform-validate:
+    desc: Initialize Terraform without a backend and validate the configuration.
+    cmds:
+      - task: terraform:validate
+
+  cd/terraform-apply:
+    desc: Apply production infrastructure changes.
+    requires:
+      vars: [ TF_BACKEND_BUCKET, TF_BACKEND_KEY, TF_BACKEND_REGION ]
+    cmds:
+      - task: terraform:apply
+        vars:
+          BACKEND_BUCKET: '{{.TF_BACKEND_BUCKET}}'
+          BACKEND_KEY: '{{.TF_BACKEND_KEY}}'
+          BACKEND_REGION: '{{.TF_BACKEND_REGION}}'
+
+  cd/deploy:
+    desc: Upload the built site and wait for CloudFront invalidation.
+    requires:
+      vars: [ SITE_BUCKET_NAME, CLOUDFRONT_DISTRIBUTION_ID ]
+    cmds:
+      - task: aws:s3/publish
+        vars:
+          SOURCE_DIR: app/dist
+          BUCKET: '{{.SITE_BUCKET_NAME}}'
+      - task: aws:cloudfront/invalidate
+        vars:
+          DISTRIBUTION_ID: '{{.CLOUDFRONT_DISTRIBUTION_ID}}'
