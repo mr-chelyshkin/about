@@ -1,250 +1,54 @@
 version: '3'
 
 includes:
-  aws:
-    taskfile: https://raw.githubusercontent.com/soltiHQ/actions/v1/taskfiles/aws/Taskfile.yml
-  node:
-    taskfile: https://raw.githubusercontent.com/soltiHQ/actions/v1/taskfiles/node/Taskfile.yml
   terraform:
     taskfile: https://raw.githubusercontent.com/soltiHQ/actions/v1/taskfiles/terraform/Taskfile.yml
-
-vars:
-  git_root:
-    sh: git rev-parse --show-toplevel
-  
-  node_version: "22.23.1"
-  terraform: 1.15.8
-  dev_port: 3000
+  node:
+    taskfile: https://raw.githubusercontent.com/soltiHQ/actions/v1/taskfiles/node/Taskfile.yml
+  aws:
+    taskfile: https://raw.githubusercontent.com/soltiHQ/actions/v1/taskfiles/aws/Taskfile.yml
 
 tasks:
-  default:
-    desc: Default task.
+  run/dev:
+    desc: "Run dev environment"
     cmds:
-      - echo "Please enter a task or use '-l' or '--list-all' to list all available tasks"
-    silent: true
-
-# ================================================#
-# ---------------------INTERNAL-------------------#
-# ================================================#
-
-  _docker/run:
-    desc: Internal task to run secure container (quiet pulls).
-    internal: true
-    dir: "{{.git_root}}"
-    cmd: |
-      if ! docker image inspect "{{.IMAGE}}" >/dev/null 2>&1; then
-        docker pull -q "{{.IMAGE}}" >/dev/null 2>&1 || {
-          echo "❌ Failed to pull image: {{.IMAGE}}"
-          exit 1
-        }
-      fi
-
-      docker run --rm --init --pull=never {{if .TTY}}-it{{end}} \
-        --cap-drop=ALL \
-        --security-opt no-new-privileges \
-        --user $(id -u):$(id -g) \
-        --workdir /workspace \
-        {{if .ENVS}}{{range $env := .ENVS}}--env {{$env}} {{end}}{{end}}\
-        {{if .PORTS}}{{range $port := .PORTS}}--publish {{$port}} {{end}}{{end}}\
-        {{if .VOLUMES}}{{range $vol := .VOLUMES}}--volume {{$vol}} {{end}}{{end}}\
-        --volume "{{.git_root}}/{{.MOUNT_DIR}}:/workspace:rw" \
-        "{{.IMAGE}}" \
-        {{.CMD}}
-    silent: true
-    requires:
-      vars: [IMAGE, CMD, MOUNT_DIR]
-
-  _image/prepare:
-    desc: Prepare optimized images.
-    internal: true 
-    cmds:
-      - task: _docker/run
+      - task: node:_npm/tool
         vars:
-          IMAGE: "node:{{.node_version}}"
-          CMD: "sh -c 'npm ci && node scripts/optimize-images.js'"
-          MOUNT_DIR: "app"
-          ENVS: 
-            - "NPM_CONFIG_CACHE=/workspace/.cache"
-            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
-
-# ================================================#
-# ----------------------PUBLIC--------------------#
-# ================================================#
-
-  terraform/fmt/fix:
-    desc: Run 'terraform fmt'.
-    cmds:
-      - task: _docker/run
-        vars:
-          IMAGE: "hashicorp/terraform:{{.terraform}}"
-          CMD: "fmt -recursive -diff -write=true"
-          MOUNT_DIR: "tf"
-    silent: true
-
-  node/lint/fix:
-    desc: Run ESLint with fix flag.
-    cmds:
-      - task: _docker/run
-        vars:
-          IMAGE: "node:{{.node_version}}"
-          CMD: "sh -c 'npm ci && npx eslint . --fix'"
-          MOUNT_DIR: "app"
-          ENVS: 
-            - "NPM_CONFIG_CACHE=/workspace/.cache"
-            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
-    silent: true
-
-  node/format/fix:
-    desc: Run Prettier.
-    cmds:
-      - task: _docker/run
-        vars:
-          IMAGE: "node:{{.node_version}}"
-          CMD: "sh -c 'npm ci && npx prettier --write src/'"
-          MOUNT_DIR: "app"
-          ENVS:
-            - "NPM_CONFIG_CACHE=/workspace/.cache"
-            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
-    silent: true
-
-  dev: 
-    desc: Run dev on {{ .dev_port }}. 
-    deps:
-      - _image/prepare
-    cmds: 
-      - task: _docker/run 
-        vars: 
-          IMAGE: "node:{{.node_version}}"
-          CMD: "sh -c 'npm ci && npm run dev -- --host 0.0.0.0 --port {{ .dev_port }}'"
-          MOUNT_DIR: "app"
-          PORTS:
-            - "{{ .dev_port }}:{{ .dev_port }}"
-          ENVS:
-            - "NPM_CONFIG_CACHE=/workspace/.cache"
-            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
-          TTY: "true"
-
-# ================================================#
-# ----------------------CI/CD---------------------#
-# ================================================#
-
-  node/lint:
-    desc: Run ESLint.
-    cmds:
-      - task: _docker/run
-        vars:
-          IMAGE: "node:{{.node_version}}"
-          CMD: "sh -c 'npm ci && npx eslint .'"
-          MOUNT_DIR: "app"
-          ENVS: 
-            - "NPM_CONFIG_CACHE=/workspace/.cache"
-            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
-    silent: true
-
-  node/format:
-    desc: Run Prettier.
-    cmds:
-      - task: _docker/run
-        vars:
-          IMAGE: "node:{{.node_version}}"
-          CMD: "sh -c 'npm ci && npx prettier --check src/'"
-          MOUNT_DIR: "app"
-          ENVS:
-            - "NPM_CONFIG_CACHE=/workspace/.cache"
-            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
-    silent: true
-
-  terraform/fmt:
-    desc: Check 'terraform fmt' compliance (fails if not formatted).
-    cmds:
-      - task: _docker/run
-        vars:
-          IMAGE: "hashicorp/terraform:{{.terraform}}"
-          CMD: "fmt -check -recursive -diff"
-          MOUNT_DIR: "tf"
-    silent: true
-
-  node/audit:
-    desc: Run dependencies audit.
-    cmds:
-      - task: _docker/run
-        vars:
-          IMAGE: "node:{{.node_version}}"
-          CMD: "sh -c 'npm ci && npm audit --audit-level high'"
-          MOUNT_DIR: "app"
-          ENVS: 
-            - "NPM_CONFIG_CACHE=/workspace/.cache"
-            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
-    silent: true
-
-  node/type-check:
-    desc: TypeScript type checking.
-    cmds:
-      - task: _docker/run
-        vars:
-          IMAGE: "node:{{.node_version}}"
-          CMD: "sh -c 'npm ci && npm run type-check'"
-          MOUNT_DIR: "app"
-          ENVS:
-            - "NPM_CONFIG_CACHE=/workspace/.cache"
-            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
-    silent: true
-
-  node/build:
-    desc: Build production version.
-    deps:
-      - _image/prepare
-    cmds:
-      - task: _docker/run
-        vars:
-          IMAGE: "node:{{.node_version}}"
-          CMD: "sh -c 'npm ci && npm run build'"
-          MOUNT_DIR: "app"
-          ENVS:
-            - "NPM_CONFIG_CACHE=/workspace/.cache"
-            - "NPM_CONFIG_UPDATE_NOTIFIER=false"
-    silent: true
-
-  ci/type-check:
-    desc: Type-check the Vue application.
-    cmds:
-      - task: node:type-check
+          CMD: "sh -c 'npm install && npm run optimize-images && exec ./node_modules/.bin/vite --host 0.0.0.0 --port 5173'"
 
   ci/build:
-    desc: Prepare images, type-check, and build the production site.
+    desc: "Run build static"
     cmds:
       - task: node:_npm/tool
         vars:
           CMD: "sh -c 'npm ci && npm run optimize-images && npm run type-check && npm run build'"
 
   ci/audit:
-    desc: Audit production and development dependencies.
+    desc: "Run dependencies audit"
     cmds:
       - task: node:audit
 
   ci/terraform-fmt:
-    desc: Check Terraform formatting.
+    desc: "Run terraform fmt check"
     cmds:
       - task: terraform:fmt
 
   ci/terraform-validate:
-    desc: Initialize Terraform without a backend and validate the configuration.
+    desc: "Run terraform validation"
     cmds:
       - task: terraform:validate
 
   cd/terraform-apply:
-    desc: Apply production infrastructure changes.
     requires:
       vars: [ TF_BACKEND_BUCKET, TF_BACKEND_KEY, TF_BACKEND_REGION ]
     cmds:
       - task: terraform:apply
         vars:
           BACKEND_BUCKET: '{{.TF_BACKEND_BUCKET}}'
-          BACKEND_KEY: '{{.TF_BACKEND_KEY}}'
           BACKEND_REGION: '{{.TF_BACKEND_REGION}}'
+          BACKEND_KEY: '{{.TF_BACKEND_KEY}}'
 
   cd/deploy:
-    desc: Upload the built site and wait for CloudFront invalidation.
     requires:
       vars: [ SITE_BUCKET_NAME, CLOUDFRONT_DISTRIBUTION_ID ]
     cmds:

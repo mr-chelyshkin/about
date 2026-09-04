@@ -1,5 +1,5 @@
 output "site_bucket_name" {
-  description = "Private S3 bucket receiving the built site."
+  description = "S3 bucket receiving the built site."
   value       = aws_s3_bucket.site.id
 }
 
@@ -9,16 +9,16 @@ output "cloudfront_distribution_id" {
 }
 
 output "cloudfront_distribution_arn" {
-  description = "CloudFront distribution ARN used by IAM policies."
+  description = "CloudFront distribution ARN."
   value       = aws_cloudfront_distribution.site.arn
 }
 
 output "cloudfront_domain_name" {
-  description = "CloudFront domain targeted by externally managed DNS."
+  description = "CloudFront domain name."
   value       = aws_cloudfront_distribution.site.domain_name
 }
 
 output "cloudfront_hosted_zone_id" {
-  description = "CloudFront hosted zone ID for an external Route53 alias record."
+  description = "CloudFront hosted zone ID."
   value       = aws_cloudfront_distribution.site.hosted_zone_id
 }

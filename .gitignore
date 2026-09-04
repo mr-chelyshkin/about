@@ -1,19 +1,17 @@
-# Common
-
 # Operating systems
 .DS_Store
-Thumbs.db
-Desktop.ini
 
 # Editors and local workspace settings
 .idea/
 .vscode/
+
 *.swp
 *.swo
 *~
 
 # Logs and temporary files
 logs/
+
 *.log
 *.tmp
 *.temp
@@ -21,57 +19,35 @@ logs/
 *.pid.lock
 
 # Local environment files
-.env
 .env.*
 !.env.example
 
 # Site
-
 /.cache/
 /.task/
+/app/public/images/
 /app/node_modules/
-/app/dist/
 /app/coverage/
-/app/.vite/
 /app/.cache/
+/app/.vite/
+/app/dist/
+
 /app/.eslintcache
 /app/.stylelintcache
 /app/*.tsbuildinfo
 /app/vite.config.js.timestamp-*
 /app/vite.config.ts.timestamp-*
-/app/public/images/
 
 # Terraform
-
-# Provider and module downloads
+/tf/**/terraform.tfstate.d/
 /tf/**/.terraform/
 
-# Local and remote state snapshots
+/tf/**/tfplan
+/tf/**/*.tfplan
+/tf/**/*.tfvars
 /tf/**/*.tfstate
 /tf/**/*.tfstate.*
-/tf/**/terraform.tfstate.d/
-/tf/**/.terraform.tfstate.lock.info
-
-# Plans
-/tf/**/*.tfplan
-/tf/**/tfplan
-
-# Variable values may contain secrets
-/tf/**/*.tfvars
 /tf/**/*.tfvars.json
 !/tf/**/*.tfvars.example
-
-# Local override files
-/tf/**/override.tf
-/tf/**/override.tf.json
-/tf/**/*_override.tf
-/tf/**/*_override.tf.json
-
-# Crash logs and local CLI configuration
-/tf/**/crash.log
-/tf/**/crash.*.log
-/tf/**/.terraformrc
-/tf/**/terraform.rc
-
-# Keep Terraform dependency selections reproducible.
 !/tf/**/.terraform.lock.hcl
+/tf/**/.terraform.tfstate.lock.info

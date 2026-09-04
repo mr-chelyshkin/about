@@ -100,15 +100,15 @@ data "aws_iam_policy_document" "site" {
 
     condition {
       test     = "Bool"
-      variable = "aws:SecureTransport"
       values   = ["false"]
+      variable = "aws:SecureTransport"
     }
   }
 }
 
 resource "aws_s3_bucket_policy" "site" {
-  bucket = aws_s3_bucket.site.id
   policy = data.aws_iam_policy_document.site.json
+  bucket = aws_s3_bucket.site.id
 
   depends_on = [aws_s3_bucket_public_access_block.site]
 }
