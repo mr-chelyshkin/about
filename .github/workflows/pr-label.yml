@@ -15,4 +15,4 @@ permissions:
 jobs:
   label-check:
     name: Label check
-    uses: soltiHQ/actions/.github/workflows/label-check.yml@v1
+    uses: mr-chelyshkin/actions/.github/workflows/require-changelog-label.yml@v1

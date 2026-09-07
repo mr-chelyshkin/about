@@ -11,6 +11,10 @@ permissions:
   actions: write
 
 jobs:
-  ci:
-    name: ci
-    uses: soltiHQ/actions/.github/workflows/static-ci.yml@v1
+  static-ci:
+    name: static ci
+    uses: mr-chelyshkin/actions/.github/workflows/static-site-ci.yml@v1
+
+  terraform-ci:
+    name: terraform ci
+    uses: mr-chelyshkin/actions/.github/workflows/terraform-ci.yml@v1
