@@ -3,18 +3,18 @@ version: '3.53.1'
 
 includes:
   terraform:
-    taskfile: https://raw.githubusercontent.com/mr-chelyshkin/tasks/main/taskfiles/terraform/Taskfile.yml
+    taskfile: https://raw.githubusercontent.com/mr-chelyshkin/tasks/v0.0.1/taskfiles/terraform/Taskfile.yml
     vars:
       TERRAFORM_VERSION: '1.15.9'
       CONTAINER_ENVS: >-
         AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN AWS_REGION AWS_DEFAULT_REGION
         TF_VAR_aws_region TF_VAR_domain_name TF_VAR_site_bucket_name TF_VAR_acm_certificate_arn
   node:
-    taskfile: https://raw.githubusercontent.com/mr-chelyshkin/tasks/main/taskfiles/node/Taskfile.yml
+    taskfile: https://raw.githubusercontent.com/mr-chelyshkin/tasks/v0.0.1/taskfiles/node/Taskfile.yml
     vars:
       NODE_VERSION: '22.23.1'
   aws:
-    taskfile: https://raw.githubusercontent.com/mr-chelyshkin/tasks/main/taskfiles/aws/Taskfile.yml
+    taskfile: https://raw.githubusercontent.com/mr-chelyshkin/tasks/v0.0.1/taskfiles/aws/Taskfile.yml
     vars:
       AWS_VERSION: '2.36.24'
 
@@ -32,6 +32,13 @@ tasks:
       - task: node:_npm/tool
         vars:
           CMD: "sh -c 'npm ci && npm run optimize-images && npm run type-check && npm run build'"
+
+  ci/test:
+    desc: "Run application checks"
+    cmds:
+      - task: node:run
+        vars:
+          SCRIPT: type-check
 
   ci/audit:
     desc: "Run dependencies audit"
