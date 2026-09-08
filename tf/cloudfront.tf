@@ -1,17 +1,17 @@
 resource "aws_cloudfront_origin_access_control" "site" {
   name                              = "${local.policy_name_prefix}-oac"
   description                       = "Private S3 origin access for ${var.domain_name}"
-  origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
+  origin_access_control_origin_type = "s3"
 }
 
 resource "aws_cloudfront_cache_policy" "site" {
   name        = "${local.policy_name_prefix}-cache-v1"
   comment     = "Honor origin cache headers"
-  default_ttl = 0
   max_ttl     = 31536000
   min_ttl     = 0
+  default_ttl = 0
 
   parameters_in_cache_key_and_forwarded_to_origin {
     enable_accept_encoding_brotli = true
@@ -72,30 +72,30 @@ resource "aws_cloudfront_response_headers_policy" "site" {
   custom_headers_config {
     items {
       header   = "Cross-Origin-Opener-Policy"
-      override = true
       value    = "same-origin"
+      override = true
     }
 
     items {
       header   = "Cross-Origin-Resource-Policy"
-      override = true
       value    = "same-origin"
+      override = true
     }
 
     items {
       header   = "Permissions-Policy"
-      override = true
       value    = "camera=(), geolocation=(), microphone=(), payment=(), usb=()"
+      override = true
     }
   }
 }
 
 resource "aws_cloudfront_distribution" "site" {
   enabled             = true
+  is_ipv6_enabled     = true
   comment             = "Personal site"
   default_root_object = "index.html"
   http_version        = "http2and3"
-  is_ipv6_enabled     = true
   price_class         = "PriceClass_100"
 
   aliases = [var.domain_name]
@@ -107,12 +107,12 @@ resource "aws_cloudfront_distribution" "site" {
   }
 
   default_cache_behavior {
-    allowed_methods            = ["GET", "HEAD"]
-    cache_policy_id            = aws_cloudfront_cache_policy.site.id
-    cached_methods             = ["GET", "HEAD"]
-    compress                   = true
     response_headers_policy_id = aws_cloudfront_response_headers_policy.site.id
+    cache_policy_id            = aws_cloudfront_cache_policy.site.id
     target_origin_id           = local.cloudfront_origin_id
+    compress                   = true
+    allowed_methods            = ["GET", "HEAD"]
+    cached_methods             = ["GET", "HEAD"]
     viewer_protocol_policy     = "redirect-to-https"
   }
 
