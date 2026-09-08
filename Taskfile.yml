@@ -54,3 +54,18 @@ tasks:
     desc: "Run terraform validation"
     cmds:
       - task: terraform:validate
+
+  ci/terraform-plan:
+    desc: "Run terraform plan"
+    requires:
+      vars: [TF_STATE_BUCKET, TF_STATE_KEY, TF_STATE_REGION]
+    cmds:
+      - task: terraform:plan
+        vars:
+          INIT_ARGS: >-
+            -input=false -reconfigure -lockfile=readonly
+            -backend-config=use_lockfile=true
+            -backend-config=encrypt=true
+            {{printf "-backend-config=bucket=%s" .TF_STATE_BUCKET | shellQuote}}
+            {{printf "-backend-config=region=%s" .TF_STATE_REGION | shellQuote}}
+            {{printf "-backend-config=key=%s" .TF_STATE_KEY | shellQuote}}
