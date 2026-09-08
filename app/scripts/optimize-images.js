@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const inputDir = path.join(__dirname, '../src/assets/images-source')
-const outputDir = path.join(__dirname, '../public/images')
+const outputDir = path.join(__dirname, '../src/assets/images')
 
 const sizes = [400, 800, 1200, 1600]
 const quality = 90

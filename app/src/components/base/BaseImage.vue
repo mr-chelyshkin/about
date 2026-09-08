@@ -29,9 +29,19 @@ const props = withDefaults(defineProps<Props>(), {
   format: 'webp',
   folder: '',
 })
+const imageUrls = import.meta.glob('../../assets/images/**/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>
 const getImagePath = (width: number) => {
   const folder = props.folder ? `${props.folder}/` : ''
-  return `/images/${folder}${props.src}-${width}.${props.format}`
+  const source = `../../assets/images/${folder}${props.src}-${width}.${props.format}`
+  const imageUrl = imageUrls[source]
+
+  if (!imageUrl) throw new Error(`Image asset not found: ${source}`)
+
+  return imageUrl
 }
 const optimizedSrc = computed(() => {
   const defaultWidth = props.width || 800

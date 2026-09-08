@@ -26,7 +26,7 @@ logs/
 # Site
 /.cache/
 /.task/
-/app/public/images/
+/app/src/assets/images/
 /app/node_modules/
 /app/coverage/
 /app/.cache/

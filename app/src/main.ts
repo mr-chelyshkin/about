@@ -1,4 +1,6 @@
 import '@/assets/styles/index.scss'
+import './analytics'
+import './fonts'
 
 import { createApp } from 'vue'
 import App from './App.vue'
