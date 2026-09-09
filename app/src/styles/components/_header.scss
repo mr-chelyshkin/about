@@ -14,52 +14,31 @@
     left: 0;
   }
 
-  .site-header__menu-container {
-    z-index: var(--z-index-nav-button);
-    height: var(--header-height);
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    pointer-events: none;
-    align-items: center;
-    position: fixed;
-  }
-
-  .site-header__menu-inner {
-    pointer-events: auto;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .site-header__menu-placeholder {
-    width: 44px;
-    height: 44px;
-  }
-
-  .site-section-indicator {
-    display: flex;
-    align-items: center;
+  .site-header--poster .o-container {
     gap: 1rem;
-    font-family: var(--font-mono);
   }
 
-  .site-section-indicator__title {
-    font-size: var(--text-size-xsm);
+  .site-header__identity {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    white-space: nowrap;
 
+    gap: 0.625rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    position: relative;
+    letter-spacing: -0.025em;
 
-    letter-spacing: 0.06em;
+    &::after {
+      display: none;
+    }
+
+    img {
+      flex: none;
+    }
   }
 
-  .site-section-indicator__number {
-    font-size: var(--text-size-xsm);
-
-    font-weight: 300;
-    position: relative;
-
-    border-left: 1px solid var(--color-border-main);
-    padding-left: 1rem;
+  .site-header--poster .site-menu-toggle {
+    z-index: var(--z-index-nav-button);
   }
 }

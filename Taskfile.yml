@@ -24,6 +24,7 @@ tasks:
     cmds:
       - task: node:_npm/tool
         vars:
+          CONTAINER_PORTS: "127.0.0.1:5173:5173"
           CMD: "sh -c 'npm install && npm run optimize-images && exec ./node_modules/.bin/vite --host 0.0.0.0 --port 5173'"
 
   ci/build:
@@ -31,7 +32,7 @@ tasks:
     cmds:
       - task: node:_npm/tool
         vars:
-          CMD: "sh -c 'npm ci && npm run optimize-images && npm run type-check && npm run build'"
+          CMD: "sh -c 'npm ci && npm run lint && npm run build'"
 
   ci/test:
     desc: "Run application checks"

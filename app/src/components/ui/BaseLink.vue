@@ -4,13 +4,13 @@ import type { GlitchAnimation } from '@/types/ui'
 
 interface Props {
   to: string
-  animation?: Exclude<GlitchAnimation, `${string}-slow`>
+  animation?: GlitchAnimation
   duration?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  animation: 'c-glitch-matrix-fast',
-  duration: 200,
+  animation: 'c-glitch-matrix',
+  duration: 400,
 })
 
 const emit = defineEmits<{ click: [] }>()

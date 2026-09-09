@@ -8,7 +8,7 @@ interface UseGlitchOptions {
 }
 
 export function useGlitch(options: UseGlitchOptions = {}) {
-  const { animation = 'c-glitch-digital-fast', duration = 200 } = options
+  const { animation = 'c-glitch-digital', duration = 400 } = options
 
   const isGlitching = ref(false)
   let timeout: ReturnType<typeof setTimeout> | undefined
@@ -37,6 +37,5 @@ export function useGlitch(options: UseGlitchOptions = {}) {
     isGlitching,
     trigger,
     glitchClass: animation,
-    duration,
   }
 }

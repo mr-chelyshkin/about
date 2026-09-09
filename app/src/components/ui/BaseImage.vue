@@ -69,6 +69,7 @@ const handleError = () => {
   hasError.value = true
 }
 const handleLoad = () => {
+  hasError.value = false
   isLoaded.value = true
 }
 </script>

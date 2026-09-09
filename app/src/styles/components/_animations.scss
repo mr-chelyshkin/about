@@ -76,22 +76,6 @@
     animation: digital-corruption var(--glitch-duration, 400ms) ease-in-out;
   }
 
-  .c-glitch-digital-fast {
-    animation: digital-corruption 0.2s ease-in-out;
-  }
-
-  .c-glitch-digital-slow {
-    animation: digital-corruption 0.6s ease-in-out;
-  }
-
-  .c-glitch-digital-loop {
-    animation: digital-corruption 0.4s ease-in-out infinite;
-  }
-
-  .c-glitch-digital-loop-slow {
-    animation: digital-corruption 2s ease-in-out infinite;
-  }
-
   @keyframes matrix-split {
     0%,
     100% {
@@ -180,33 +164,9 @@
     animation: matrix-split 0.4s ease-in-out;
   }
 
-  .c-glitch-matrix-fast {
-    animation: matrix-split 0.2s ease-in-out;
-  }
-
-  .c-glitch-matrix-slow {
-    animation: matrix-split 0.6s ease-in-out;
-  }
-
-  .c-glitch-matrix-loop {
-    animation: matrix-split 0.4s ease-in-out infinite;
-  }
-
-  .c-glitch-matrix-loop-slow {
-    animation: matrix-split 2s ease-in-out infinite;
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .c-glitch-digital,
-    .c-glitch-digital-fast,
-    .c-glitch-digital-slow,
-    .c-glitch-digital-loop,
-    .c-glitch-digital-loop-slow,
-    .c-glitch-matrix,
-    .c-glitch-matrix-fast,
-    .c-glitch-matrix-slow,
-    .c-glitch-matrix-loop,
-    .c-glitch-matrix-loop-slow {
+    .c-glitch-matrix {
       animation: none;
     }
   }

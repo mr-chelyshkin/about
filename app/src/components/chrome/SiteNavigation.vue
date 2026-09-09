@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BaseMatrixLink from '@/components/ui/BaseMatrixLink.vue'
+import BaseLink from '@/components/ui/BaseLink.vue'
 import { siteContent } from '@/contents'
 
 interface Props {
@@ -22,9 +22,9 @@ defineProps<Props>()
     <div class="site-navigation__content">
       <ul class="site-navigation__list">
         <li class="site-navigation__item">
-          <BaseMatrixLink :to="siteContent.links.home" @click="closeMenu">
+          <BaseLink :to="siteContent.links.home" @click="closeMenu">
             {{ siteContent.actions.home }}
-          </BaseMatrixLink>
+          </BaseLink>
         </li>
       </ul>
     </div>

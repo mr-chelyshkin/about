@@ -1,34 +1,35 @@
-# Style architecture
+# Styles
 
-`main.scss` declares the cascade order in `_layers.scss` before loading rules:
+`main.scss` loads the cascade layers declared in `_layers.scss`:
 
-1. `generic/` - reset and document defaults.
-2. `elements/` - native HTML element defaults.
-3. `objects/` - layout primitives, including `o-container` and `app-layout`.
-4. `components/` - reusable UI (`c-*`) and site chrome (`site-*`).
-5. `views/` - content view composition (`content-view__*`).
+1. `generic/` — reset, focus outline and document defaults.
+2. `elements/` — typography, links and form controls.
+3. `objects/` — page layout and container.
+4. `components/` — header, navigation, footer, image and link behavior.
+5. `views/` — hero composition and its responsive rules.
 
-The emitted rules use the `generic`, `elements`, `objects`, `components`, and
-`views` cascade layers. These layers expose their partials through `_index.scss`.
-`settings/` provides Sass values; `tools/` provides mixins and emits CSS only
-when they are included. `themes/_site.scss` exposes the site's settings as
-unlayered custom properties on `:root`. There are no theme variants or
-`data-theme` selectors.
-Sass color calculations use settings directly when they need a color value.
+Each layer exposes its partials through `_index.scss`. `settings/` holds Sass
+values; `themes/_site.scss` exposes the used CSS custom properties. `tools/`
+contains shared mixins and emits no standalone CSS.
 
-The Swiss Glitch style uses off-white and near-black surfaces, sans-serif
-headings, mono labels, square corners, and thin rules. Steel, blue gray, and stone
-are used for highlighted surfaces and small chromatic offsets. The original
-glitch animations keep their RGB colors. The static grain treatment in
-`tools.accent-surface` is reserved for the large highlighted block. Cards and
-notes have no textured background variant. Motion follows `prefers-reduced-motion`.
+Vue files own markup and behavior. Their selectors and media queries live here.
+The current page has one hero, shared chrome and no additional content sections.
 
-Cards, notes, and career timelines share `tools.panel` and `--panel-padding`.
-Component headings use `tools.component-title`; short labels use
-`tools.meta-text`. Interactive offsets use `tools.interaction-offset`.
-The strike-through scales with the link font, with a minimum thickness of 1px.
+## Hero
 
-Vue components use these global class names. Their markup and behavior remain
-in Vue; selectors, responsive rules, and animations live here. Keep animation
-trigger rules after image styles in the component index, allowing a glitch to
-override the image pulse while it is active.
+`views/_content-view.scss` contains the photo, oversized headline, vertical
+discipline label and static signal effects. The SVG color filter is defined by
+`ContentHero.vue`. A masked copy of the photo keeps the face clear above the
+color split and scanlines; the contrast gradient sits above both image layers.
+
+The face mask uses the source photo's dimensions. Its `cover` sizing and
+`50% 40%` position match the image crop.
+
+## Motion and interaction
+
+`components/_animations.scss` contains the two active glitch effects:
+`digital-corruption` for the discipline label and `matrix-split` for the menu
+link. They run once on hover and respect `prefers-reduced-motion`.
+
+The navigation keeps the dark panel and small mono link from `v0.0.1`.
+Strike-through is a hover effect; the active route uses a heavier font weight.
