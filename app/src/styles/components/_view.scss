@@ -1,0 +1,29 @@
+@layer components {
+  .c-base-view {
+    flex: 1 1 0%;
+    position: relative;
+  }
+
+  .c-view-header {
+    background-color: var(--color-background-contrast);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
+    padding: 6rem 0;
+    width: 100%;
+
+    @media (max-width: 1239px) {
+      padding: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      padding: 3rem 0;
+    }
+  }
+
+  .c-view-header__subtitle {
+    color: var(--color-text-contrast);
+  }
+
+  .c-view-header__title {
+    color: var(--color-text-contrast);
+  }
+}

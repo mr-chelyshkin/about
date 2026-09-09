@@ -1,12 +1,6 @@
 import { onScopeDispose, ref } from 'vue'
 
-export type GlitchAnimation =
-  | 'glitch-digital'
-  | 'glitch-digital-fast'
-  | 'glitch-digital-slow'
-  | 'glitch-matrix'
-  | 'glitch-matrix-fast'
-  | 'glitch-matrix-slow'
+import type { GlitchAnimation } from '@/types/ui'
 
 interface UseGlitchOptions {
   animation?: GlitchAnimation
@@ -14,7 +8,7 @@ interface UseGlitchOptions {
 }
 
 export function useGlitch(options: UseGlitchOptions = {}) {
-  const { animation = 'glitch-digital-fast', duration = 200 } = options
+  const { animation = 'c-glitch-digital-fast', duration = 200 } = options
 
   const isGlitching = ref(false)
   let timeout: ReturnType<typeof setTimeout> | undefined
