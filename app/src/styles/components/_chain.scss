@@ -1,6 +1,9 @@
+@use '../tools';
+
 @layer components {
   .c-chain {
     position: relative;
+    list-style: none;
   }
   .c-chain__timeline-item {
     display: flex;
@@ -28,7 +31,6 @@
     height: 8px;
     margin-top: 0.5rem;
     background: var(--color-text-main);
-    box-shadow: 3px 0 var(--color-lilac);
   }
   .c-chain__line {
     background: var(--color-border-subtle);
@@ -45,12 +47,10 @@
     margin-bottom: 0.75rem;
   }
   .c-achievement-timeline__area {
-    font-size: 1.5rem;
+    @include tools.component-title;
   }
   .c-achievement-timeline__result {
-    font-family: var(--font-mono);
-    font-size: var(--text-size-xsm);
-    font-weight: 700;
+    @include tools.meta-text;
   }
   .c-achievement-timeline__description {
     color: var(--color-text-secondary);

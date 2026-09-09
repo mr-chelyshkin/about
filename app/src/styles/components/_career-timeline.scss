@@ -1,24 +1,23 @@
+@use '../tools';
+
 @layer components {
   .c-career-timeline {
-    padding: 2rem;
-    border: 1px solid var(--color-border-subtle);
+    @include tools.panel;
   }
   .c-career-timeline__header {
-    margin-bottom: 2rem;
+    margin-bottom: var(--panel-gap);
   }
   .c-career-timeline__title {
-    font-family: var(--font-mono);
-    font-size: var(--text-size-xsm);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    @include tools.meta-text;
   }
   .c-career-timeline__track {
     position: relative;
+    list-style: none;
   }
   .c-career-timeline__track::before {
     content: '';
     position: absolute;
-    left: 3px;
+    left: 3.5px;
     top: 0.5rem;
     bottom: 0.5rem;
     width: 1px;
@@ -37,15 +36,13 @@
     position: absolute;
     left: 0;
     top: 0.4rem;
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     background: var(--color-text-main);
   }
   .c-career-timeline__item-current::before {
     background: var(--color-text-main);
-    box-shadow:
-      -3px 0 var(--color-cyan),
-      3px 0 var(--color-pink);
+    @include tools.interaction-offset;
   }
   .c-career-timeline__year {
     font-family: var(--font-mono);

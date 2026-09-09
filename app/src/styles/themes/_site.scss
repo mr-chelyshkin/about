@@ -3,12 +3,13 @@
 :root {
   --max-width: #{settings.$max-width};
   --header-height: #{settings.$header-height};
+  --panel-padding: #{settings.$panel-padding};
+  --panel-gap: #{settings.$panel-gap};
   --color-white: #{settings.$color-white};
   --color-gray: #{settings.$color-gray};
   --color-accent: #{settings.$color-accent};
-  --color-cyan: #{settings.$color-cyan};
-  --color-lilac: #{settings.$color-lilac};
-  --color-pink: #{settings.$color-pink};
+  --color-accent-cool: #{settings.$color-accent-cool};
+  --color-accent-warm: #{settings.$color-accent-warm};
   --text-size-xlg: #{settings.$text-size-xlg};
   --text-size-lg: #{settings.$text-size-lg};
   --text-size-md: #{settings.$text-size-md};

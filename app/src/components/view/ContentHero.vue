@@ -31,25 +31,23 @@ defineProps<Props>()
       </div>
       <div class="content-view__hero-content">
         <h1>{{ content.name }}</h1>
-        <h2 class="content-view__hero-content-subtitle">{{ content.title }}</h2>
-        <p>
-          {{ content.description }}
-          <br /><br />
-          <span class="content-view__hero-tech-stack">
-            <span
+        <p class="content-view__hero-content-subtitle">{{ content.title }}</p>
+        <div class="content-view__hero-description">
+          <p>{{ content.description }}</p>
+          <ul class="content-view__hero-tech-stack" role="list">
+            <li
               v-for="(tech, index) in content.techStack"
               :key="index"
               class="content-view__hero-tech-item"
             >
               {{ tech }}
-            </span>
-          </span>
-        </p>
-        <br />
-        <div>
-          {{ content.tagline }}
+            </li>
+          </ul>
         </div>
-        <h3 class="content-view__hero-content-links-title">{{ content.linksTitle }}</h3>
+        <p class="content-view__hero-tagline">
+          {{ content.tagline }}
+        </p>
+        <h2 class="content-view__hero-content-links-title">{{ content.linksTitle }}</h2>
         <div class="content-view__hero-links">
           <a v-for="(link, index) in content.links" :key="index" :href="link.href" target="_blank">
             {{ link.label }}

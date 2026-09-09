@@ -35,9 +35,9 @@ const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
 const colors = [
   { name: 'Canvas', token: '--color-background-main' },
   { name: 'Ink', token: '--color-background-contrast' },
-  { name: 'Lilac', token: '--color-lilac' },
-  { name: 'Cyan', token: '--color-cyan' },
-  { name: 'Pink', token: '--color-pink' },
+  { name: 'Steel', token: '--color-accent' },
+  { name: 'Blue gray', token: '--color-accent-cool' },
+  { name: 'Stone', token: '--color-accent-warm' },
   { name: 'Secondary', token: '--color-text-secondary' },
 ]
 const fullCard = {
@@ -113,7 +113,7 @@ const clicks = ref(0)
         <h2>Order.<br /><span>Interrupted.</span></h2>
         <div class="styleguide__feature-caption">
           <span>Soft color. Hard edges.</span>
-          <span>Cyan / Lilac / Pink</span>
+          <span>Steel / Blue / Stone</span>
         </div>
       </div>
     </BaseContainer>
@@ -155,7 +155,7 @@ const clicks = ref(0)
           <div class="styleguide__sample">
             <p class="styleguide__label">BaseCard / slot</p>
             <BaseCard>
-              <h4>Plain card</h4>
+              <h3 class="styleguide__component-title">Plain card</h3>
               <p>A card with custom content and no destination.</p>
             </BaseCard>
           </div>
@@ -164,8 +164,8 @@ const clicks = ref(0)
             <BaseTextCard :header="fullCard.header" />
           </div>
           <div class="styleguide__sample">
-            <p class="styleguide__label">BaseTextCard / accent / linked</p>
-            <BaseTextCard v-bind="fullCard" href="#links" class="c-card--accent" />
+            <p class="styleguide__label">BaseTextCard / linked</p>
+            <BaseTextCard v-bind="fullCard" href="#links" />
           </div>
         </div>
         <div class="styleguide__grid">
@@ -176,8 +176,8 @@ const clicks = ref(0)
             </BaseNote>
           </div>
           <div class="styleguide__sample">
-            <p class="styleguide__label">BaseTextNote / accent / paragraphs</p>
-            <BaseTextNote header="Text note" :content="noteParagraphs" class="c-note--accent" />
+            <p class="styleguide__label">BaseTextNote / paragraphs</p>
+            <BaseTextNote header="Text note" :content="noteParagraphs" />
           </div>
         </div>
       </div>
@@ -207,7 +207,7 @@ const clicks = ref(0)
             <p class="styleguide__label">BaseChain / custom rows</p>
             <BaseChain :items="chain">
               <template #default="{ item }">
-                <h4>{{ item.title }}</h4>
+                <h3 class="styleguide__component-title">{{ item.title }}</h3>
                 <p>{{ item.text }}</p>
               </template>
             </BaseChain>
@@ -321,8 +321,8 @@ const clicks = ref(0)
 
 .styleguide__period {
   text-shadow:
-    -3px 0 var(--color-cyan),
-    3px 0 var(--color-pink);
+    -3px 0 var(--color-accent-cool),
+    3px 0 var(--color-accent-warm);
 }
 
 .styleguide__description {
@@ -361,8 +361,8 @@ const clicks = ref(0)
   h2 span {
     display: inline-block;
     text-shadow:
-      -3px 0 var(--color-cyan),
-      3px 1px var(--color-pink);
+      -3px 0 var(--color-accent-cool),
+      3px 1px var(--color-accent-warm);
     transform: skewX(-6deg);
   }
 }
@@ -374,17 +374,16 @@ const clicks = ref(0)
   gap: 1rem;
   padding-top: 1rem;
   border-top: 1px solid var(--color-border-main);
-  font-family: var(--font-mono);
-  font-size: var(--text-size-xsm);
-  text-transform: uppercase;
+  @include tools.meta-text;
 }
 
 .styleguide__label {
   color: var(--color-text-secondary);
-  font-family: var(--font-mono);
-  font-size: var(--text-size-xsm);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  @include tools.meta-text;
+}
+
+.styleguide__component-title {
+  @include tools.component-title;
 }
 
 .styleguide__index {

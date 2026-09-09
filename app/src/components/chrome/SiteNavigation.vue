@@ -13,25 +13,23 @@ defineProps<Props>()
 </script>
 
 <template>
-  <Teleport to="body">
-    <div v-if="isOpen" class="site-navigation__nav-overlay" @click="closeMenu"></div>
-    <nav
-      :class="['site-navigation', { 'site-navigation__open': isOpen }]"
-      id="navigation-menu"
-      :inert="!isOpen"
-    >
-      <div class="site-navigation__content">
-        <ul class="site-navigation__list">
-          <li class="site-navigation__item">
-            <BaseMatrixLink :to="siteContent.links.home" @click="closeMenu">
-              {{ siteContent.actions.home }}
-            </BaseMatrixLink>
-          </li>
-          <li class="site-navigation__item">
-            <BaseMatrixLink to="/styleguide" @click="closeMenu">Styleguide</BaseMatrixLink>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </Teleport>
+  <div v-if="isOpen" class="site-navigation__nav-overlay" @click="closeMenu"></div>
+  <nav
+    :class="['site-navigation', { 'site-navigation__open': isOpen }]"
+    id="navigation-menu"
+    :inert="!isOpen"
+  >
+    <div class="site-navigation__content">
+      <ul class="site-navigation__list">
+        <li class="site-navigation__item">
+          <BaseMatrixLink :to="siteContent.links.home" @click="closeMenu">
+            {{ siteContent.actions.home }}
+          </BaseMatrixLink>
+        </li>
+        <li class="site-navigation__item">
+          <BaseMatrixLink to="/styleguide" @click="closeMenu">Styleguide</BaseMatrixLink>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </template>

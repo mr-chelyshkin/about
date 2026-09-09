@@ -2,21 +2,12 @@
 
 @layer components {
   .c-note {
-    background: var(--color-background-main);
-    border: 1px solid var(--color-border-main);
-    border-left-width: 4px;
-    padding: clamp(1.5rem, 3vw, 3rem);
-  }
-  .c-note--accent {
-    @include tools.accent-surface;
+    @include tools.panel;
+    border-left-width: 2px;
   }
   .c-note__header {
-    font-family: var(--font-mono);
-    font-size: var(--text-size-xsm);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 1.25rem;
-    font-weight: 700;
+    @include tools.meta-text;
+    margin-bottom: var(--panel-gap);
   }
   .c-text-note {
     max-width: 75ch;

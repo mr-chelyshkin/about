@@ -1,3 +1,5 @@
+@use '../tools';
+
 @layer elements {
   h1,
   h2,
@@ -22,7 +24,7 @@
     font-size: clamp(2rem, 3.5vw, 3.5rem);
   }
   h4 {
-    font-size: clamp(1.5rem, 2vw, 2rem);
+    @include tools.component-title;
   }
   h5 {
     font-size: 1.25rem;

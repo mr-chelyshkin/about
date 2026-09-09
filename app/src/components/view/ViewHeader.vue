@@ -13,7 +13,7 @@ defineProps<Props>()
   <div class="c-view-header" :data-block-title="eyebrow" :data-block-number="number">
     <BaseContainer>
       <p class="c-view-header__subtitle">// {{ eyebrow.toUpperCase() }}</p>
-      <h3 class="c-view-header__title">{{ title }}</h3>
+      <h2 class="c-view-header__title">{{ title }}</h2>
     </BaseContainer>
   </div>
 </template>

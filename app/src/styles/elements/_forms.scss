@@ -1,3 +1,5 @@
+@use '../tools';
+
 @layer elements {
   button,
   input,
@@ -16,7 +18,7 @@
     min-width: 0;
     transition: box-shadow var(--motion-fast);
     &:focus-visible {
-      box-shadow: 3px 3px 0 var(--color-lilac);
+      @include tools.interaction-offset;
     }
   }
   input[type='checkbox'],
@@ -30,23 +32,18 @@
     padding: 0.75rem 1.125rem;
     background: var(--color-background-contrast);
     color: var(--color-text-contrast);
-    font-family: var(--font-mono);
-    font-size: var(--text-size-xsm);
-    font-weight: 700;
-    line-height: 1.5;
+    @include tools.meta-text;
     cursor: pointer;
     transition:
       color var(--motion-fast),
       background var(--motion-fast),
       box-shadow var(--motion-fast);
     &:enabled:hover {
-      background: var(--color-lilac);
+      background: var(--color-accent);
       color: var(--color-text-main);
-      box-shadow:
-        -3px 0 var(--color-cyan),
-        3px 0 var(--color-pink);
+      @include tools.interaction-offset;
     }
-    &:active {
+    &:enabled:active {
       box-shadow: none;
     }
     &:focus-visible {
