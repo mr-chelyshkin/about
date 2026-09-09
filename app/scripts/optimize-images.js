@@ -19,18 +19,16 @@ async function ensureDirectoryExists(dirPath) {
 
 async function optimizeImages() {
   if (!fs.existsSync(inputDir)) {
-    console.log(`Dictionary with source images not found, check ${inputDir}`)
-    return
+    throw new Error(`Source images directory not found: ${inputDir}`)
   }
-  await ensureDirectoryExists(outputDir)
 
   const files = fs.readdirSync(inputDir)
   const imageFiles = files.filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file))
 
   if (imageFiles.length === 0) {
-    console.log(`No images found in ${inputDir}`)
-    return
+    throw new Error(`No source images found in ${inputDir}`)
   }
+  await ensureDirectoryExists(outputDir)
   for (const file of imageFiles) {
     const inputPath = path.join(inputDir, file)
     const name = path.parse(file).name
@@ -49,10 +47,13 @@ async function optimizeImages() {
         const sizeKB = Math.round(stats.size / 1024)
         console.log(` ${name}-${size}.webp (${sizeKB}KB)`)
       } catch (error) {
-        console.log(`  Error while optimizing ${name}-${size}.webp:`, error.message)
+        throw new Error(`Error while optimizing ${name}-${size}.webp: ${error.message}`, { cause: error })
       }
     }
   }
 }
 
-optimizeImages().catch(console.error)
+optimizeImages().catch(error => {
+  console.error(error)
+  process.exitCode = 1
+})
