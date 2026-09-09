@@ -86,8 +86,8 @@ CSS organization.
 
 Shared objects belong in `components/ui/`; page and menu components compose them.
 Each icon in `components/icons/` uses `BaseIcon` for size, color and accessibility.
-`BaseExternalLink` owns the icon/label/arrow row and its interaction states;
-`SocialLinks` maps profile data to those rows. The menu controls placement and
+`BaseExternalLink` owns the compact icon-and-label tile and its interaction states;
+`SocialLinks` maps profile data to a wrapping group of tiles. The menu controls placement and
 closing behavior. Keep reusable objects independent of menu state and site data.
 
 ## Publication

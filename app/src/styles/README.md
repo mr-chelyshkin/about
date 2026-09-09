@@ -42,10 +42,10 @@ shared objects.
 
 - `BaseIcon` owns the SVG frame and the shared `size`/`label` API. Named icons
   contain their paths and use `currentColor`. Without a label they are decorative.
-- `BaseExternalLink` owns the icon slot, label, arrow, divider and hover/focus
+- `BaseExternalLink` owns the compact tile, icon slot, label, border and hover/focus
   treatment. It inherits its text color; borders and hover backgrounds derive
   from that color for use on both light and dark surfaces.
-- `SocialLinks` owns the list and its profile-to-icon mapping. It receives data
+- `SocialLinks` owns the wrapping horizontal list and its profile-to-icon mapping. It receives data
   through props and emits clicks; it does not control navigation state.
 
 Reuse these components when the same objects appear elsewhere. Keep the

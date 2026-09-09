@@ -1,10 +1,6 @@
 {
   "brand": {
-    "name": "Mr.Chelyshkin",
     "fullName": "Igor Chelyshkin"
-  },
-  "footer": {
-    "notice": "All rights reserved."
   },
   "links": {
     "home": "/"

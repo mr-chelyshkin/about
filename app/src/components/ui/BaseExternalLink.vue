@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { VNode } from 'vue'
-import IconArrowUpRight from '@/components/icons/IconArrowUpRight.vue'
 
 defineProps<{
   href: string
@@ -21,6 +20,5 @@ defineEmits<{ click: [event: MouseEvent] }>()
   >
     <span class="c-external-link__icon"><slot name="icon" /></span>
     <span class="c-external-link__label">{{ label }}</span>
-    <IconArrowUpRight class="c-external-link__arrow" :size="18" />
   </a>
 </template>
