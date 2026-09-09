@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 import SiteMenuToggle from '@/components/chrome/SiteMenuToggle.vue'
 import SiteNavigation from '@/components/chrome/SiteNavigation.vue'
@@ -11,6 +12,7 @@ import { useScrollLock } from '@/composables/useScrollLock'
 const { currentBlockTitle, currentBlockNumber, initializeTracker, cleanup } = useBlockTracker()
 const { lock, unlock } = useScrollLock()
 const isMenuOpen = ref(false)
+const route = useRoute()
 
 const toggleMenu = (isOpen: boolean) => {
   isMenuOpen.value = isOpen
@@ -20,6 +22,14 @@ const closeMenu = () => {
 }
 
 watch(isMenuOpen, (isOpen) => (isOpen ? lock() : unlock()))
+watch(
+  () => route.path,
+  () => {
+    cleanup()
+    initializeTracker()
+  },
+  { flush: 'post' },
+)
 onMounted(() => {
   initializeTracker()
 })

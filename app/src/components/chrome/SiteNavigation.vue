@@ -27,6 +27,9 @@ defineProps<Props>()
               {{ siteContent.actions.home }}
             </BaseMatrixLink>
           </li>
+          <li class="site-navigation__item">
+            <BaseMatrixLink to="/styleguide" @click="closeMenu">Styleguide</BaseMatrixLink>
+          </li>
         </ul>
       </div>
     </nav>

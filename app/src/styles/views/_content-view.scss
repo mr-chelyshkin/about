@@ -1,112 +1,70 @@
 @layer views {
   .content-view__hero {
-    height: 100vh;
+    position: relative;
+    min-height: 100svh;
+    padding: calc(var(--header-height) + 4rem) 0 4rem;
+    display: flex;
+    align-items: center;
   }
-
   .content-view__hero-background-image {
     position: absolute;
     overflow: hidden;
-    right: 0px;
-    top: 0px;
-    width: 45%;
-    height: 100vh;
-    clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
-
+    right: 0;
+    top: calc(var(--header-height) + 4rem);
+    bottom: 4rem;
+    width: 38%;
+    border: 1px solid var(--color-border-main);
     @media (max-width: 979px) {
       display: none;
     }
   }
-
-  .content-view__hero,
-  .content-view__hero-background-image {
-    @media (min-width: 1365px) {
-      min-height: 820px;
-    }
-  }
-
-  .content-view__hero,
-  .content-view__hero-background-image {
-    @media (max-width: 1365px) {
-      min-height: 720px;
-    }
-  }
-
-  .content-view__hero,
-  .content-view__hero-background-image {
-    @media (max-width: 979px) {
-      min-height: 620px;
-    }
-  }
-
-  .content-view__hero,
-  .content-view__hero-background-image {
-    @media (max-width: 719px) {
-      min-height: 720px;
-    }
-  }
-
-  .content-view__hero,
-  .content-view__hero-background-image {
-    @media (max-width: 419px) {
-      min-height: 680px;
-    }
-  }
-
-  .content-view__hero,
-  .content-view__hero-background-image {
-    @media (max-width: 377px) {
-      min-height: 760px;
-    }
-  }
-
   .content-view__hero-content {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: self-start;
-    height: 100%;
-    width: 55%;
-
+    align-items: flex-start;
+    width: 56%;
     @media (max-width: 979px) {
       width: 100%;
     }
-  }
-
-  .content-view__hero-content-subtitle {
-    padding-bottom: 3rem;
-  }
-
-  .content-view__hero-content-links-title {
-    padding-top: 3rem;
-    font-size: 1.4rem;
-  }
-
-  .content-view__hero-links {
-    display: flex;
-    gap: 2rem;
-    margin-top: 0.5rem;
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-      gap: 1rem;
+    > h1 {
+      font-size: clamp(3.5rem, 6.5vw, 6.5rem);
+      margin-bottom: 1.5rem;
+    }
+    > p {
+      max-width: 58ch;
     }
   }
-
+  .content-view__hero-content-subtitle {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    padding-bottom: 2rem;
+    max-width: 30ch;
+  }
+  .content-view__hero-content-links-title {
+    padding-top: 2rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-size-xsm);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .content-view__hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
   .content-view__hero-tech-stack {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: 0.5rem;
   }
-
   .content-view__hero-tech-item {
-    background: var(--color-text-main);
-    color: var(--color-text-contrast);
-    font-size: var(--text-size-sm);
-    display: inline-block;
-    padding: 0.3rem 0.8rem;
-    letter-spacing: 0.3px;
-    border-radius: 2px;
-    font-weight: 500;
+    border: 1px solid var(--color-border-main);
+    color: var(--color-text-main);
+    font-family: var(--font-mono);
+    font-size: var(--text-size-xsm);
+    padding: 0.25rem 0.5rem;
   }
 
   .content-view__expertise-note-margin {
@@ -140,12 +98,14 @@
 
   .content-view__expertise-list {
     flex: 1;
+    min-width: 0;
   }
 
   .content-view__expertise-sidebar {
     height: fit-content;
+    flex: 0 0 320px;
     position: sticky;
-    top: 5rem;
+    top: calc(var(--header-height) + 2rem);
 
     @media (max-width: 1200px) {
       flex: 0 0 300px;
@@ -166,7 +126,7 @@
   }
 
   .content-view__solutions-prj-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
     gap: 2rem;
     display: grid;
 
@@ -196,7 +156,7 @@
   }
 
   .content-view__open-source-prj-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
     gap: 2rem;
     display: grid;
     padding: 3rem 0 9rem 0;

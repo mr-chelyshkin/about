@@ -1,0 +1,60 @@
+@layer elements {
+  button,
+  input,
+  select,
+  textarea {
+    border: 1px solid var(--color-border-main);
+    border-radius: 0;
+    font: inherit;
+    color: var(--color-text-main);
+  }
+  input,
+  select,
+  textarea {
+    background: var(--color-background-main);
+    padding: 0.625rem 0.75rem;
+    min-width: 0;
+    transition: box-shadow var(--motion-fast);
+    &:focus-visible {
+      box-shadow: 3px 3px 0 var(--color-lilac);
+    }
+  }
+  input[type='checkbox'],
+  input[type='radio'] {
+    width: 1.125rem;
+    height: 1.125rem;
+    padding: 0;
+    accent-color: var(--color-text-main);
+  }
+  button {
+    padding: 0.75rem 1.125rem;
+    background: var(--color-background-contrast);
+    color: var(--color-text-contrast);
+    font-family: var(--font-mono);
+    font-size: var(--text-size-xsm);
+    font-weight: 700;
+    line-height: 1.5;
+    cursor: pointer;
+    transition:
+      color var(--motion-fast),
+      background var(--motion-fast),
+      box-shadow var(--motion-fast);
+    &:enabled:hover {
+      background: var(--color-lilac);
+      color: var(--color-text-main);
+      box-shadow:
+        -3px 0 var(--color-cyan),
+        3px 0 var(--color-pink);
+    }
+    &:active {
+      box-shadow: none;
+    }
+    &:focus-visible {
+      outline-color: var(--color-text-main);
+    }
+  }
+  :disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}

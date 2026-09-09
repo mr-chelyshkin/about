@@ -14,7 +14,7 @@ defineProps<{
 <template>
   <ViewSection :title="content.title" :eyebrow="content.eyebrow" :number="content.number">
     <BaseTextNote
-      class="content-view__expertise-note-margin"
+      class="content-view__expertise-note-margin c-note--accent"
       :header="content.philosophy.header"
       :content="content.philosophy.content"
     />

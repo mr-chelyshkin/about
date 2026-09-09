@@ -4,8 +4,8 @@
     scroll-behavior: smooth;
     touch-action: manipulation;
 
-    @media (max-width: 419px) {
-      font-size: var(--text-size-sm);
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto;
     }
   }
 
@@ -13,8 +13,14 @@
     min-height: 100vh;
     font-family: var(--font-main);
     background-color: var(--color-background-main);
-    color: #000;
+    color: var(--color-text-main);
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    color: var(--color-text-main);
+    background: var(--color-cyan);
   }
 }

@@ -1,32 +1,17 @@
 @layer elements {
   a {
-    color: var(--color-text-main);
-
-    font-family: 'Roboto Mono', monospace;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    position: relative;
-    font-weight: 400;
-    font-size: 1rem;
-
-    &::after {
-      background: var(--color-text-main);
-
-      transform-origin: left;
-      position: absolute;
-      content: '';
-      top: 50%;
-      left: -0.5rem;
-      height: 2.5px;
-      right: -0.5rem;
-      transform: translateY(-50%) scaleX(0);
-      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    transition:
+      text-shadow var(--motion-fast),
+      text-decoration-color var(--motion-fast);
     &:hover {
-      &::after {
-        transform: translateY(-50%) scaleX(1);
-      }
+      text-shadow:
+        -1px 0 var(--color-cyan),
+        1px 0 var(--color-pink);
+      text-decoration-thickness: 2px;
     }
   }
 }

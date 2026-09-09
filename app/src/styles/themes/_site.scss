@@ -1,12 +1,14 @@
 @use '../settings';
 
-:root,
-[data-theme='light'] {
+:root {
   --max-width: #{settings.$max-width};
   --header-height: #{settings.$header-height};
   --color-white: #{settings.$color-white};
   --color-gray: #{settings.$color-gray};
   --color-accent: #{settings.$color-accent};
+  --color-cyan: #{settings.$color-cyan};
+  --color-lilac: #{settings.$color-lilac};
+  --color-pink: #{settings.$color-pink};
   --text-size-xlg: #{settings.$text-size-xlg};
   --text-size-lg: #{settings.$text-size-lg};
   --text-size-md: #{settings.$text-size-md};
@@ -19,10 +21,18 @@
   --color-text-secondary: #{settings.$color-text-secondary};
   --color-text-accent: #{settings.$color-text-accent};
   --color-border-main: #{settings.$color-border-main};
-  --shadow-header: #{settings.$shadow-header};
+  --color-border-subtle: #{settings.$color-border-subtle};
   --font-main: #{settings.$font-main};
+  --font-mono: #{settings.$font-mono};
+  --motion-fast: 160ms;
   --z-index-nav-menu: #{settings.$z-index-nav-menu};
   --z-index-nav-overlay: #{settings.$z-index-nav-overlay};
   --z-index-nav-button: #{settings.$z-index-nav-button};
   --z-index-header: #{settings.$z-index-header};
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+  }
 }
