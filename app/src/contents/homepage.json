@@ -1,0 +1,131 @@
+{
+  "name": "Igor Chelyshkin",
+  "role": "Software Engineer, Infrastructure",
+  "hero": {
+    "title": "Infrastructure,\nbuilt as software.",
+    "description": "I design and build cloud platforms, internal services, and tools for engineering teams.",
+    "detail": "Go, Python, Rust. Independent. Remote.",
+    "primary": "Discuss a project",
+    "secondary": "Explore the work"
+  },
+  "situations": {
+    "title": "What needs to take shape?",
+    "description": "A few ways my work could fit yours.",
+    "items": [
+      {
+        "number": "01",
+        "title": "A product needs its infrastructure",
+        "description": "You're building a product and need someone to design and implement the cloud infrastructure behind it.",
+        "link": "Cloud infrastructure work",
+        "href": "#fintech"
+      },
+      {
+        "number": "02",
+        "title": "Several teams need a shared way to build",
+        "description": "Build environments, delivery workflows, and internal tooling need to work across projects.",
+        "link": "Mobile platform work",
+        "href": "#mobile"
+      },
+      {
+        "number": "03",
+        "title": "The missing piece is software",
+        "description": "You need an internal service, integration, or library with an interface your team can build on.",
+        "link": "Software projects",
+        "href": "#software"
+      }
+    ]
+  },
+  "work": {
+    "title": "Work in practice",
+    "description": "Cloud infrastructure and software for engineering teams.",
+    "items": [
+      {
+        "id": "fintech",
+        "category": "CURRENT WORK / FINTECH",
+        "title": "Building the infrastructure behind a fintech product",
+        "description": "I'm building infrastructure on Google Cloud. For most of the engagement, I've been the sole infrastructure engineer.",
+        "stack": ["Google Cloud", "GKE", "Pulumi", "GitLab CI/CD", "Helm"],
+        "details": [
+          {
+            "title": "Cloud infrastructure",
+            "text": "Infrastructure work on Google Cloud, with GKE for application workloads and Pulumi for infrastructure as code."
+          },
+          {
+            "title": "Application delivery",
+            "text": "Helm deployments and GitLab CI/CD workflows form part of the platform I'm building."
+          }
+        ]
+      },
+      {
+        "id": "mobile",
+        "category": "SELECTED WORK / OZON",
+        "title": "A shared environment for mobile engineering",
+        "description": "At Ozon, I worked on the internal platform for mobile development: shared CI/CD workflows, an iOS simulator farm, and Kubernetes infrastructure for Android emulators.",
+        "stack": ["Mobile infrastructure", "macOS", "Kubernetes", "CI/CD"],
+        "details": [
+          {
+            "title": "Build and test environments",
+            "text": "The platform brought together Mac Studio infrastructure for iOS simulators and Kubernetes infrastructure for Android emulators."
+          },
+          {
+            "title": "Shared delivery workflows",
+            "text": "I designed and implemented CI/CD pipelines used across mobile engineering teams and worked on automating mobile farm management."
+          }
+        ]
+      }
+    ]
+  },
+  "approach": {
+    "title": "One project command.\nLocal development and CI.",
+    "description": "The Taskfiles project captures an approach I value: put shared behavior behind a clear interface, then let different projects use it.",
+    "detail": "Projects define their commands. Reusable modules handle execution. Containers provide the selected tools. CI handles checkout, credentials, and artifacts.",
+    "source": "https://github.com/mr-chelyshkin/tasks/blob/main/README.md",
+    "sourceLabel": "Read the Taskfiles project",
+    "demoLabel": "Explore the workflow",
+    "demoNote": "Interactive explanation based on the project example. No commands execute here.",
+    "boundary": "The command is shared. Host architecture, credentials, runtime, and cache can still differ."
+  },
+  "software": {
+    "title": "Software you can inspect",
+    "description": "Libraries, developer tools, and product software from my open-source work.",
+    "items": [
+      {
+        "name": "Taskvisor",
+        "type": "RUST / RUNTIME LIBRARY",
+        "description": "An in-process task supervisor for Tokio applications, with keyed admission, retries, cancellation, and final outcomes.",
+        "href": "https://github.com/soltiHQ/taskvisor",
+        "detail": "Task lifecycle and ownership"
+      },
+      {
+        "name": "GoDyno",
+        "type": "GO / DEVELOPER TOOL",
+        "description": "A command-line tool that generates typed Go code from JSON schemas for DynamoDB.",
+        "href": "https://github.com/Mad-Pixels/go-dyno",
+        "detail": "Schema validation and code generation"
+      },
+      {
+        "name": "AppLingo",
+        "type": "GO + SWIFT / APPLICATION",
+        "description": "A language-learning application with a Go backend and an iOS interface for dictionaries and learning games.",
+        "href": "https://github.com/Mad-Pixels/applingo-ios",
+        "secondaryHref": "https://github.com/Mad-Pixels/applingo-api",
+        "detail": "Backend services and a user-facing application"
+      }
+    ]
+  },
+  "engagement": {
+    "title": "A focused piece of work.\nOr a longer engagement.",
+    "description": "I work independently on infrastructure and software, from an individual component to a broader platform. I'm interested in remote contracts with teams building and evolving their systems.",
+    "background": "My background includes engineering work at Ozon, Aqua Security, and Mail.ru. The full professional history is on LinkedIn.",
+    "languages": "Go, Python, Rust",
+    "format": "Independent / Remote"
+  },
+  "contact": {
+    "title": "Tell me what\nyou're building.",
+    "description": "A short note about the system, the work, and your timeframe is enough to start.",
+    "primary": "Start a conversation",
+    "href": "https://t.me/mr_igoss",
+    "linkedin": "https://www.linkedin.com/in/mr-chelyshkin/",
+    "github": "https://github.com/mr-chelyshkin"
+  }
+}

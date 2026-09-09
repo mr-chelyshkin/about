@@ -49,7 +49,14 @@ defineProps<Props>()
         </p>
         <h2 class="content-view__hero-content-links-title">{{ content.linksTitle }}</h2>
         <div class="content-view__hero-links">
-          <a v-for="(link, index) in content.links" :key="index" :href="link.href" target="_blank">
+          <a
+            v-for="(link, index) in content.links"
+            :key="index"
+            :href="link.href"
+            v-bind="
+              link.href.startsWith('#') ? {} : { target: '_blank', rel: 'noopener noreferrer' }
+            "
+          >
             {{ link.label }}
           </a>
         </div>

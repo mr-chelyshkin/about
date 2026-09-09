@@ -1,19 +1,27 @@
 <script setup lang="ts">
 import BaseView from '@/components/view/BaseView.vue'
 import ContentHero from '@/components/view/ContentHero.vue'
-import ContentExpertise from '@/components/view/ContentExpertise.vue'
-import ContentSolutions from '@/components/view/ContentSolutions.vue'
-import ContentOpenSource from '@/components/view/ContentOpenSource.vue'
 import { siteContent } from '@/contents'
+import content from '@/contents/homepage.json'
 
-const pageContent = siteContent.pages.content
+const hero = {
+  ...siteContent.pages.content.hero,
+  name: content.name,
+  title: content.role,
+  description: content.hero.description,
+  tagline: content.hero.title.replace('\n', ' '),
+  techStack: ['Go', 'Python', 'Rust'],
+  linksTitle: content.engagement.format,
+  imageAlt: content.name,
+  links: [
+    { label: content.hero.primary, href: content.contact.href },
+    { label: content.hero.secondary, href: content.contact.github },
+  ],
+}
 </script>
 
 <template>
   <BaseView class="content-view">
-    <ContentHero :content="pageContent.hero" />
-    <ContentExpertise :content="pageContent.expertise" />
-    <ContentSolutions :content="pageContent.solutions" />
-    <ContentOpenSource :content="pageContent.openSource" />
+    <ContentHero :content="hero" />
   </BaseView>
 </template>
