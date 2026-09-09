@@ -55,8 +55,9 @@ app/
     assets/               Original photo, generated WebP files and face mask
     components/
       chrome/             Header, menu and footer
+      icons/              Shared icon geometry
       layout/             Container primitive
-      ui/                 Image and navigation link
+      ui/                 Reusable icons, images and link components
       view/               Page wrapper and hero
     composables/          Glitch timing and menu scroll lock
     contents/             Current site content and inferred content types
@@ -82,6 +83,12 @@ The hero's split channels, scanlines and face mask are rendered in the page.
 When replacing the photograph, update `app/src/assets/hero-face-mask.svg` to match
 its new face position. The [styles guide](app/src/styles/README.md) describes the
 CSS organization.
+
+Shared objects belong in `components/ui/`; page and menu components compose them.
+Each icon in `components/icons/` uses `BaseIcon` for size, color and accessibility.
+`BaseExternalLink` owns the icon/label/arrow row and its interaction states;
+`SocialLinks` maps profile data to those rows. The menu controls placement and
+closing behavior. Keep reusable objects independent of menu state and site data.
 
 ## Publication
 

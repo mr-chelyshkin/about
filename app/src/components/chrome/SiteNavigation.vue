@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseLink from '@/components/ui/BaseLink.vue'
+import SocialLinks from '@/components/ui/SocialLinks.vue'
 import { siteContent } from '@/contents'
 
 interface Props {
@@ -27,6 +28,11 @@ defineProps<Props>()
           </BaseLink>
         </li>
       </ul>
+      <SocialLinks
+        class="site-navigation__socials"
+        :profiles="siteContent.socialProfiles"
+        @click="closeMenu"
+      />
     </div>
   </nav>
 </template>

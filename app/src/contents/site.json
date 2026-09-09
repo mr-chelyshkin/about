@@ -9,6 +9,16 @@
   "links": {
     "home": "/"
   },
+  "socialProfiles": {
+    "linkedin": {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/mr-chelyshkin/"
+    },
+    "github": {
+      "label": "GitHub",
+      "href": "https://github.com/mr-chelyshkin"
+    }
+  },
   "actions": {
     "home": "Home"
   },

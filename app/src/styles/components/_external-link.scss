@@ -1,0 +1,51 @@
+@layer components {
+  .c-external-link {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr) 18px;
+    align-items: center;
+    gap: 1rem;
+    min-height: 4rem;
+    padding: 0.625rem 0.25rem;
+    border-bottom: 1px solid color-mix(in srgb, currentColor 24%, transparent);
+    color: inherit;
+    transition: background-color var(--motion-fast);
+
+    &::after {
+      display: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: color-mix(in srgb, currentColor 4%, transparent);
+
+      .c-external-link__icon {
+        filter: drop-shadow(-1px 0 var(--color-accent-cool))
+          drop-shadow(1px 0 var(--color-accent-warm));
+      }
+
+      .c-external-link__arrow {
+        transform: translate(2px, -2px);
+      }
+    }
+  }
+
+  .c-external-link__label {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  .c-external-link__icon {
+    transition: filter var(--motion-fast);
+
+    > .c-icon {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .c-external-link__arrow {
+    transition: transform var(--motion-fast);
+  }
+}
