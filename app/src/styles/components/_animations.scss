@@ -195,4 +195,19 @@
   .c-glitch-matrix-loop-slow {
     animation: matrix-split 2s ease-in-out infinite;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .c-glitch-digital,
+    .c-glitch-digital-fast,
+    .c-glitch-digital-slow,
+    .c-glitch-digital-loop,
+    .c-glitch-digital-loop-slow,
+    .c-glitch-matrix,
+    .c-glitch-matrix-fast,
+    .c-glitch-matrix-slow,
+    .c-glitch-matrix-loop,
+    .c-glitch-matrix-loop-slow {
+      animation: none;
+    }
+  }
 }

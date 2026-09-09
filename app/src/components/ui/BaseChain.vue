@@ -6,8 +6,8 @@ defineProps<Props>()
 </script>
 
 <template>
-  <div class="c-chain">
-    <div v-for="(item, index) in items" :key="index" class="c-chain__timeline-item">
+  <ul class="c-chain" role="list">
+    <li v-for="(item, index) in items" :key="index" class="c-chain__timeline-item">
       <div class="c-chain__timeline-item-marker">
         <div class="c-chain__dot"></div>
         <div class="c-chain__line"></div>
@@ -15,6 +15,6 @@ defineProps<Props>()
       <div class="c-chain__timeline-item-content">
         <slot :item="item" :index="index" />
       </div>
-    </div>
-  </div>
+    </li>
+  </ul>
 </template>

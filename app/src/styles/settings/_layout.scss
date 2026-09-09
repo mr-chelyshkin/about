@@ -1,3 +1,5 @@
-$max-width: 1920px;
+$max-width: 1600px;
 $min-width: 320px;
-$header-height: clamp(52px, 8vw, 99px);
+$header-height: 72px;
+$panel-padding: clamp(1.5rem, 2.5vw, 2rem);
+$panel-gap: 1.5rem;

@@ -12,9 +12,11 @@ const props = defineProps<Props>()
 
 <template>
   <BaseListItem :number="props.number" :title="props.title">
-    <div v-for="techLine in props.data" :key="techLine.key" class="c-key-value-list">
-      <span class="c-key-value-list__label">{{ techLine.key }}:</span>
-      <span class="c-key-value-list__value">{{ techLine.value }}</span>
-    </div>
+    <dl>
+      <div v-for="techLine in props.data" :key="techLine.key" class="c-key-value-list">
+        <dt class="c-key-value-list__label">{{ techLine.key }}:</dt>
+        <dd class="c-key-value-list__value">{{ techLine.value }}</dd>
+      </div>
+    </dl>
   </BaseListItem>
 </template>

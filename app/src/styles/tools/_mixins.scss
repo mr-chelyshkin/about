@@ -1,4 +1,55 @@
+@use 'sass:string';
+@use '../settings';
+
 @mixin focus-ring {
-  outline: 2px solid var(--color-text-main);
-  outline-offset: 2px;
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+@mixin panel {
+  padding: var(--panel-padding);
+  border: 1px solid var(--color-border-main);
+  background: var(--color-background-main);
+  color: var(--color-text-main);
+}
+
+@mixin component-title {
+  font-family: var(--font-main);
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+@mixin meta-text {
+  font-family: var(--font-mono);
+  font-size: var(--text-size-xsm);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@mixin interaction-offset {
+  box-shadow:
+    -2px 0 var(--color-accent-cool),
+    2px 0 var(--color-accent-warm);
+}
+
+@function svg-color($color) {
+  @return '%23#{string.slice('#{$color}', 2)}';
+}
+
+// Uneven color deposits, fine print grain, and two static registration slips.
+// Keep the texture behind content; it has no animation or overlay elements.
+@mixin accent-surface {
+  background-color: var(--color-accent);
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' seed='17' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cpath opacity='.5' filter='url(%23grain)' d='M0 0h180v180H0z'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 800' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='deposit' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.008 .012' numOctaves='2' seed='8' result='noise'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='noise' scale='170' xChannelSelector='R' yChannelSelector='G'/%3E%3CfeGaussianBlur stdDeviation='12'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23deposit)'%3E%3Cpath fill='#{svg-color(settings.$color-accent-warm)}' d='M-120-100H530C480 70 330 80 345 235S150 405-65 315Z'/%3E%3Cpath fill='#{svg-color(settings.$color-accent-cool)}' d='M940-100H1310V270C1160 295 1175 130 1000 155S865 50 940-100Z'/%3E%3Cpath fill='#{svg-color(settings.$color-accent-cool)}' d='M-100 595C60 465 215 450 260 555S485 645 575 760L585 910H-100Z'/%3E%3Cpath fill='#{svg-color(settings.$color-accent-warm)}' opacity='.8' d='M1080 385C1200 285 1330 390 1295 585L1300 900H990C975 775 1070 765 1020 615S990 460 1080 385Z'/%3E%3C/g%3E%3Cpath fill='#{svg-color(settings.$color-accent-cool)}' opacity='.5' d='M740 258H1200V267H740Z'/%3E%3Cpath fill='#{svg-color(settings.$color-accent-warm)}' opacity='.6' d='M0 590H395V596H0Z'/%3E%3C/svg%3E");
+  background-size:
+    180px 180px,
+    100% 100%;
+  background-blend-mode: multiply, normal;
+  color: var(--color-text-main);
 }

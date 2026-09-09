@@ -10,7 +10,7 @@ defineProps<Props>()
   <div class="c-list-item">
     <div class="c-list-item__header">
       <span class="c-list-item__number">{{ number }}</span>
-      <h4 class="c-list-item__header-title">{{ title }}</h4>
+      <h3 class="c-list-item__header-title">{{ title }}</h3>
     </div>
     <div class="c-list-item__content">
       <slot />

@@ -1,52 +1,53 @@
+@use '../tools';
+
 @layer elements {
-  h1 {
-    font-size: 3rem;
-
-    @media (max-width: 1239px) {
-      font-size: 2.6rem;
-    }
-
-    @media (max-width: 419px) {
-      font-size: 2.5rem;
-    }
-  }
-
-  h2 {
-    font-size: 1.8rem;
-
-    @media (max-width: 1239px) {
-      font-size: 1.4rem;
-    }
-
-    @media (max-width: 419px) {
-      font-size: 1.5rem;
-    }
-  }
-
-  h3 {
-    font-size: 2.5rem;
-    padding: 0.5rem 0 0.5rem 0;
-
-    @media (max-width: 1239px) {
-      font-size: 1.8rem;
-    }
-
-    @media (max-width: 419px) {
-      font-size: 1.8rem;
-    }
-
-    @media (max-width: 377px) {
-      font-size: 1.6rem;
-    }
-  }
-
-  h4 {
-    font-size: 1.4rem;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
     font-weight: 600;
-    margin: 0;
-
-    @media (max-width: 419px) {
-      font-size: 1.6rem;
-    }
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+  h1 {
+    font-size: clamp(3.25rem, 6.8vw, 7rem);
+  }
+  h2 {
+    font-size: clamp(2.5rem, 4.8vw, 5rem);
+  }
+  h3 {
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+  }
+  h4 {
+    @include tools.component-title;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  strong {
+    font-weight: 700;
+  }
+  small {
+    font-size: var(--text-size-sm);
+  }
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-mono);
+  }
+  code {
+    font-size: 0.875em;
   }
 }

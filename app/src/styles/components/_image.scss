@@ -34,4 +34,10 @@
       transform: scale(1.05);
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .c-digital-image--pulse {
+      animation: none;
+    }
+  }
 }

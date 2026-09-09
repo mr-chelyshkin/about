@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 import { siteContent } from '@/contents'
 
 interface Props {
@@ -7,13 +9,18 @@ interface Props {
 
 const props = defineProps<Props>()
 const emit = defineEmits<{ toggle: [isOpen: boolean] }>()
+const button = ref<HTMLButtonElement | null>(null)
+defineExpose({ focus: () => button.value?.focus() })
 const toggleMenu = () => {
+  button.value?.focus()
   emit('toggle', !props.isOpen)
 }
 </script>
 
 <template>
   <button
+    ref="button"
+    type="button"
     :class="['site-menu-toggle', { 'site-menu-toggle__active': isOpen }]"
     @click="toggleMenu"
     :aria-label="

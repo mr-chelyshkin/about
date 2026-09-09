@@ -12,14 +12,14 @@ defineProps<{
 
 <template>
   <ViewSection :title="content.title" :eyebrow="content.eyebrow" :number="content.number">
-    <h4 class="content-view__solutions-section-title">{{ content.projectsTitle }}</h4>
+    <h3 class="content-view__solutions-section-title">{{ content.projectsTitle }}</h3>
     <div class="content-view__solutions-prj-grid">
       <BaseTextCard v-for="(item, index) in content.projects" :key="index" v-bind="item" />
     </div>
 
-    <h4 class="content-view__solutions-section-title">{{ content.achievementsTitle }}</h4>
+    <h3 class="content-view__solutions-section-title">{{ content.achievementsTitle }}</h3>
     <div class="content-view__solutions-ach-grid">
-      <ContentAchievementTimeline :items="content.achievements" />
+      <ContentAchievementTimeline :items="content.achievements" :heading-level="4" />
     </div>
   </ViewSection>
 </template>

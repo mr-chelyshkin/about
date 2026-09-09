@@ -22,7 +22,7 @@ interface Props {
 const props = defineProps<Props>()
 const imageProps = computed(() => ({
   src: props.src,
-  alt: props.alt || 'image',
+  alt: props.alt ?? 'image',
   priority: props.priority,
   ...(props.width !== undefined ? { width: props.width } : {}),
   ...(props.height !== undefined ? { height: props.height } : {}),
