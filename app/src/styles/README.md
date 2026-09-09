@@ -32,6 +32,3 @@ Vue components use these global class names. Their markup and behavior remain
 in Vue; selectors, responsive rules, and animations live here. Keep animation
 trigger rules after image styles in the component index, allowing a glitch to
 override the image pulse while it is active.
-
-`StyleguideView.vue` is a temporary exception: its fixtures and preview layout
-stay together in that file for easy removal.
