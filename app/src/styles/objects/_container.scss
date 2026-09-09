@@ -1,0 +1,21 @@
+@layer objects {
+  .o-container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &--row-between {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 768px) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}

@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import LayoutMain from '@/components/LayoutMain.vue'
+import AppLayout from '@/layouts/AppLayout.vue'
 </script>
 
 <template>
-  <div id="app">
-    <LayoutMain>
-      <router-view />
-    </LayoutMain>
-  </div>
+  <AppLayout />
 </template>

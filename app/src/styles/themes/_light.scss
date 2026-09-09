@@ -1,0 +1,28 @@
+@use '../settings';
+
+:root,
+[data-theme='light'] {
+  --max-width: #{settings.$max-width};
+  --header-height: #{settings.$header-height};
+  --color-white: #{settings.$color-white};
+  --color-gray: #{settings.$color-gray};
+  --color-accent: #{settings.$color-accent};
+  --text-size-xlg: #{settings.$text-size-xlg};
+  --text-size-lg: #{settings.$text-size-lg};
+  --text-size-md: #{settings.$text-size-md};
+  --text-size-sm: #{settings.$text-size-sm};
+  --text-size-xsm: #{settings.$text-size-xsm};
+  --color-background-main: #{settings.$color-background-main};
+  --color-background-contrast: #{settings.$color-background-contrast};
+  --color-text-main: #{settings.$color-text-main};
+  --color-text-contrast: #{settings.$color-text-contrast};
+  --color-text-secondary: #{settings.$color-text-secondary};
+  --color-text-accent: #{settings.$color-text-accent};
+  --color-border-main: #{settings.$color-border-main};
+  --shadow-header: #{settings.$shadow-header};
+  --font-main: #{settings.$font-main};
+  --z-index-nav-menu: #{settings.$z-index-nav-menu};
+  --z-index-nav-overlay: #{settings.$z-index-nav-overlay};
+  --z-index-nav-button: #{settings.$z-index-nav-button};
+  --z-index-header: #{settings.$z-index-header};
+}

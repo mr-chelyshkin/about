@@ -1,0 +1,124 @@
+@layer components {
+  .c-career-timeline {
+    padding: 3rem;
+
+    @media (max-width: 968px) {
+      padding: 0;
+    }
+  }
+
+  .c-career-timeline__header {
+    margin-bottom: 1.5rem;
+  }
+
+  .c-career-timeline__title {
+    font-size: var(--text-size-lg);
+    color: var(--color-text-secondary);
+
+    @media (max-width: 968px) {
+      font-size: var(--text-size-xlg);
+    }
+  }
+
+  .c-career-timeline__track {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 2.5rem;
+      top: 0.5rem;
+      bottom: 0;
+      width: 2px;
+      background: #b3b3b3;
+    }
+  }
+
+  .c-career-timeline__item {
+    position: relative;
+    margin-bottom: 1.5rem;
+    padding-left: 4rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 2.25rem;
+      top: 0.3rem;
+      width: 10px;
+      height: 10px;
+      background: var(--color-gray);
+      border-radius: 50%;
+      border: 2px solid var(--color-white);
+    }
+  }
+
+  .c-career-timeline__item-current {
+    &::before {
+      background: var(--color-accent);
+      z-index: 2;
+    }
+
+    &::after {
+      background: var(--color-accent);
+      content: '';
+      animation: career-timeline-pulse 2s ease-out infinite;
+      position: absolute;
+      border-radius: 50%;
+      left: 2.2rem;
+      top: 0.2rem;
+      height: 12px;
+      opacity: 0.6;
+      width: 12px;
+      z-index: 1;
+    }
+  }
+
+  .c-career-timeline__year {
+    color: var(--color-text-secondary);
+    font-size: var(--text-size-xsm);
+    font-weight: 600;
+
+    @media (max-width: 429px) {
+      font-size: var(--text-size-lg);
+    }
+  }
+
+  .c-career-timeline__role {
+    font-size: var(--text-size-sm);
+    color: var(--color-text-main);
+    font-weight: 600;
+    margin: 0.2rem 0;
+
+    @media (max-width: 429px) {
+      font-size: var(--text-size-md);
+    }
+  }
+
+  .c-career-timeline__company {
+    font-size: var(--text-size-xsm);
+    color: var(--color-text-secondary);
+
+    @media (max-width: 429px) {
+      font-size: var(--text-size-sm);
+    }
+  }
+
+  @keyframes career-timeline-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    70% {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(3);
+      opacity: 0;
+    }
+  }
+}

@@ -1,0 +1,360 @@
+{
+  "brand": {
+    "name": "Mr.Chelyshkin"
+  },
+  "footer": {
+    "notice": "All rights reserved."
+  },
+  "links": {
+    "home": "/"
+  },
+  "actions": {
+    "home": "Home"
+  },
+  "accessibility": {
+    "openNavigation": "open menu",
+    "closeNavigation": "close menu"
+  },
+  "pages": {
+    "content": {
+      "hero": {
+        "image": "hero",
+        "name": "Igor Chelyshkin",
+        "title": "Sr Platform Engineer & Infrastructure Architect",
+        "description": "Hello, I'm a platform engineer with 10+ years of expertise delivering scalable, secure, and efficient cloud-native infrastructure. I turn complex DevOps challenges into clear, optimised and actionable solutions.",
+        "tagline": "Let's build infrastructure you can trust.",
+        "techStack": [
+          "Go",
+          "Python",
+          "Linux",
+          "K8S",
+          "AWS",
+          "IaC",
+          "WEB",
+          "CI/CD",
+          "Cyber Security"
+        ],
+        "links": [
+          {
+            "label": "LinkedIn",
+            "href": "https://www.linkedin.com/in/mr-chelyshkin/"
+          },
+          {
+            "label": "GitHub",
+            "href": "https://github.com/mr-chelyshkin"
+          }
+        ],
+        "eyebrow": "WELCOME",
+        "number": "01",
+        "imageAlt": "Igor Chelyshkin - Platform Engineer",
+        "linksTitle": "Links:"
+      },
+      "expertise": {
+        "title": "Engineering Expertise & Practices.",
+        "eyebrow": "EXPERTISE",
+        "number": "02",
+        "philosophy": {
+          "header": "Philosophy",
+          "content": [
+            "I believe in platforms that simplify, scale, and empower developers.",
+            "My goal is creating infrastructure that's clear, predictable, and measurable—helping teams deliver faster and with confidence."
+          ]
+        },
+        "skills": [
+          {
+            "number": "01",
+            "title": "Cloud Infrastructure",
+            "data": [
+              {
+                "key": "Platform",
+                "value": "AWS (EKS, Lambda, Aurora, Step Functions, DynamoDB)"
+              },
+              {
+                "key": "Approach",
+                "value": "Strategic cloud transformation and optimization"
+              }
+            ]
+          },
+          {
+            "number": "02",
+            "title": "Infrastructure as Code",
+            "data": [
+              {
+                "key": "Tools",
+                "value": "Terraform, Ansible, Helm, SaltStack"
+              },
+              {
+                "key": "Approach",
+                "value": "Full automation, reproducible deployments"
+              }
+            ]
+          },
+          {
+            "number": "03",
+            "title": "Container Orchestration",
+            "data": [
+              {
+                "key": "Stack",
+                "value": "Kubernetes, Docker, EKS, Helm, ArgoCD"
+              },
+              {
+                "key": "Approach",
+                "value": "Production-grade orchestration and automation"
+              }
+            ]
+          },
+          {
+            "number": "04",
+            "title": "CI/CD & GitOps",
+            "data": [
+              {
+                "key": "Pipeline",
+                "value": "GitHub Actions, GitLab CI, Jenkins, ArgoCD"
+              },
+              {
+                "key": "Approach",
+                "value": "GitOps-driven infrastructure and application delivery"
+              }
+            ]
+          },
+          {
+            "number": "05",
+            "title": "Security & Compliance",
+            "data": [
+              {
+                "key": "Framework",
+                "value": "DevSecOps, Vault, IAM, Container Security"
+              },
+              {
+                "key": "Approach",
+                "value": "Proactive vulnerability management, incident prevention"
+              }
+            ]
+          },
+          {
+            "number": "06",
+            "title": "Full-stack platform development",
+            "data": [
+              {
+                "key": "Languages",
+                "value": "Go, Python, Bash, Rust, VueJS"
+              },
+              {
+                "key": "Approach",
+                "value": "Production-grade applications with modern architectures"
+              }
+            ]
+          },
+          {
+            "number": "07",
+            "title": "System Design & Architecture",
+            "data": [
+              {
+                "key": "Domains",
+                "value": "High-load Platforms, Mobile Infrastructure, Hybrid & Multi-Cloud"
+              },
+              {
+                "key": "Approach",
+                "value": "Scalable, modular designs aligned with business goals and growth"
+              }
+            ]
+          },
+          {
+            "number": "08",
+            "title": "Observability & Monitoring",
+            "data": [
+              {
+                "key": "Stack",
+                "value": "Prometheus, Grafana, Datadog, ELK Stack, OpenTelemetry"
+              },
+              {
+                "key": "Approach",
+                "value": "Proactive incident detection, transparent metrics, end-to-end tracing"
+              }
+            ]
+          }
+        ],
+        "career": [
+          {
+            "year": "2013",
+            "role": "QA Engineer",
+            "company": "Russia, VTB Bank"
+          },
+          {
+            "year": "2014",
+            "role": "Sr QA Engineer",
+            "company": "Russia, Raiffeisen Bank"
+          },
+          {
+            "year": "2016",
+            "role": "DevOps / DevOps Team Lead",
+            "company": "Russia, Mail.ru Group (VK)"
+          },
+          {
+            "year": "2022",
+            "role": "Lead DevOps (mobile infrastructure)",
+            "company": "Russia, OzonTech"
+          },
+          {
+            "year": "2023+",
+            "role": "Sr SRE Engineer (core team)",
+            "company": "Israel, Aqua Security",
+            "current": true
+          }
+        ],
+        "careerTitle": "// Career Journey"
+      },
+      "solutions": {
+        "title": "Real-World Impact.",
+        "eyebrow": "SOLUTIONS",
+        "number": "03",
+        "projectsTitle": "Major Projects",
+        "achievementsTitle": "Impact Summary",
+        "projects": [
+          {
+            "header": {
+              "key": "Mobile Platform Consolidation",
+              "value": "Fragmented mobile infrastructure: teams managing isolated build/test environments"
+            },
+            "body": {
+              "key": "Solution",
+              "value": "Designed centralized mobile platform with resource allocation, standardized workflows (20+ MacStudios, K8s Android farm)"
+            },
+            "footer": {
+              "key": "Result",
+              "value": "35% faster releases, unified processes across teams"
+            }
+          },
+          {
+            "header": {
+              "key": "Pipeline-as-a-Service",
+              "value": "Fragmented CI/CD landscape: each mobile team supporting custom pipeline solutions"
+            },
+            "body": {
+              "key": "Solution",
+              "value": "Built self-service Pipeline-as-a-Service with standardized core logic and configurable project adaptations"
+            },
+            "footer": {
+              "key": "Result",
+              "value": "Centralized pipeline management, improved developer velocity"
+            }
+          },
+          {
+            "header": {
+              "key": "Aurora Serverless Migration",
+              "value": "High database costs and operational scaling complexity"
+            },
+            "body": {
+              "key": "Solution",
+              "value": "Automated migration to Aurora Serverless v2 with demand-based capacity management"
+            },
+            "footer": {
+              "key": "Result",
+              "value": "15% cost reduction, eliminated manual capacity planning"
+            }
+          },
+          {
+            "header": {
+              "key": "OpenStack CLI Tool",
+              "value": "Complex manual management of OpenStack infrastructure"
+            },
+            "body": {
+              "key": "Solution",
+              "value": "Developed OpenStack CLI automation tool Python with integrated SaltStack orchestration (like aws-cli)"
+            },
+            "footer": {
+              "key": "Result",
+              "value": "Eliminated manual operations, standardized infrastructure workflows"
+            }
+          },
+          {
+            "header": {
+              "key": "Internal Artifact Platform",
+              "value": "Expensive third-party artifact platform with limited customization options"
+            },
+            "body": {
+              "key": "Solution",
+              "value": "Developed unified artifact storage & distribution service with HTTP/gRPC API and web UI (Go, VueJS)"
+            },
+            "footer": {
+              "key": "Result",
+              "value": "Reduced platform costs, simplified artifact management with seamless CI/CD integration"
+            }
+          }
+        ],
+        "achievements": [
+          {
+            "area": "Cost Optimization",
+            "result": "15-25% infrastructure savings",
+            "description": "Strategic infrastructure audits and automated resource optimization across all environments"
+          },
+          {
+            "area": "Cross-team Collaboration",
+            "result": "10+ trainings delivered",
+            "description": "Led hands-on workshops and mentoring on DevOps tools and best practices."
+          },
+          {
+            "area": "Technical Leadership",
+            "result": "Standards rolled out to 15+ teams",
+            "description": "Developed and enforced infrastructure standards adopted across multiple engineering teams."
+          },
+          {
+            "area": "Migration Projects",
+            "result": "Zero-downtime transitions",
+            "description": "Successfully migrated critical workloads to modern platforms without downtime"
+          },
+          {
+            "area": "Process Improvement",
+            "result": "Unified deployment workflows",
+            "description": "Established consistent deployment and infrastructure management practices"
+          },
+          {
+            "area": "Platform Development",
+            "result": "Reusable service components",
+            "description": "Developed foundational services and APIs used across multiple engineering teams"
+          },
+          {
+            "area": "Infrastructure Automation",
+            "result": "Reduced manual work",
+            "description": "Created Terraform modules and CI/CD templates eliminating repetitive infrastructure tasks"
+          }
+        ]
+      },
+      "openSource": {
+        "title": "Shared with the World.",
+        "eyebrow": "OpenSource",
+        "number": "04",
+        "projects": [
+          {
+            "header": {
+              "key": "goldmark-tgmd",
+              "value": "Goldmark extension: Markdown → Telegram MarkdownV2 converter"
+            },
+            "href": "https://github.com/Mad-Pixels/goldmark-tgmd"
+          },
+          {
+            "header": {
+              "key": "go-dyno",
+              "value": "Schema-driven Go code generator for DynamoDB from JSON schemas"
+            },
+            "href": "https://github.com/Mad-Pixels/go-dyno"
+          },
+          {
+            "header": {
+              "key": "github-workflows",
+              "value": "Reusable GitHub Actions workflows for CI/CD automation"
+            },
+            "href": "https://github.com/Mad-Pixels/github-workflows"
+          },
+          {
+            "header": {
+              "key": "applingo-ios",
+              "value": "iOS flashcard app with mini-games for learning foreign words"
+            },
+            "href": "https://github.com/Mad-Pixels/applingo-ios"
+          }
+        ]
+      }
+    }
+  }
+}
