@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LayoutCard from '@/components/base/BaseCard.vue'
+import BaseCard from '@/components/base/BaseCard.vue'
 
 interface DataItem {
   key: string
@@ -15,7 +15,10 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <LayoutCard :href="props.href" :class="$style.itemCardText">
+  <BaseCard
+    v-bind="props.href === undefined ? {} : { href: props.href }"
+    :class="$style.itemCardText"
+  >
     <div v-if="header" :class="$style.itemCardTextHeader">
       <div :class="[$style.itemCardTextHeaderLabel, $style.hLabel]">{{ header.key }}</div>
       <div :class="[$style.itemCardTextHeaderText, $style.hText]">{{ header.value }}</div>
@@ -28,7 +31,7 @@ const props = defineProps<Props>()
       <div :class="[$style.itemCardTextFooterLabel, $style.fLabel]">{{ footer.key }}</div>
       <div :class="[$style.itemCardTextFooterText, $style.fText]">{{ footer.value }}</div>
     </div>
-  </LayoutCard>
+  </BaseCard>
 </template>
 
 <style module lang="scss">

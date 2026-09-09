@@ -14,7 +14,11 @@ defineProps<Props>()
 <template>
   <Teleport to="body">
     <div v-if="isOpen" :class="$style.navOverlay" @click="closeMenu"></div>
-    <nav :class="[$style.navMenu, { [$style.navMenuOpen]: isOpen }]" id="navigation-menu">
+    <nav
+      :class="[$style.navMenu, { [$style.navMenuOpen]: isOpen }]"
+      id="navigation-menu"
+      :inert="!isOpen"
+    >
       <div :class="$style.navMenuContent">
         <ul :class="$style.navMenuList">
           <li :class="$style.navMenuItem">

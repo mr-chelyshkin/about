@@ -15,14 +15,10 @@ const handleBurgerToggle = (isActive: boolean) => {
 }
 const closeMenu = () => {
   isMenuOpen.value = false
-  if (burgerButtonRef.value) {
-    burgerButtonRef.value.isActive = false
-  }
 }
 
 const { lock, unlock } = useScrollLock()
 const isMenuOpen = ref(false)
-const burgerButtonRef = ref()
 
 watch(isMenuOpen, (v) => (v ? lock() : unlock()))
 onMounted(() => {
@@ -38,7 +34,7 @@ onUnmounted(() => {
   <div :class="$style.layout">
     <div :class="$style.layoutBurgerContainer">
       <div :class="['container', $style.containerPointerEvents]">
-        <NavBurger ref="burgerButtonRef" @toggle="handleBurgerToggle" />
+        <NavBurger :is-open="isMenuOpen" @toggle="handleBurgerToggle" />
       </div>
     </div>
 

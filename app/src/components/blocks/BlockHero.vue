@@ -21,7 +21,7 @@ const props = defineProps<Props>()
         <ItemDigitalImage
           alt="Igor Chelyshkin - Platform Engineer"
           format="webp"
-          src="hero"
+          :src="heroData.image"
           folder=""
           :pulse="true"
           :glitch="true"

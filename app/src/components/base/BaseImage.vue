@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref } from 'vue'
 
 interface Props {
   format?: 'webp' | 'jpg' | 'png'
@@ -48,44 +48,34 @@ const optimizedSrc = computed(() => {
   return getImagePath(defaultWidth)
 })
 const srcSet = computed(() => {
-  if (!props.responsive) return undefined
-
   const widths = [400, 800, 1200, 1600]
   return widths.map((width) => `${getImagePath(width)} ${width}w`).join(', ')
 })
 const defaultSizes = '(max-width: 768px) 400px, (max-width: 1200px) 800px, 1200px'
-const loadingValue = computed(() => {
+const loadingValue = computed<'eager' | 'lazy' | undefined>(() => {
   if (props.priority) return 'eager'
   if (props.lazy) return 'lazy'
   return undefined
 })
+const imageAttributes = computed(() => ({
+  ...(props.responsive ? { sizes: props.sizes || defaultSizes, srcset: srcSet.value } : {}),
+  ...(loadingValue.value ? { loading: loadingValue.value } : {}),
+  ...(props.height !== undefined ? { height: props.height } : {}),
+  ...(props.width !== undefined ? { width: props.width } : {}),
+}))
 const handleError = () => {
   hasError.value = true
 }
 const handleLoad = () => {
   isLoaded.value = true
 }
-
-onMounted(() => {
-  if (props.priority) {
-    const link = document.createElement('link')
-    link.href = optimizedSrc.value
-    link.rel = 'preload'
-    link.as = 'image'
-
-    document.head.appendChild(link)
-  }
-})
 </script>
 
 <template>
   <img
-    :sizes="responsive ? sizes || defaultSizes : undefined"
-    :srcset="responsive ? srcSet : undefined"
-    :loading="loadingValue"
+    v-bind="imageAttributes"
+    :fetchpriority="priority ? 'high' : 'auto'"
     :src="optimizedSrc"
-    :height="height"
-    :width="width"
     :alt="alt"
     :class="[$style.baseImage, { [$style.loaded]: isLoaded }, { [$style.error]: hasError }]"
     @load="handleLoad"

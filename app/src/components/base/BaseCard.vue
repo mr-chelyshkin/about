@@ -6,7 +6,7 @@ defineProps<Props>()
 </script>
 
 <template>
-  <a :href="href" :class="$style.baseCard">
+  <a v-bind="href === undefined ? {} : { href }" :class="$style.baseCard">
     <slot />
   </a>
 </template>

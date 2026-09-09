@@ -3,7 +3,6 @@ import { useGlitch } from '@/composables/useGlitch'
 
 interface Props {
   to: string
-  index: number
   animation?: 'glitch-digital' | 'glitch-digital-fast' | 'glitch-matrix' | 'glitch-matrix-fast'
   duration?: number
 }
@@ -15,7 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{ click: [] }>()
 
-const { triggerByIndex, isGlitchingByIndex, glitchClass } = useGlitch({
+const { trigger, isGlitching, glitchClass } = useGlitch({
   animation: props.animation,
   duration: props.duration,
 })
@@ -23,26 +22,15 @@ const { triggerByIndex, isGlitchingByIndex, glitchClass } = useGlitch({
 const handleClick = () => {
   emit('click')
 }
-
-const handleMouseEnter = () => {
-  triggerByIndex(props.index)
-}
 </script>
 
 <template>
   <router-link
     :to="to"
-    :class="[
-      $style.contentLink,
-      {
-        [$style.routerLinkActive]: $route.matched.some(
-          (record: { path: any }) => record.path === to,
-        ),
-      },
-      { [glitchClass]: isGlitchingByIndex(index) },
-    ]"
+    :active-class="$style.routerLinkActive"
+    :class="[$style.contentLink, { [glitchClass]: isGlitching }]"
     @click="handleClick"
-    @mouseenter="handleMouseEnter"
+    @mouseenter="trigger"
   >
     <slot />
   </router-link>

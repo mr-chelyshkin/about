@@ -1,25 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
-const isActive = ref(false)
-const emit = defineEmits<{ toggle: [isActive: boolean] }>()
-const toggleMenu = () => {
-  isActive.value = !isActive.value
-  emit('toggle', isActive.value)
+interface Props {
+  isOpen: boolean
 }
 
-defineExpose({
-  toggle: toggleMenu,
-  isActive,
-})
+const props = defineProps<Props>()
+const emit = defineEmits<{ toggle: [isOpen: boolean] }>()
+const toggleMenu = () => {
+  emit('toggle', !props.isOpen)
+}
 </script>
 
 <template>
   <button
-    :class="[$style.navBurger, { [$style.navBurgerActive]: isActive }]"
+    :class="[$style.navBurger, { [$style.navBurgerActive]: isOpen }]"
     @click="toggleMenu"
-    :aria-label="isActive ? 'open menu' : 'close menu'"
-    :aria-expanded="isActive"
+    :aria-label="isOpen ? 'close menu' : 'open menu'"
+    :aria-expanded="isOpen"
     aria-controls="navigation-menu"
   >
     <span :class="[$style.navBurgerLine, $style.navBurgerLine1]"></span>
