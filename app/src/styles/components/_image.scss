@@ -13,31 +13,4 @@
       filter: grayscale(100%);
     }
   }
-
-  .c-digital-image {
-    object-fit: cover;
-    display: block;
-    height: 100%;
-    width: 100%;
-  }
-
-  .c-digital-image--pulse {
-    animation: digital-image-pulse 18s ease-in-out infinite;
-  }
-
-  @keyframes digital-image-pulse {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .c-digital-image--pulse {
-      animation: none;
-    }
-  }
 }

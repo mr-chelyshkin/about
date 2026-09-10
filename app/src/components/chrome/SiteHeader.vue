@@ -1,20 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue'
-import { useRoute } from 'vue-router'
-
+import { onMounted, onUnmounted, ref, watch } from 'vue'
+import BaseContainer from '@/components/layout/BaseContainer.vue'
 import SiteMenuToggle from '@/components/chrome/SiteMenuToggle.vue'
 import SiteNavigation from '@/components/chrome/SiteNavigation.vue'
-import SiteSectionIndicator from '@/components/chrome/SiteSectionIndicator.vue'
-import BaseContainer from '@/components/layout/BaseContainer.vue'
-import { useBlockTracker } from '@/composables/useBlockTracker'
 import { useScrollLock } from '@/composables/useScrollLock'
+import { siteContent } from '@/contents'
 
-const { currentBlockTitle, currentBlockNumber, initializeTracker, cleanup } = useBlockTracker()
 const { lock, unlock } = useScrollLock()
 const isMenuOpen = ref(false)
 const header = ref<HTMLElement | null>(null)
 const menuToggle = ref<InstanceType<typeof SiteMenuToggle> | null>(null)
-const route = useRoute()
 
 const toggleMenu = (isOpen: boolean) => {
   isMenuOpen.value = isOpen
@@ -36,35 +31,25 @@ const closeOnEscape = (event: KeyboardEvent) => {
 }
 
 watch(isMenuOpen, (isOpen) => (isOpen ? lock() : unlock()))
-watch(
-  () => route.path,
-  () => {
-    cleanup()
-    initializeTracker()
-  },
-  { flush: 'post' },
-)
-onMounted(() => {
-  initializeTracker()
-  document.addEventListener('keydown', closeOnEscape)
-})
+onMounted(() => document.addEventListener('keydown', closeOnEscape))
 onUnmounted(() => {
-  cleanup()
   unlock()
   document.removeEventListener('keydown', closeOnEscape)
 })
 </script>
 
 <template>
-  <header ref="header" class="site-header" @focusout="closeOnFocusLeave">
-    <div class="site-header__menu-container">
-      <BaseContainer class="site-header__menu-inner">
-        <SiteMenuToggle ref="menuToggle" :is-open="isMenuOpen" @toggle="toggleMenu" />
-      </BaseContainer>
-    </div>
+  <header ref="header" class="site-header site-header--poster" @focusout="closeOnFocusLeave">
     <BaseContainer class="o-container--row-between">
-      <SiteSectionIndicator :title="currentBlockTitle" :number="currentBlockNumber" />
-      <div class="site-header__menu-placeholder"></div>
+      <a
+        class="site-header__identity"
+        :href="siteContent.links.home"
+        :aria-label="`${siteContent.brand.fullName}, home`"
+      >
+        <img src="/favicon.svg" alt="" width="28" height="28" />
+        <span>{{ siteContent.brand.fullName }}</span>
+      </a>
+      <SiteMenuToggle ref="menuToggle" :is-open="isMenuOpen" @toggle="toggleMenu" />
     </BaseContainer>
     <SiteNavigation :is-open="isMenuOpen" @close="closeMenu" />
   </header>

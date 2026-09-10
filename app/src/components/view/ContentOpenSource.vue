@@ -1,19 +1,46 @@
 <script setup lang="ts">
-import ViewSection from '@/components/view/ViewSection.vue'
-
-import BaseTextCard from '@/components/ui/BaseTextCard.vue'
-
+import { useId } from 'vue'
+import ExternalLinkList from '@/components/ui/ExternalLinkList.vue'
+import SectionHeading from '@/components/ui/SectionHeading.vue'
+import SectionRail from '@/components/ui/SectionRail.vue'
+import { padIndex } from '@/utils/format'
 import type { ContentPage } from '@/contents'
 
-defineProps<{
-  content: ContentPage['openSource']
-}>()
+defineProps<{ content: ContentPage['openSource'] }>()
+
+const titleId = `open-source-${useId()}`
 </script>
 
 <template>
-  <ViewSection :title="content.title" :eyebrow="content.eyebrow" :number="content.number">
-    <div class="content-view__open-source-prj-grid">
-      <BaseTextCard v-for="(item, index) in content.projects" :key="index" v-bind="item" />
+  <section class="content-open-source o-poster" :aria-labelledby="titleId">
+    <div class="o-poster__sheet">
+      <div class="o-poster__split">
+        <SectionHeading :id="titleId" :lines="content.headline" />
+        <p class="o-poster__aside">{{ content.description }}</p>
+      </div>
+
+      <ul class="content-open-source__grid">
+        <li
+          v-for="(project, index) in content.projects"
+          :key="project.name"
+          class="content-open-source__plate"
+        >
+          <p class="content-open-source__plate-index" aria-hidden="true">{{ padIndex(index) }}</p>
+          <h3 class="content-open-source__plate-name">{{ project.name }}</h3>
+          <p class="content-open-source__plate-summary">{{ project.summary }}</p>
+
+          <dl class="content-open-source__specs">
+            <template v-for="spec in project.specs" :key="spec.term">
+              <dt class="content-open-source__spec-term">{{ spec.term }}</dt>
+              <dd class="content-open-source__spec-value">{{ spec.value }}</dd>
+            </template>
+          </dl>
+
+          <ExternalLinkList :links="project.links" :label-prefix="`${project.name} on`" />
+        </li>
+      </ul>
     </div>
-  </ViewSection>
+
+    <SectionRail :index="content.index" :label="content.label" />
+  </section>
 </template>

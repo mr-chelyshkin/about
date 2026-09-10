@@ -8,6 +8,7 @@ interface Props {
 
   height?: number
   width?: number
+  assetWidth?: number
 
   responsive?: boolean
   priority?: boolean
@@ -27,6 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
   responsive: true,
   priority: false,
   lazy: true,
+  assetWidth: 800,
 
   format: 'webp',
   folder: '',
@@ -45,10 +47,7 @@ const getImagePath = (width: number) => {
 
   return imageUrl
 }
-const optimizedSrc = computed(() => {
-  const defaultWidth = props.width || 800
-  return getImagePath(defaultWidth)
-})
+const optimizedSrc = computed(() => getImagePath(props.assetWidth))
 const srcSet = computed(() => {
   const widths = [400, 800, 1200, 1600]
   return widths.map((width) => `${getImagePath(width)} ${width}w`).join(', ')
@@ -69,6 +68,7 @@ const handleError = () => {
   hasError.value = true
 }
 const handleLoad = () => {
+  hasError.value = false
   isLoaded.value = true
 }
 </script>

@@ -1,14 +1,12 @@
 export type ImageFormat = 'webp' | 'jpg' | 'png'
 
-export type GlitchAnimation =
-  | 'c-glitch-digital'
-  | 'c-glitch-digital-fast'
-  | 'c-glitch-digital-slow'
-  | 'c-glitch-matrix'
-  | 'c-glitch-matrix-fast'
-  | 'c-glitch-matrix-slow'
+export type GlitchAnimation = 'c-glitch-digital' | 'c-glitch-matrix'
 
-export interface KeyValuePair {
-  key: string
-  value: string
+export interface IconProps {
+  size?: number
+  label?: string
 }
+
+export type SocialPlatform = 'linkedin' | 'github'
+
+export type SocialProfiles = Record<SocialPlatform, { label: string; href: string }>

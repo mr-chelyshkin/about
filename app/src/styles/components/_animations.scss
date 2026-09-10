@@ -2,70 +2,70 @@
   @keyframes digital-corruption {
     0%,
     100% {
-      transform: translate(0);
+      translate: 0;
       opacity: 1;
       clip-path: inset(0);
       filter: hue-rotate(0deg);
     }
 
     10% {
-      transform: translate(-2px, 0);
+      translate: -2px 0;
       opacity: 0.9;
       clip-path: inset(20% 0 0 0);
       filter: hue-rotate(90deg) contrast(1.2);
     }
 
     20% {
-      transform: translate(3px, 0);
+      translate: 3px 0;
       opacity: 0.8;
       clip-path: inset(0 0 60% 0);
       filter: hue-rotate(180deg) contrast(0.8);
     }
 
     30% {
-      transform: translate(-1px, 0);
+      translate: -1px 0;
       opacity: 0.7;
       clip-path: inset(40% 0 20% 0);
       filter: hue-rotate(270deg) contrast(1.5);
     }
 
     40% {
-      transform: translate(2px, 0);
+      translate: 2px 0;
       opacity: 0.9;
       clip-path: inset(0 0 40% 0);
       filter: hue-rotate(45deg) contrast(0.6);
     }
 
     50% {
-      transform: translate(-3px, 0);
+      translate: -3px 0;
       opacity: 0.6;
       clip-path: inset(10% 0 80% 0);
       filter: hue-rotate(135deg) contrast(2) brightness(1.3);
     }
 
     60% {
-      transform: translate(1px, 0);
+      translate: 1px 0;
       opacity: 0.8;
       clip-path: inset(70% 0 0 0);
       filter: hue-rotate(225deg) contrast(0.4);
     }
 
     70% {
-      transform: translate(-2px, 0);
+      translate: -2px 0;
       opacity: 0.9;
       clip-path: inset(0 0 30% 0);
       filter: hue-rotate(315deg) contrast(1.8);
     }
 
     80% {
-      transform: translate(4px, 0);
+      translate: 4px 0;
       opacity: 0.7;
       clip-path: inset(50% 0 10% 0);
       filter: hue-rotate(60deg) contrast(0.7);
     }
 
     90% {
-      transform: translate(-1px, 0);
+      translate: -1px 0;
       opacity: 0.95;
       clip-path: inset(5% 0 0 0);
       filter: hue-rotate(30deg) contrast(1.1);
@@ -76,32 +76,16 @@
     animation: digital-corruption var(--glitch-duration, 400ms) ease-in-out;
   }
 
-  .c-glitch-digital-fast {
-    animation: digital-corruption 0.2s ease-in-out;
-  }
-
-  .c-glitch-digital-slow {
-    animation: digital-corruption 0.6s ease-in-out;
-  }
-
-  .c-glitch-digital-loop {
-    animation: digital-corruption 0.4s ease-in-out infinite;
-  }
-
-  .c-glitch-digital-loop-slow {
-    animation: digital-corruption 2s ease-in-out infinite;
-  }
-
   @keyframes matrix-split {
     0%,
     100% {
-      transform: translate(0);
+      translate: 0;
       opacity: 1;
       text-shadow: none;
     }
 
     10% {
-      transform: translate(-2px, 0);
+      translate: -2px 0;
       opacity: 0.9;
       text-shadow:
         2px 0 0 #ff0000,
@@ -109,7 +93,7 @@
     }
 
     20% {
-      transform: translate(3px, 0);
+      translate: 3px 0;
       opacity: 0.8;
       text-shadow:
         -1px 0 0 #00ff00,
@@ -117,7 +101,7 @@
     }
 
     30% {
-      transform: translate(-1px, 0);
+      translate: -1px 0;
       opacity: 0.7;
       text-shadow:
         1px 0 0 #0000ff,
@@ -126,7 +110,7 @@
     }
 
     40% {
-      transform: translate(4px, 0);
+      translate: 4px 0;
       opacity: 0.6;
       text-shadow:
         -4px 0 0 #ffff00,
@@ -135,7 +119,7 @@
     }
 
     50% {
-      transform: translate(-3px, 0);
+      translate: -3px 0;
       opacity: 0.5;
       text-shadow:
         3px 0 0 #00ffff,
@@ -144,7 +128,7 @@
     }
 
     60% {
-      transform: translate(2px, 0);
+      translate: 2px 0;
       opacity: 0.8;
       text-shadow:
         -2px 0 0 #ff0000,
@@ -152,7 +136,7 @@
     }
 
     70% {
-      transform: translate(-2px, 0);
+      translate: -2px 0;
       opacity: 0.7;
       text-shadow:
         2px 0 0 #00ff00,
@@ -160,7 +144,7 @@
     }
 
     80% {
-      transform: translate(1px, 0);
+      translate: 1px 0;
       opacity: 0.9;
       text-shadow:
         -1px 0 0 #0000ff,
@@ -168,7 +152,7 @@
     }
 
     90% {
-      transform: translate(-1px, 0);
+      translate: -1px 0;
       opacity: 0.95;
       text-shadow:
         1px 0 0 #00ff00,
@@ -180,33 +164,9 @@
     animation: matrix-split 0.4s ease-in-out;
   }
 
-  .c-glitch-matrix-fast {
-    animation: matrix-split 0.2s ease-in-out;
-  }
-
-  .c-glitch-matrix-slow {
-    animation: matrix-split 0.6s ease-in-out;
-  }
-
-  .c-glitch-matrix-loop {
-    animation: matrix-split 0.4s ease-in-out infinite;
-  }
-
-  .c-glitch-matrix-loop-slow {
-    animation: matrix-split 2s ease-in-out infinite;
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .c-glitch-digital,
-    .c-glitch-digital-fast,
-    .c-glitch-digital-slow,
-    .c-glitch-digital-loop,
-    .c-glitch-digital-loop-slow,
-    .c-glitch-matrix,
-    .c-glitch-matrix-fast,
-    .c-glitch-matrix-slow,
-    .c-glitch-matrix-loop,
-    .c-glitch-matrix-loop-slow {
+    .c-glitch-matrix {
       animation: none;
     }
   }

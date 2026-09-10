@@ -14,7 +14,9 @@ const sizes = [400, 800, 1200, 1600]
 const quality = 90
 
 async function ensureDirectoryExists(dirPath) {
-  if (!fs.existsSync(dirPath)) { fs.mkdirSync(dirPath, { recursive: true }) }
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true })
+  }
 }
 
 async function optimizeImages() {
@@ -23,7 +25,7 @@ async function optimizeImages() {
   }
 
   const files = fs.readdirSync(inputDir)
-  const imageFiles = files.filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file))
+  const imageFiles = files.filter((file) => /\.(jpg|jpeg|png|webp)$/i.test(file))
 
   if (imageFiles.length === 0) {
     throw new Error(`No source images found in ${inputDir}`)
@@ -32,28 +34,30 @@ async function optimizeImages() {
   for (const file of imageFiles) {
     const inputPath = path.join(inputDir, file)
     const name = path.parse(file).name
-    
+
     console.log(`\noptimizing: ${file}`)
     for (const size of sizes) {
       const outputPath = path.join(outputDir, `${name}-${size}.webp`)
-      
+
       try {
         await sharp(inputPath)
-          .resize(size, null, { withoutEnlargement: true, fit: 'inside'})
+          .resize(size, null, { withoutEnlargement: true, fit: 'inside' })
           .webp({ quality })
           .toFile(outputPath)
-        
+
         const stats = fs.statSync(outputPath)
         const sizeKB = Math.round(stats.size / 1024)
         console.log(` ${name}-${size}.webp (${sizeKB}KB)`)
       } catch (error) {
-        throw new Error(`Error while optimizing ${name}-${size}.webp: ${error.message}`, { cause: error })
+        throw new Error(`Error while optimizing ${name}-${size}.webp: ${error.message}`, {
+          cause: error,
+        })
       }
     }
   }
 }
 
-optimizeImages().catch(error => {
+optimizeImages().catch((error) => {
   console.error(error)
   process.exitCode = 1
 })

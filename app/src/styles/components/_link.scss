@@ -6,13 +6,16 @@
     display: block;
     padding: 1rem 0;
     text-decoration: none;
-    font-size: clamp(1.75rem, 3.5vw, 3.5rem);
-    font-weight: 500;
-    letter-spacing: -0.04em;
-    line-height: 1.1;
-    border-bottom: 1px solid currentColor;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: normal;
+
+    &::after {
+      height: 2.5px;
+    }
   }
   .c-link--active {
-    color: var(--color-accent-cool);
+    font-weight: 600;
   }
 }
