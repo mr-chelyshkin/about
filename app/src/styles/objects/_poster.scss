@@ -14,6 +14,7 @@
 
   .o-poster__sheet {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--poster-gap);
     padding: var(--poster-block) var(--poster-gutter);
   }

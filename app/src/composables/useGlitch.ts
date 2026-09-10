@@ -15,7 +15,7 @@ export function useGlitch(options: UseGlitchOptions = {}) {
 
   const trigger = () => {
     if (timeout !== undefined) {
-      clearTimeout(timeout)
+      return
     }
 
     isGlitching.value = true

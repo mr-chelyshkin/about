@@ -52,23 +52,6 @@
     }
   }
 
-  .content-contact__links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.75rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .content-contact__link {
-    @include tools.meta-text;
-
-    &:focus-visible {
-      @include tools.focus-ring;
-    }
-  }
-
   @media (max-width: 64rem) {
     /* Sized so a full-length address still sets on one line at 375px. */
     .content-contact__email {

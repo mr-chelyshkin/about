@@ -8,12 +8,13 @@
     line-height: 0.9;
     letter-spacing: -0.06em;
     text-transform: uppercase;
-    text-wrap: nowrap;
+    text-wrap: wrap;
   }
 
   .c-section-heading__line {
     display: block;
     width: fit-content;
+    max-width: 100%;
 
     &:nth-child(1) {
       --signal-cut: inset(31% 0 57% 4%);

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useId } from 'vue'
+import ExternalLinkList from '@/components/ui/ExternalLinkList.vue'
 import SectionBand from '@/components/ui/SectionBand.vue'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import type { ContentPage } from '@/contents'
@@ -30,19 +31,7 @@ const titleId = `contact-${useId()}`
           {{ content.email.label }}
         </a>
 
-        <ul class="content-contact__links">
-          <li v-for="profile in profiles" :key="profile.href">
-            <a
-              class="content-contact__link"
-              :href="profile.href"
-              target="_blank"
-              rel="noopener noreferrer"
-              :aria-label="`${profile.label} (opens in a new tab)`"
-            >
-              {{ profile.label }}
-            </a>
-          </li>
-        </ul>
+        <ExternalLinkList :links="Object.values(profiles)" />
       </div>
     </div>
   </section>

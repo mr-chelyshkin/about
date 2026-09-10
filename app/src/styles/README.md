@@ -95,6 +95,10 @@ shared objects.
 - `BaseExternalLink` owns the compact tile, icon slot, label, border and hover/focus
   treatment. It inherits its text color; borders and hover backgrounds derive
   from that color for use on both light and dark surfaces.
+- `ExternalLinkList` owns the wrapping list of text links, external-link attributes
+  and focus treatment. `labelPrefix` adds context to accessible names when needed.
+- `BaseImage` uses `assetWidth` to select its source file; `width` and `height` set
+  the image's HTML dimensions. Responsive selection uses `srcset` and `sizes`.
 - `SocialLinks` owns the wrapping horizontal list and its profile-to-icon mapping. It receives data
   through props and emits clicks; it does not control navigation state.
 

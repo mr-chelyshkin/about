@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useId } from 'vue'
+import ExternalLinkList from '@/components/ui/ExternalLinkList.vue'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import SectionRail from '@/components/ui/SectionRail.vue'
 import { padIndex } from '@/utils/format'
@@ -35,19 +36,7 @@ const titleId = `open-source-${useId()}`
             </template>
           </dl>
 
-          <ul class="content-open-source__links">
-            <li v-for="link in project.links" :key="link.label">
-              <a
-                class="content-open-source__link"
-                :href="link.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                :aria-label="`${project.name} on ${link.label} (opens in a new tab)`"
-              >
-                {{ link.label }}
-              </a>
-            </li>
-          </ul>
+          <ExternalLinkList :links="project.links" :label-prefix="`${project.name} on`" />
         </li>
       </ul>
     </div>

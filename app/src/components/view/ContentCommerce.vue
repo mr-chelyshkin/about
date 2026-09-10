@@ -11,17 +11,25 @@ const titleId = `commerce-${useId()}`
 
 // The readout follows pointer and keyboard alike; with nothing selected it
 // carries the section's own lede.
-const activeIndex = ref<number | null>(null)
+const hoveredIndex = ref<number | null>(null)
+const focusedIndex = ref<number | null>(null)
+const prefersFocus = ref(false)
+const activeIndex = computed(() =>
+  prefersFocus.value
+    ? (focusedIndex.value ?? hoveredIndex.value)
+    : (hoveredIndex.value ?? focusedIndex.value),
+)
 const activeCompany = computed(() =>
   activeIndex.value === null ? null : props.content.companies[activeIndex.value],
 )
 
-const select = (index: number) => {
-  activeIndex.value = index
+const selectHovered = (index: number) => {
+  hoveredIndex.value = index
+  prefersFocus.value = false
 }
-
-const clear = () => {
-  activeIndex.value = null
+const selectFocused = (index: number) => {
+  focusedIndex.value = index
+  prefersFocus.value = true
 }
 </script>
 
@@ -39,10 +47,10 @@ const clear = () => {
             type="button"
             class="content-commerce__entry"
             :class="{ 'content-commerce__entry--active': activeIndex === index }"
-            @mouseenter="select(index)"
-            @focus="select(index)"
-            @mouseleave="clear"
-            @blur="clear"
+            @mouseenter="selectHovered(index)"
+            @focus="selectFocused(index)"
+            @mouseleave="hoveredIndex = null"
+            @blur="focusedIndex = null"
           >
             <span class="content-commerce__entry-index" aria-hidden="true">
               {{ padIndex(index) }}

@@ -160,4 +160,11 @@
     flex: none;
     width: 100%;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-navigation,
+    .site-menu-toggle__line {
+      transition: none;
+    }
+  }
 }

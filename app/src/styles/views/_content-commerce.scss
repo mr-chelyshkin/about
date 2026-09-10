@@ -16,12 +16,18 @@
     margin: 0;
     padding: 0;
     list-style: none;
+
+    > li {
+      min-width: 0;
+      max-width: 100%;
+    }
   }
 
   /* The elements layer styles buttons as compact mono controls; this one is
      display type, so its inherited font, box and hover treatment are dropped. */
   .content-commerce__entry {
     display: inline-flex;
+    max-width: 100%;
     align-items: baseline;
     gap: 0.6rem;
     padding: 0;
@@ -51,6 +57,8 @@
   }
 
   .content-commerce__entry-name {
+    min-width: 0;
+    overflow-wrap: anywhere;
     font-size: clamp(1.75rem, 4.2vw, 3.75rem);
     font-weight: 600;
     line-height: 0.95;
