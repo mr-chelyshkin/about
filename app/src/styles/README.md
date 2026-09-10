@@ -28,18 +28,29 @@ The face mask uses the source photo's dimensions. Its `cover` sizing and
 ## Practice section
 
 `ContentPractice.vue` follows the hero and receives its copy from `site.json`.
-`views/_content-practice.scss` defines a light Swiss poster composition. Its
-horizontal heading introduces the section; the short vertical index and label
-use the same hover glitch as the hero. Each verb sits beside a grouped title and
-description. The middle area shifts three columns within a shared twelve-column
-grid; all areas align on smaller screens. Small local slices vary across the
-letterforms. There are no fixed heights, connector lines or scroll effects.
+`views/_content-practice.scss` continues the hero's poster geometry: `--poster-rail`
+and `--poster-gutter` come from `themes/_site.scss`, so the section's display type
+starts on the hero headline's left edge and the right rail keeps the hero rail's
+width and position, inverted to a dark surface. The vertical index and label use
+the same hover glitch as the hero.
+
+The lede and every layer share one `7fr / 5fr` split, which holds the secondary
+column on a single vertical line down the section; hairline rules separate the
+layers, and the layers read as a stack from what the team works with down to what
+it runs on. Each headline line carries a `BaseSignalText` tear with its own cut and
+offset, and hovering the headline drifts those slices in discrete steps. There are
+no fixed heights, connector lines or scroll effects.
 
 ## Motion and interaction
 
 `components/_animations.scss` contains the two active glitch effects:
-`digital-corruption` for the discipline label and `matrix-split` for the menu
+`digital-corruption` for the vertical rail labels and `matrix-split` for the menu
 link. They run once on hover and respect `prefers-reduced-motion`.
+
+Both animate the standalone `translate` property instead of `transform`, so they
+compose with an element's own `transform` rather than replacing it: a rotated label
+keeps its rotation while it glitches. Keyframes meant to override a base transform,
+such as the headline slice drift in the practice section, use `transform` on purpose.
 
 The navigation keeps the dark panel and small mono link from `v0.0.1`.
 Strike-through is a hover effect; the active route uses a heavier font weight.

@@ -37,13 +37,13 @@ const { isGlitching, trigger, glitchClass } = useGlitch()
     </div>
 
     <p class="content-practice__rail">
-      <span
-        class="content-practice__rail-text"
-        :class="{ [glitchClass]: isGlitching }"
-        @mouseenter="trigger"
-      >
-        <span>{{ content.index }}</span>
-        <span>{{ content.label }}</span>
+      <span class="content-practice__rail-text" @mouseenter="trigger">
+        <!-- The glitch sits inside the rotation, as it does in the hero rail, so
+             its shift follows the same axis in both places. -->
+        <span class="content-practice__rail-label" :class="{ [glitchClass]: isGlitching }">
+          <span>{{ content.index }}</span>
+          <span>{{ content.label }}</span>
+        </span>
       </span>
     </p>
   </section>
