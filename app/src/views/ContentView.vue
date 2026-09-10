@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseView from '@/components/view/BaseView.vue'
+import ContentCommerce from '@/components/view/ContentCommerce.vue'
 import ContentHero from '@/components/view/ContentHero.vue'
 import ContentPractice from '@/components/view/ContentPractice.vue'
 import { siteContent } from '@/contents'
@@ -9,5 +10,6 @@ import { siteContent } from '@/contents'
   <BaseView class="content-view">
     <ContentHero :content="siteContent.pages.content.hero" />
     <ContentPractice :content="siteContent.pages.content.practice" />
+    <ContentCommerce :content="siteContent.pages.content.commerce" />
   </BaseView>
 </template>

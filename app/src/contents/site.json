@@ -58,14 +58,39 @@
         "index": "02",
         "label": "Commercial work",
         "headline": ["Where the work", "was done."],
-        "description": "",
+        "description": "PLACEHOLDER — one or two sentences framing the commercial work.",
+        "hint": "Pick a name",
         "companies": [
-          { "name": "Raiffeisen Bank", "meta": "", "note": "" },
-          { "name": "VK", "meta": "", "note": "" },
-          { "name": "Ozon Tech", "meta": "", "note": "" },
-          { "name": "Aqua Security", "meta": "", "note": "" },
-          { "name": "Banank", "meta": "", "note": "" },
-          { "name": "ForkJoin", "meta": "", "note": "" }
+          {
+            "name": "Raiffeisen Bank",
+            "meta": "PLACEHOLDER · years · role",
+            "note": "PLACEHOLDER — one specific line about what was built here."
+          },
+          {
+            "name": "VK",
+            "meta": "PLACEHOLDER · years · role",
+            "note": "PLACEHOLDER — one specific line about what was built here."
+          },
+          {
+            "name": "Ozon Tech",
+            "meta": "PLACEHOLDER · years · role",
+            "note": "PLACEHOLDER — one specific line about what was built here."
+          },
+          {
+            "name": "Aqua Security",
+            "meta": "PLACEHOLDER · years · role",
+            "note": "PLACEHOLDER — one specific line about what was built here."
+          },
+          {
+            "name": "Banank",
+            "meta": "PLACEHOLDER · years · role",
+            "note": "PLACEHOLDER — one specific line about what was built here."
+          },
+          {
+            "name": "ForkJoin",
+            "meta": "PLACEHOLDER · years · role",
+            "note": "PLACEHOLDER — one specific line about what was built here."
+          }
         ]
       }
     }
