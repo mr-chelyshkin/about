@@ -92,6 +92,51 @@
             "note": "PLACEHOLDER — one specific line about what was built here."
           }
         ]
+      },
+      "openSource": {
+        "index": "03",
+        "label": "Open source",
+        "headline": ["Work that", "stays public."],
+        "description": "PLACEHOLDER — one or two sentences on why these exist and who they are for.",
+        "projects": [
+          {
+            "name": "Taskvisor",
+            "summary": "In-process task supervisor for Tokio services: retries, per-attempt timeouts, cooperative cancellation and one owner per key.",
+            "specs": [
+              { "term": "Version", "value": "PLACEHOLDER" },
+              { "term": "Language", "value": "Rust 1.90+" },
+              { "term": "License", "value": "Apache-2.0" }
+            ],
+            "links": [
+              { "label": "crates.io", "href": "https://crates.io/crates/taskvisor" },
+              { "label": "docs.rs", "href": "https://docs.rs/taskvisor" },
+              { "label": "GitHub", "href": "https://github.com/soltiHQ/taskvisor" }
+            ]
+          },
+          {
+            "name": "Solti",
+            "summary": "Modular Rust SDK for task-execution agents built from Kubernetes-shaped resources, pluggable runners and optional HTTP or gRPC boundaries.",
+            "specs": [
+              { "term": "Version", "value": "PLACEHOLDER" },
+              { "term": "Language", "value": "Rust 1.90+" },
+              { "term": "License", "value": "Apache-2.0" }
+            ],
+            "links": [
+              { "label": "crates.io", "href": "https://crates.io/crates/solti" },
+              { "label": "docs.rs", "href": "https://docs.rs/solti" },
+              { "label": "GitHub", "href": "https://github.com/soltiHQ" }
+            ]
+          }
+        ]
+      },
+      "contact": {
+        "label": "Write to me",
+        "headline": ["Tell me what", "is broken."],
+        "description": "PLACEHOLDER — one or two lines on what you are open to, and what makes a good message.",
+        "email": {
+          "label": "PLACEHOLDER@example.com",
+          "href": "mailto:PLACEHOLDER@example.com"
+        }
       }
     }
   }

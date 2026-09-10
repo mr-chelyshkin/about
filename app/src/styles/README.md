@@ -4,53 +4,76 @@
 
 1. `generic/` — reset, focus outline and document defaults.
 2. `elements/` — typography, links and form controls.
-3. `objects/` — page layout and container.
-4. `components/` — header, navigation, footer, image and link behavior.
-5. `views/` — homepage section compositions and their responsive rules.
+3. `objects/` — page layout, container and poster geometry.
+4. `components/` — chrome, shared objects and section parts.
+5. `views/` — what makes each homepage section different from the others.
 
 Each layer exposes its partials through `_index.scss`. `settings/` holds Sass
-values; `themes/_site.scss` exposes the used CSS custom properties. `tools/`
-contains shared mixins and emits no standalone CSS.
+values; `themes/_site.scss` exposes the used CSS custom properties, grouped by
+surfaces, accents, type, poster geometry, chrome and motion. `tools/` contains
+shared mixins and emits no standalone CSS.
 
 Vue files own markup and behavior. Their selectors and media queries live here.
-The current page has a hero, a practice section and shared chrome.
+The page is a hero, three numbered sections, a contact section and the chrome.
 
-## Hero
+## Poster geometry
 
-`views/_content-view.scss` contains the photo, oversized headline, vertical
-discipline label and static signal effects. The SVG color filter is defined by
-`ContentHero.vue`. A masked copy of the photo keeps the face clear above the
-color split and scanlines; the contrast gradient sits above both image layers.
+`objects/_poster.scss` owns the geometry every full-bleed section shares, so no
+view restates grid maths:
 
-The face mask uses the source photo's dimensions. Its `cover` sizing and
-`50% 40%` position match the image crop.
+- `.o-poster` — the content column beside the rail column.
+- `.o-poster--open` — for a section that carries no rail and runs edge to edge.
+- `.o-poster__sheet` — the gutters and the vertical rhythm, from `--poster-block`
+  and `--poster-gap`.
+- `.o-poster__split` — the 7fr / 5fr primary and secondary columns, so every row
+  that uses it keeps its secondary column on one vertical line down the page.
+- `.o-poster__aside` — the measure and size of the text in that second column.
 
-## Practice section
+`--poster-rail` and `--poster-gutter` also drive the hero, so section display type
+starts on the hero headline's left edge and every rail keeps the same width and
+position.
 
-`ContentPractice.vue` follows the hero and receives its copy from `site.json`.
-`views/_content-practice.scss` continues the hero's poster geometry: `--poster-rail`
-and `--poster-gutter` come from `themes/_site.scss`, so the section's display type
-starts on the hero headline's left edge and the right rail keeps the hero rail's
-width and position, inverted to a dark surface. The vertical index and label use
-the same hover glitch as the hero.
+## Section parts
 
-The lede and every layer share one `7fr / 5fr` split, which holds the secondary
-column on a single vertical line down the section; hairline rules separate the
-layers, and the layers read as a stack from what the team works with down to what
-it runs on. Each headline line carries a `BaseSignalText` tear with its own cut and
-offset, and hovering the headline drifts those slices in discrete steps. There are
-no fixed heights, connector lines or scroll effects.
+`components/` holds the pieces the sections assemble:
+
+- `.c-section-rail` — the dark vertical column carrying a numbered section's index
+  and label. Its rotation sits on the outer element and the glitch on the inner one,
+  as in the hero, so the shift follows the same axis in both.
+- `.c-section-band` — the rail's horizontal counterpart, for a section with no rail.
+- `.c-section-heading` — the display headline. It cuts each line with its own signal
+  tear and, on hover, drifts the slices in discrete steps.
+
+## Views
+
+A view partial contains only what makes that section different:
+
+- `_content-view.scss` — the hero: photo, oversized headline, vertical discipline
+  label and static signal effects. The SVG color filter is defined by
+  `ContentHero.vue`. A masked copy of the photo keeps the face clear above the color
+  split and scanlines; the contrast gradient sits above both image layers. The face
+  mask uses the source photo's dimensions, and its `cover` sizing and `50% 40%`
+  position match the image crop.
+- `_content-practice.scss` — layers separated by hairline rules, read as a stack from
+  what the team works with down to what it runs on.
+- `_content-commerce.scss` — names flowing as a wall over a readout that follows the
+  pointer; the wall dims around the name being read.
+- `_content-open-source.scss` — spec plates in a responsive grid.
+- `_content-contact.scss` — the one tinted surface. It scopes `--signal-surface`,
+  `--color-text-muted` and `--color-rule-main` so slices mask against the tint and
+  muted ink keeps its contrast on it.
 
 ## Motion and interaction
 
-`components/_animations.scss` contains the two active glitch effects:
-`digital-corruption` for the vertical rail labels and `matrix-split` for the menu
-link. They run once on hover and respect `prefers-reduced-motion`.
+`components/_animations.scss` contains the two glitch effects: `digital-corruption`
+for the vertical rail labels and `matrix-split` for the menu link. They run once on
+hover and respect `prefers-reduced-motion`.
 
 Both animate the standalone `translate` property instead of `transform`, so they
 compose with an element's own `transform` rather than replacing it: a rotated label
-keeps its rotation while it glitches. Keyframes meant to override a base transform,
-such as the headline slice drift in the practice section, use `transform` on purpose.
+keeps its rotation while it glitches. Keyframes meant to override a base transform
+use `transform` on purpose — `signal-drift` in `components/_signal-text.scss` does,
+because it overrides the slice's own offset.
 
 The navigation keeps the dark panel and small mono link from `v0.0.1`.
 Strike-through is a hover effect; the active route uses a heavier font weight.
@@ -65,6 +88,8 @@ shared objects.
   accessibility for local signal slices. It inherits typography and the hero's
   signal colors. `--signal-cut`, `--signal-cut-secondary` and `--signal-offset`
   control the slices; `--signal-surface` sets the background on another surface.
+- `SectionRail`, `SectionBand` and `SectionHeading` render the section parts above.
+  They receive their copy through props and hold no section state.
 - `BaseIcon` owns the SVG frame and the shared `size`/`label` API. Named icons
   contain their paths and use `currentColor`. Without a label they are decorative.
 - `BaseExternalLink` owns the compact tile, icon slot, label, border and hover/focus

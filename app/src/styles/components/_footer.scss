@@ -1,10 +1,11 @@
 @use '../tools';
 
 @layer components {
+  /* Closes the page on the same dark ground the hero opens it with; the change
+     of surface is the divider, so no rule is needed above it. */
   .site-footer {
-    border-top: 1px solid var(--color-border-main);
-    background: var(--color-background-main);
-    color: var(--color-text-main);
+    background: var(--color-background-contrast);
+    color: var(--color-text-contrast);
     padding-block: clamp(2rem, 4vw, 3.5rem);
   }
 

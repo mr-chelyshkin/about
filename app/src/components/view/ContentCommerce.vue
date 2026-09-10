@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { computed, ref, useId } from 'vue'
-import BaseSignalText from '@/components/ui/BaseSignalText.vue'
-import { useGlitch } from '@/composables/useGlitch'
+import SectionHeading from '@/components/ui/SectionHeading.vue'
+import SectionRail from '@/components/ui/SectionRail.vue'
+import { padIndex } from '@/utils/format'
 import type { ContentPage } from '@/contents'
 
 const props = defineProps<{ content: ContentPage['commerce'] }>()
 
 const titleId = `commerce-${useId()}`
-const { isGlitching, trigger, glitchClass } = useGlitch()
 
 // The readout follows pointer and keyboard alike; with nothing selected it
 // carries the section's own lede.
@@ -23,23 +23,12 @@ const select = (index: number) => {
 const clear = () => {
   activeIndex.value = null
 }
-
-const entryIndex = (index: number) => String(index + 1).padStart(2, '0')
 </script>
 
 <template>
-  <section class="content-commerce" :aria-labelledby="titleId">
-    <div class="content-commerce__sheet">
-      <div class="content-commerce__lede">
-        <h2 :id="titleId" class="content-commerce__title">
-          <BaseSignalText
-            v-for="line in content.headline"
-            :key="line"
-            :text="line"
-            class="content-commerce__title-line"
-          />
-        </h2>
-      </div>
+  <section class="content-commerce o-poster" :aria-labelledby="titleId">
+    <div class="o-poster__sheet">
+      <SectionHeading :id="titleId" :lines="content.headline" />
 
       <ul
         class="content-commerce__wall"
@@ -56,7 +45,7 @@ const entryIndex = (index: number) => String(index + 1).padStart(2, '0')
             @blur="clear"
           >
             <span class="content-commerce__entry-index" aria-hidden="true">
-              {{ entryIndex(index) }}
+              {{ padIndex(index) }}
             </span>
             <span class="content-commerce__entry-name">{{ company.name }}</span>
           </button>
@@ -73,15 +62,6 @@ const entryIndex = (index: number) => String(index + 1).padStart(2, '0')
       </p>
     </div>
 
-    <p class="content-commerce__rail">
-      <span class="content-commerce__rail-text" @mouseenter="trigger">
-        <!-- The glitch sits inside the rotation, as it does in the hero rail, so
-             its shift follows the same axis in both places. -->
-        <span class="content-commerce__rail-label" :class="{ [glitchClass]: isGlitching }">
-          <span>{{ content.index }}</span>
-          <span>{{ content.label }}</span>
-        </span>
-      </span>
-    </p>
+    <SectionRail :index="content.index" :label="content.label" />
   </section>
 </template>

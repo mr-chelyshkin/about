@@ -57,14 +57,15 @@ app/
       chrome/             Header, menu and footer
       icons/              Shared icon geometry
       layout/             Container primitive
-      ui/                 Reusable icons, images and link components
-      view/               Page wrapper and hero
+      ui/                 Reusable icons, images, links and section parts
+      view/               Page wrapper, hero and the page sections
     composables/          Glitch timing and menu scroll lock
     contents/             Current site content and inferred content types
     layouts/              Shared page layout
     router/               Route registration
     styles/               Sass layers, settings and component styles
     types/                UI types
+    utils/                Small shared helpers
     views/                Home page composition
 tf/                      S3 and CloudFront infrastructure
 .github/workflows/        PR checks, manual checks and tag publication
@@ -89,6 +90,11 @@ Each icon in `components/icons/` uses `BaseIcon` for size, color and accessibili
 `BaseExternalLink` owns the compact icon-and-label tile and its interaction states;
 `SocialLinks` maps profile data to a wrapping group of tiles. The menu controls placement and
 closing behavior. Keep reusable objects independent of menu state and site data.
+
+Each page section in `components/view/` composes `SectionRail` or `SectionBand`,
+`SectionHeading` and the `.o-poster` geometry, and adds only its own composition:
+a stack of layers, a wall of names, a grid of spec plates, or the contact reply.
+Sections receive their copy through props and hold no shared state.
 
 ## Publication
 
