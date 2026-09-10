@@ -30,6 +30,29 @@
         "title": "Software Engineer, Infrastructure",
         "headline": ["Software", "Engineer."],
         "discipline": "Infrastructure"
+      },
+      "practice": {
+        "index": "01",
+        "label": "What I build",
+        "headline": ["The systems", "behind the", "product."],
+        "description": "I design and build cloud infrastructure, delivery workflows and internal software for development teams.",
+        "areas": [
+          {
+            "caption": "What the team works with",
+            "title": "Internal software",
+            "description": "Platforms, services and tools for the people building the product."
+          },
+          {
+            "caption": "How it gets there",
+            "title": "Delivery workflows",
+            "description": "CI/CD, deployment processes and the automation connecting them."
+          },
+          {
+            "caption": "What it runs on",
+            "title": "Cloud infrastructure",
+            "description": "Cloud environments, clusters and the foundations for running services."
+          }
+        ]
       }
     }
   }

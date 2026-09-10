@@ -1,0 +1,25 @@
+@layer components {
+  .c-signal-text {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .c-signal-text__slice {
+    position: absolute;
+    inset: 0;
+    background: var(--signal-surface, var(--color-background-main));
+    clip-path: var(--signal-cut, inset(26% 3% 69% 61%));
+    transform: translateX(var(--signal-offset, 0.03em));
+    text-shadow:
+      -0.012em 0 var(--signal-cool),
+      0.012em 0 var(--signal-warm);
+    pointer-events: none;
+    user-select: none;
+
+    &--echo {
+      clip-path: var(--signal-cut-secondary, inset(72% 54% 24% 3%));
+      transform: translateX(calc(var(--signal-offset, 0.03em) * -1));
+    }
+  }
+}

@@ -6,14 +6,23 @@
   --color-accent: #{settings.$color-accent};
   --color-accent-cool: #{settings.$color-accent-cool};
   --color-accent-warm: #{settings.$color-accent-warm};
+  --signal-cool: #{settings.$color-signal-cool};
+  --signal-warm: #{settings.$color-signal-warm};
   --text-size-md: #{settings.$text-size-md};
   --text-size-sm: #{settings.$text-size-sm};
   --text-size-xsm: #{settings.$text-size-xsm};
   --color-background-main: #{settings.$color-background-main};
   --color-background-contrast: #{settings.$color-background-contrast};
   --color-text-main: #{settings.$color-text-main};
+  --color-text-muted: #{settings.$color-text-muted};
   --color-text-contrast: #{settings.$color-text-contrast};
   --color-border-main: #{settings.$color-border-main};
+  --color-rule-main: #{settings.$color-rule-main};
+
+  /* Poster geometry shared by every full-bleed section: the right rail runs
+     the height of the page and the gutter sets one left edge for display type. */
+  --poster-rail: clamp(3rem, 6.5vw, 7rem);
+  --poster-gutter: clamp(1.25rem, 5vw, 5rem);
   --font-main: #{settings.$font-main};
   --font-mono: #{settings.$font-mono};
   --motion-fast: 160ms;

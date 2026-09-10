@@ -1,9 +1,5 @@
 @layer views {
   .content-view__hero {
-    --poster-rail: clamp(3rem, 6.5vw, 7rem);
-    --poster-gutter: clamp(1.25rem, 5vw, 5rem);
-    --signal-cool: #58b9c0;
-    --signal-warm: #d58c64;
     position: relative;
     isolation: isolate;
     overflow: clip;
